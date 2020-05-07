@@ -1,29 +1,45 @@
-# README #
+*
+text-align: justify
+font-size: 16px;
+line-height: 26px;
+letter-space: 1.5px;
 
-This README would normally document whatever steps are necessary to get your application up and running.
+h1
+font-size: 44px;
+line-height: 56px;
+letter-space: 5px;
 
-### What is this repository for? ###
+h2
+font-size: 36px;
+line-height: 48px;
+letter-space: 4px;
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
 
-### How do I get set up? ###
+h3
+font-size: 24px;
+line-height: 48px;
+letter-space: 3px;
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
 
-### Contribution guidelines ###
+p
+font-size: 16px;
+line-height: 26px;
+letter-space: 1.5px;
 
-* Writing tests
-* Code review
-* Other guidelines
+button
+font-size: 18px;
+line-height: 18px;
+letter-space: 1.5px;
 
-### Who do I talk to? ###
+small 
+12px
+line-height: 20px;
+letter-space: 1.5px;
 
-* Repo owner or admin
-* Other community or team contact
+placeholder
+font-size: 16px
+
+
+input, select
+38px
+50px

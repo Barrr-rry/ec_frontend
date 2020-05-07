@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
+	<!ENTITY ns_extend "http://ns.adobe.com/Extensibility/1.0/">
+	<!ENTITY ns_ai "http://ns.adobe.com/AdobeIllustrator/10.0/">
+	<!ENTITY ns_graphs "http://ns.adobe.com/Graphs/1.0/">
+	<!ENTITY ns_vars "http://ns.adobe.com/Variables/1.0/">
+	<!ENTITY ns_imrep "http://ns.adobe.com/ImageReplacement/1.0/">
+	<!ENTITY ns_sfw "http://ns.adobe.com/SaveForWeb/1.0/">
+	<!ENTITY ns_custom "http://ns.adobe.com/GenericCustomNamespace/1.0/">
+	<!ENTITY ns_adobe_xpath "http://ns.adobe.com/XPath/1.0/">
+]>
+<svg version="1.1" id="圖層_1" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 18 18"
+	 style="enable-background:new 0 0 18 18;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill-rule:evenodd;clip-rule:evenodd;fill:#D8D8D8;fill-opacity:0;}
+	.st1{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;stroke:#FFFFFF;stroke-width:0.25;}
+</style>
+<metadata>
+	<sfw  xmlns="&ns_sfw;">
+		<slices></slices>
+		<sliceSourceBounds  bottomLeftOrigin="true" height="18" width="18.1" x="-0.1" y="0"></sliceSourceBounds>
+	</sfw>
+</metadata>
+<title>群組 4copycopycopycopycopycopycopycopycopy</title>
+<desc>Created with Sketch.</desc>
+<g id="icon">
+	<g id="群組-4copycopycopycopycopycopycopycopycopy" transform="translate(1.000000, 0.000000)">
+		<rect id="矩形" x="-1" class="st0" width="18" height="18"/>
+		<g id="shopping-cartcopy" transform="translate(0.000000, 0.900000)">
+			<path id="Fill-1" class="st1" d="M4.3,15.3c-0.5,0-1-0.4-1-1c0-0.5,0.4-1,1-1c0.5,0,1,0.4,1,1C5.3,14.9,4.8,15.3,4.3,15.3z
+				 M4.3,12.6c-1,0-1.7,0.8-1.7,1.7c0,1,0.8,1.7,1.7,1.7c1,0,1.7-0.8,1.7-1.7C6,13.4,5.3,12.6,4.3,12.6L4.3,12.6z"/>
+			<path id="Fill-3" class="st1" d="M11.6,15.3c-0.5,0-1-0.4-1-1c0-0.5,0.4-1,1-1c0.5,0,1,0.4,1,1C12.6,14.9,12.1,15.3,11.6,15.3z
+				 M11.6,12.6c-1,0-1.7,0.8-1.7,1.7c0,1,0.8,1.7,1.7,1.7s1.7-0.8,1.7-1.7C13.3,13.4,12.6,12.6,11.6,12.6L11.6,12.6z"/>
+			<path id="Fill-4" class="st1" d="M13.9,6.6c-0.1,0.6-0.6,1-1.2,1l-8,0.8L2.9,3l11.8,0.2L13.9,6.6z M15.2,2.4L2.7,2.2L2.3,1.2
+				C2.1,0.5,1.4,0,0.7,0h-1.3C-0.8,0-1,0.2-1,0.4s0.2,0.4,0.4,0.4h1.3c0.4,0,0.8,0.3,0.9,0.7L4,8.8L3.8,9.2C3.6,9.8,3.7,10.4,4,10.9
+				c0.3,0.5,0.9,0.8,1.4,0.8h7.5c0.2,0,0.4-0.2,0.4-0.4s-0.2-0.4-0.4-0.4H5.5c-0.3,0-0.6-0.2-0.8-0.5c-0.2-0.3-0.2-0.6-0.1-0.9
+				l0.2-0.3l8.1-0.8c0.9-0.1,1.6-0.7,1.8-1.6l0.9-3.9c0-0.1,0-0.2-0.1-0.3C15.4,2.5,15.3,2.4,15.2,2.4L15.2,2.4z"/>
+		</g>
+	</g>
+</g>
+</svg>

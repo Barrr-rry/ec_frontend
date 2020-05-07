@@ -1,0 +1,27 @@
+.footer-quicklink
+  +max-width(575px)
+    margin-bottom: 0 !important
+
+  .footer-quicklink__header
+    display: flex
+    @extend .justify-content-between
+    @extend .align-items-center
+    margin-bottom: 20px
+    color: white
+    font-weight: 700
+    +max-width(575px)
+      margin-bottom: 0
+
+    i
+      +min-width(576px)
+        display: none
+    .col-8
+      text-align: center
+
+  .footer-quicklink__box
+    +to-flex(column)
+    +max-width(575px)
+      display: none
+    a
+      display: block
+      text-align: center

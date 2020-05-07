@@ -1,0 +1,170 @@
+.normal-btn 
+	@include button($primary-color,$white,13px,999px,2px,$primary-color,15px 30px,$trans,$primary-color,$primary-color)
+	&.pink 
+		@include button($pink,$white,13px,999px,2px,$pink,15px 30px,$trans,$pink,$pink)
+	
+	&.coffee 
+		@include button($coffee,$white,13px,999px,2px,$coffee,15px 30px,$trans,$coffee,$coffee)
+	
+	&.black 
+		@include button($black,$white,13px,999px,2px,$black,15px 30px,$trans,$black,$black)
+	
+	&.outline 
+		@include button($white,$primary-color,13px,999px,2px,$primary-color,15px 30px,$primary-color,$white,$primary-color)
+  &.outline:hover .shop-cart-icon 
+    background-image: url("../images/webs/shoppingcart_w_18x18.svg")
+    width: 18px
+    height: 18px
+    background-repeat: no-repeat
+    background-position: center
+    background-size: cover
+  .shop-cart-icon 
+    background-image: url("../images/webs/shoppingcart_g_18x18.svg")
+    width: 18px
+    height: 18px
+    background-repeat: no-repeat
+    background-position: center
+    background-size: cover
+    transition: 0.3s ease
+.normal-btn
+  font-size: 18px !important
+a.normal-btn
+  height: 52px
+  padding: 10px 30px
+  line-height: 28px	
+
+.no-round-btn 
+	@include button($primary-color,$white,14px,0,2px,$primary-color,15px 30px,$trans,$primary-color,$primary-color)
+	&.black 
+		@include button($black,$white,14px,0,2px,$black,15px 30px,$trans,$black,$black)
+	
+	&.pink 
+		@include button($pink,$white,14px,0,2px,$pink,15px 30px,$trans,$pink,$pink)
+	
+	&.coffee 
+		@include button($coffee,$white,14px,0,2px,$coffee,15px 30px,$trans,$coffee,$coffee)
+	
+	&.smooth 
+		@include button($subcolor-7,$title,14px,0,2px,$subcolor-7,15px 30px,$primary-color,$white,$primary-color)
+	
+	&.black 
+		@include button($black,$white,13px,0px,2px,$black,15px 30px,$trans,$black,$black)
+  
+     
+.increase-icon 
+  background-image: url("../images/webs/plus.svg")
+  width: 18px
+  height: 18px
+  background-repeat: no-repeat
+  background-position: center
+  background-size: cover
+  cursor: pointer
+  display: flex
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translateX(-50%) translateY(-50%)
+.edit-icon 
+  background-image: url("../images/webs/edit_small.svg")
+  width: 18px
+  height: 18px
+  background-repeat: no-repeat
+  background-position: center
+  background-size: cover
+  cursor: pointer
+  display: flex
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translateX(-50%) translateY(-50%)
+.no-round-btn:hover 
+  .icon_shoppingcart_b2w 
+    display: flex
+    background-image: url("../images/webs/shoppingcart_w_18x18.svg")
+    width: 100%
+    height: 100%
+    background-repeat: no-repeat
+    background-position: center
+    background-size: 14px
+.icon_shoppingcart_b2w 
+  display: inline-block
+  background-image: url("../images/webs/shoppingcart_18x18.svg")
+  width: 100%
+  height: 100%
+  background-repeat: no-repeat
+  background-position: center
+  background-size: 14px
+.slider-btn 
+	@include button($primary-color,$white,14px,999px,2px,$primary-color,10px,$trans,$primary-color,$primary-color)
+
+.round-icon-btn 
+	@include button($subcolor-7,$title,14px,999px,0px,$white,0,$primary-color,$white,$white)
+	&.pink 
+		@include button($subcolor-7,$title,14px,999px,0px,$white,0,$pink,$white,$white)
+	
+	&.coffee 
+		@include button($subcolor-7,$title,14px,999px,0px,$white,0,$coffee,$white,$white)
+	
+
+.button-borderless 
+	@include button($trans,$title,18px,999px,0px,$trans,0,$trans,$primary-color,$trans)
+
+.tag-btn 
+	@include button($subcolor-7,$regular,16px,2px,1px,$line,10px,$trans,$title,$regular)
+	text-transform: none
+	
+
+button.close
+  background-color: #fff
+  color: #252525
+  font-size: 13px
+  border-radius: 0
+  -webkit-border-radius: 0
+  -moz-border-radius: 0
+  -ms-border-radius: 0
+  -o-border-radius: 0
+  padding: 0
+  text-transform: uppercase
+  
+  border: 1px solid #ebebeb
+  -webkit-transition: 0.3s ease
+  -moz-transition: 0.3s ease
+  -ms-transition: 0.3s ease
+  -o-transition: 0.3s ease
+  transition: 0.3s ease
+  display: inline-block
+  height: 30px
+  width: 30px
+  position: relative
+  
+  &:hover
+    background-color: #88c74a
+    color: #fff
+    border: 1px solid #88c74a
+    text-decoration: none
+
+  &:focus
+    outline: 0
+    box-shadow: none
+
+
+button.special-coupon
+  padding: 0 !important
+  border: 1px solid $primary-color
+  +size(75px, 25px)
+  border-radius: 50px
+  color: $primary-color
+  background-color: white
+
+  &:hover
+    background-color: $primary-color
+    color: white
+
+  +max-width(576px)
+    font-size: 16px !important
+button:hover .edit-icon 
+  background-image: url("../images/webs/edit_small_w.svg")
+button:hover .increase-icon 
+  background-image: url("../images/webs/plus_w.svg")
+button:focus 
+  outline: 0

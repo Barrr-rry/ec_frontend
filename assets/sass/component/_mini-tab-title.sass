@@ -1,0 +1,73 @@
+.mini-tab-title
+	border-bottom: 1px solid $line
+	margin-bottom: 30px
+	&.underline 
+		.title 
+			font-size: 24px
+			position: relative
+			letter-spacing: 5px
+			&:after 
+				content: ""
+				position: absolute
+				height: 3px
+				width: 90px
+				display: block
+				background-color: $primary-color
+				bottom: 0
+			&.pink 
+				.title 
+					&:after 
+						background-color: $pink	
+				.tab-control 
+						a 
+							&.active 
+								color: $pink
+							&:after 
+								background-color: $pink
+	.title
+		white-space: nowrap
+	.tab-control
+		padding-bottom: 0
+		overflow-x: visible
+		a 
+			&.active 
+				color: $primary-color
+				&:after 
+					content: ""
+					position: absolute
+					height: 3px
+					width: 100%
+					display: block
+					background-color: $primary-color
+					bottom: -16px
+				
+			
+		
+    
+
+@include mobile 
+	.mini-tab-title 
+		.title 
+			margin-bottom: 15px
+		.tab-control 
+	    	padding-bottom: 16px
+	    	overflow-x: auto
+	    
+	
+
+@include tablet 
+	.mini-tab-title 
+		.title 
+			margin-bottom: 35px
+		.tab-control 
+	    	padding-bottom: 16px
+	    	overflow-x: auto
+	    
+	
+
+@include small-desktop 
+	.mini-tab-title 
+		.title 
+			font-size: 26px
+		
+	

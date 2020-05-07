@@ -1,0 +1,49 @@
+.order-card
+  padding: 15px
+
+  .order-detail
+    display: none
+
+  .order-header
+    height: 30px
+
+    .left-btn
+      position: absolute
+      left: 0
+
+    .right-content
+      position: absolute
+      right: 0px
+
+      &.fail
+        color: #ed6104
+
+      &.success
+        color: $primary-color
+
+  .card-border-header
+    +padding-h(45px)
+
+  .content
+    padding: 15px 30px
+
+    img
+      margin-right: 10px
+
+    +max-width(780px)
+      img
+        +size(160px*0.9, 170px*0.9)
+
+    +max-width(740px)
+      img
+        +size(160px*0.6, 170px*0.6)
+
+    +max-width(700px)
+      .t2, .t3, .t4, .t5
+        flex: 0 0 100%
+        max-width: 100%
+      img
+        +size(160px, 170px)
+    +max-width(400px)
+      img
+        +size(160px*0.8, 170px*0.8)
