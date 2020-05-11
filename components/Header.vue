@@ -327,7 +327,7 @@
               >
               <nuxt-link
                 class="function-icon shopping-cart-icon pl-0px ml-15px"
-                to="shop-cart"
+                to="/shop-cart"
               >
               <span class="badge badge-notify" v-if="count">{{count}}</span>
               </nuxt-link>
