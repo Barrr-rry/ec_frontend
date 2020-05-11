@@ -86,16 +86,19 @@
 
         img
           width: 100%
-      .big-img_block:hover  
+      .big-img_block:hover,
+      .big-img_block:focus
         img
           display: none
-        .zoomImg 
+        .zoomImg
           display: block
         @media screen and ( max-width: 767px )
           img
             display: block
-          .zoomImg
-            display: none !important
+
+      .zoomImg
+        @media screen and ( max-width: 767px )
+          display: none !important
 
     .slide-img
       overflow: hidden

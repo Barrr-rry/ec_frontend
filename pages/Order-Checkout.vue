@@ -564,7 +564,7 @@
 
         }
         this.loading = true
-        if (this.pay_type === 0) {
+        if (this.pay_type === 0 || this.pay_type === '0') {
           val.callback_url = location.origin + '/order-complete'
           let lang = this.$cookies.get('lang')
           if (lang === 'en') {

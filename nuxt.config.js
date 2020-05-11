@@ -23,7 +23,7 @@ export default {
       anonymize_ip: true,
       send_page_view: false, // 避免頁面刷新時後的重複追蹤
       linker: { // 跨域追蹤，追蹤兩個相關但不同網域的頁面
-        domains: ['ezgo-buy.com']
+        domains: ['ezgo-buy.com', 'li1593-188.members.linode.com']
       }
     },
     debug: true, // 允許在開發中進行追蹤
@@ -122,7 +122,8 @@ export default {
     'cookie-universal-nuxt',
     "~/modules/axCache",
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/google-gtag',
   ],
   /*
    ** Axios module configuration
