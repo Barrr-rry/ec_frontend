@@ -106,10 +106,11 @@
                 :placeholder="$t('used_coupon')"
                 v-model="reward_discount_temp"
                 style="width: 200px"
+                :disabled="getInfo()"
               />
               <button class="no-round-btn"
                       @click="reward_discount= reward_discount_temp>total?total:reward_discount_temp"
-                      :disabled="reward_discount_temp>info.rewards">{{$t('use_reward')}}
+                      :disabled="reward_discount_temp>info.rewards || getInfo()">{{$t('use_reward')}}
               </button>
               <div style="color: red" v-if="info.rewards<reward_discount_temp">{{$t('use_reward_now')}}</div>
             </div>
@@ -361,6 +362,12 @@
       }
     },
     methods: {
+      getInfo() {
+        if (this.info.rewards) {
+          return false
+        }
+        return true
+      },
       currencyChange(val) {
         let ret = val * this.$store.state.price.item[this.$store.state.currency]
         return parseFloat(ret.toFixed(2))
