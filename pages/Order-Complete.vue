@@ -105,7 +105,7 @@
         if (!this.order) {
           return false
         }
-        return this.order.pay_status || this.order.shipping_status === 300 || this.order.pay_type
+        return this.order.pay_status || this.order.shipping_status === 300 || this.order.pay_type || this.order.take_number == 1
       },
       pay_fail() {
         // todo

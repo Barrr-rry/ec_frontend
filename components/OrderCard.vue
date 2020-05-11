@@ -11,6 +11,7 @@
       </div>
       <div v-if="order.pay_status" class="right-content success">{{$t('pay_success')}}</div>
       <div v-else-if="order.pay_type" class="right-content success">{{$t('pay_later')}}</div>
+      <div v-else-if="order.take_number" class="right-content success">{{order.payment_type}}</div>
       <div v-else class="right-content fail">{{$t('pay_fail')}}</div>
     </div>
     <div ref="detail" class="order-detail">
