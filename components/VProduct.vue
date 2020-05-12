@@ -19,8 +19,8 @@
         </h5>
         <span class="product-name ellipsis">{{product.name}}
                 </span>
-        <h3 class="product-price" style="text-align: -webkit-center;">${{currencyChange(product.price)|commaFormat}}
-          <del v-if="product.fake_price">${{currencyChange(product.fake_price)|commaFormat}}</del>
+        <h3 class="product-price" style="text-align: -webkit-center;">${{getProcessPrice(price)}}
+          <del v-if="fake_price">${{getProcessPrice(fake_price)}}</del>
         </h3>
         <p class="product-describe">{{product.sub_title}}</p>
         <h5 class="product-avaiable">{{$t('weight')}}: <span>{{product.weight}} {{$t('kg')}}</span></h5>
@@ -41,9 +41,9 @@
         </button>
       </div>
       <div class="product-select_list">
-        <h3 class="product-price" style="text-align: -webkit-center;" v-if="product.fake_price">
-          <del>${{product.fake_price|commaFormat}}</del>
-          ${{product.price|commaFormat}}
+        <h3 class="product-price" style="text-align: -webkit-center;" v-if="fake_price">
+          <del>${{getProcessPrice(price)}}</del>
+          ${{getProcessPrice(price)}}
         </h3>
         <button class="add-to-cart normal-btn outline col-12" @click.prevent="toCartModal">
           <i class="fab shop-cart-icon"></i>
@@ -66,7 +66,6 @@
 <script>
   import mixinCategory from "@/mixins/mixinCategory"
   import mixinToWish from "@/mixins/mixinToWish"
-  import {addTOCart} from '@/assets/js/localCart'
   import {mapMutations} from 'vuex'
 
 
@@ -118,9 +117,68 @@
           ext = `?c=${this.$route.query.c}`
         }
         return `/products/${this.product.id}${ext}`
-      }
+      },
+      price() {
+        return this.getPrice('price')
+      },
+      fake_price() {
+        return this.getPrice('fake_price')
+      },
     },
     methods: {
+      getPrice(key) {
+        let data = this.getMinMaxData(this.product.specifications_detail, key)
+        if (!data[0] || !data[1]) {
+          return null
+        }
+        if (data[0] === data[1]) {
+          return data[0]
+        }
+        return data
+      },
+      getProcessPrice(price) {
+        if (!price) {
+          return null
+        }
+        if (Array.isArray(price)) {
+          return `${thsi.priceToString(price[0])}~${this.priceToString(price[1])}`
+        }
+        return this.priceToString(price)
+      },
+      priceToString(price) {
+        return this.commaFormat(this.currencyChange(price))
+      },
+      commaFormat(value) {
+        if (!value && value !== 0) {
+          return ''
+        }
+        // 加上千分位符號
+        return value
+          .toString()
+          .replace(/^(-?\d+?)((?:\d{3})+)(?=\.\d+$|$)/, function (all, pre, groupOf3Digital) {
+            return pre + groupOf3Digital.replace(/\d{3}/g, ',$&')
+          })
+      },
+      getMinMaxData(items, key) {
+        let max_data = null
+        let min_data = null
+        for (let el of items) {
+          let compare_data = el[key]
+          if (max_data === null && min_data === null) {
+            max_data = compare_data
+            min_data = compare_data
+            continue
+          }
+          if (max_data < compare_data) {
+            max_data = compare_data
+          }
+          if (min_data > compare_data) {
+            min_data = compare_data
+          }
+        }
+        return [min_data, max_data]
+
+      },
       currencyChange(val) {
         let ret = val * this.$store.state.price.item[this.$store.state.currency]
         return parseFloat(ret.toFixed(2))
