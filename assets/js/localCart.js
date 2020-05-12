@@ -16,7 +16,7 @@ function cartUpdate(id, values) {
   for (let c of cart) {
     if (c.product === id) {
       c.quantity = values.quantity
-      c.specification = values.specification
+      c.specification_detail = values.specification_detail
     }
   }
   return cart
@@ -35,7 +35,7 @@ let cartProcessInfo = (cart) => {
    * */
   let merged_cart = {}
   for (let c of cart) {
-    let key = `${c.product}.${c.specification}`
+    let key = `${c.product}.${c.specification_detail}`
     let quantity = merged_cart[key] || 0
     quantity += c.quantity
     merged_cart[key] = quantity
@@ -49,10 +49,10 @@ let cartProcessInfo = (cart) => {
       continue
     }
     let product = parseInt(key.split('.')[0])
-    let specification = parseInt(key.split('.')[1])
+    let specification_detail = parseInt(key.split('.')[1])
     new_cart.push({
       product,
-      specification,
+      specification_detail,
       quantity: merged_cart[key]
     })
     product_ids.push(product)

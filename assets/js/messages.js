@@ -867,7 +867,7 @@ const custom_message = {
   },
   name_specification: {
     en: '未翻譯',
-    tw: '品名 ( 規格 )'
+    tw: '品名'
   },
   price: {
     en: '未翻譯',
@@ -1593,9 +1593,6 @@ const custom_message = {
     en: '未翻譯',
     tw: '點'
   },
-
-
-
 
 
 }

@@ -13,28 +13,25 @@
     <td class="product-name">
       <div class="to-flex-col align-items-center">
         <nuxt-link :to="`/products/${item.product.id}`" class="normal-a">{{item.product.name}}</nuxt-link>
-        <select
-          class="select-form small-h mt-10px mb-10px"
-          name=""
-          style="width: 120px"
-          v-model="specification"
-        >
-          <option :value="el.id"
-                  v-for="el of item.product.specifications"
-                  :key="el.id"
-          >{{el.name}}
-          </option>
-        </select>
-        <span class="pl-5px">{{item.product.weight}} {{$t('kg')}}</span>
       </div>
     </td>
+    <td class="product-name">
+      <div class="to-flex-col align-items-center">
+        <span class="pointer">{{spec_level1_and_level2}}</span>
+        <span class="pl-5px"
+              v-if="configsetting.weight"
+        >{{item.product.weight}} {{$t('kg')}}</span>
+      </div>
+    </td>
+
     <td class="product-price"
         v-if="$store.state.currency==='tw'"
-    >${{item.product.price|commaFormat}}
+    >${{item.specification_detail.price|commaFormat}}
     </td>
     <td class="product-price"
         v-else
-    >${{currencyChange(item.product.price)|commaFormat}} (NT${{item.product.price|commaFormat}})
+    >${{currencyChange(item.specification_detail.price)|commaFormat}}
+      (NT${{item.specification_detail.price|commaFormat}})
     </td>
     <td class="product-quantity">
       <div class="d-flex align-items-center">
@@ -44,11 +41,12 @@
     </td>
     <td class="product-total"
         v-if="$store.state.currency==='tw'"
-    >${{currencyChange(item.product.price*quantity)|commaFormat}}
+    >${{currencyChange(item.specification_detail.price*quantity)|commaFormat}}
     </td>
     <td class="product-total"
         v-else
-    >${{currencyChange(item.product.price*quantity)|commaFormat}} (NT${{item.product.price*quantity|commaFormat}})
+    >${{currencyChange(item.specification_detail.price*quantity)|commaFormat}}
+      (NT${{item.specification_detail.price*quantity|commaFormat}})
     </td>
     <td class="product-clear">
       <button class="no-round-btn" @click="cartRemove(item.id)">
@@ -78,7 +76,6 @@
     },
     data() {
       return {
-        specification: null,
         quantity: null,
       }
     },
@@ -86,9 +83,20 @@
       ...mapState('membertoken', {
         has_token: state => state.has_token
       }),
+      ...mapState('configsetting', {
+        configsetting: state => state.item
+      }),
       ...mapState('cart', {
         items: state => state.items
       }),
+      spec_level1_and_level2() {
+        let sp1 = this.item.spec1_name
+        let sp2 = this.item.spec2_name
+        if (sp2) {
+          return `${sp1}/${sp2}`
+        }
+        return sp1
+      },
     },
     watch: {
       quantity(newval, oldval) {
@@ -104,9 +112,15 @@
     },
     mounted() {
       this.quantity = this.item.quantity
-      this.specification = this.item.specification
     },
     methods: {
+      apiCartUpdate(id, values) {
+        this.$api.cart.putData(id, values).then(() => {
+          if (reload && process.client) {
+            window.location.reload()
+          }
+        })
+      },
       cartRemove(id) {
         if (!this.has_token) {
           let cart = cartRemove(this.item.product.id)
@@ -132,13 +146,6 @@
             return img.image_url
           }
         }
-      },
-      apiCartUpdate(id, values) {
-        this.$api.cart.putData(id, values).then(() => {
-          if (reload && process.client) {
-            window.location.reload()
-          }
-        })
       },
       updateCart(reload = false) {
         let values = {

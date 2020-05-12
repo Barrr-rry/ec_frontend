@@ -80,27 +80,35 @@
                       {{$t('free_shipping_3000')}}</p>
                     <div class="price-rate">
                       <h3 class="product-price">
-                        <del v-if="product.fake_price">${{currencyChange(getPrice(product.fake_price))|commaFormat}}
+                        <del v-if="fake_price">{{getProcessPrice(fake_price)}}
                         </del>
-                        ${{currencyChange(getPrice(product.price))|commaFormat}}
+                        {{getProcessPrice(price)}}
                       </h3>
                     </div>
                     <div class="quantity-select" style="margin-bottom: 10px">
-                      <label class="fz16px">{{$t('specification')}} :</label>
-                      <select
-                        class="select-form small-h"
-                        name=""
-                        style="width: 120px"
-                        v-model="specification"
-                      >
-                        <option :value="el.id"
-                                v-for="el of product.specifications"
-                                :key="el.id"
-                        >{{el.name}}
-                        </option>
-                      </select>
-                      <span class="pl-5px">{{product.weight}} {{$t('kg')}}</span>
+                      <label class="fz16px">{{product.level1_title}} :</label>
+                      <VSelectButton
+                        v-for="el of spec_level1_list"
+                        :key="el.id"
+                        :option="el.id"
+                        v-model="choose_level1"
+                      >{{el.name}}
+                      </VSelectButton>
                     </div>
+                    <div class="quantity-select" style="margin-bottom: 10px"
+                         v-if="has_spec_level2"
+                    >
+                      <label class="fz16px">{{product.level2_title}} :</label>
+                      <VSelectButton
+                        v-for="el of spec_level2_list"
+                        :key="el.id"
+                        :option="el.id"
+                        v-model="choose_level2"
+                      >{{el.name}}
+                      </VSelectButton>
+                    </div>
+
+
                     <div class="quantity-select d-flex align-items-center">
                       <label class="fz16px">{{$t('count')}} :</label>
                       <counter class="ml-5px" v-model="quantity"></counter>
@@ -205,11 +213,14 @@
   import mixinDefaultInit from "@/mixins/mixinDefaultInit"
   import mixinToWish from "@/mixins/mixinToWish"
   import {addTOCart} from '@/assets/js/localCart'
+  import mixinProduct from "@/mixins/mixinProduct"
+  import VSelectButton from "@/components/VSelectButton"
 
   export default {
-    mixins: [mixinCategory, mixinDefaultInit, mixinToWish],
+    mixins: [mixinCategory, mixinDefaultInit, mixinToWish, mixinProduct],
     components: {
-      Counter
+      Counter,
+      VSelectButton
     },
     fetch(ctx) {
       return fetchReturn(ctx, [ctx.store.dispatch('product/getRead', ctx.params.id),
@@ -279,9 +290,13 @@
         })
       },
       toCart() {
+        if(!this.choose_done){
+          this.$toast.warning('請先選擇規格')
+          return
+        }
         let values = {
           product: this.product.id,
-          specification: this.specification,
+          specification_detail: this.choose_specification_detail.id,
           quantity: this.quantity,
         }
         this.toCartAPI(values).then(() => {
@@ -289,9 +304,6 @@
         })
 
       },
-      getPrice(item) {
-        return Math.round(item * 100) / 100
-      }
     },
     mounted() {
       this.specification = this.product.specifications[0].id

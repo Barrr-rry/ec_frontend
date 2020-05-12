@@ -63,6 +63,13 @@
                   >
                     {{$t('name_specification')}}
                   </th>
+                  <th
+                    class="product-name"
+                    scope="col"
+                    style="min-width: 150px;"
+                  >
+                    {{$t('specification')}}
+                  </th>
                   <th class="product-price" scope="col">{{$t('price')}}</th>
                   <th
                     class="product-quantity"
