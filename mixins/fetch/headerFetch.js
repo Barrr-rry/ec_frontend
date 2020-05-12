@@ -49,6 +49,7 @@ let fetchReturn = async (ctx, array = []) => {
 
   // base promise list
   let promiseList = [
+    ctx.store.dispatch('configsetting/getList'),
     ctx.store.dispatch('category/getList'),
     ctx.store.dispatch('brand/getList'),
     ctx.store.dispatch('tag/getList'),
