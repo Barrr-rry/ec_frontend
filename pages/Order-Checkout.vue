@@ -206,7 +206,7 @@
                 <div class="form-group">
                   <CInput
                     title="Apartment /Suite /  Building( Optional )"
-                    :required="true"
+                    :required="false"
                     placeholder=""
                     name="building"
                     :input_has_bg="true"
@@ -216,7 +216,7 @@
                 <div class="form-group">
                   <CInput
                     title="Company name( Optional )"
-                    :required="true"
+                    :required="false"
                     placeholder=""
                     name="company_name"
                     :input_has_bg="true"
