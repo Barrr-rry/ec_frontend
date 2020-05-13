@@ -69,7 +69,13 @@ let changeCartTotal = (store, cart) => {
   let cart_items_obj = store.state.product.cart_items_obj
   for (let el of cart) {
     let product = cart_items_obj[el.product]
-    let price = product.specifications_detail.filter(x => x.id === el.specification_detail)[0].price
+    let price = 0
+    // INT 型態
+    if (Number.isInteger(el.specification_detail)) {
+      price = product.specifications_detail.filter(x => x.id === el.specification_detail)[0].price
+    } else {
+      price = el.specification_detail ? el.specification_detail.price : 0
+    }
     total_price += price * el.quantity
   }
   store.commit('cart/changeValue', {key: 'total', value: total_price})
