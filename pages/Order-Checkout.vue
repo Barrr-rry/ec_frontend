@@ -224,12 +224,12 @@
                       <th class="name">{{cart.product.name}} x {{cart.quantity}}</th>
                       <td class="price black" style="border-top: 0"
                           v-if="$store.state.currency==='tw'"
-                      >${{cart.product.price*cart.quantity|commaFormat}}
+                      >${{cart.specification_detail.price*cart.quantity|commaFormat}}
                       </td>
                       <td class="price black" style="border-top: 0"
                           v-else
-                      >${{currencyChange(cart.product.price*cart.quantity)|commaFormat}}
-                        ($NT{{cart.product.price*cart.quantity|commaFormat}})
+                      >${{currencyChange(cart.specification_detail.price*cart.quantity)|commaFormat}}
+                        ($NT{{cart.specification_detail.price*cart.quantity|commaFormat}})
                       </td>
                     </tr>
                     <tr>
@@ -434,7 +434,7 @@
       total() {
         let total = 0
         for (let cart of this.carts) {
-          total += cart.product.price * cart.quantity
+          total += cart.specification_detail.price * cart.quantity
         }
         return total
       },
@@ -445,7 +445,7 @@
       total_weight() {
         let weight = 0
         for (let cart of this.carts) {
-          weight += cart.product.weight * cart.quantity
+          weight += cart.specification_detail.weight * cart.quantity
         }
         return Math.round(weight * 100) / 100
       },
