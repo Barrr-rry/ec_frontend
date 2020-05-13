@@ -29,7 +29,7 @@ export default {
       return this.product.specifications.filter(x => x.level === 1)
     },
     spec_level2_list() {
-      return this.product.specifications.filter(x => x.level === 1)
+      return this.product.specifications.filter(x => x.level === 2)
     },
     has_spec_level2() {
       let configsetting_has_level2 = this.configsetting.product_specifications_setting === 2

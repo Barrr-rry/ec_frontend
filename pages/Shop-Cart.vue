@@ -277,6 +277,7 @@
       </div>
     </div>
     <ValidateModal v-model="no_validate_modal"></ValidateModal>
+    <CartSpecificationModal></CartSpecificationModal>
   </div>
 </template>
 
@@ -287,6 +288,7 @@
   import CartProduct from "@/components/CartProduct"
   import mixinDefaultInit from "@/mixins/mixinDefaultInit"
   import ValidateModal from "@/components/ValidateModal"
+  import CartSpecificationModal from "@/components/CartSpecificationModal"
 
 
   export default {
@@ -294,7 +296,8 @@
     mixins: [mixinCategory, mixinDefaultInit],
     components: {
       CartProduct,
-      ValidateModal
+      ValidateModal,
+      CartSpecificationModal
     },
     fetch(ctx) {
       let $cookies = ctx.app.$cookies
@@ -306,7 +309,6 @@
       ])
     },
     data() {
-
       return {
         cart: {},
         timout_instance: null,
@@ -323,6 +325,9 @@
       }
     },
     computed: {
+      ...mapState('cart_specification_modal', {
+        cart_spec_modal: state => state.modal,
+      }),
       ...mapState('membertoken', {
         has_token: state => state.has_token
       }),

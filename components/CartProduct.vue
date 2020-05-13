@@ -17,7 +17,7 @@
     </td>
     <td class="product-name">
       <div class="to-flex-col align-items-center">
-        <span class="pointer">{{spec_level1_and_level2}}</span>
+        <span class="pointer" @click="goCartModal">{{spec_level1_and_level2}}</span>
         <span class="pl-5px"
               v-if="configsetting.weight"
         >{{item.product.weight}} {{$t('kg')}}</span>
@@ -59,7 +59,7 @@
 <script>
   import Counter from '@/components/Counter'
   import mixinCategory from "@/mixins/mixinCategory"
-  import {mapState} from 'vuex'
+  import {mapState, mapMutations} from 'vuex'
   import {cartRemove, cartUpdate, cartProcessInfo, storeProcess} from "@/assets/js/localCart"
 
   export default {
@@ -77,6 +77,7 @@
     data() {
       return {
         quantity: null,
+        specification_detail: null,
       }
     },
     computed: {
@@ -112,9 +113,17 @@
     },
     mounted() {
       this.quantity = this.item.quantity
+      this.specification_detail = this.item.specification_detail
     },
     methods: {
-      apiCartUpdate(id, values) {
+      ...mapMutations('cart_specification_modal', ['initCart', 'method']),
+      goCartModal() {
+        this.initCart({
+          cart: this.item,
+          method: this.cartModalMethod
+        })
+      },
+      apiCartUpdate(id, values, reload) {
         this.$api.cart.putData(id, values).then(() => {
           if (reload && process.client) {
             window.location.reload()
@@ -127,7 +136,7 @@
           let {new_cart, product_ids, total_count} = cartProcessInfo(cart)
           this.$cookies.set('cart', new_cart)
           storeProcess(this.$store, new_cart, product_ids, total_count)
-          let removed_items = this.items.filter(x => x.product.id !== this.item.product.id && x.specification.id !== this.item.specification)
+          let removed_items = this.items.filter(x => x.product.id !== this.item.product.id && x.specification_detail.id !== this.item.specification_detail)
           this.$store.commit('cart/changeValue', {
             key: 'items',
             value: removed_items
@@ -147,10 +156,14 @@
           }
         }
       },
+      cartModalMethod(specification_detail) {
+        this.specification_detail = specification_detail
+        this.updateCart(false)
+      },
       updateCart(reload = false) {
         let values = {
           quantity: this.quantity,
-          specification: this.specification,
+          specification_detail: this.specification_detail,
         }
         this.$emit('update', this.item.id, values)
         // 有登入
