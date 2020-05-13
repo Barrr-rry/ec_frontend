@@ -1,5 +1,5 @@
 <template>
-  <modal v-model="input" :title="$t('choose_address')" @ok="ok">
+  <modal v-model="input" :title="$t('choose_address')" @ok="ok" :width="500">
     <card-border :closeBtn="false" title="">
       <div v-if="myself.memberaddress.length===0">{{$t('no_address')}}</div>
       <card-border

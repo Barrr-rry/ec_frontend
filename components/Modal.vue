@@ -93,14 +93,14 @@
 
   .modal.fade .modal-dialog {
     position: absolute;
-    top: calc(50vh - 195px);
-    left: calc(50vw - 150px);
-    transform: translate(0, -200%);
+    width: 100vw;
+    top: 50%;
+    left: 50%;
     transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
   }
 
   .modal.fade.show .modal-dialog {
-    transform: translate(0, 0);
+    transform: translateX(-50%) translateY(-50%);
     transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
   }
 </style>

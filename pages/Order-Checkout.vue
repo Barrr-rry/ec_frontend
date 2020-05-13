@@ -669,6 +669,7 @@
         })
       },
       submit(val) {
+        val.location = this.location
         // 海外
         if (this.location === 2) {
           val.country = this.country
