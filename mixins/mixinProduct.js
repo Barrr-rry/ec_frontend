@@ -76,7 +76,7 @@ export default {
         return null
       }
       if (Array.isArray(price)) {
-        return `$${thsi.priceToString(price[0])}~$${this.priceToString(price[1])}`
+        return `$${this.priceToString(price[0])}~$${this.priceToString(price[1])}`
       }
       return `$${this.priceToString(price)}`
     },
