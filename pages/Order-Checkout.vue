@@ -46,6 +46,23 @@
             <div class="col-12 col-lg-8">
 
               <h2 class="form-title">{{$t('order_method')}}</h2>
+              <!--運送方式-->
+              <div class="form-group" v-if="!loading">
+                <CInput
+                  title="運送國籍"
+                  placeholder=""
+                  :input_has_bg="true"
+                  class="input-radio-display"
+                >
+                  <!--台灣-->
+                  <input type="radio" id="radio_location1" :value="1" v-model="location">
+                  <label for="radio_location1">台灣</label>
+                  <!--海外-->
+                  <input v-if="cash_on_delivery_weight_ok" type="radio" id="radio_location2" :value="2"
+                         v-model="location">
+                  <label v-if="cash_on_delivery_weight_ok" for="radio_location2">海外（Oversea）</label>
+                </CInput>
+              </div>
               <div class="form-group" v-if="!loading">
                 <CInput
                   :title="$t('pay_method')"
@@ -61,6 +78,7 @@
                   <label v-if="cash_on_delivery_weight_ok" for="payradio_2">{{$t('pay_later')}}</label>
                 </CInput>
               </div>
+              <!--運送方式-->
               <div class="form-group" v-if="!loading">
                 <CInput
                   :title="$t('order_method')"
@@ -68,7 +86,7 @@
                   :input_has_bg="true"
                   class="input-radio-display"
                 >
-                  <span v-for="el of in_weight_freeshippings" style="margin-right: 3px">
+                  <span v-for="el of in_weight_and_location_freeshippings" style="margin-right: 3px">
                     <input type="radio" :id="`radio_${el.id}`" :value="el.id" v-model="freeshipping_id"
                            :disabled="pay_type===1&&!el.cash_on_delivery"
                     >
@@ -343,6 +361,7 @@
     mixins: [validator, mixinDefaultInit],
     data() {
       return {
+        location: 1,
         check_address: false,
         other_info: 0,
         address_modal: false,
@@ -376,9 +395,9 @@
       sub_type() {
         return this.freeshipping_target ? this.freeshipping_target.sub_type : null
       },
-      in_weight_freeshippings() {
+      in_weight_and_location_freeshippings() {
         // 只顯示沒有超重的運送方式
-        return this.freeshippings.filter(x => x.weight > this.total_weight)
+        return this.freeshippings.filter(x => x.weight > this.total_weight && x.location === this.location)
       },
       cash_on_delivery_weight_ok() {
         // 貨到付款 裡面只要有一個人的重量符合標準 則等於 true
@@ -593,7 +612,7 @@
       }
     },
     mounted() {
-      if(process.client){
+      if (process.client) {
         window.vm = this
       }
     },
