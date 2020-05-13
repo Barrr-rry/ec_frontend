@@ -102,8 +102,8 @@
                 <button class="no-round-btn" type="button" @click="address_modal=true">{{$t('common_address')}}
                 </button>
               </div>
-
-              <div v-if="freeshipping_target&&!freeshipping_target.cash_on_delivery">
+              <!--國內地址-->
+              <div v-if="freeshipping_target&&!freeshipping_target.cash_on_delivery&&location==1">
                 <div class="form-group">
                   <CInput
                     :title="$t('shipping_code')"
@@ -144,11 +144,124 @@
                 </div>
                 <div class="form-group">
                   <div class="input-radio-display">
+                    <input id="check_address_location1" type="checkbox" v-model="check_address">
+                    <label for="check_address_location1">{{$t('save_address')}}</label>
+                  </div>
+                </div>
+              </div>
+
+              <!--海外地址-->
+              <div v-if="freeshipping_target&&!freeshipping_target.cash_on_delivery&&location===2">
+                <div class="form-group">
+                  <CInput
+                    title="Country"
+                    placeholder=""
+                    :required="false"
+                    name="country"
+                    :input_has_bg="true"
+                  >
+                    <select>
+                      <option :value="el"
+                              v-for="el of country_list"
+                              :key="el"
+                      >{{el}}
+                      </option>
+                    </select>
+                  </CInput>
+                </div>
+                <!--姓名：first name/last name-->
+                <div class="row">
+                  <div class="form-group col-6">
+                    <CInput
+                      title="First Nmae"
+                      :required="true"
+                      placeholder=""
+                      name="first_name"
+                      :input_has_bg="true"
+                      :validators="[recieveName]"
+                    />
+                  </div>
+                  <div class="form-group col-6">
+                    <CInput
+                      title="Last Nmae"
+                      :required="true"
+                      placeholder=""
+                      name="last_name"
+                      :input_has_bg="true"
+                      :validators="[recieveName]"
+                    />
+                  </div>
+                </div>
+                <!--地址:Address-->
+                <div class="form-group">
+                  <CInput
+                    title="Address"
+                    :required="true"
+                    placeholder=""
+                    name="shipping_address"
+                    :input_has_bg="true"
+                  />
+                </div>
+                <!--大樓名字-->
+                <div class="form-group">
+                  <CInput
+                    title="Apartment /Suite /  Building( Optional )"
+                    :required="true"
+                    placeholder=""
+                    name="building"
+                    :input_has_bg="true"
+                  />
+                </div>
+                <!--公司名字-->
+                <div class="form-group">
+                  <CInput
+                    title="Company name( Optional )"
+                    :required="true"
+                    placeholder=""
+                    name="company_name"
+                    :input_has_bg="true"
+                  />
+                </div>
+                <!--城市/郵遞區號: City/Postal Code-->
+                <div class="row">
+                  <div class="form-group col-6">
+                    <CInput
+                      title="City"
+                      :required="true"
+                      placeholder=""
+                      name="city"
+                      :input_has_bg="true"
+                    />
+                  </div>
+                  <div class="form-group col-6">
+                    <CInput
+                      title="Postal code"
+                      :required="true"
+                      placeholder=""
+                      name="postal_code"
+                      :input_has_bg="true"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <CInput
+                    title="Phone number"
+                    :required="true"
+                    placeholder=""
+                    name="phone"
+                    :input_has_bg="true"
+                    :validators="[checkPhone]"
+                  />
+                </div>
+                <!--儲存常用地址-->
+                <div class="form-group">
+                  <div class="input-radio-display">
                     <input id="check_address" type="checkbox" v-model="check_address">
                     <label for="check_address">{{$t('save_address')}}</label>
                   </div>
                 </div>
               </div>
+              <!--貨到付款-->
               <div v-if="freeshipping_target&&freeshipping_target.cash_on_delivery">
                 <div v-for="el of selected_memberstores" :key="el.id" class="input-radio-display">
                   <input type="radio" :id="`memberstore_radio_${el.id}`" :value=el.id v-model="memberstore_id">
@@ -366,7 +479,6 @@
         other_info: 0,
         address_modal: false,
         order_remark: null,
-        country: '台灣',
         html: null,
         freeshipping_id: null,
         memberstore_id: null,
@@ -379,6 +491,9 @@
     computed: {
       ...mapState('member', {
         myself: state => state.item
+      }),
+      ...mapState('country', {
+        country_list: state => state.items
       }),
       ...mapState('freeshipping', {
         freeshippings: state => state.items
@@ -554,7 +669,10 @@
         })
       },
       submit(val) {
-        val.country = this.country
+        // 海外
+        if (this.location === 2) {
+          val.country = this.country
+        }
         val.order_remark = this.order_remark
         val.pay_type = this.pay_type
         val.check_address = this.check_address
@@ -627,6 +745,7 @@
         ctx.store.dispatch('cart/getList'),
         ctx.store.dispatch('member/info'),
         ctx.store.dispatch('freeshipping/getList'),
+        ctx.store.dispatch('country/getList'),
         ctx.store.dispatch('rewardrecord/getList')]
       if (coupon) {
         ret.push(ctx.store.dispatch('coupon/getRead', coupon))

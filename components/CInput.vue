@@ -26,7 +26,7 @@
     name: "CInput",
     mixins: [vModel],
     props: {
-      error_class:{
+      error_class: {
         type: String,
         default: 'mb-30px'
       },
