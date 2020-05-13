@@ -160,7 +160,9 @@
                     name="country"
                     :input_has_bg="true"
                   >
-                    <select>
+                    <select
+                      v-model="country"
+                    >
                       <option :value="el"
                               v-for="el of country_list"
                               :key="el"
@@ -448,7 +450,8 @@
         </CForm>
       </div>
       <div v-html="html"></div>
-      <OrderAddressModal v-model="address_modal" :myself="myself" @ok="updateFields"></OrderAddressModal>
+      <OrderAddressModal v-model="address_modal" :myself="myself" :location="location"
+                         @ok="updateFields"></OrderAddressModal>
     </div>
   </div>
 </template>
@@ -474,6 +477,7 @@
     mixins: [validator, mixinDefaultInit],
     data() {
       return {
+        country: null,
         location: 1,
         check_address: false,
         other_info: 0,
@@ -585,6 +589,11 @@
       },
     },
     watch: {
+      'country_list.length'(val) {
+        if (val.length) {
+          this.country = val[0]
+        }
+      },
       freeshippings() {
         this.initFreeshippingId()
       },
@@ -672,7 +681,7 @@
         val.location = this.location
         // 海外
         if (this.location === 2) {
-          val.country = this.country
+          val.country = this.country ? this.country : this.country_list[0]
         }
         val.order_remark = this.order_remark
         val.pay_type = this.pay_type
@@ -728,11 +737,15 @@
       },
       updateFields(obj) {
         this.$refs.form.setFields(obj)
+        this.country = obj.country
       }
     },
     mounted() {
       if (process.client) {
         window.vm = this
+      }
+      if (this.country_list.length) {
+        this.country = this.country_list[0]
       }
     },
     fetch(ctx) {
