@@ -20,7 +20,7 @@
         <span class="pointer" @click="goCartModal">{{spec_level1_and_level2}}</span>
         <span class="pl-5px"
               v-if="configsetting.weight"
-        >{{item.product.weight}} {{$t('kg')}}</span>
+        >{{item.specification_detail.weight}} {{$t('kg')}}</span>
       </div>
     </td>
 
@@ -158,7 +158,7 @@
       },
       cartModalMethod(specification_detail) {
         this.specification_detail = specification_detail
-        this.updateCart(false)
+        this.updateCart(true)
       },
       updateCart(reload = false) {
         let values = {

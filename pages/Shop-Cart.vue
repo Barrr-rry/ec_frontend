@@ -375,10 +375,7 @@
     },
     methods: {
       getInfo() {
-        if (this.info.rewards) {
-          return false
-        }
-        return true
+        return !this.info.rewards
       },
       currencyChange(val) {
         let ret = val * this.$store.state.price.item[this.$store.state.currency]
@@ -469,14 +466,14 @@
       getTotal() {
         let total = 0
         for (let item of this.items) {
-          total += item.product.price * this.cart[item.id].quantity
+          total += item.specification_detail.price * this.cart[item.id].quantity
         }
         this.total = total
       },
       getWeight() {
         let weight = 0
         for (let item of this.items) {
-          weight += item.product.weight * this.cart[item.id].quantity
+          weight += item.specification_detail.weight * this.cart[item.id].quantity
         }
         this.weight = Math.round(weight * 100) / 100
       }
@@ -487,7 +484,7 @@
       for (let item of this.items) {
         this.cart[item.id] = {
           quantity: item.quantity,
-          specification: item.specification,
+          specification_detail: item.specification_detail,
 
         }
       }
