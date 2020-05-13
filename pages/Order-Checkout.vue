@@ -272,7 +272,26 @@
                 <button class="no-round-btn mt-20px mb-20px" type="button" @click="createNewAddress">
                   {{selected_memberstores.length?$t('rechoose_store'):$t('choose_store')}}
                 </button>
-                <div class="form-group" v-if="selected_memberstores.length!==0">
+                <div class="form-group" v-if="!freeshipping_target.use_ecpay_delivery">
+                  <CInput
+                    title="分店名稱"
+                    :required="true"
+                    placeholder=""
+                    name="store_name"
+                    :input_has_bg="true"
+                  />
+                </div>
+                <div class="form-group" v-if="!freeshipping_target.use_ecpay_delivery">
+                  <CInput
+                    title="分店店號"
+                    :required="true"
+                    placeholder=""
+                    name="store_id"
+                    :input_has_bg="true"
+                  />
+                </div>
+                <div class="form-group"
+                     v-if="selected_memberstores.length!==0||!freeshipping_target.use_ecpay_delivery">
                   <CInput
                     :title="$t('shipping_name')"
                     :required="true"
@@ -282,7 +301,8 @@
                     :validators="[recieveName]"
                   />
                 </div>
-                <div class="form-group" v-if="selected_memberstores.length!==0">
+                <div class="form-group"
+                     v-if="selected_memberstores.length!==0||!freeshipping_target.use_ecpay_delivery">
                   <CInput
                     :title="$t('shipping_phonee')"
                     :required="true"
@@ -649,16 +669,23 @@
         }
       },
       createNewAddress() {
-        let obj = {
-          callback_url: location.origin + `/order-checkout?freeshipping_id=${this.freeshipping_id}&pay_type=${this.pay_type}`,
-          sub_type: this.sub_type
-        }
-        this.$api.ecpay.get_store(obj).then(res => {
-          this.htmlToEcpay(res)
-          this.$nextTick(() => {
-            this.$refs.form.resetError()
+        // 如果ECPAY 就選店家 map
+        if (this.freeshipping_target.use_ecpay_delivery) {
+          let obj = {
+            callback_url: location.origin + `/order-checkout?freeshipping_id=${this.freeshipping_id}&pay_type=${this.pay_type}`,
+            sub_type: this.sub_type
+          }
+          this.$api.ecpay.get_store(obj).then(res => {
+            this.htmlToEcpay(res)
+            this.$nextTick(() => {
+              this.$refs.form.resetError()
+            })
           })
-        })
+          // 如果不是ECPAY 店家 EX: OK 超商
+        } else {
+          window.open('https://www.okmart.com.tw/convenient_shopSearch')
+        }
+
       },
       currencyChange(val) {
         let ret = val * this.$store.state.price.item[this.$store.state.currency]
