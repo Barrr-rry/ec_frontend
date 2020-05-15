@@ -302,7 +302,6 @@
         this.toCartAPI(values).then(() => {
           this.$toast.success(this.$t('to_cart'))
         })
-
       },
     },
     mounted() {

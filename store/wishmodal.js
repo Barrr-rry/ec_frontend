@@ -1,26 +1,32 @@
 import {addTOCart} from '@/assets/js/localCart'
 
+let default_product = {
+  level1_title: null,
+  level2_title: null,
+  specifications: [],
+}
+
 export default {
   namespaced: true,
   state: () => ({
     model: false,
-    specifications: [],
-    product_id: null,
+    product: {
+      ...default_product
+    },
   }),
   mutations: {
     changeValue(state, obj) {
       const {key, value} = obj
       state[key] = value
     },
-    initWishModal(state, obj) {
-      let {product_id, specifications} = obj
-      state.product_id = product_id
-      state.specifications = specifications
+    initWishModal(state, product) {
+      state.product = product
       state.model = true
     },
     resetWishModal(state) {
-      state.product_id = null
-      state.specifications = []
+      state.product = {
+        ...default_product
+      }
       state.model = false
     }
   },

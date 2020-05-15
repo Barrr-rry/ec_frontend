@@ -1,23 +1,33 @@
 <template>
-  <modal v-model="input" :title="$t('add_cartt')" @ok="ok">
-    <div class="wishmoal-row">
-      <span class="d-flex align-items-center justify-content-end">{{$t('name_specification')}}:</span>
-      <select
-        class="select-form small-h mt-10px mb-10px"
-        name=""
-        style="width: 120px"
-        v-model="specification"
-      >
-        <option :value="el.id"
-                v-for="el of specifications"
-                :key="el.id"
-        >{{el.name}}
-        </option>
-      </select>
+  <modal v-model="input" :title="$t('add_cartt')" @ok="ok" width="600">
+    <div class="quantity-select" style="margin-bottom: 10px">
+      <label class="fz16px">{{product.level1_title}} :</label>
+      <VSelectButton
+        v-for="el of spec_level1_list"
+        :key="el.id"
+        :option="el.id"
+        v-model="choose_level1"
+      >{{el.name}}
+      </VSelectButton>
     </div>
-    <div class="wishmoal-row">
-      <span class="d-flex align-items-center justify-content-end">{{$t('product_count')}} :</span>
+    <div class="quantity-select" style="margin-bottom: 10px"
+         v-if="has_spec_level2"
+    >
+      <label class="fz16px">{{product.level2_title}} :</label>
+      <VSelectButton
+        v-for="el of spec_level2_list"
+        :key="el.id"
+        :option="el.id"
+        v-model="choose_level2"
+      >{{el.name}}
+      </VSelectButton>
+    </div>
+
+
+    <div class="quantity-select d-flex align-items-center">
+      <label class="fz16px">{{$t('count')}} :</label>
       <counter class="ml-5px" v-model="quantity"></counter>
+      <span class="col-6 pl-5px primary-color">{{product.inventory_status_display}}</span>
     </div>
   </modal>
 </template>
@@ -27,12 +37,16 @@
   import CardBorder from '@/components/CardBorder'
   import Counter from "@/components/Counter"
   import {mapState, mapActions, mapMutations} from 'vuex'
+  import mixinProduct from "@/mixins/mixinProduct"
+  import VSelectButton from "@/components/VSelectButton"
+  import {addTOCart} from '@/assets/js/localCart'
 
   export default {
-    mixins: [vModel],
+    mixins: [vModel, mixinProduct],
     components: {
       CardBorder,
       Counter,
+      VSelectButton,
     },
     data() {
       return {
@@ -42,8 +56,7 @@
     },
     computed: {
       ...mapState('wishmodal', {
-        specifications: state => state.specifications,
-        product_id: state => state.product_id,
+        product: state => state.product,
       })
     },
     watch: {
@@ -67,18 +80,34 @@
       ...mapMutations('wishmodal',
         ['resetWishModal']
       ),
-      ok() {
-        let values = {
-          product: this.product_id,
-          specification: this.specification,
-          quantity: this.quantity
+      toCartAPI(values) {
+        if (!this.$store.state.membertoken.has_token) {
+          addTOCart(values, this.$store)
+          return Promise.resolve()
         }
-        this.toCart(values).then(() => {
-          this.$toast.success(this.$t('to_cart'))
+        return this.$api.cart.postData(values).then(() => {
+          this.$store.dispatch('cart/getCount')
+          this.$store.dispatch('cart/getTotal')
         })
-        this.resetWishModal()
-
-        this.input = false
+      },
+      toCart() {
+        if (!this.choose_done) {
+          this.$toast.warning('請先選擇規格')
+          return
+        }
+        let values = {
+          product: this.product.id,
+          specification_detail: this.choose_specification_detail.id,
+          quantity: this.quantity,
+        }
+        return this.toCartAPI(values).then(() => {
+          this.$toast.success(this.$t('to_cart'))
+          this.input = false
+          this.resetWishModal()
+        })
+      },
+      ok() {
+        this.toCart()
       },
     }
   }

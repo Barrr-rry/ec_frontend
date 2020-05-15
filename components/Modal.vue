@@ -1,6 +1,6 @@
 <template>
   <div :class="{ show: value }" @click.self="close()" class="modal fade">
-    <div :style="{ maxWidth: computed_width }" class="modal-dialog">
+    <div :style="computed_width" class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <h3 class="modal-title">{{ title }}</h3>
@@ -45,10 +45,9 @@
     },
     computed: {
       computed_width() {
-        if (this.width === 0) {
-          return 'auto'
-        } else {
-          return this.width + 'px'
+        return {
+          maxWidth: this.width === 0 ? 'auto' : `${this.width}px`,
+          width: this.width === 0 ? 'inherit' : '100%'
         }
       }
     },
@@ -93,7 +92,6 @@
 
   .modal.fade .modal-dialog {
     position: absolute;
-    width: 100vw;
     top: 50%;
     left: 50%;
     transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;

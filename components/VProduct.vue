@@ -132,9 +132,7 @@
         'shareInitWishModal': 'initWishModal'
       }),
       toCartModal() {
-        this.initWishModal({
-          product_id: this.product.id, specifications: this.product.specifications
-        })
+        this.initWishModal(this.product)
       },
     },
     mounted() {
