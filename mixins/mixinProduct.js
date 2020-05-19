@@ -44,6 +44,14 @@ export default {
         return this.choose_level1 !== null
       }
     },
+    max_quantity() {
+      // counter 的數量
+      if (!this.choose_specification_detail) {
+        return Infinity
+      }
+      let config = this.configsetting
+      return config.product_stock_setting === 3 ? this.choose_specification_detail.quantity : Infinity
+    },
     choose_specification_detail() {
       if (Array.isArray(this.product.specifications_detail)) {
         for (let el of this.product.specifications_detail) {

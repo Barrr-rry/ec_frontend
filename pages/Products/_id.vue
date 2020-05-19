@@ -113,7 +113,10 @@
 
                     <div class="quantity-select d-flex align-items-center">
                       <label class="fz16px">{{$t('count')}} :</label>
-                      <counter class="ml-5px" v-model="quantity"></counter>
+                      <counter class="ml-5px" v-model="quantity"
+                               :max="max_quantity"
+                               :disabled="!choose_specification_detail"
+                      ></counter>
                       <span class="col-6 pl-5px primary-color">{{stock_display_text}}</span>
                     </div>
                     <div class="product-select row pl-15px pr-15px">
