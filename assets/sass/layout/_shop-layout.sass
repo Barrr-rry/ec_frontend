@@ -7,17 +7,20 @@
     .recentview-product_bottom
       .mini-product
         padding: 15px 0
+
   .modal-dialog
     width: 100vw
     max-width: 500px
-    top: calc( 50vh - 240px ) !important
-    left: calc( 50vw - 250px ) !important
-    @media screen and ( max-width: 576px )
-      max-width: calc( 100vw - 40px )
+    top: calc(50vh - 240px) !important
+    left: calc(50vw - 250px) !important
+    @media screen and (max-width: 576px)
+      max-width: calc(100vw - 40px)
       left: 20px !important
-    .modal-body>form>.d-flex>.flex-grow-1>.col-5
+
+    .modal-body > form > .d-flex > .flex-grow-1 > .col-5
       flex: 0 0 125px !important
       max-width: unset !important
+
 .shop-grid-list
   .shop-products
     .shop-products_top
@@ -86,18 +89,21 @@
 
         img
           width: 100%
+
       .big-img_block:hover,
       .big-img_block:focus
         img
           display: none
+
         .zoomImg
           display: block
-        @media screen and ( max-width: 767px )
+
+        @media screen and (max-width: 767px)
           img
             display: block
 
       .zoomImg
-        @media screen and ( max-width: 767px )
+        @media screen and (max-width: 767px)
           display: none !important
 
     .slide-img
@@ -181,33 +187,6 @@
       padding: 15px
       margin-bottom: 30px
       @include font-regular(14px, $title, 1)
-
-    .price-rate
-      .product-price
-        display: inline-block
-        color: $primary-color
-        font-size: 24px
-        margin-bottom: 25px
-        margin-right: 20px
-
-        del
-          color: $disable
-          font-size: 14px
-          display: block
-          margin-bottom: 5px
-
-
-      .product-rated
-        margin-bottom: 15px
-        display: inline-block
-
-        i
-          color: #fac451
-          font-size: 13px
-
-        span
-          @include font-regular(13px, $disable, 1)
-          display: inline-block
 
 
     .color-select

@@ -1,5 +1,12 @@
 <template>
   <modal v-model="input" :title="$t('add_cartt')" @ok="ok" width="600">
+    <div class="price-rate" v-if="product&&product.specifications_detail">
+      <h3 class="product-price">
+        <del v-if="fake_price">{{getProcessPrice(fake_price)}}
+        </del>
+        {{getProcessPrice(price)}}
+      </h3>
+    </div>
     <div class="quantity-select" style="margin-bottom: 10px">
       <label class="fz16px">{{product.level1_title}} :</label>
       <VSelectButton
