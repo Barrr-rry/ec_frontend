@@ -55,6 +55,7 @@
                 </colgroup>
                 <thead>
                 <tr>
+                  <th></th>
                   <th class="product-iamge" scope="col">{{$t('product_iamge')}}</th>
                   <th
                     class="product-name"

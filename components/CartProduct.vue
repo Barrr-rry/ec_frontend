@@ -1,5 +1,10 @@
 <template>
   <tr>
+    <td class="coupon-finish" colspan="7">
+      <div>
+        <h2 class="fill-width text-align-center">{{$t('coupon_over')}}</h2>
+      </div>
+    </td>
     <td class="product-iamge">
       <div class="img-wrapper">
         <nuxt-link to="" class="img-wrapper" :to="`/products/${item.product.id}`">
@@ -23,7 +28,6 @@
         >{{item.specification_detail.weight}} {{$t('kg')}}</span>
       </div>
     </td>
-
     <td class="product-price"
         v-if="$store.state.currency==='tw'"
     >${{item.specification_detail.price|commaFormat}}
