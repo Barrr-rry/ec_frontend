@@ -29,7 +29,7 @@
     <div class="quantity-select d-flex align-items-center">
       <label class="fz16px">{{$t('count')}} :</label>
       <counter class="ml-5px" v-model="quantity"></counter>
-      <span class="col-6 pl-5px primary-color">{{product.inventory_status_display}}</span>
+      <span class="col-6 pl-5px primary-color">{{stock_display_text}}</span>
     </div>
   </modal>
 </template>

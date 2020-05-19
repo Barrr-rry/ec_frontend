@@ -45,14 +45,46 @@ export default {
       }
     },
     choose_specification_detail() {
-      for (let el of this.product.specifications_detail) {
-        let level1_check = el.level1_spec === this.choose_level1
-        let level2_check = el.level2_spec === this.choose_level2
-        if (level1_check && level2_check) {
-          return el
+      if (Array.isArray(this.product.specifications_detail)) {
+        for (let el of this.product.specifications_detail) {
+          let level1_check = el.level1_spec === this.choose_level1
+          let level2_check = el.level2_spec === this.choose_level2
+          if (level1_check && level2_check) {
+            return el
+          }
         }
       }
       return null
+    },
+    stock_display_text() {
+      let detail = this.choose_specification_detail
+      if (!detail) {
+        return ''
+      }
+      // product_stock_setting = models.SmallIntegerField(help_text="商品庫存 1: 沒有庫存功能 2: 只有庫存文案顯示 3: 完整庫存功能")
+      let product_stock_setting = this.configsetting.product_stock_setting
+      if (product_stock_setting === 1) {
+        return ''
+      } else if (product_stock_setting === 2) {
+        // inventory_status = models.SmallIntegerField(help_text='庫存狀況 0: 無庫存功能，或者是庫存使用數量表示 1：有庫存；2：無庫存；3：預購品', default=0,
+        //                                         null=True)
+        let mapping = {
+          1: '有庫存',
+          2: '無庫存',
+          3: '預購品',
+        }
+        return mapping[detail.inventory_status]
+      } else if (product_stock_setting === 3) {
+        let quantity = detail.quantity
+        if (quantity === 0) {
+          return '無庫存'
+        } else if (1 <= quantity && quantity <= 10) {
+          return '庫存緊張'
+        } else {
+          return '有庫存'
+        }
+      }
+      return ''
     }
   },
   methods: {
