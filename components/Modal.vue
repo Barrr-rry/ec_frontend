@@ -46,8 +46,8 @@
     computed: {
       computed_width() {
         return {
-          maxWidth: this.width === 0 ? 'auto' : `${this.width}px`,
-          width: this.width === 0 ? 'inherit' : '100%'
+          maxWidth: this.width === 0 ? '100%' : `${this.width}px`,
+          width: this.width === 0 ? 'auto' : `100%`
         }
       }
     },
