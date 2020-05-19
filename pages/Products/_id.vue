@@ -44,7 +44,7 @@
                   <div class="shop-detail_img">
                     <div class="big-img">
                       <div class="big-img_block"
-                           v-for="image of product.productimages"
+                           v-for="image of no_specifications_productimages"
                            :key="image.id"
                       >
                         <img
@@ -56,7 +56,7 @@
                     </div>
                     <div class="slide-img">
                       <div class="slide-img_block"
-                           v-for="image of product.productimages"
+                           v-for="image of no_specifications_productimages"
                            :key="image.id"
                       >
                         <img
@@ -256,6 +256,9 @@
       ...mapState('category', {
         categories: state => state.items
       }),
+      no_specifications_productimages() {
+        return this.product.productimages.filter(x => !x.specification)
+      },
       product_parents() {
         let ret = []
         // category
@@ -292,7 +295,7 @@
         })
       },
       toCart() {
-        if(!this.choose_done){
+        if (!this.choose_done) {
           this.$toast.warning('請先選擇規格')
           return
         }
