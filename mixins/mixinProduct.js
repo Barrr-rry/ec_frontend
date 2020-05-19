@@ -87,6 +87,14 @@ export default {
       return ''
     }
   },
+  watch: {
+    choose_level1() {
+      this.quantity = 1
+    },
+    choose_level2() {
+      this.quantity = 1
+    },
+  },
   methods: {
     isSelectDisabled(el) {
       // product_stock_setting = models.SmallIntegerField(help_text="商品庫存 1: 沒有庫存功能 2: 只有庫存文案顯示 3: 完整庫存功能")
