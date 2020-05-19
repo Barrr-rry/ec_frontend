@@ -56,6 +56,39 @@ export default {
     }
   },
   methods: {
+    isSelectDisabled(el) {
+      // product_stock_setting = models.SmallIntegerField(help_text="商品庫存 1: 沒有庫存功能 2: 只有庫存文案顯示 3: 完整庫存功能")
+      let product_stock_setting = this.configsetting.product_stock_setting
+      let ret = false
+      let details = []
+      // level1
+      if (el.level === 1) {
+        if (product_stock_setting === 2) {
+          // inventory_status:2 無庫存
+          details = this.product.specifications_detail.filter(x => x.level1_spec === el.id && x.inventory_status !== 2)
+          ret = !details.length
+        }
+        if (product_stock_setting === 3) {
+          // inventory_status:2 無庫存
+          details = this.product.specifications_detail.filter(x => x.level1_spec === el.id && x.quantity !== 0)
+          ret = !details.length
+        }
+        // level2
+      } else {
+        if (product_stock_setting === 2) {
+          // inventory_status:2 無庫存
+          details = this.product.specifications_detail.filter(x => x.level2_spec === el.id && x.level1_spec === this.choose_level1 && x.inventory_status !== 2)
+          ret = !details.length
+        }
+        if (product_stock_setting === 3) {
+          // inventory_status:2 無庫存
+          details = this.product.specifications_detail.filter(x => x.level2_spec === el.id && x.level1_spec === this.choose_level1 && x.quantity !== 0)
+          ret = !details.length
+        }
+      }
+
+      return ret
+    },
     getSpecificationsDetailPrice(key) {
       if (this.choose_specification_detail) {
         return this.choose_specification_detail[key]

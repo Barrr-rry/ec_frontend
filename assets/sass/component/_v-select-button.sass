@@ -29,7 +29,11 @@
   -ms-flex-pack: center
   justify-content: center
 
-  &:hover
+  &:disabled
+    color: rgba(0, 0, 0, .26)
+    cursor: not-allowed
+
+  &:hover:not([disabled])
     color: $primary-color
     border-color: $primary-color
 
@@ -45,6 +49,7 @@
     overflow: hidden
     right: 0
     bottom: 0
+
     &:before
       border: .9375rem solid transparent
       border-bottom-color: $primary-color

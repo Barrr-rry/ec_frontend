@@ -7,6 +7,7 @@
         :key="el.id"
         :option="el.id"
         v-model="choose_level1"
+        :disabled="isSelectDisabled(el)"
       >{{el.name}}
       </VSelectButton>
     </div>
@@ -19,6 +20,7 @@
         :key="el.id"
         :option="el.id"
         v-model="choose_level2"
+        :disabled="isSelectDisabled(el)"
       >{{el.name}}
       </VSelectButton>
     </div>
