@@ -1,4 +1,4 @@
-.counter-number-input 
+.counter-number-input
   display: block
   font-size: 0
   max-width: 100%
@@ -6,7 +6,7 @@
   overflow: hidden
   position: relative
 
-  &__button 
+  &__button
     background-color: #fff
     border: 0
     border-radius: 0.25rem
@@ -16,28 +16,26 @@
     width: 2.5rem
     z-index: 1
 
-    &:focus 
+    &:focus
       outline: none
-    
 
-    &:hover 
+
+    &:hover
       &::before,
-      &::after 
+      &::after
         background-color: $primary-color
-      
-    
 
-    &:disabled 
+
+    &:disabled
       opacity: 0.65
 
       &::before,
-      &::after 
+      &::after
         background-color: #ddd
-      
-    
+
 
     &::before,
-    &::after 
+    &::after
       background-color: #111
       content: ""
       left: 50%
@@ -45,38 +43,36 @@
       top: 50%
       transform: translate(-50%, -50%)
       transition: background-color 0.15s
-    
 
-    &::before 
+
+    &::before
       height: 1px
       width: 50%
-    
 
-    &::after 
+
+    &::after
       height: 50%
       width: 1px
-    
 
-    &--minus 
+
+    &--minus
       border-bottom-right-radius: 0
       border-right: 1px solid #ddd
       border-top-right-radius: 0
       left: 1px
 
-      &::after 
+      &::after
         visibility: hidden
-      
-    
 
-    &--plus 
+
+    &--plus
       border-bottom-left-radius: 0
       border-left: 1px solid #ddd
       border-top-left-radius: 0
       right: 1px
-    
-  
 
-  &__input 
+
+  &__input
     -moz-appearance: textfield
     background-color: #fff
     border: 1px solid #ddd
@@ -92,81 +88,87 @@
     width: 135px
 
     &::-webkit-outer-spin-button,
-    &::-webkit-inner-spin-button 
+    &::-webkit-inner-spin-button
       -webkit-appearance: none
-    
 
-    &:focus 
+
+    &:focus
       border-color: $primary-color
       outline: none
-    
+
 
     &:disabled,
-    &[readonly] 
+    &[readonly]
       background-color: #f8f8f8
-    
-  
 
-  &--inline 
+
+  &--inline
     display: inline-block
 
-    & > input 
+    & > input
       display: inline-block
       width: 12.5rem
-    
-  
 
-  &--center 
-    & > input 
+
+  &--center
+    & > input
       text-align: center
-    
-  
 
-  &--controls 
-    & > input 
+
+  &--controls
+    & > input
       padding-left: 3.375rem
       padding-right: 3.375rem
-    
-  
 
-  &--small 
-    & > input 
+
+  &--small
+    & > input
       border-radius: 0.1875rem
       font-size: 0.875rem
       padding: 0.25rem 0.5rem
-    
 
-    &.counter-number-input--inline > input 
+
+    &.counter-number-input--inline > input
       width: 10rem
-    
 
-    &.counter-number-input--controls > button 
+
+    &.counter-number-input--controls > button
       width: 2rem
-    
 
-    &.counter-number-input--controls > input 
+
+    &.counter-number-input--controls > input
       padding-left: 2.5rem
       padding-right: 2.5rem
-    
-  
 
-  &--large 
-    & > input 
+
+  &--large
+    & > input
       border-radius: 0.3125rem
       font-size: 1.25rem
       padding: 0.5rem 1rem
-    
 
-    &.counter-number-input--inline > input 
+
+    &.counter-number-input--inline > input
       width: 15rem
-    
 
-    &.counter-number-input--controls > button 
+
+    &.counter-number-input--controls > button
       width: 3rem
-    
 
-    &.counter-number-input--controls > input 
+
+    &.counter-number-input--controls > input
       padding-left: 4rem
       padding-right: 4rem
-    
-  
+
+
+.counter-number-input.red-color
+  *
+    border-color: $red
+    color: $red
+
+  .counter-number-input__button
+    &:after
+      background-color: $red
+
+    &:before
+      background-color: $red

@@ -1,16 +1,15 @@
-import {mapState} from 'vuex'
+import configsettingMixin from "@/mixins/configsettingMixin"
 
 export default {
+  mixins: [configsettingMixin],
   data() {
     return {
       choose_level1: null,
       choose_level2: null,
+      quantity: 1,
     }
   },
   computed: {
-    ...mapState('configsetting', {
-      configsetting: state => state.item
-    }),
     price() {
       let key = 'price'
       if (this.choose_done) {

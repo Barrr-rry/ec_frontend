@@ -38,9 +38,17 @@
       (NT${{item.specification_detail.price|commaFormat}})
     </td>
     <td class="product-quantity">
-      <div class="d-flex align-items-center">
-        <label class="fz16px ma-0px w-100px">{{$t('count')}} :</label>
-        <counter class="ml-5px" v-model="quantity"></counter>
+      <div class="row align-items-center">
+        <div class="col-12">
+          <counter v-model="quantity"
+                   :class="[stock_display_text==='缺貨'?'red-color':'']"
+          ></counter>
+        </div>
+        <div class="col-12 d-flex justify-content-start" style="margin-left: 12px"
+             :class="[stock_display_text==='缺貨'?'red-color':'primary-color']"
+        >
+          {{stock_display_text}}
+        </div>
       </div>
     </td>
     <td class="product-total"
@@ -67,13 +75,14 @@
   import mixinCategory from "@/mixins/mixinCategory"
   import {mapState, mapMutations} from 'vuex'
   import {cartRemove, cartUpdate, cartProcessInfo, storeProcess} from "@/assets/js/localCart"
+  import configsettingMixin from "@/mixins/configsettingMixin"
 
   export default {
     name: "CartProduct",
     components: {
       Counter
     },
-    mixins: [mixinCategory],
+    mixins: [configsettingMixin, mixinCategory],
     props: {
       item: {
         type: Object,
@@ -87,6 +96,39 @@
       }
     },
     computed: {
+      stock_display_text() {
+        let detail = this.item.specification_detail
+        if (!detail) {
+          return ''
+        }
+        // product_stock_setting = models.SmallIntegerField(help_text="商品庫存 1: 沒有庫存功能 2: 只有庫存文案顯示 3: 完整庫存功能")
+        let product_stock_setting = this.configsetting.product_stock_setting
+        if (product_stock_setting === 1) {
+          return ''
+        } else if (product_stock_setting === 2) {
+          // inventory_status = models.SmallIntegerField(help_text='庫存狀況 0: 無庫存功能，或者是庫存使用數量表示 1：有庫存；2：無庫存；3：預購品', default=0,
+          //                                         null=True)
+          let mapping = {
+            1: '缺貨',// 無庫存 但是這邊要顯示缺貨
+            2: '無庫存',
+            3: '預購品',
+          }
+          return mapping[detail.inventory_status]
+        } else if (product_stock_setting === 3) {
+          let quantity = detail.quantity
+          if (this.quantity > quantity) {
+            return '缺貨'
+          }
+          if (quantity === 0) {
+            return '無庫存'
+          } else if (1 <= quantity && quantity <= 10) {
+            return '庫存緊張'
+          } else {
+            return '有庫存'
+          }
+        }
+        return ''
+      },
       ...mapState('membertoken', {
         has_token: state => state.has_token
       }),

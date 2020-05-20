@@ -59,7 +59,6 @@
     },
     data() {
       return {
-        quantity: 1,
         specification: null,
       }
     },

@@ -235,7 +235,6 @@
     data() {
       return {
         specification: null,
-        quantity: 1,
       }
     },
     computed: {
