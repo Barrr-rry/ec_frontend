@@ -42,6 +42,7 @@
         <div class="col-12">
           <counter v-model="quantity"
                    :class="[stock_display_text==='缺貨'?'red-color':'']"
+                   :max="max_quantity"
           ></counter>
         </div>
         <div class="col-12 d-flex justify-content-start" style="margin-left: 12px"
@@ -96,6 +97,14 @@
       }
     },
     computed: {
+      max_quantity() {
+        // counter 的數量
+        if (!this.item.specification_detail) {
+          return Infinity
+        }
+        let config = this.configsetting
+        return config.product_stock_setting === 3 ? Math.max(this.item.specification_detail.quantity,this.quantity) : Infinity
+      },
       stock_display_text() {
         let detail = this.item.specification_detail
         if (!detail) {
@@ -211,7 +220,7 @@
       updateCart(reload = false) {
         let values = {
           quantity: this.quantity,
-          specification_detail: this.specification_detail,
+          specification_detail: this.specification_detail.id,
         }
         this.$emit('update', this.item.id, values)
         // 有登入
