@@ -1,10 +1,10 @@
 <template>
-  <tr>
-    <td class="coupon-finish" colspan="7">
-      <div>
-        <h2 class="fill-width text-align-center">{{$t('coupon_over')}}</h2>
-      </div>
+  <tr style="transform: scale(1)">
+    <td class="cart-product-tr-fill d-flex justify-content-center align-items-center"
+        v-if="!item.specification_detail.quantity">
+      <h2 class="fill-width text-align-center primary-color">SOLD OUT</h2>
     </td>
+    <td v-else></td>
     <td class="product-iamge">
       <div class="img-wrapper">
         <nuxt-link to="" class="img-wrapper" :to="`/products/${item.product.id}`">
@@ -53,7 +53,9 @@
       (NT${{item.specification_detail.price*quantity|commaFormat}})
     </td>
     <td class="product-clear">
-      <button class="no-round-btn" @click="cartRemove(item.id)">
+      <button class="no-round-btn" @click="cartRemove(item.id)"
+              style="z-index: 20;position: relative"
+      >
         <i class="icon_close"></i>
       </button>
     </td>
