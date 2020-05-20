@@ -90,6 +90,7 @@
                   :item="item"
                   @remove="remove"
                   @update="changeCart"
+                  ref="cart_products"
                 />
                 </tbody>
               </table>
@@ -388,6 +389,13 @@
         })
       },
       checkOrder() {
+        // 判斷如果缺貨就不做後面的事
+        for(let el of this.$refs.cart_products){
+          if(el.stock_display_text==='缺貨'){
+            this.$toast.warning('商品缺貨請確認')
+            return
+          }
+        }
         this.weight_message = ''
         if (this.coupon_instance && this.coupon_instance.status && this.coupon_instance.role <= this.total) {
           this.$cookies.set('coupon', this.coupon_instance.discount_code)
