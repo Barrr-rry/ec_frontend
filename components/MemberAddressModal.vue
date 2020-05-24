@@ -312,33 +312,38 @@
           }
         }
         this.$nextTick(() => {
-          let remove_list = []
-          if (this.location === 1) {
-            remove_list = [
-              'first_name',
-              'last_name',
-              'country',
-              'building',
-              'company_name',
-              'city',
-              'postal_code',
-            ]
-
-
-          } else {
-            remove_list = [
-              'shipping_name',
-              'shipping_area',
-            ]
-          }
-          for (let el of remove_list) {
-            if (obj.hasOwnProperty(el)) {
-              delete obj[el]
-            }
-          }
+          obj = this.obj_fit(obj)
           this.$refs.form.setFields(obj)
         })
 
+      },
+      obj_fit(obj) {
+        // 替obj 做瘦身 不要的資料做remove 根據location 做判斷
+        let remove_list = []
+        if (this.location === 1) {
+          remove_list = [
+            'first_name',
+            'last_name',
+            'country',
+            'building',
+            'company_name',
+            'city',
+            'postal_code',
+          ]
+
+
+        } else {
+          remove_list = [
+            'shipping_name',
+            'shipping_area',
+          ]
+        }
+        for (let el of remove_list) {
+          if (obj.hasOwnProperty(el)) {
+            delete obj[el]
+          }
+        }
+        return obj
       },
       ok() {
         this.$refs.form.submit()
@@ -366,6 +371,7 @@
         })
       },
       submit(data) {
+        data = this.obj_fit(data)
         data.location = this.location
         if (this.location === 2) {
           data.country = this.country
