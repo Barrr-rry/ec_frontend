@@ -200,6 +200,7 @@
                 </div>
 
                 <div class="d-flex mt-5">
+                  <!--常用地址-->
                   <card-border :closeBtn="false" :title="$t('common_address')">
                     <card-border
                       :closeBtn="myself.default_memberaddress!==el.id&&myself.memberaddress.length>0"
@@ -210,21 +211,75 @@
                       v-for="el of myself.memberaddress"
                       :key="el.id"
                     >
-                      <div
-                        class="mb-20px d-flex justify-content-between align-items-center"
-                      >
-                        <div>{{$t('shipping_name')}} : {{el.shipping_name}}</div>
+                      <!--國內-->
+                      <div v-if="el.location===1">
+                        <div
+                          class="mb-20px d-flex justify-content-between align-items-center"
+                        >
+                          <div>{{$t('area')}} : 台灣</div>
+                        </div>
+                        <div
+                          class="mb-20px d-flex justify-content-between align-items-center"
+                        >
+                          <div>{{$t('shipping_name')}} : {{el.shipping_name}}</div>
+                        </div>
+                        <div
+                          class="mb-20px d-flex justify-content-between align-items-center"
+                        >
+                          <div>{{$t('shipping_phone')}} : {{el.phone}}</div>
+                        </div>
+                        <div
+                          class="mb-20px d-flex justify-content-between align-items-center"
+                        >
+                          <div>{{$t('shipping_address')}} : {{el.shipping_address}}</div>
+                        </div>
                       </div>
-                      <div
-                        class="mb-20px d-flex justify-content-between align-items-center"
-                      >
-                        <div>{{$t('shipping_phone')}} : {{el.phone}}</div>
+                      <!--國外-->
+                      <div v-if="el.location===2">
+                        <div
+                          class="mb-20px d-flex justify-content-between align-items-center"
+                        >
+                          <div>Region : Oversea</div>
+                        </div>
+                        <div
+                          class="mb-20px d-flex justify-content-between align-items-center"
+                        >
+                          <div>Country : {{el.country}}</div>
+                        </div>
+                        <div
+                          class="mb-20px d-flex justify-content-between align-items-center"
+                        >
+                          <div>First name : {{el.first_name}}</div>
+                        </div>
+                        <div
+                          class="mb-20px d-flex justify-content-between align-items-center"
+                        >
+                          <div>Last name : {{el.last_name}}</div>
+                        </div>
+                        <div
+                          class="mb-20px d-flex justify-content-between align-items-center"
+                        >
+                          <div>Address : {{el.shipping_address}}</div>
+                        </div>
+                        <div
+                          class="mb-20px d-flex justify-content-between align-items-center"
+                        >
+                          <div>City : {{el.city}}</div>
+                        </div>
+                        <div
+                          class="mb-20px d-flex justify-content-between align-items-center"
+                        >
+                          <div>Postal code : {{el.postal_code}}</div>
+                        </div>
+                        <div
+                          class="mb-20px d-flex justify-content-between align-items-center"
+                        >
+                          <div>Phone number : {{el.phone}}</div>
+                        </div>
+
                       </div>
-                      <div
-                        class="mb-20px d-flex justify-content-between align-items-center"
-                      >
-                        <div>{{$t('shipping_address')}} : {{el.shipping_address}}</div>
-                      </div>
+
+
                       <div class="mb-20px d-flex align-items-center input-radio-display">
                         <!--                        <input type="radio" v-model="default_memberaddress" :value="el.id"/>-->
                         <div class="primary-color" v-if="default_memberaddress===el.id">
