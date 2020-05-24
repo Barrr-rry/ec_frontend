@@ -339,9 +339,7 @@
           ]
         }
         for (let el of remove_list) {
-          if (obj.hasOwnProperty(el)) {
-            delete obj[el]
-          }
+          obj[el] = null
         }
         return obj
       },
