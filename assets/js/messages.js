@@ -41,6 +41,10 @@ const custom_message = {
     en: '未翻譯',
     tw: '運費說明：訂單未滿免運金額時，消費者須自付運費。'
   },
+  area: {
+    en: '未翻譯',
+    tw: '地區'
+  },
   delivery_instructions_4: {
     en: '未翻譯',
     tw: '離島運費：收件地點為台灣離島地區（ 澎湖、金門、馬祖\n' +

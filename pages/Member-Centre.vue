@@ -293,7 +293,10 @@
       'hasToken'
     ],
     fetch(ctx) {
-      return fetchReturn(ctx, [ctx.store.dispatch('member/info')])
+      return fetchReturn(ctx, [
+        ctx.store.dispatch('member/info'),
+        ctx.store.dispatch('country/getList')
+      ])
     },
     data() {
       return {

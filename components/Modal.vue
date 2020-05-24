@@ -40,7 +40,7 @@
       },
       width: {
         type: [String, Number],
-        default: 0
+        default: 500
       }
     },
     computed: {

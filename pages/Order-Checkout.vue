@@ -175,7 +175,7 @@
                 <div class="row">
                   <div class="form-group col-6">
                     <CInput
-                      title="First Nmae"
+                      title="First name"
                       :required="true"
                       placeholder=""
                       name="first_name"
@@ -185,7 +185,7 @@
                   </div>
                   <div class="form-group col-6">
                     <CInput
-                      title="Last Nmae"
+                      title="Last name"
                       :required="true"
                       placeholder=""
                       name="last_name"
@@ -220,7 +220,7 @@
                     title="Company name( Optional )"
                     :required="false"
                     placeholder=""
-                    name="company_name"
+                      name="company_name"
                     :input_has_bg="true"
                   />
                 </div>
@@ -245,6 +245,8 @@
                     />
                   </div>
                 </div>
+
+                <!--電話-->
                 <div class="form-group">
                   <CInput
                     title="Phone number"
