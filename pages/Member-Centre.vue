@@ -60,34 +60,34 @@
                 <div class="d-flex mt-3">
                   <!--忠誠獎勵-->
                   <card-border :title="$t('loyalty_reward_m')">
-                    <div class="d-flex flex-wrap">
-                      <div
-                        class="col-12 col-md-4 d-flex justify-content-md-end p0 align-items-end mb-20px"
-                      >
-                        <nuxt-link
-                          to="/rewards"
-                          class="banner-btn normal-btn d-flex align-items-center award-parrent"
-                          style="height: 50px; padding: 0px 20px;"
-                        >
-                          <i class="award mr-5px"></i>
-                          {{$t('reward_description')}}
-                        </nuxt-link
-                        >
-                      </div>
-                    </div>
-                    <div class="d-flex align-items-center">
+                    <div class="d-flex mb-15px align-items-center">
                       目前的獎勵金
                       <InfoTooltip
-                        :content="`下次消費可折抵 1200 元新台幣`"
+                        :content="`下次消費可折抵 ${myself.record_info.record.total_point} 元新台幣`"
                       />
-                      : 500 元 （最近一筆 100 元獎金將於 2020 年 5 月 30 日 到期）
+                      : {{myself.record_info.record.total_point}} 元
+                      <span v-if="myself.record_info.record.year">（最近一筆 {{myself.record_info.record.last_point}}
+                      元獎金將於 {{myself.record_info.record.year}} 年 {{myself.record_info.record.month}} 月 {{myself.record_info.record.day}} 日 到期）</span>
                     </div>
-                    <div class="d-flex red-color align-items-center">
+                    <div class="d-flex mb-15px red-color align-items-center">
                       待生效獎勵金
                       <InfoTooltip
-                        :content="`獎勵金生效日為消費後 21 天`"
+                        :content="`獎勵金生效日為消費後 ${myself.record_info.still_day} 天`"
                       />
-                      : 500 元 （最近一筆 100 元獎金將於 2020 年 5 月 30 日 生效）
+                      : {{myself.record_info.record_temp.total_point}} 元
+                      <span v-if="myself.record_info.record_temp.year">（最近一筆 {{myself.record_info.record_temp.last_point}} 元獎金將於
+                      {{myself.record_info.record_temp.year}} 年 {{myself.record_info.record_temp.month}} 月 {{myself.record_info.record_temp.day}} 日 生效）</span>
+                    </div>
+                    <!--忠誠獎勵 a link-->
+                    <div class="mb-15px d-flex justify-content-end">
+                      <nuxt-link
+                        to="/rewards"
+                        class="banner-btn normal-btn d-flex align-items-center award-parrent"
+                        style="height: 50px; padding: 0px 20px;"
+                      >
+                        <i class="award mr-5px"></i>
+                        {{$t('reward_description')}}
+                      </nuxt-link>
                     </div>
                     <!--TABLE-->
                     <div class="table-responsive">
@@ -97,27 +97,17 @@
                           <th scope="col">更新日期</th>
                           <th scope="col">摘要</th>
                           <th scope="col">回饋點數變動</th>
-                          <th scope="col">回䤭點數於俄</th>
+                          <th scope="col">回饋點數餘額</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                          <td>Mark</td>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                        </tr>
-                        <tr>
-                          <td>Mark</td>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                        </tr>
-                        <tr>
-                          <td>Mark</td>
-                          <td>Larry</td>
-                          <td>the Bird</td>
-                          <td>@twitter</td>
+                        <tr v-for="el of rewardrecords"
+                            :key="el.id"
+                        >
+                          <td>{{el.created_at}}</td>
+                          <td>{{el.desc}}</td>
+                          <td>{{displayPoint(el.point)}}</td>
+                          <td>{{el.total_point}}</td>
                         </tr>
                         </tbody>
                       </table>
@@ -383,7 +373,8 @@
     fetch(ctx) {
       return fetchReturn(ctx, [
         ctx.store.dispatch('member/info'),
-        ctx.store.dispatch('country/getList')
+        ctx.store.dispatch('country/getList'),
+        ctx.store.dispatch('rewardrecord/getList'),
       ])
     },
     data() {
@@ -401,6 +392,9 @@
       ...mapState('member', {
         myself: state => state.item
       }),
+      ...mapState('rewardrecord', {
+        rewardrecords: state => state.items
+      }),
     },
     watch: {
       default_memberaddress(new_val) {
@@ -417,6 +411,13 @@
       },
     },
     methods: {
+      displayPoint(point) {
+        if (point > 0) {
+          return `+ ${point}`
+        } else {
+          return `- ${Math.abs(point)}`
+        }
+      },
       deleteMmeberAddress(id, callback) {
         this.$api.memberaddress.deleteData(id).then(() => {
           callback()
