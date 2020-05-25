@@ -98,6 +98,7 @@ export default {
   plugins: [
     {src: '@/plugins/route', ssr: true},
     {src: '@/plugins/i18n', ssr: true},
+    {src: '@/plugins/Tooltip', ssr: false},
     {src: '@/plugins/CookieToVuex', ssr: true},
     {src: '@/plugins/globalComponents', ssr: true},
     {src: '@/plugins/axiosPlugin', ssr: true},

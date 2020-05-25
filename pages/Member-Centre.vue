@@ -58,25 +58,9 @@
                   </div>
                 </div>
                 <div class="d-flex mt-3">
+                  <!--忠誠獎勵-->
                   <card-border :title="$t('loyalty_reward_m')">
                     <div class="d-flex flex-wrap">
-                      <div class="col-12 col-md-8 p0 mb-20px">
-                        <div class="d-flex align-items-center">
-                          <div class="flex-grow-1">
-                            <div class="d-flex align-items-center">
-                              <div class="box"></div>
-                              {{$t('reward_now')}} : &nbsp;
-                              <h3 class="primary-color underline">{{String(myself.rewards)|commaFormat}}</h3>
-                              &nbsp;{{$t('doller')}}
-                            </div>
-                            <div class="mt-20px ml-20px">
-                              {{$t('next_discount')}} &nbsp;
-                              <span class="primary-color underline"> {{String(myself.rewards)|commaFormat}} </span>
-                              &nbsp;{{$t('doller')}}{{$t('nttdoller')}}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
                       <div
                         class="col-12 col-md-4 d-flex justify-content-md-end p0 align-items-end mb-20px"
                       >
@@ -90,6 +74,53 @@
                         </nuxt-link
                         >
                       </div>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      目前的獎勵金
+                      <InfoTooltip
+                        :content="`下次消費可折抵 1200 元新台幣`"
+                      />
+                      : 500 元 （最近一筆 100 元獎金將於 2020 年 5 月 30 日 到期）
+                    </div>
+                    <div class="d-flex red-color align-items-center">
+                      待生效獎勵金
+                      <InfoTooltip
+                        :content="`獎勵金生效日為消費後 21 天`"
+                      />
+                      : 500 元 （最近一筆 100 元獎金將於 2020 年 5 月 30 日 生效）
+                    </div>
+                    <!--TABLE-->
+                    <div class="table-responsive">
+                      <table class="table reward-record-table">
+                        <thead>
+                        <tr>
+                          <th scope="col">更新日期</th>
+                          <th scope="col">摘要</th>
+                          <th scope="col">回饋點數變動</th>
+                          <th scope="col">回䤭點數於俄</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td>Mark</td>
+                          <td>Mark</td>
+                          <td>Otto</td>
+                          <td>@mdo</td>
+                        </tr>
+                        <tr>
+                          <td>Mark</td>
+                          <td>Jacob</td>
+                          <td>Thornton</td>
+                          <td>@fat</td>
+                        </tr>
+                        <tr>
+                          <td>Mark</td>
+                          <td>Larry</td>
+                          <td>the Bird</td>
+                          <td>@twitter</td>
+                        </tr>
+                        </tbody>
+                      </table>
                     </div>
                   </card-border>
                 </div>
@@ -333,11 +364,13 @@
   import MemberAddressModal from "@/components/MemberAddressModal"
   import mixinDefaultInit from "@/mixins/mixinDefaultInit"
   import ValidateModal from "@/components/ValidateModal"
+  import InfoTooltip from "@/components/InfoTooltip"
 
   export default {
     mixins: [mixinCategory, mixinDefaultInit],
     name: 'MemberCentre',
     components: {
+      InfoTooltip,
       CardBorder,
       MemberModal,
       PasswordModal,
