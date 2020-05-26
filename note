@@ -1,50 +1,6 @@
-"免運標準（標題）
-1. 郵寄一律 {設定運費} 元，滿 {設定免運金額} 免運，限制重量 {設定使用規則} 公斤內。
-2. 宅配一律 {設定運費} 元，滿 {設定免運金額} 免運，限制重量 {設定使用規則} 公斤內。
-3. 超商取貨一律 {設定運費} 元，滿 {設定免運金額} 免運，限制重量 {設定使用規則} 公斤內。"
-
-
-
-# 大bug nginx 相關？
-connect() failed (113: Host is unreachable) while connecting to upstream, client: 172.27.0.2, server: localhost, request: "GET / HTTP/1.1", upstream: "http://172.27.0.3:3000/", host: "ezgo-buy.com"
-
-
-
-
-base url: http://localhost:2000/api/ has error!!!!! connect ECONNRESET 127.0.0.1:2000                                                                                                                                                                                                                                                             09:37:54
-
-  at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1134:14) object
-base url: http://localhost:2000/api/ has error!!!!! connect ECONNRESET 127.0.0.1:2000                                                                                                                                                                                                                                                             09:37:55
-
-  at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1134:14) object
-base url: http://localhost:2000/api/ has error!!!!! connect ECONNRESET 127.0.0.1:2000                                                                                                                                                                                                                                                             09:37:55
-
-  at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1134:14) object
-
- ERROR  connect ECONNRESET 127.0.0.1:2000                                                                                                                                                                                                                                                                                                         09:37:55
-
-
------
-
-freeshippings
-
-重量權限
-mail_permission
-home_permission
-store_permision
-
-pay_type
-sub_type
-
-home& mail
-
-selected_membesotres
-
-
-# 刪掉
-freeshipping_home
-freeshipping_store
-freeshipping_mail
-freeshipping_target
-
-freeshipping_price
+匯出功能（會員）
+匯出功能（訂單）
+買幾送幾layout
+double check 功能
+- drawer layout
+- form layout
