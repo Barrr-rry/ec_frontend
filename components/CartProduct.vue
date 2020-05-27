@@ -1,11 +1,11 @@
 <template>
   <tr style="transform: scale(1)">
     <td class="cart-product-tr-fill d-flex justify-content-center align-items-center"
-        v-if="item.specification_detail.quantity===0">
-      <h2 class="fill-width text-align-center primary-color">SOLD OUT</h2>
+        v-if="!item.product.status">
+      <h2 class="fill-width text-align-center primary-color">下架</h2>
     </td>
     <td class="cart-product-tr-fill d-flex justify-content-center align-items-center"
-        v-if="item.specification_detail.inventory_status===2">
+        v-else-if="item.product.status && sold_out_status">
       <h2 class="fill-width text-align-center primary-color">SOLD OUT</h2>
     </td>
     <td v-else></td>
@@ -109,6 +109,21 @@
         let config = this.configsetting
         return config.product_stock_setting === 3 ? Math.max(this.item.specification_detail.quantity, this.quantity) : Infinity
       },
+      sold_out_status() {
+        let product_stock_setting = this.configsetting.product_stock_setting
+        let ret = false
+        let detail = this.item.specification_detail
+        if (!detail) {
+          return ret
+        }
+        if (product_stock_setting === 2 && detail.inventory_status === 2) {
+          ret = true
+        }
+        if (product_stock_setting === 3 && this.quantity > detail.quantity) {
+          ret = true
+        }
+        return ret
+      },
       stock_display_text() {
         let detail = this.item.specification_detail
         if (!detail) {
@@ -126,7 +141,6 @@
             2: '缺貨',// 無庫存 但是這邊要顯示缺貨
             3: '預購品',
           }
-          console.log('detail.inventory_status:', detail.inventory_status)
           return mapping[detail.inventory_status]
         } else if (product_stock_setting === 3) {
           let quantity = detail.quantity
