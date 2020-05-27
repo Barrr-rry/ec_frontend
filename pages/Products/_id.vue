@@ -78,6 +78,9 @@
                     </p>
                     <p class="delivery-status fz16px">{{$t('over')}} {{lowest_freeshipping}}
                       {{$t('free_shipping_3000')}}</p>
+                    <div class="activity">
+                      <div class="activity-box" v-if="product &&product.activity">{{product.activity_detail.ch_name}}</div>
+                    </div>
                     <div class="price-rate">
                       <h3 class="product-price">
                         <del v-if="fake_price">{{getProcessPrice(fake_price)}}
