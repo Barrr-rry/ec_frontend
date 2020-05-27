@@ -470,9 +470,14 @@
       },
       changeCart(id, value) {
         this.cart[id] = value
+        // 判斷如果缺貨就不做後面的事
+        for (let el of this.$refs.cart_products) {
+          el.cart_status = 2
+        }
         this.getTotal()
         this.getWeight()
       },
+      checkBuyGive(){},
       apiRemove(id) {
         this.$api.cart.deleteData(id).then(() => {
           let removed_items = this.items.filter(x => x.id !== id)

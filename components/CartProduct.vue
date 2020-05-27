@@ -34,7 +34,16 @@
     </td>
     <td class="product-price"
         v-if="$store.state.currency==='tw'"
-    >${{item.specification_detail.price|commaFormat}}
+    >
+      <div>
+        ${{item.specification_detail.price|commaFormat}}
+      </div>
+      <div class="red-color" v-if="cart_status===2">未符合折扣</div>
+      <div class="gray-text" v-if="cart_status===3">已享受折扣</div>
+      <div class="activity">
+        <div class="activity-box" v-if="item.product &&item.product.activity">{{item.product.activity_detail.ch_name}}
+        </div>
+      </div>
     </td>
     <td class="product-price"
         v-else
@@ -96,6 +105,8 @@
     },
     data() {
       return {
+        // 1: 尚未有資料 2: 未符合折扣 3: 已享受折扣
+        cart_status: 1,
         quantity: null,
         specification_detail: null,
       }
@@ -240,6 +251,7 @@
         let values = {
           quantity: this.quantity,
           specification_detail: this.specification_detail.id,
+          product: this.item.product.id
         }
         this.$emit('update', this.item.id, values)
         // 有登入
