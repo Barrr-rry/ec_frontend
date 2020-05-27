@@ -1,7 +1,11 @@
 <template>
   <tr style="transform: scale(1)">
     <td class="cart-product-tr-fill d-flex justify-content-center align-items-center"
-        v-if="!item.specification_detail.quantity">
+        v-if="item.specification_detail.quantity===0">
+      <h2 class="fill-width text-align-center primary-color">SOLD OUT</h2>
+    </td>
+    <td class="cart-product-tr-fill d-flex justify-content-center align-items-center"
+        v-if="item.specification_detail.inventory_status===2">
       <h2 class="fill-width text-align-center primary-color">SOLD OUT</h2>
     </td>
     <td v-else></td>
@@ -103,7 +107,7 @@
           return Infinity
         }
         let config = this.configsetting
-        return config.product_stock_setting === 3 ? Math.max(this.item.specification_detail.quantity,this.quantity) : Infinity
+        return config.product_stock_setting === 3 ? Math.max(this.item.specification_detail.quantity, this.quantity) : Infinity
       },
       stock_display_text() {
         let detail = this.item.specification_detail
@@ -118,10 +122,11 @@
           // inventory_status = models.SmallIntegerField(help_text='庫存狀況 0: 無庫存功能，或者是庫存使用數量表示 1：有庫存；2：無庫存；3：預購品', default=0,
           //                                         null=True)
           let mapping = {
-            1: '缺貨',// 無庫存 但是這邊要顯示缺貨
-            2: '無庫存',
+            1: '有庫存',
+            2: '缺貨',// 無庫存 但是這邊要顯示缺貨
             3: '預購品',
           }
+          console.log('detail.inventory_status:', detail.inventory_status)
           return mapping[detail.inventory_status]
         } else if (product_stock_setting === 3) {
           let quantity = detail.quantity
