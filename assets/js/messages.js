@@ -975,11 +975,23 @@ const custom_message = {
   },
   no_coupon: {
     en: '未翻譯',
-    tw: '找不到該優惠券或該優惠券已過期'
+    tw: '查無此張優惠券'
   },
   cant_use_coupon: {
     en: '未翻譯',
-    tw: '未符合該優惠券門檻'
+    tw: '您尚未達到此張優惠券門檻'
+  },
+  coupon_over_date: {
+    en: '未翻譯',
+    tw: '此張優惠券已過期'
+  },
+  coupon_member_over: {
+    en: '未翻譯',
+    tw: '此張優惠券使用次數已達上限'
+  },
+  coupon_all_over: {
+    en: '未翻譯',
+    tw: '此張優惠券名額已滿'
   },
   used_reward: {
     en: '未翻譯',
