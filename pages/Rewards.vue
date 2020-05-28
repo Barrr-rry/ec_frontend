@@ -25,7 +25,7 @@
         <br/>
         <div class="delivery_block">
           <p>
-            {{$t('loyalty_reward_6')}}
+            我們通常在訂購日後的 {{reward.start_day}} 天內將獎勵金發放至會員中心。包含處理取消訂單、撤單拒付、產品退貨或其他相關問題所必需的時間。有效期 {{reward.still_day}} 天，將於獎勵金發放至您的帳戶後開始計算。
           </p>
         </div>
 
@@ -33,7 +33,7 @@
         <p class="delivery_title">{{$t('loyalty_reward_7')}}</p>
         <br/>
         <div class="delivery_block">
-          <p>{{$t('loyalty_reward_8')}}</p>
+          <p>獎勵金將於發放至您的帳戶後 {{reward.still_day}} 天過期。</p>
         </div>
         <br/>
         <nuxt-link
@@ -64,11 +64,15 @@
     mixins: [mixinDefaultInit],
     name: 'Rewards',
     fetch(ctx) {
-      return fetchReturn(ctx, [])
-    },
+      return fetchReturn(ctx, [
+        ctx.store.dispatch('reward/getList')
+      ])    },
     computed: {
       ...mapState('membertoken', {
         has_token: (state) => state.has_token
+      }),
+      ...mapState('reward', {
+        reward: (state) => state.items
       }),
     }
   }

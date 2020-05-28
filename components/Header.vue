@@ -20,19 +20,21 @@
               class="header-right d-flex flex-md-row justify-content-md-end justify-content-center align-items-center"
             >
               <div class="social-link d-flex">
-                <a href=""><i class="fab fa-facebook-f" @click="share('facebook')"> </i></a
-                ><a href=""><i class="fab fa-line" @click="share('line')"> </i></a
-              ><a href=""><i class="fab fa-twitter" @click="share('twitter')"></i></a>
+                <a href="https://www.facebook.com/%E6%B1%B4%E5%88%A9%E8%B3%BC-Ezgo-107385547368839/" target="_blank"><i
+                  class="fab fa-facebook-f"> </i></a>
+                <a href="https://line.me/ti/p/1qvbcczVSW" target="_blank"><i class="fab fa-line"> </i></a>
+                <a href=""><i class="fab fa-twitter" @click="share('twitter')"></i></a>
               </div>
-              <div class="language">
-                <div class="selected-language">
-                  {{display_lang}}<i class="arrow_carrot-down"></i>
-                  <ul class="list-language">
-                    <li class="hover-li" @click="change_locale('tw')">{{$t('Chinese')}}</li>
-                    <li class="hover-li" @click="change_locale('en')">English</li>
-                  </ul>
-                </div>
-              </div>
+              <!--等文案好-->
+              <!--              <div class="language">-->
+              <!--                <div class="selected-language">-->
+              <!--                  {{display_lang}}<i class="arrow_carrot-down"></i>-->
+              <!--                  <ul class="list-language">-->
+              <!--                    <li class="hover-li" @click="change_locale('tw')">{{$t('Chinese')}}</li>-->
+              <!--                    <li class="hover-li" @click="change_locale('en')">English</li>-->
+              <!--                  </ul>-->
+              <!--                </div>-->
+              <!--              </div>-->
               <div class="language">
                 <div class="selected-language" v-if="currency==='tw'">
                   {{$t('ntdoller')}}<i class="arrow_carrot-down"></i>
@@ -278,10 +280,10 @@
                     ><i class="icon_plus"></i
                     ></span>
 
-                      <ul class="sub-menu">
-                        <li @click="change_locale('tw')"><a href="#">{{$t('Chinese')}}</a></li>
-                        <li @click="change_locale('en')"><a href="#">English</a></li>
-                      </ul>
+                      <!--                      <ul class="sub-menu">-->
+                      <!--                        <li @click="change_locale('tw')"><a href="#">{{$t('Chinese')}}</a></li>-->
+                      <!--                        <li @click="change_locale('en')"><a href="#">English</a></li>-->
+                      <!--                      </ul>-->
                     </li>
                     <li class="toggleable">
                       <a class="menu-item" href="# " disabled>{{$t('currency')}}</a
@@ -298,9 +300,10 @@
                 </div>
 
                 <div class="mobile-social">
-                  <a href=""><i class="fab fa-facebook-f"> </i></a>
-                  <a href=""><i class="fab fa-line"></i></a>
-                  <a href=""><i class="fab fa-twitter"> </i></a>
+                  <a href="https://www.facebook.com/%E6%B1%B4%E5%88%A9%E8%B3%BC-Ezgo-107385547368839/"
+                     target="_blank"><i class="fab fa-facebook-f"> </i></a>
+                  <a href="https://line.me/ti/p/1qvbcczVSW" target="_blank"><i class="fab fa-line"> </i></a>
+                  <a href=""><i class="fab fa-twitter" @click="share('twitter')"></i></a>
                 </div>
               </div>
               <div class="ogamin-mobile-menu_bg"></div>
@@ -329,7 +332,7 @@
                 class="function-icon shopping-cart-icon pl-0px ml-15px"
                 to="/shop-cart"
               >
-              <span class="badge badge-notify" v-if="count">{{count}}</span>
+                <span class="badge badge-notify" v-if="count">{{count}}</span>
               </nuxt-link>
             </div>
           </div>

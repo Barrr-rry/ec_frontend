@@ -52,20 +52,33 @@
         return this.$ax.baseURL.replace('/api/', '/media/') + path
       },
       copy() {
-        this.$refs.discount_code.setAttribute('type', 'text') // 不是 hidden 才能複製
-        this.$refs.discount_code.select()
-
-        try {
-          let successful = document.execCommand('copy');
-          let msg = successful ? 'successful' : 'unsuccessful';
-          this.$toast.success(this.$t('copy_coupon'))
-        } catch (err) {
-        }
-
-        /* unselect the range */
-        this.$refs.discount_code.setAttribute('type', 'hidden')
         if (process.client) {
-          window.getSelection().removeAllRanges()
+          function isOS() {
+            return navigator.userAgent.match(/ipad|iphone/i);
+          }
+
+          let textArea = document.createElement('textArea')
+          let range
+          let selection
+          textArea.value = this.item.discount_code
+          document.body.appendChild(textArea)
+          if (isOS()) {
+            range = document.createRange()
+            range.selectNodeContents(textArea)
+            selection = window.getSelection()
+            selection.removeAllRanges()
+            selection.addRange(range)
+            textArea.setSelectionRange(0, 999999)
+          } else {
+            textArea.select()
+          }
+          try {
+            let successful = document.execCommand('copy');
+            let msg = successful ? 'successful' : 'unsuccessful';
+            this.$toast.success(this.$t('copy_coupon'))
+          } catch (err) {
+          }
+          document.body.removeChild(textArea)
         }
       }
     },

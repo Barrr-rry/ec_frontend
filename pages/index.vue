@@ -6,11 +6,9 @@
     <div class="feature-products mb-40px mt-40px mt-80px-md">
       <div class="container">
         <div class="row">
-          <div class="col-12 text-center">
-          </div>
           <div class="col-12">
             <div class="row no-gutters-sm">
-              <div class="col-12 col-sm-6 col-md-4 col-lg-3"
+              <div class="col-6 col-md-4 col-lg-3"
                    v-for="product of data.new_products"
                    :key="product.id"
               >
@@ -35,7 +33,7 @@
           </div>
           <div class="col-12">
             <div class="row no-gutters-sm">
-              <div class="col-12 col-sm-6 col-md-4 col-lg-3"
+              <div class="col-6 col-md-4 col-lg-3"
                    v-for="product of data.hot_products"
                    :key="product.id"
               >
@@ -126,7 +124,7 @@
               </ul>
               <div id="tab-all">
                 <div class="row no-gutters-sm">
-                  <div class="col-12 col-sm-6 col-md-4 col-lg-3"
+                  <div class="col-6 col-md-4 col-lg-3"
                        v-for="product of data.alltag_products"
                        :key="product.id"
                   >
@@ -142,7 +140,7 @@
                    :key="key"
               >
                 <div class="row no-gutters-sm">
-                  <div class="col-12 col-sm-6 col-md-4 col-lg-3"
+                  <div class="col-6 col-md-4 col-lg-3"
                        v-for="product of data.tags[key]"
                        :key="product.id"
                   >

@@ -9,10 +9,10 @@
       <div class="header-content pl-45px d-flex align-items-center">
         {{$t('order_number')}} : {{order.order_number}}
       </div>
-      <div v-if="order.pay_status" class="right-content success">{{$t('pay_success')}}</div>
-      <div v-else-if="order.pay_type" class="right-content success">{{$t('pay_later')}}</div>
-      <div v-else-if="order.take_number" class="right-content success">{{order.payment_type}}</div>
-      <div v-else class="right-content fail">{{$t('pay_fail')}}</div>
+<!--      <div v-if="order.pay_status" class="right-content success">{{$t('pay_success')}}</div>-->
+<!--      <div v-else-if="order.pay_type" class="right-content success">{{$t('pay_later')}}</div>-->
+<!--      <div v-else-if="order.take_number" class="right-content success">{{order.payment_type}}</div>-->
+<!--      <div v-else class="right-content fail">{{$t('pay_fail')}}</div>-->
     </div>
     <div ref="detail" class="order-detail">
       <div class="pl-45px pt-15px">
@@ -37,14 +37,17 @@
           <a v-if="order.freeshipping_price==0" style="color: #88c74a">${{order.freeshipping_price|commaFormat}}</a>
           <a v-else>${{order.freeshipping_price|commaFormat}}</a>
         </div>
-        <div class="mb-20px">{{$t('coupon_used')}} : -${{order.coupon_price|commaFormat}} <a style="color: #88c74a" v-show="order.coupon_discount_code">({{order.coupon_discount_code}})</a>
-        </div>
+        <div class="mb-20px">{{$t('coupon_used')}} : -${{order.coupon_price|commaFormat}} <a style="color: #88c74a"
+                                                                                             v-show="order.coupon_discount_code">({{order.coupon_discount_code}})</a>
         <div class="mb-20px">{{$t('used_reward')}} : -${{order.reward_price|commaFormat}}</div>
-        <div class="mb-20px">{{$t('reward_back')}} : <a style="color: #88c74a">${{order.rewrad[0].point|commaFormat}}</a></div>
+        <div class="mb-20px">{{$t('reward_back')}} : <a
+            style="color: #88c74a">${{order.rewrad[0].point|commaFormat}}</a></div>
         <br>
         <div class="mb-20px">{{$t('total')}} : ${{order.total_price|commaFormat}}</div>
         <div class="mb-20px">{{$t('pay_method')}} : {{order.pay_type?'貨到付款':'線上付款'}}</div>
-        <button class="no-round-btn" v-if="!(order.pay_status || order.pay_type)" @click="repay">{{$t('pay_again')}}</button>
+        <div class="mb-20px">{{$t('pay_status')}} : {{order_status}}</div>
+        <button class="no-round-btn" v-if="!(order.pay_status || order.pay_type)" @click="repay">{{$t('pay_again')}}
+        </button>
       </div>
 
       <card-border :title="$t('order_detaill')" class="mt-20px">
@@ -102,6 +105,17 @@
       }
     },
     computed: {
+      order_status() {
+        if (this.order.pay_status) {
+          return this.$t('pay_success')
+        } else if (this.order.pay_type) {
+          return this.$t('pay_later')
+        } else if (this.order.take_number) {
+          return this.order.payment_type
+        } else {
+          return $t('pay_fail')
+        }
+      },
       products() {
         return JSON.parse(this.order.product_shot)
       }

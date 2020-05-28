@@ -244,7 +244,7 @@ const custom_message = {
   },
   company_terms_5: {
     en: '未翻譯',
-    tw: '點選下單，完成訂單。下單完成後可進入會員中心查詢。。'
+    tw: '點選下單，完成訂單。下單完成後可進入會員中心查詢。'
   },
   company_terms_6: {
     en: '未翻譯',
@@ -1609,7 +1609,14 @@ const custom_message = {
     en: '未翻譯',
     tw: '點'
   },
-
+  phone_code_choose: {
+    en: '未翻譯',
+    tw: '請選擇區碼'
+  },
+  pay_status: {
+    en: '未翻譯',
+    tw: '付款狀態'
+  },
 
 }
 for (const key in custom_message) {

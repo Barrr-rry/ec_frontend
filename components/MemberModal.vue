@@ -56,32 +56,38 @@
           <CInput
             :validators="[validatePhone]"
           >
-            <div class="row">
-              <div class="col-3">
-                <input
-                  class="no-round-input"
-                  type="text"
-                  :placeholder="$t('phone_code')"
-                  v-model="phone.area"
-                />
-              </div>
-              <div class="col-6 p0">
-                <input
-                  class="no-round-input"
-                  type="text"
-                  :placeholder="$t('phone')"
-                  v-model="phone.local"
-                />
-              </div>
-              <div class="col-3">
-                <input
-                  class="no-round-input"
-                  type="text"
-                  :placeholder="$t('phone_a')"
-                  v-model="phone.ext"
-                />
-              </div>
-            </div>
+            <select
+              class="no-round-input mb-20px align-items-center"
+              :placeholder="$t('phone_code_choose')"
+              v-model="phone.area"
+              style="background: white"
+            >
+              <option value="" disabled selected>{{$t('phone_code_choose')}}</option>
+              <option value="02">02</option>
+              <option value="03">03</option>
+              <option value="037">037</option>
+              <option value="04">04</option>
+              <option value="049">049</option>
+              <option value="05">05</option>
+              <option value="06">06</option>
+              <option value="07">07</option>
+              <option value="08">08</option>
+              <option value="089">089</option>
+              <option value="0836">0836</option>
+              <option value="082">082</option>
+            </select>
+            <input
+              class="no-round-input mb-20px"
+              type="text"
+              :placeholder="$t('phone')"
+              v-model="phone.local"
+            />
+            <input
+              class="no-round-input"
+              type="text"
+              :placeholder="$t('phone_a')"
+              v-model="phone.ext"
+            />
           </CInput>
         </div>
       </div>

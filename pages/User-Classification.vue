@@ -7,7 +7,7 @@
       <div class="container">
         <div class="row">
           <div class="col-xl-3">
-            <div class="shop-sidebar">
+            <div class="shop-sidebar fixed">
               <button id="filter-sidebar--closebtn" class="no-round-btn">
                 {{$t('close_filter')}}
               </button>

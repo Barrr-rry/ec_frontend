@@ -1,41 +1,50 @@
 <template>
   <div>
     <breadcrumb :end="$t('company_terms')"></breadcrumb>
-    <div class="content center-xs">
-      <div class="container">
+    <div class="content  center-xs delivery-box">
+      <div class="container delivery">
         <h1 class="title green-underline ml-0px">{{$t('company_terms')}}</h1>
-
+        <br/>
         <h3>{{$t('company_terms_1')}}</h3>
         <br/>
-        <div class="terms-li">
-          <li>{{$t('company_terms_2')}}</li>
-          <li>
+        <div class="about_us_h3">
+          <p>
+            {{$t('company_terms_2')}}
+          </p>
+          <p>
             {{$t('company_terms_3')}}
-          </li>
-          <li>{{$t('company_terms_4')}}</li>
-          <li>{{$t('company_terms_11')}}</li>
-          <li>{{$t('company_terms_5')}}</li>
-          <li>{{$t('company_terms_6')}}</li>
+          </p>
+          <p>
+            {{$t('company_terms_4')}}
+          </p>
+          <p>
+            {{$t('company_terms_11')}}
+          </p>
+          <p>
+            {{$t('company_terms_5')}}
+          </p>
+          <p>
+            {{$t('company_terms_6')}}
+          </p>
         </div>
         <br/>
         <h3>{{$t('company_terms_12')}}</h3>
         <br/>
-        <div class="terms-li">
-          <li>
-            <div>
-              <div>{{$t('company_terms_7')}}</div>
-              <div>
-                {{$t('company_terms_8')}}
-              </div>
-            </div>
-          </li>
-          <li>
-            <div>
-              <div>{{$t('company_terms_9')}}</div>
-              <div>{{$t('company_terms_10')}}</div>
-            </div>
-          </li>
+        <div class="about_us_h3">
+          <p>
+            {{$t('company_terms_7')}}
+          </p>
+          <p>
+            {{$t('company_terms_8')}}
+          </p>
+          <p>
+            {{$t('company_terms_9')}}
+          </p>
+          <p>
+            {{$t('company_terms_10')}}
+          </p>
         </div>
+        <br/>
       </div>
     </div>
   </div>

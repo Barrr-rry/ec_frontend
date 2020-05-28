@@ -65,11 +65,7 @@
             <p
               class="left col-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-start l-footer__footer"
             >
-              <span class="color1">© EZGO {{$t('company_name')}} .</span>
-              <span class="color2 ml-10px mr-10px"> Powered by</span>
-              <span class="fill-height d-flex align-items-center">
-                <a href="https://conquers.co/"><i class="conquer-icon"></i> </a>
-              </span>
+              <span class="color1">© EZGO {{$t('company_name')}}</span>
             </p>
             <div
               class="right col-12 col-md-5 d-flex justify-content-center justify-content-md-end"

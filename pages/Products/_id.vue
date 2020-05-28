@@ -7,7 +7,7 @@
       <div class="container">
         <div class="row">
           <div class="col-xl-3">
-            <div class="shop-sidebar">
+            <div class="shop-sidebar fixed">
               <button id="filter-sidebar--closebtn" class="no-round-btn">
                 {{$t('back_product')}}
               </button>
@@ -50,7 +50,7 @@
                         <img
                           :src="imageLink(image.image_url)"
                           alt="product image"
-                          style="max-height: 407px; width: auto"
+                          style="max-height: 407px; width: 100%; object-fit: contain"
                         />
                       </div>
                     </div>
@@ -62,7 +62,7 @@
                         <img
                           :src="imageLink(image.image_url)"
                           alt="product image"
-                          style="max-height: 126px"
+                          style="max-height: 126px; object-fit: contain"
                         />
                       </div>
                     </div>

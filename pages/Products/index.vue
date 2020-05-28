@@ -6,7 +6,7 @@
       <div class="container">
         <div class="row">
           <div class="col-xl-3">
-            <div class="shop-sidebar">
+            <div class="shop-sidebar fixed">
               <button id="filter-sidebar--closebtn" class="no-round-btn">
                 {{$t('close_filter')}}
               </button>
@@ -371,15 +371,10 @@
 
           $('.shop-products_bottom .product').removeClass('list-view fadeInUp').addClass('grid-view animated zoomIn')
           $('.shop-products_bottom--fullwidth .product').removeClass('full-list-view fadeInUp').addClass('grid-view animated zoomIn')
-          $('.shop-products_bottom .col-12').removeClass('col-12').addClass('col-6 col-md-4')
-          $('.shop-products_bottom--fullwidth .col-12').removeClass('col-12').addClass('col-6 col-md-4 col-xxl-3 col-xxxl')
         } else {
           $('.shop-products_bottom .product').removeClass('grid-view zoomIn').addClass('list-view animated fadeInUp')
           $('.shop-products_bottom--fullwidth .product').removeClass('grid-view zoomIn').addClass('full-list-view animated fadeInUp')
-          $('.shop-products_bottom .col-6.col-md-4').removeClass('col-6 col-md-4').addClass('col-12')
-          $('.shop-products_bottom--fullwidth .col-6.col-md-4.col-xxl-3.col-xxxl').removeClass('col-6 col-md-4 col-xxl-3 col-xxxl').addClass('col-12')
         }
-
         // for no product layout
         if (!this.products.length) {
           $(this.$refs.no_product_img).removeClass('col-6 col-md-4').addClass('col-12')
@@ -391,11 +386,49 @@
         // }
         let obj = getFilterParams(this.filter, this.$route.query)
         this.$store.dispatch('product/getList', obj).then(() => {
-          this.initDisplayType()
+          if (process.client) {
+            this.initDisplayType()
+            this.closeMenu()
+          }
         })
+      },
+      initGridList() {
+        // 右上角的grid or list button
+        let $grid = $('.shop-layout #grid-view')
+        let $list = $('.shop-layout #list-view')
+        let self = this
+
+        $list.on('click', function (event) {
+          event.preventDefault
+          $grid.removeClass('active')
+          $(this).addClass('active')
+          $('.shop-products_bottom .product').removeClass('grid-view zoomIn').addClass('list-view animated fadeInUp')
+          $('.shop-products_bottom--fullwidth .product').removeClass('grid-view zoomIn').addClass('full-list-view animated fadeInUp')
+          $('.shop-products_bottom .col-6.col-md-4').removeClass('col-6 col-md-4').addClass('col-12')
+          $('.shop-products_bottom--fullwidth .col-6.col-md-4.col-xxl-3.col-xxxl').removeClass('col-6 col-md-4 col-xxl-3 col-xxxl').addClass('col-12')
+        })
+
+        $grid.on('click', function (event) {
+          event.preventDefault
+          $list.removeClass('active')
+          $(this).addClass('active')
+          $('.shop-products_bottom .product').removeClass('list-view fadeInUp').addClass('grid-view animated zoomIn')
+          $('.shop-products_bottom--fullwidth .product').removeClass('full-list-view fadeInUp').addClass('grid-view animated zoomIn')
+          if (self.products.length) {
+            $('.shop-products_bottom .col-12').removeClass('col-12').addClass('col-6 col-md-4')
+            $('.shop-products_bottom--fullwidth .col-12').removeClass('col-12').addClass('col-6 col-md-4 col-xxl-3 col-xxxl')
+          }
+        });
+
+        if ($grid.hasClass('active')) {
+          $('.shop-products_bottom .product').addClass('grid-view')
+          $('.shop-products_bottom--fullwidth .product').addClass('grid-view')
+        }
+
       }
     },
-    created() {
+    mounted() {
+      this.initGridList()
     }
   }
 </script>

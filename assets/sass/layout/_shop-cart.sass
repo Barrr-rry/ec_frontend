@@ -1,17 +1,17 @@
-.shopping-cart 
+.shopping-cart
 	margin-bottom: 60px
-	.product-table 
-		.table 
+	.product-table
+		.table
 			border: 1px solid $line
-			.product-clear 
-				button 
+			.product-clear
+				button
 					@include button($white,$title,13px,0,1px,$line,0,$primary-color,$white,$primary-color)
 					height: 30px
 					width: 30px
-				
-			
-			thead 
-				th 
+
+
+			thead
+				th
 					@include font-regular(16px, $title, 1)
 					text-transform: uppercase
 					display: table-cell
@@ -20,41 +20,40 @@
 					vertical-align: middle
 					border-top: 0
 					font-weight: 500
-			
-			tbody 
-				td 
+
+			tbody
+				td
 					text-align: center
 					vertical-align: middle
 					border-top: 0
-				
-				.product-iamge 
-					.img-wrapper 
+
+				.product-iamge
+					.img-wrapper
 						height: 170px
 						width: 170px
 						// background-color: #f8f8f8
-						padding: 30px
 						display: flex
 						align-items: center
 						justify-content: center
-						img 
+						img
 							max-height: 100%
 							max-width: 100%
-						
-					
-				
-				.product-name 
+
+
+
+				.product-name
 					@include font-regular(16px, $title, 1)
 					display: table-cell
-				
-				.product-price 
+
+				.product-price
 					@extend .product-name
 					color: $primary-color
-				
-				.product-total 
+
+				.product-total
 					@extend .product-price
-				
-				.product-quantity 
-					input 
+
+				.product-quantity
+					input
 						height: 40px
 						// width: 60px
 						border-radius: 5px
@@ -63,88 +62,88 @@
   						font-size: 16px !important
 					.w-100px
   						width: 100px
-				
-			
-		
-	
+
+
+
+
 	.coupon
 		+max-width(500px)
   		  	width: 100% !important
   		  	input, button
   		    	width: 100% !important
-  		    	margin-bottom: 20px 
-		form 
-			input 
+  		    	margin-bottom: 20px
+		form
+			input
 				border-width: 0 0 1px 0
 				width: auto
 				margin-right: 15px
 		.coupon-input
-      		@media (max-width: 767px) 
-      		  	margin-bottom: 20px		
+      		@media (max-width: 767px)
+      		  	margin-bottom: 20px
 	.coupon-msg
   		+max-width(500px)
-  		  	margin-top: 20px	
-	
-	.cart-total_block 
+  		  	margin-top: 20px
+
+	.cart-total_block
 		margin-top: 50px
-		h2 
+		h2
 			@include font-medium(18px, $title, 1)
 			text-transform: uppercase
 			margin-bottom: 30px
-		
-		.table 
+
+		.table
 			border: 1px solid $line
 			margin-bottom: 30px
-			tbody 
-				th 
+			tbody
+				th
 					@include font-regular(16px, $regular, 1)
 					display: table-cell
 					padding: 20px 10px
 					font-weight: 500
 					letter-spacing: 1.5px
-				td 
+				td
 					@include font-regular(16px, $title, 1)
 					display: table-cell
 					padding: 20px 10px
-					p 
+					p
 						@include font-regular(16px, $regular, 24px)
-					
-				
-			
-		
-		.checkout-method 
+
+
+
+
+		.checkout-method
 			text-align: center
-			button 
+			button
 				width: 100%
 				margin-bottom: 20px
-			
-			span 
+
+			span
 				@include font-regular(16px, $disable, 1)
 				margin-bottom: 20px
-			
-			a 
+
+			a
 				@include link-medium(16px, $disable, 1, $primary-color)
-			
-		
-	
 
-@include mobile 
-	.coupon 
+
+
+
+@include mobile
+	.coupon
 		margin-bottom: 30px
-		form 
-			input 
+		form
+			input
 				width: 100%
-			
-			button 
-				width: 100%
-			
-		
-	
-	.cart-update 
-		width: 100%
-	
 
-@include tablet 
+			button
+				width: 100%
+
+
+
+	.cart-update
+		width: 100%
+
+
+@include tablet
 
 .shopping-cart .coupon form input
   	max-width: 200px

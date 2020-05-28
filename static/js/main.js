@@ -2,6 +2,23 @@ let initFunction = (callback) => {
   //Main js file
   $(document).ready(function () {
     "use strict";
+
+    // 無法解決 詳情請看 https://bitbucket.org/ConquerTW/ezgo/issues/94/ios-safari-chrome-detail
+    // // 解決ios 2 次跳轉問題
+    // // https://blog.csdn.net/qq_29994361/article/details/83897601
+    // document.body.addEventListener('touchstart', function () {
+    //   $('a').on('click touchend', function (e) {
+    //     let el = $(this)
+    //     let link = el.attr('href')
+    //     window.location = link
+    //   })
+    // })
+    $(':not(.department-menu_block):not(.department-dropdown-menu li):not(.slick-arrow):not(.department-menu_block span):not(.department-menu_block i)').on('click', function (e) {
+      if (e.target !== this) {
+        return
+      }
+      $('header .department-dropdown-menu').slideUp()
+    })
     /****************************************************
      Scroll up button
      ****************************************************/
@@ -21,7 +38,7 @@ let initFunction = (callback) => {
       if ($target.hasClass('slick-arrow') || $target.hasClass('department-menu')) {
         return
       }
-      
+
     })
     /****************************************************
      Navigation
@@ -30,6 +47,7 @@ let initFunction = (callback) => {
     // $('header .department-menu').off()
     let $department = $('header .department-menu'),
     $dropdownMenu = $('header .department-dropdown-menu');
+    $department.off('click')
     $department.on('click', function () {
       $dropdownMenu.slideToggle('fast');
       $department.children('span').children().toggleClass('arrow_carrot-down arrow_carrot-up');
@@ -322,36 +340,6 @@ let initFunction = (callback) => {
      Shop Price filter
      ****************************************************/
 
-    /****************************************************
-     Shop change view
-     ****************************************************/
-    var $grid = $('.shop-layout #grid-view')
-    var $list = $('.shop-layout #list-view')
-
-    $list.on('click', function (event) {
-      event.preventDefault
-      $grid.removeClass('active')
-      $(this).addClass('active')
-      $('.shop-products_bottom .product').removeClass('grid-view zoomIn').addClass('list-view animated fadeInUp')
-      $('.shop-products_bottom--fullwidth .product').removeClass('grid-view zoomIn').addClass('full-list-view animated fadeInUp')
-      $('.shop-products_bottom .col-6.col-md-4').removeClass('col-6 col-md-4').addClass('col-12')
-      $('.shop-products_bottom--fullwidth .col-6.col-md-4.col-xxl-3.col-xxxl').removeClass('col-6 col-md-4 col-xxl-3 col-xxxl').addClass('col-12')
-    });
-
-    $grid.on('click', function (event) {
-      event.preventDefault
-      $list.removeClass('active')
-      $(this).addClass('active')
-      $('.shop-products_bottom .product').removeClass('list-view fadeInUp').addClass('grid-view animated zoomIn')
-      $('.shop-products_bottom--fullwidth .product').removeClass('full-list-view fadeInUp').addClass('grid-view animated zoomIn')
-      $('.shop-products_bottom .col-12').removeClass('col-12').addClass('col-6 col-md-4')
-      $('.shop-products_bottom--fullwidth .col-12').removeClass('col-12').addClass('col-6 col-md-4 col-xxl-3 col-xxxl')
-    });
-
-    if ($grid.hasClass('active')) {
-      $('.shop-products_bottom .product').addClass('grid-view')
-      $('.shop-products_bottom--fullwidth .product').addClass('grid-view')
-    }
 
     /****************************************************
      Shop sidebar fixed position
@@ -435,7 +423,10 @@ let initFunction = (callback) => {
     /****************************************************
      Shop detail zoom
      ****************************************************/
-    $('.shop-detail .big-img_block').zoom({})
+    let windowWidth = window.innerWidth
+    if (windowWidth > 992) {
+      $('.shop-detail .big-img_block').zoom({})
+    }
     /****************************************************
      About us farmer
      ****************************************************/
