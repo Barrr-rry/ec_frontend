@@ -401,47 +401,6 @@
 
         }
       },
-      changeCoupon() {
-        // todo
-        /**
-         * status code:
-         * 1: 正常
-         * 2: 過期
-         * 3: 超過個人使用限制
-         * 4: 超過全體使用限制
-         *
-         * 過期：此張優惠券已過期
-         * 找不到：查無此張優惠券
-         * 超過全體使用次數限制：此張優惠券名額已滿
-         * 超過個人使用次數限制：此張優惠券使用次數已達上限
-         * 不符合優惠：您尚未達到此張優惠券門檻
-         * */
-        this.coupon_instance = null
-        this.$api.coupon.getRead(this.coupon).then(res => {
-          if (!res.data) {
-            this.coupon_message = this.$t('no_coupon')
-            return
-          }
-          if (res.data.status === 1) {
-            if (res.data.role > this.product_total) {
-              return this.coupon_message = this.$t('cant_use_coupon')
-            }
-            this.coupon_instance = res.data
-            this.coupon_message = ''
-          }
-          if (res.data.status === 2) {
-            this.coupon_message = this.$t('coupon_over_date')
-          }
-          if (res.data.status === 3) {
-            this.coupon_message = this.$t('coupon_member_over')
-          }
-          if (res.data.status === 4) {
-            this.coupon_message = this.$t('coupon_allr_over')
-          }
-        }).catch(() => {
-          this.coupon_message = this.$t('no_coupon')
-        })
-      },
       changeCart(id, value) {
         // todo
         this.getTotal()
