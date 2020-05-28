@@ -90,7 +90,6 @@
                   :item="item"
                   :cartVm="cartVm"
                   @remove="remove"
-                  @update="changeCart"
                   ref="cart_products"
                 />
                 </tbody>
@@ -314,10 +313,6 @@
       ])
     },
     data() {
-      // todo
-      if (process.client) {
-        window.vm = this
-      }
       let cartVm = createVm(this)
 
       return {
@@ -360,102 +355,51 @@
         let ret = val * this.$store.state.price.item[this.$store.state.currency]
         return parseFloat(ret.toFixed(2))
       },
-      checkOrder() {
-        // todo
-        // 判斷如果缺貨就不做後面的事
+      any_out_of_stock() {
+        // 判斷有沒缺貨
         for (let el of this.$refs.cart_products) {
           if (el.stock_display_text === '缺貨') {
-            this.$toast.warning('商品缺貨請確認')
-            return
+            return true
           }
         }
+        return false
+      },
+      checkOrder() {
+        // 判斷如果缺貨就不做後面的事
+        if (this.any_out_of_stock()) {
+          this.$toast.warning('商品缺貨請確認')
+          return
+        }
+
+        this.setCopupon2Cookie()
+        this.setReward2Cookie()
         this.weight_message = ''
-        if (this.coupon_instance && this.coupon_instance.status && this.coupon_instance.role <= this.product_total) {
-          this.$cookies.set('coupon', this.coupon_instance.discount_code)
-        } else {
-          this.$cookies.set('coupon', null)
+        let max_weight = this.cartVm.getAllowMaxWeight()
+        if (this.weight > max_weight) {
+          this.weight_message = `超出最大重量 ${max_weight} 公斤`
+          return
         }
-        this.$cookies.set('reward_discount', this.reward_discount)
-        let max_wieght = 0
-        for (let freeshipping of this.freeshippings) {
-          if (freeshipping.weight > max_wieght) {
-            max_wieght = freeshipping.weight
-          }
-        }
-        if (this.weight > max_wieght) {
-          // todo 跳轉還是怎樣
-          this.weight_message = `超出最大重量 ${max_wieght} 公斤`
-        } else {
-          // 沒有登入 跳進去登入頁面
-          if (!this.has_token) {
-            this.$router.push('/login')
-            return
-          }
 
-          // to next page
-          if (this.info.validate) {
-            this.$router.push('/order-checkout')
-          } else {
-            this.no_validate_modal = true
-          }
-
+        // 沒有登入 跳進去登入頁面
+        if (!this.has_token) {
+          this.$router.push('/login')
+          return
         }
-      },
-      changeCart(id, value) {
-        // todo
-        this.getTotal()
-        this.getWeight()
-      },
-      apiRemove(id) {
-        // todo
-        this.$api.cart.deleteData(id).then(() => {
-          let removed_items = this.items.filter(x => x.id !== id)
-          this.$store.commit('cart/changeValue', {
-            key: 'items',
-            value: removed_items
-          })
-          this.getTotal()
-          this.getWeight()
-        })
+
+        // to next page
+        if (this.info.validate) {
+          this.$router.push('/order-checkout')
+        } else {
+          this.no_validate_modal = true
+        }
       },
       remove(id) {
-        // todo
         if (this.has_token) {
           this.apiRemove(id)
-        } else {
-          this.getTotal()
-          this.getWeight()
         }
       },
-      getTotal() {
-        // todo
-        let product_total = 0
-        for (let item of this.items) {
-          product_total += item.specification_detail.price * this.cart[item.id].quantity
-        }
-        this.product_total = product_total
-      },
-      getWeight() {
-        // todo
-        let weight = 0
-        for (let item of this.items) {
-          weight += item.specification_detail.weight * this.cart[item.id].quantity
-        }
-        this.weight = Math.round(weight * 100) / 100
-      }
     },
     created() {
-      // todo
-      this.cart = {}
-      for (let item of this.items) {
-        this.cart[item.id] = {
-          quantity: item.quantity,
-          specification_detail: item.specification_detail,
-
-        }
-      }
-      this.getTotal()
-      this.getWeight()
     },
     mounted() {
     }

@@ -233,17 +233,17 @@
       },
       cartRemove(id) {
         if (!this.has_token) {
-          let cart = cartRemove(this.item.product.id)
+          let cart = cartRemove(this.item.product.id, this.specification_detail.id)
           let {new_cart, product_ids, total_count} = cartProcessInfo(cart)
           this.$cookies.set('cart', new_cart)
           storeProcess(this.$store, new_cart, product_ids, total_count)
-          let removed_items = this.items.filter(x => x.product.id !== this.item.product.id && x.specification_detail.id !== this.item.specification_detail)
+          let removed_items = this.items.filter(x => !(x.product.id === this.item.product.id && x.specification_detail.id === this.item.specification_detail.id))
           this.$store.commit('cart/changeValue', {
             key: 'items',
             value: removed_items
           })
         }
-        this.$emit('remove', id)
+        this.cartVm.remove(this.specification_detail.id, id)
 
       },
       currencyChange(val) {

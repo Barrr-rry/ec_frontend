@@ -22,6 +22,31 @@ let createVm = (parent_vm) => {
     },
     watch: {},
     methods: {
+      remove(spec_id, cart_id) {
+        delete this.carts_obj[spec_id]
+        if (this.parent_vm.has_token && cart_id) {
+          this.apiRemove(cart_id)
+        }
+        this.initData()
+      },
+      apiRemove(id) {
+        this.parent_vm.$api.cart.deleteData(id).then(() => {
+          let removed_items = this.parent_vm.items.filter(x => x.id !== id)
+          this.parent_vm.$store.commit('cart/changeValue', {
+            key: 'items',
+            value: removed_items
+          })
+        })
+      },
+      getAllowMaxWeight() {
+        let max_wieght = 0
+        for (let freeshipping of this.parent_vm.freeshippings) {
+          if (freeshipping.weight > max_wieght) {
+            max_wieght = freeshipping.weight
+          }
+        }
+        return max_wieght
+      },
       getWight() {
         let ret = 0
         for (let key in this.carts_obj) {

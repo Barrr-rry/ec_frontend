@@ -14,6 +14,14 @@ let couponMixin = {
   },
   watch: {},
   methods: {
+    setCopupon2Cookie() {
+      // order 前先設定
+      if (this.coupon_instance && this.coupon_instance.status && this.coupon_instance.role <= this.product_total) {
+        this.$cookies.set('coupon', this.coupon_instance.discount_code)
+      } else {
+        this.$cookies.set('coupon', null)
+      }
+    },
     changeCoupon() {
       /**
        * status code:
@@ -80,23 +88,27 @@ let RewardMixin = {
     }
   },
   methods: {
+    setReward2Cookie() {
+      this.$cookies.set('reward_discount', this.reward_discount)
+    },
     checkRewarddiscount() {
-      let sum = this.product_total - this.coupon_discount
+      let sum = this.cartVm.product_total - this.coupon_discount
       if (sum < this.reward_discount) {
         this.reward_discount = sum
       }
     },
     useReward() {
       // 確保優惠不會超過商品以及優惠券點數
-      let min_data = Math.min(this.product_total, this.info_reward_total)
+      let min_data = Math.min(this.cartVm.product_total, this.info_reward_total)
       if (this.reward_discount_temp > min_data) {
         this.reward_discount_temp = min_data
       }
       this.reward_discount = this.reward_discount_temp
     },
     init_reward_discount() {
-      this.reward_discount_temp = this.info_reward_total > this.product_total ? this.product_total : this.info_reward_total
+      this.reward_discount_temp = this.info_reward_total > this.cartVm.product_total ? this.cartVm.product_total : this.info_reward_total
       this.reward_discount = this.reward_discount_temp
+      console.log('init...', this.reward_discount_temp, this.reward_discount)
     },
     getReward() {
       this.$api.ecpay.calc_reward(this.total_count).then(res => {

@@ -22,9 +22,9 @@ function cartUpdate(id, spec_id, values) {
   return cart
 }
 
-function cartRemove(id) {
+function cartRemove(id, spec_id) {
   let cart = getCookieCart()
-  return cart.filter((el) => parseInt(el.product) !== id)
+  return cart.filter((el) => !(el.product === id && el.specification_detail === spec_id))
 }
 
 let cartProcessInfo = (cart) => {
