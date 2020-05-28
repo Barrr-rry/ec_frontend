@@ -166,6 +166,19 @@
                   >${{currencyChange(cartVm.product_total)|commaFormat}} (NT${{cartVm.product_total|commaFormat}})
                   </td>
                 </tr>
+                <!--活動折抵-->
+                <tr v-for="el in cartVm.in_activity_obj" :key="el.activity_id">
+                  <th>{{el.activity_detail.ch_name}}</th>
+                  <td>
+                    <p class="primary-color"
+                       v-if="$store.state.currency==='tw'"
+                    >-${{cartVm.activitySave(el)|commaFormat}}</p>
+                    <p class="primary-color"
+                       v-else
+                    >-${{currencyChange(cartVm.activitySave(el))|commaFormat}} (-$NT{{cartVm.activitySave(el)|commaFormat}})</p>
+                  </td>
+                </tr>
+
                 <tr v-if="coupon_instance&&coupon_instance.status&&coupon_instance.role<=cartVm.product_total">
                   <th>{{$t('coupon_used')}}</th>
                   <td>

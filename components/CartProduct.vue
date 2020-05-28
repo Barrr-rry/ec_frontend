@@ -215,6 +215,8 @@
         this.cartVm.trigger(this.specification_detail.id, {
           quantity: this.quantity,
           specification_detail: this.specification_detail,
+          activity_detail: this.item.product.activity_detail,
+          vm: this,
         })
       },
       ...mapMutations('cart_specification_modal', ['initCart', 'method']),

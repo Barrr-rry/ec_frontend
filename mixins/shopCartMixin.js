@@ -108,7 +108,6 @@ let RewardMixin = {
     init_reward_discount() {
       this.reward_discount_temp = this.info_reward_total > this.cartVm.product_total ? this.cartVm.product_total : this.info_reward_total
       this.reward_discount = this.reward_discount_temp
-      console.log('init...', this.reward_discount_temp, this.reward_discount)
     },
     getReward() {
       this.$api.ecpay.calc_reward(this.total_count).then(res => {
