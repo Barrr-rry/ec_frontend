@@ -83,10 +83,12 @@ let createVm = (parent_vm) => {
         return ret
       },
       getActivity() {
-        // activity_list = []
         let activity_obj = {}
         for (let key in this.carts_obj) {
           let el = this.carts_obj[key]
+          if (!el.activity_detail) {
+            continue
+          }
           let activity_id = el.activity_detail.id
           // init list
           if (!activity_obj.hasOwnProperty(activity_id)) {
@@ -105,6 +107,9 @@ let createVm = (parent_vm) => {
           // 1: 尚未有資料
           el.vm.cart_status = 1
           let activity_detail = el.activity_detail
+          if (!activity_detail) {
+            continue
+          }
           let activity_id = el.activity_detail.id
           let total_count = activity_detail.give_count + activity_detail.buy_count
           if (activity_obj[activity_id].count >= total_count) {
@@ -112,7 +117,7 @@ let createVm = (parent_vm) => {
               in_activity_obj[activity_id] = {
                 activity_id,
                 activity_detail,
-                count: parseInt(activity_obj[activity_id].count / total_count),
+                count: parseInt(activity_obj[activity_id].count / total_count) * activity_detail.give_count,
                 price_list: []
               }
             }

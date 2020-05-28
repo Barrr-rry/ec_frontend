@@ -552,6 +552,9 @@
         let in_activity_obj = {}
         for (let cart of this.carts) {
           let activity_detail = cart.product.activity_detail
+          if (!activity_detail) {
+            continue
+          }
           let activity_id = activity_detail.id
           if (!in_activity_obj.hasOwnProperty(activity_id)) {
             in_activity_obj[activity_id] = {
@@ -569,7 +572,8 @@
           }
           in_activity_obj[activity_id].save_count = parseInt(
             in_activity_obj[activity_id].product_count / in_activity_obj[activity_id].limit_count
-          )
+          ) * activity_detail.give_count
+
           in_activity_obj[activity_id].price_list.sort()
         }
         let ret = {}
