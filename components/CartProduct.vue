@@ -102,8 +102,8 @@
         type: Object,
         default: {}
       },
-      cartVm:{
-        type:Object,
+      cartVm: {
+        type: Object,
       }
     },
     data() {
@@ -112,6 +112,7 @@
         cart_status: 1,
         quantity: null,
         specification_detail: null,
+        old_specification_detail: null, // 被換掉前 要先取得舊有的資料 給local cart 用
       }
     },
     computed: {
@@ -181,8 +182,11 @@
         items: state => state.items
       }),
       spec_level1_and_level2() {
-        let sp1 = this.item.spec1_name
-        let sp2 = this.item.spec2_name
+        if (!this.specification_detail) {
+          return ''
+        }
+        let sp1 = this.specification_detail.spec1_name
+        let sp2 = this.specification_detail.spec2_name
         if (sp2) {
           return `${sp1}/${sp2}`
         }
@@ -192,7 +196,7 @@
     watch: {
       quantity(newval, oldval) {
         if (oldval) {
-          this.updateCart()
+          this.trigger()
         }
       },
       specification(newval, oldval) {
@@ -204,8 +208,15 @@
     mounted() {
       this.quantity = this.item.quantity
       this.specification_detail = this.item.specification_detail
+      this.trigger()
     },
     methods: {
+      trigger() {
+        this.cartVm.trigger(this.specification_detail.id, {
+          quantity: this.quantity,
+          specification_detail: this.specification_detail,
+        })
+      },
       ...mapMutations('cart_specification_modal', ['initCart', 'method']),
       goCartModal() {
         this.initCart({
@@ -247,6 +258,7 @@
         }
       },
       cartModalMethod(specification_detail) {
+        this.old_specification_detail = {...this.specification_detail}
         this.specification_detail = specification_detail
         this.updateCart(true)
       },
@@ -256,15 +268,18 @@
           specification_detail: this.specification_detail.id,
           product: this.item.product.id
         }
-        this.$emit('update', this.item.id, values)
+        this.trigger()
         // 有登入
         if (this.has_token) {
           this.apiCartUpdate(this.item.id, values, reload)
         } else {
-          let cart = cartUpdate(this.item.product.id, values)
+          let cart = cartUpdate(this.item.product.id, this.old_specification_detail.id, values)
           let {new_cart, product_ids, total_count} = cartProcessInfo(cart)
           this.$cookies.set('cart', new_cart)
           storeProcess(this.$store, new_cart, product_ids, total_count)
+          if (reload && process.client) {
+            window.location.reload()
+          }
         }
       }
     }

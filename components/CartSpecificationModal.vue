@@ -72,7 +72,7 @@
     methods: {
       ...mapMutations('cart_specification_modal', ['initCart', 'resetCart']),
       ok() {
-        this.method(this.choose_specification_detail.id)
+        this.method(this.choose_specification_detail)
         this.resetCart()
       },
     }

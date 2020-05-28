@@ -154,20 +154,20 @@
                 <tbody>
                 <tr>
                   <th>{{$t('total_weight')}}</th>
-                  <td>{{weight}} kg</td>
+                  <td>{{cartVm.weight}} kg</td>
                 </tr>
                 <tr>
                   <th>{{$t('order_total')}}</th>
                   <td
                     v-if="$store.state.currency==='tw'"
-                  >${{product_total|commaFormat}}
+                  >${{cartVm.product_total|commaFormat}}
                   </td>
                   <td
                     v-else
-                  >${{currencyChange(product_total)|commaFormat}} (NT${{product_total|commaFormat}})
+                  >${{currencyChange(cartVm.product_total)|commaFormat}} (NT${{cartVm.product_total|commaFormat}})
                   </td>
                 </tr>
-                <tr v-if="coupon_instance&&coupon_instance.status&&coupon_instance.role<=product_total">
+                <tr v-if="coupon_instance&&coupon_instance.status&&coupon_instance.role<=cartVm.product_total">
                   <th>{{$t('coupon_used')}}</th>
                   <td>
                     <p class="primary-color"
@@ -193,11 +193,11 @@
                   <th>{{$t('total')}}</th>
                   <td
                     v-if="$store.state.currency==='tw'"
-                  >${{total_count|commaFormat}}
+                  >${{cartVm.total_count|commaFormat}}
                   </td>
                   <td
                     v-else
-                  >${{currencyChange(total_count) |commaFormat}} ($NT{{total_count|commaFormat}})
+                  >${{currencyChange(cartVm.total_count) |commaFormat}} ($NT{{cartVm.total_count|commaFormat}})
                   </td>
                 </tr>
                 </tbody>
@@ -292,7 +292,7 @@
   import mixinDefaultInit from "@/mixins/mixinDefaultInit"
   import ValidateModal from "@/components/ValidateModal"
   import CartSpecificationModal from "@/components/CartSpecificationModal"
-  import cartVm from "@/assets/js/cartVm"
+  import {createVm} from "@/assets/js/cartVm"
   import {couponMixin, RewardMixin} from "@/mixins/shopCartMixin"
 
 
@@ -314,6 +314,12 @@
       ])
     },
     data() {
+      // todo
+      if (process.client) {
+        window.vm = this
+      }
+      let cartVm = createVm(this)
+
       return {
         cartVm,
         cart: {},
@@ -346,17 +352,11 @@
       ...mapState('member', {
         info: state => state.item
       }),
-      total_count() {
-        // 總金額
-        // todo
-        let ret = this.product_total - this.coupon_discount - this.reward_discount
-        return ret > 0 ? ret : 0
-      }
     },
     watch: {},
     methods: {
       currencyChange(val) {
-        // todo
+        // 轉換金額
         let ret = val * this.$store.state.price.item[this.$store.state.currency]
         return parseFloat(ret.toFixed(2))
       },
