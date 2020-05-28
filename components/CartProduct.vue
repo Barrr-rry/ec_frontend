@@ -101,6 +101,9 @@
       item: {
         type: Object,
         default: {}
+      },
+      cartVm:{
+        type:Object,
       }
     },
     data() {
