@@ -74,7 +74,7 @@ let createVm = (parent_vm) => {
       },
       activitySave(el) {
         let count = el.count
-        let ret = []
+        let ret = 0
         let price_list = [...el.price_list]
         while (count) {
           count -= 1

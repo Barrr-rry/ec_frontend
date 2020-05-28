@@ -220,7 +220,7 @@
                     title="Company name( Optional )"
                     :required="false"
                     placeholder=""
-                      name="company_name"
+                    name="company_name"
                     :input_has_bg="true"
                   />
                 </div>
@@ -430,6 +430,21 @@
                         </div>
                       </td>
                     </tr>
+                    <!--活動折抵-->
+                    <tr v-for="el in in_activity_obj" :key="el.activity_id">
+                      <th>{{el.activity_detail.ch_name}}</th>
+                      <td>
+                        <div class="primary-color text-right"
+                             v-if="$store.state.currency==='tw'"
+                        >-${{activitySave(el)|commaFormat}}
+                        </div>
+                        <div class="primary-color text-right"
+                             v-else
+                        >-${{currencyChange(activitySave(el))|commaFormat}} (-$NT{{activitySave(el)|commaFormat}})
+                        </div>
+                      </td>
+                    </tr>
+
                     <tr v-show="reward_discount">
                       <th>{{$t('reward_used')}}</th>
                       <td>
@@ -533,6 +548,39 @@
       ...mapState('cart', {
         carts: state => state.items,
       }),
+      in_activity_obj() {
+        let in_activity_obj = {}
+        for (let cart of this.carts) {
+          let activity_detail = cart.product.activity_detail
+          let activity_id = activity_detail.id
+          if (!in_activity_obj.hasOwnProperty(activity_id)) {
+            in_activity_obj[activity_id] = {
+              activity_id,
+              activity_detail: activity_detail,
+              save_count: 0,// 省下商品數量
+              product_count: 0,// 確認商品數量
+              limit_count: activity_detail.buy_count + activity_detail.give_count,
+              price_list: [],
+            }
+          }
+          for (let i = 0; i < cart.quantity; i++) {
+            in_activity_obj[activity_id].price_list.push(cart.specification_detail.price)
+            in_activity_obj[activity_id].product_count += 1
+          }
+          in_activity_obj[activity_id].save_count = parseInt(
+            in_activity_obj[activity_id].product_count / in_activity_obj[activity_id].limit_count
+          )
+          in_activity_obj[activity_id].price_list.sort()
+        }
+        let ret = {}
+        for (let key in in_activity_obj) {
+          let el = in_activity_obj[key]
+          if (el.save_count) {
+            ret[key] = {...el}
+          }
+        }
+        return ret
+      },
       sub_type() {
         return this.freeshipping_target ? this.freeshipping_target.sub_type : null
       },
@@ -599,7 +647,12 @@
         return total
       },
       total_count() {
-        let ret = this.total - this.coupon_discount - this.reward_discount + this.freeshipping_price
+        let activity = 0
+        for (let key in this.in_activity_obj) {
+          let el = this.in_activity_obj[key]
+          activity += this.activitySave(el)
+        }
+        let ret = this.total - activity - this.coupon_discount - this.reward_discount + this.freeshipping_price
         return ret > 0 ? ret : 0
       },
       total_weight() {
@@ -663,6 +716,16 @@
       }
     },
     methods: {
+      activitySave(el) {
+        let count = el.save_count
+        let ret = 0
+        let price_list = [...el.price_list]
+        while (count) {
+          count -= 1
+          ret += price_list.shift()
+        }
+        return ret
+      },
       ok() {
       },
       initFreeshippingId() {

@@ -196,7 +196,7 @@
     watch: {
       quantity(newval, oldval) {
         if (oldval) {
-          this.trigger()
+          this.updateCart()
         }
       },
       specification(newval, oldval) {
