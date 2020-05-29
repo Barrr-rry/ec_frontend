@@ -77,6 +77,7 @@
     </div>
     <div v-html="html"></div>
   </div>
+  </div>
 </template>
 
 <script>
