@@ -88,8 +88,8 @@
                   v-for="item of items"
                   :key="item.id"
                   :item="item"
+                  :cartVm="cartVm"
                   @remove="remove"
-                  @update="changeCart"
                   ref="cart_products"
                 />
                 </tbody>
@@ -115,11 +115,11 @@
                 :placeholder="$t('used_coupon')"
                 v-model="reward_discount_temp"
                 style="width: 200px"
-                :disabled="getInfo()"
+                :disabled="!info_reward_total"
               />
               <button class="no-round-btn"
-                      @click="reward_discount= reward_discount_temp>total?total:reward_discount_temp"
-                      :disabled="reward_discount_temp>info.rewards || getInfo()">{{$t('use_reward')}}
+                      @click="useReward"
+                      :disabled="reward_discount_temp>info.rewards || !info_reward_total">{{$t('use_reward')}}
               </button>
               <div style="color: red" v-if="info.rewards<reward_discount_temp">{{$t('use_reward_now')}}</div>
             </div>
@@ -127,7 +127,7 @@
                  v-if="$store.state.currency==='tw'"
                  v-show="info.member_number"
             >
-              {{$t('have_now')}} <span class="primary-color">{{info.rewards}}</span>
+              {{$t('have_now')}} <span class="primary-color">{{info_reward_total}}</span>
               {{$t('point_reward')}}
             </div>
 
@@ -153,20 +153,33 @@
                 <tbody>
                 <tr>
                   <th>{{$t('total_weight')}}</th>
-                  <td>{{weight}} kg</td>
+                  <td>{{cartVm.weight}} kg</td>
                 </tr>
                 <tr>
                   <th>{{$t('order_total')}}</th>
                   <td
                     v-if="$store.state.currency==='tw'"
-                  >${{total|commaFormat}}
+                  >${{cartVm.product_total|commaFormat}}
                   </td>
                   <td
                     v-else
-                  >${{currencyChange(total)|commaFormat}} (NT${{total|commaFormat}})
+                  >${{currencyChange(cartVm.product_total)|commaFormat}} (NT${{cartVm.product_total|commaFormat}})
                   </td>
                 </tr>
-                <tr v-if="coupon_instance&&coupon_instance.status&&coupon_instance.role<=total">
+                <!--活動折抵-->
+                <tr v-for="el in cartVm.in_activity_obj" :key="el.activity_id">
+                  <th>{{el.activity_detail.ch_name}}</th>
+                  <td>
+                    <p class="primary-color"
+                       v-if="$store.state.currency==='tw'"
+                    >-${{cartVm.activitySave(el)|commaFormat}}</p>
+                    <p class="primary-color"
+                       v-else
+                    >-${{currencyChange(cartVm.activitySave(el))|commaFormat}} (-$NT{{cartVm.activitySave(el)|commaFormat}})</p>
+                  </td>
+                </tr>
+
+                <tr v-if="coupon_instance&&coupon_instance.status&&coupon_instance.role<=cartVm.product_total">
                   <th>{{$t('coupon_used')}}</th>
                   <td>
                     <p class="primary-color"
@@ -192,11 +205,11 @@
                   <th>{{$t('total')}}</th>
                   <td
                     v-if="$store.state.currency==='tw'"
-                  >${{total_count|commaFormat}}
+                  >${{cartVm.total_count|commaFormat}}
                   </td>
                   <td
                     v-else
-                  >${{currencyChange(total_count) |commaFormat}} ($NT{{total_count|commaFormat}})
+                  >${{currencyChange(cartVm.total_count) |commaFormat}} ($NT{{cartVm.total_count|commaFormat}})
                   </td>
                 </tr>
                 </tbody>
@@ -291,11 +304,13 @@
   import mixinDefaultInit from "@/mixins/mixinDefaultInit"
   import ValidateModal from "@/components/ValidateModal"
   import CartSpecificationModal from "@/components/CartSpecificationModal"
+  import {createVm} from "@/assets/js/cartVm"
+  import {couponMixin, RewardMixin} from "@/mixins/shopCartMixin"
 
 
   export default {
     name: 'ShopCart',
-    mixins: [mixinCategory, mixinDefaultInit],
+    mixins: [RewardMixin, couponMixin, mixinCategory, mixinDefaultInit],
     components: {
       CartProduct,
       ValidateModal,
@@ -311,18 +326,21 @@
       ])
     },
     data() {
+      let cartVm = createVm(this)
+
       return {
+        cartVm,
         cart: {},
         timout_instance: null,
         coupon: null,
         coupon_message: '',
         coupon_instance: null,
-        total: 0,
+        product_total: 0,//商品總金額
         weight: 0,
         weight_message: '',
-        reward: 0,
+        reward: 0, // 預計獲得的忠誠點數
         reward_discount: 0,
-        reward_discount_temp: 0,
+        reward_discount_temp: 0, // temp 是放在input 不能讓他輸入超過被放入reward_discount
         no_validate_modal: false
       }
     },
@@ -342,192 +360,61 @@
       ...mapState('member', {
         info: state => state.item
       }),
-      coupon_discount() {
-        if (this.coupon_instance && this.coupon_instance.status && this.coupon_instance.role <= this.total) {
-          if (this.coupon_instance.method === 1) {
-            return parseInt(this.coupon_instance.discount)
-          } else {
-            return parseInt(this.coupon_instance.discount * this.total / 100)
-          }
-        } else {
-          return 0
-        }
-      },
-      total_count() {
-        let ret = this.total - this.coupon_discount - this.reward_discount
-        return ret > 0 ? ret : 0
-      }
     },
-    watch: {
-      coupon_discount() {
-        let sum = this.total - this.coupon_discount
-        if (sum < this.reward_discount) {
-          this.reward_discount = sum
-        }
-      },
-      total() {
-        let sum = this.total - this.coupon_discount
-        if (sum < this.reward_discount) {
-          this.reward_discount = sum
-        }
-      },
-      total_count() {
-        this.getReward()
-      }
-    },
+    watch: {},
     methods: {
-      getInfo() {
-        return !this.info.rewards
-      },
       currencyChange(val) {
+        // 轉換金額
         let ret = val * this.$store.state.price.item[this.$store.state.currency]
         return parseFloat(ret.toFixed(2))
       },
-      getReward() {
-        this.$api.ecpay.calc_reward(this.total_count).then(res => {
-          this.reward = res.data.reward
-        })
+      any_out_of_stock() {
+        // 判斷有沒缺貨
+        for (let el of this.$refs.cart_products) {
+          if (el.stock_display_text === '缺貨') {
+            return true
+          }
+        }
+        return false
       },
       checkOrder() {
         // 判斷如果缺貨就不做後面的事
-        for (let el of this.$refs.cart_products) {
-          if (el.stock_display_text === '缺貨') {
-            this.$toast.warning('商品缺貨請確認')
-            return
-          }
+        if (this.any_out_of_stock()) {
+          this.$toast.warning('商品缺貨請確認')
+          return
         }
+
+        this.setCopupon2Cookie()
+        this.setReward2Cookie()
         this.weight_message = ''
-        if (this.coupon_instance && this.coupon_instance.status && this.coupon_instance.role <= this.total) {
-          this.$cookies.set('coupon', this.coupon_instance.discount_code)
-        } else {
-          this.$cookies.set('coupon', null)
+        let max_weight = this.cartVm.getAllowMaxWeight()
+        if (this.weight > max_weight) {
+          this.weight_message = `超出最大重量 ${max_weight} 公斤`
+          return
         }
-        this.$cookies.set('reward_discount', this.reward_discount)
-        let max_wieght = 0
-        for (let freeshipping of this.freeshippings) {
-          if (freeshipping.weight > max_wieght) {
-            max_wieght = freeshipping.weight
-          }
-        }
-        if (this.weight > max_wieght) {
-          // todo 跳轉還是怎樣
-          this.weight_message = `超出最大重量 ${max_wieght} 公斤`
-        } else {
-          // 沒有登入 跳進去登入頁面
-          if (!this.has_token) {
-            this.$router.push('/login')
-            return
-          }
 
-          // to next page
-          if (this.info.validate) {
-            this.$router.push('/order-checkout')
-          } else {
-            this.no_validate_modal = true
-          }
+        // 沒有登入 跳進去登入頁面
+        if (!this.has_token) {
+          this.$router.push('/login')
+          return
+        }
 
+        // to next page
+        if (this.info.validate) {
+          this.$router.push('/order-checkout')
+        } else {
+          this.no_validate_modal = true
         }
-      },
-      changeCoupon() {
-        /**
-         * status code:
-         * 1: 正常
-         * 2: 過期
-         * 3: 超過個人使用限制
-         * 4: 超過全體使用限制
-         *
-         * 過期：此張優惠券已過期
-         * 找不到：查無此張優惠券
-         * 超過全體使用次數限制：此張優惠券名額已滿
-         * 超過個人使用次數限制：此張優惠券使用次數已達上限
-         * 不符合優惠：您尚未達到此張優惠券門檻
-         * */
-        this.coupon_instance = null
-        this.$api.coupon.getRead(this.coupon).then(res => {
-          if (!res.data) {
-            this.coupon_message = this.$t('no_coupon')
-            return
-          }
-          if (res.data.status === 1) {
-            if (res.data.role > this.total) {
-              return this.coupon_message = this.$t('cant_use_coupon')
-            }
-            this.coupon_instance = res.data
-            this.coupon_message = ''
-          }
-          if (res.data.status === 2) {
-            this.coupon_message = this.$t('coupon_over_date')
-          }
-          if (res.data.status === 3) {
-            this.coupon_message = this.$t('coupon_member_over')
-          }
-          if (res.data.status === 4) {
-            this.coupon_message = this.$t('coupon_allr_over')
-          }
-        }).catch(() => {
-          this.coupon_message = this.$t('no_coupon')
-        })
-      },
-      changeCart(id, value) {
-        this.cart[id] = value
-        // 判斷如果缺貨就不做後面的事
-        for (let el of this.$refs.cart_products) {
-          el.cart_status = 2
-        }
-        this.getTotal()
-        this.getWeight()
-      },
-      checkBuyGive(){},
-      apiRemove(id) {
-        this.$api.cart.deleteData(id).then(() => {
-          let removed_items = this.items.filter(x => x.id !== id)
-          this.$store.commit('cart/changeValue', {
-            key: 'items',
-            value: removed_items
-          })
-          this.getTotal()
-          this.getWeight()
-        })
       },
       remove(id) {
         if (this.has_token) {
           this.apiRemove(id)
-        } else {
-          this.getTotal()
-          this.getWeight()
         }
       },
-      getTotal() {
-        let total = 0
-        for (let item of this.items) {
-          total += item.specification_detail.price * this.cart[item.id].quantity
-        }
-        this.total = total
-      },
-      getWeight() {
-        let weight = 0
-        for (let item of this.items) {
-          weight += item.specification_detail.weight * this.cart[item.id].quantity
-        }
-        this.weight = Math.round(weight * 100) / 100
-      }
     },
     created() {
-      this.getReward()
-      this.cart = {}
-      for (let item of this.items) {
-        this.cart[item.id] = {
-          quantity: item.quantity,
-          specification_detail: item.specification_detail,
-
-        }
-      }
-      this.getTotal()
-      this.getWeight()
     },
     mounted() {
-      this.reward_discount_temp = this.info.rewards > this.total ? this.total : this.info.rewards
-      this.reward_discount = this.info.rewards > this.total ? this.total : this.info.rewards
     }
   }
 </script>

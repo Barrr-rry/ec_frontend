@@ -11,10 +11,10 @@ let getCookieCart = () => {
   return cart
 }
 
-function cartUpdate(id, values) {
+function cartUpdate(id, spec_id, values) {
   let cart = getCookieCart()
   for (let c of cart) {
-    if (c.product === id) {
+    if (c.product === id && c.specification_detail === spec_id) {
       c.quantity = values.quantity
       c.specification_detail = values.specification_detail
     }
@@ -22,9 +22,9 @@ function cartUpdate(id, values) {
   return cart
 }
 
-function cartRemove(id) {
+function cartRemove(id, spec_id) {
   let cart = getCookieCart()
-  return cart.filter((el) => parseInt(el.product) !== id)
+  return cart.filter((el) => !(el.product === id && el.specification_detail === spec_id))
 }
 
 let cartProcessInfo = (cart) => {
