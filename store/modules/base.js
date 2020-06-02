@@ -1,5 +1,4 @@
 import _ from 'lodash'
-import {api} from '@/api'
 
 const getCommit = (context) => {
   const _commit = _.partial(context.commit, 'changeValue')
