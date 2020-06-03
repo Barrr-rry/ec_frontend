@@ -25,11 +25,21 @@
       </div>
     </td>
     <td class="product-name">
-      <div class="to-flex-col align-items-center">
-        <span class="pointer" @click="goCartModal">{{spec_level1_and_level2}}</span>
-        <span class="pl-5px"
-              v-if="configsetting.weight"
-        >{{item.specification_detail.weight}} {{$t('kg')}}</span>
+      <div class="align-items-center d-flex pointer" @click="goCartModal">
+        <span>{{spec_level1_and_level2}}</span>
+        <svg class="bi bi-pencil ml-10px" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+             xmlns="http://www.w3.org/2000/svg"
+             style="color: #B1B1B1"
+        >
+          <path fill-rule="evenodd"
+                d="M11.293 1.293a1 1 0 0 1 1.414 0l2 2a1 1 0 0 1 0 1.414l-9 9a1 1 0 0 1-.39.242l-3 1a1 1 0 0 1-1.266-1.265l1-3a1 1 0 0 1 .242-.391l9-9zM12 2l2 2-9 9-3 1 1-3 9-9z"/>
+          <path fill-rule="evenodd"
+                d="M12.146 6.354l-2.5-2.5.708-.708 2.5 2.5-.707.708zM3 10v.5a.5.5 0 0 0 .5.5H4v.5a.5.5 0 0 0 .5.5H5v.5a.5.5 0 0 0 .5.5H6v-1.5a.5.5 0 0 0-.5-.5H5v-.5a.5.5 0 0 0-.5-.5H3z"/>
+        </svg>
+        <!--現在說公版不要有weight 怕之後又要有先註解就好-->
+        <!--        <span class="pl-5px"-->
+        <!--              v-if="configsetting.weight"-->
+        <!--        >{{item.specification_detail.weight}} {{$t('kg')}}</span>-->
       </div>
     </td>
     <td class="product-price"
@@ -188,7 +198,7 @@
         let sp1 = this.specification_detail.spec1_name
         let sp2 = this.specification_detail.spec2_name
         if (sp2) {
-          return `${sp1}/${sp2}`
+          return `${sp1} - ${sp2}`
         }
         return sp1
       },
