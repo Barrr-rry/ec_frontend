@@ -56,27 +56,32 @@ small, h5:not(.fz18px)
 
 input
   -webkit-appearance: none !important
+
   &::placeholder
     text-align: left !important
-  &::-webkit-input-placeholder 
+
+  &::-webkit-input-placeholder
     font-size: 16px
     line-height: 16px
     text-align: center
-  &::-ms-input-placeholder 
+
+  &::-ms-input-placeholder
     font-size: 16px
     line-height: 16px
-    text-align: center  
+    text-align: center
 
-.p0 
+.p0
   padding: 0px
 
-.m0 
+.m0
   margin: 0px
 
-.mb20px 
+.mb20px
   margin-bottom: 20px
+
 .disabled
   color: #a6a6a6 !important
+
 .ellipsis
   overflow: hidden
   text-overflow: ellipsis
@@ -157,7 +162,7 @@ $loop: 30
 @for $i from 1 through 12
   .flex-grow-#{$i}
     flex-grow: $i
-    
+
 // overflow hidden
 .overflow-hidden
   overflow: hidden
@@ -542,3 +547,7 @@ $loop: 30
 
 .max-height-100pa
   max-height: 100%
+
+
+.test
+  border: solid 1px black
