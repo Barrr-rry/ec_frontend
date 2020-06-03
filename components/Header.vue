@@ -25,16 +25,15 @@
                 <a href="https://line.me/ti/p/1qvbcczVSW" target="_blank"><i class="fab fa-line"> </i></a>
                 <a href=""><i class="fab fa-twitter" @click="share('twitter')"></i></a>
               </div>
-              <!--等文案好-->
-              <!--              <div class="language">-->
-              <!--                <div class="selected-language">-->
-              <!--                  {{display_lang}}<i class="arrow_carrot-down"></i>-->
-              <!--                  <ul class="list-language">-->
-              <!--                    <li class="hover-li" @click="change_locale('tw')">{{$t('Chinese')}}</li>-->
-              <!--                    <li class="hover-li" @click="change_locale('en')">English</li>-->
-              <!--                  </ul>-->
-              <!--                </div>-->
-              <!--              </div>-->
+              <div class="language">
+                <div class="selected-language">
+                  {{display_lang}}<i class="arrow_carrot-down"></i>
+                  <ul class="list-language">
+                    <li class="hover-li" @click="change_locale('tw')">{{$t('Chinese')}}</li>
+                    <li class="hover-li" @click="change_locale('en')">English</li>
+                  </ul>
+                </div>
+              </div>
               <div class="language">
                 <div class="selected-language" v-if="currency==='tw'">
                   {{$t('ntdoller')}}<i class="arrow_carrot-down"></i>
