@@ -74,8 +74,8 @@
                   <input type="radio" id="payradio_1" :value="0" v-model="pay_type">
                   <label for="payradio_1">{{$t('pay_online')}}</label>
                   <!--貨到付款-->
-                  <input v-if="cash_on_delivery_weight_ok" type="radio" id="payradio_2" :value="1" v-model="pay_type">
-                  <label v-if="cash_on_delivery_weight_ok" for="payradio_2">{{$t('pay_later')}}</label>
+                  <input v-if="delivery_ok&&location!==2" type="radio" id="payradio_2" :value="1" v-model="pay_type">
+                  <label v-if="delivery_ok&&location!==2" for="payradio_2">{{$t('pay_later')}}</label>
                 </CInput>
               </div>
               <!--運送方式-->
@@ -530,6 +530,20 @@
       }
     },
     computed: {
+      delivery_ok() {
+        // 允許貨到付款
+        if (!this.cash_on_delivery_weight_ok) {
+          return false
+        }
+        let ret = false
+        for (let el of this.in_weight_and_location_freeshippings) {
+          if (this.pay_type !== 1 || el.cash_on_delivery) {
+            ret = true
+            break
+          }
+        }
+        return ret
+      },
       ...mapState('member', {
         myself: state => state.item
       }),
@@ -668,6 +682,16 @@
       },
     },
     watch: {
+      location(val) {
+        if (val === 2) {
+          this.pay_type = 0
+        }
+      },
+      delivery_ok(val) {
+        if (!val && this.pay_type === 1) {
+          this.pay_type = 0
+        }
+      },
       'country_list.length'(val) {
         if (val.length) {
           this.country = val[0]
