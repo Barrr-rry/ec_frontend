@@ -358,6 +358,10 @@ const custom_message = {
     tw: ' 大部分的保存期限都是在商品型錄旁邊（ 如數字是 11/25 指的是 11 月\n' +
       '              2025 年）。'
   },
+  canncel_order: {
+    en: '未翻譯',
+    tw: '取消訂單'
+  },
   member_center: {
     en: '未翻譯',
     tw: '會員中心'

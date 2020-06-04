@@ -65,7 +65,9 @@
               </div>
               <div class="row flex-grow-1">
                 <div class="t2 col-12 col-sm-3">{{product.name}}</div>
-                <div class="t3 col-12 col-sm-3">{{$t('specification')}} : {{getSpecName(product.specification_detail)}}</div>
+                <div class="t3 col-12 col-sm-3">{{$t('specification')}} :
+                  {{getSpecName(product.specification_detail)}}
+                </div>
                 <div class="t4 col-12 col-sm-3">{{$t('count')}} : {{product.quantity}}</div>
                 <div class="t5 col-12 col-sm-3 primary-color">
                   NT$ {{product.specification_detail.price*product.quantity|commaFormat}}
@@ -74,6 +76,9 @@
             </div>
           </div>
         </card-border>
+        <div class="d-flex mt-10px justify-content-end" v-if="cancel_status">
+          <button class="no-round-btn" @click="cancelOrder">{{$t('canncel_order')}}</button>
+        </div>
       </div>
       <div v-html="html"></div>
     </div>
@@ -106,6 +111,9 @@
       }
     },
     computed: {
+      cancel_status() {
+        return this.order.pay_status === 0 && this.order.pay_type === 1 && this.order.simple_status_display !== '已取消'
+      },
       target_reward() {
         if (this.order.rewrad.length) {
           return this.order.rewrad[0]
@@ -129,7 +137,14 @@
       }
     },
     methods: {
-      getSpecName(specification_detail){
+      cancelOrder() {
+        this.$api.order.putData(this.order.id, {
+          shipping_status: 400
+        }).then(() => {
+          this.$router.go()
+        })
+      },
+      getSpecName(specification_detail) {
         let spec1_name = specification_detail.spec1_name
         let spec2_name = specification_detail.spec2_name
         let ret = [spec1_name]
