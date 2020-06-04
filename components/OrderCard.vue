@@ -34,14 +34,14 @@
         <br>
         <div class="mb-20px">{{$t('order_total')}} : ${{order.product_price|commaFormat}}</div>
         <div class="mb-20px">{{$t('shipping')}} : ＋
-          <a v-if="order.freeshipping_price==0" style="color: #88c74a">${{order.freeshipping_price|commaFormat}}</a>
+          <a v-if="order.freeshipping_price==0" style="color: #0b1d37">${{order.freeshipping_price|commaFormat}}</a>
           <a v-else>${{order.freeshipping_price|commaFormat}}</a>
         </div>
-        <div class="mb-20px">{{$t('coupon_used')}} : -${{order.coupon_price|commaFormat}} <a style="color: #88c74a"
+        <div class="mb-20px">{{$t('coupon_used')}} : -${{order.coupon_price|commaFormat}} <a style="color: #0b1d37"
                                                                                              v-show="order.coupon_discount_code">({{order.coupon_discount_code}})</a>
           <div class="mb-20px">{{$t('used_reward')}} : -${{order.reward_price|commaFormat}}</div>
           <div class="mb-20px">{{$t('reward_back')}} : <a
-            style="color: #88c74a">${{target_reward.point|commaFormat}}</a></div>
+            style="color: #0b1d37">${{target_reward.point|commaFormat}}</a></div>
           <br>
           <div class="mb-20px">{{$t('total')}} : ${{order.total_price|commaFormat}}</div>
           <div class="mb-20px">{{$t('pay_method')}} : {{order.pay_type?'貨到付款':'線上付款'}}</div>

@@ -1,7 +1,7 @@
 #scrollUp {
 	right: 20px;
 	bottom: 20px;
-	background-color: #88c74a;
+	background-color: #0b1d37;
 	color: white;
 	padding: 10px;
 	border-radius: 999px;
@@ -11,5 +11,5 @@
 }
 #scrollUp:hover {
 	text-decoration: none;
-	background-color: #88c74ac7;
+	background-color: #0b1d37;
 }

@@ -104,7 +104,7 @@ ul.list-language li {
 }
 
 .bg-green {
-  background: #88c74a;
+  background: #0b1d37;
 }
 
 .inner-padding {
