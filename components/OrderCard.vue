@@ -9,10 +9,10 @@
       <div class="header-content pl-45px d-flex align-items-center">
         {{$t('order_number')}} : {{order.order_number}}
       </div>
-<!--      <div v-if="order.pay_status" class="right-content success">{{$t('pay_success')}}</div>-->
-<!--      <div v-else-if="order.pay_type" class="right-content success">{{$t('pay_later')}}</div>-->
-<!--      <div v-else-if="order.take_number" class="right-content success">{{order.payment_type}}</div>-->
-<!--      <div v-else class="right-content fail">{{$t('pay_fail')}}</div>-->
+      <!--      <div v-if="order.pay_status" class="right-content success">{{$t('pay_success')}}</div>-->
+      <!--      <div v-else-if="order.pay_type" class="right-content success">{{$t('pay_later')}}</div>-->
+      <!--      <div v-else-if="order.take_number" class="right-content success">{{order.payment_type}}</div>-->
+      <!--      <div v-else class="right-content fail">{{$t('pay_fail')}}</div>-->
     </div>
     <div ref="detail" class="order-detail">
       <div class="pl-45px pt-15px">
@@ -39,44 +39,44 @@
         </div>
         <div class="mb-20px">{{$t('coupon_used')}} : -${{order.coupon_price|commaFormat}} <a style="color: #88c74a"
                                                                                              v-show="order.coupon_discount_code">({{order.coupon_discount_code}})</a>
-        <div class="mb-20px">{{$t('used_reward')}} : -${{order.reward_price|commaFormat}}</div>
-        <div class="mb-20px">{{$t('reward_back')}} : <a
-            style="color: #88c74a">${{order.rewrad[0].point|commaFormat}}</a></div>
-        <br>
-        <div class="mb-20px">{{$t('total')}} : ${{order.total_price|commaFormat}}</div>
-        <div class="mb-20px">{{$t('pay_method')}} : {{order.pay_type?'貨到付款':'線上付款'}}</div>
-        <div class="mb-20px">{{$t('pay_status')}} : {{order_status}}</div>
-        <button class="no-round-btn" v-if="!(order.pay_status || order.pay_type)" @click="repay">{{$t('pay_again')}}
-        </button>
-      </div>
+          <div class="mb-20px">{{$t('used_reward')}} : -${{order.reward_price|commaFormat}}</div>
+          <div class="mb-20px">{{$t('reward_back')}} : <a
+            style="color: #88c74a">${{target_reward.point|commaFormat}}</a></div>
+          <br>
+          <div class="mb-20px">{{$t('total')}} : ${{order.total_price|commaFormat}}</div>
+          <div class="mb-20px">{{$t('pay_method')}} : {{order.pay_type?'貨到付款':'線上付款'}}</div>
+          <div class="mb-20px">{{$t('pay_status')}} : {{order_status}}</div>
+          <button class="no-round-btn" v-if="!(order.pay_status || order.pay_type)" @click="repay">{{$t('pay_again')}}
+          </button>
+        </div>
 
-      <card-border :title="$t('order_detaill')" class="mt-20px">
-        <div class="content">
-          <div
-            class="mb-20px d-flex justify-content-between align-items-center"
-            v-for="product of products"
-            :key="product.id"
-          >
-            <div class="t1 img-wrapper">
-              <img
-                :src="imageLink(image(product.productimages))"
-                style="max-width: 160px;max-height: 170px"
-                alt="product image"/>
-            </div>
-            <div class="row flex-grow-1">
-              <div class="t2 col-12 col-sm-3">{{product.name}}</div>
-              <div class="t3 col-12 col-sm-3">{{$t('specification')}} : {{product.specification.name}}</div>
-              <div class="t4 col-12 col-sm-3">{{$t('count')}} : {{product.quantity}}</div>
-              <div class="t5 col-12 col-sm-3 primary-color">
-                NT$ {{product.price*product.quantity|commaFormat}}
+        <card-border :title="$t('order_detaill')" class="mt-20px">
+          <div class="content">
+            <div
+              class="mb-20px d-flex justify-content-between align-items-center"
+              v-for="product of products"
+              :key="product.id"
+            >
+              <div class="t1 img-wrapper">
+                <img
+                  :src="imageLink(image(product.productimages))"
+                  style="max-width: 160px;max-height: 170px"
+                  alt="product image"/>
+              </div>
+              <div class="row flex-grow-1">
+                <div class="t2 col-12 col-sm-3">{{product.name}}</div>
+                <div class="t3 col-12 col-sm-3">{{$t('specification')}} : {{getSpecName(product.specification_detail)}}</div>
+                <div class="t4 col-12 col-sm-3">{{$t('count')}} : {{product.quantity}}</div>
+                <div class="t5 col-12 col-sm-3 primary-color">
+                  NT$ {{product.specification_detail.price*product.quantity|commaFormat}}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </card-border>
+        </card-border>
+      </div>
+      <div v-html="html"></div>
     </div>
-    <div v-html="html"></div>
-  </div>
   </div>
 </template>
 
@@ -106,6 +106,13 @@
       }
     },
     computed: {
+      target_reward() {
+        if (this.order.rewrad.length) {
+          return this.order.rewrad[0]
+        } else {
+          return this.order.rewrad_temp[0]
+        }
+      },
       order_status() {
         if (this.order.pay_status) {
           return this.$t('pay_success')
@@ -122,6 +129,15 @@
       }
     },
     methods: {
+      getSpecName(specification_detail){
+        let spec1_name = specification_detail.spec1_name
+        let spec2_name = specification_detail.spec2_name
+        let ret = [spec1_name]
+        if (spec2_name) {
+          ret.push(spec2_name)
+        }
+        return ret.join(" - ")
+      },
       htmlToEcpay(res) {
         this.html = res.data.html
         this.$nextTick(() => {
