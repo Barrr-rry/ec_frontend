@@ -9,6 +9,7 @@
   z-index: 6
   transition: 0.3s ease
   margin-bottom: 10px
+
   &.borderless
     border: 0
 
@@ -26,6 +27,7 @@
       // border: 0px solid $trans
       box-shadow: 0px 20px 32px 0 rgba(53, 78, 84, 0.15)
       z-index: 20
+
       .product-select
         button
           transform: scale(1) translateY(-20px)
@@ -71,11 +73,13 @@
     margin-bottom: 30px
     justify-content: center
     align-items: center
+
     img
       max-width: 100%
       max-height: 100%
       transition: 0.3s ease
-    @media screen and ( max-width: 576px )
+
+    @media screen and (max-width: 576px)
       height: auto
 
   .product-type
@@ -91,12 +95,15 @@
     transition: 0.4s
     visibility: visible
     text-align: center
+
     .hover-primary
       &:hover
         color: $primary-color
+
   .product-price
     @include font-medium(20px, $title, 1)
     transition: .4s ease
+
     del
       @include font-regular(16px, $disable, 1)
       display: inline-block
@@ -108,6 +115,7 @@
     top: 100%
     z-index: 5
     bottom: 0
+
     button
       height: 40px
       width: 40px
@@ -115,10 +123,11 @@
       transiton: 0.4s
 
   .product-price
-    font-size: 20px!important
+    font-size: 20px !important
 
 .product.list-view
   flex-direction: row
+
   &:after
     display: none
 
@@ -147,11 +156,11 @@
                 transform: translateY(0)
 
 
-
   .product-img_block
     text-align: center
     flex: 1 1 33.3333%
     padding-right: 30px
+
     .product-img
       margin-bottom: 0
       height: auto
@@ -176,6 +185,7 @@
     padding-right: 30px
     border-right: 1px solid $line
     position: relative
+
     .product-name
       @include link-medium(20px, $title, 24px, $primary-color)
 
@@ -184,6 +194,7 @@
 
     .product-rated
       margin-bottom: 15px
+
       i
         color: #fac451
         font-size: 13px
@@ -199,6 +210,7 @@
 
     .product-avaiable
       @include font-regular(14px, $regular, 26px)
+
       span
         color: $primary-color
         display: inline-block
@@ -216,6 +228,7 @@
   .product-select_list
     flex: 1 1 33.3333%
     padding-left: 30px
+
     .delivery-status
       width: 100%
       display: block
@@ -229,6 +242,7 @@
       color: $primary-color
       font-size: 24px
       margin-bottom: 25px
+
       del
         font-size: 14px
         display: block
@@ -239,19 +253,23 @@
       margin-bottom: 10px
       width: 100%
       padding: 10px
+
       &:last-child
         margin-bottom: 0
 
 
     .add-to-compare
       border: 2px solid $line
+
       &:hover
         border: 2px solid $primary-color
 
 .product.full-list-view
   @extend .product.list-view
+
   .product-img_block
     flex: 1 1 25%
+
     .product-img
       height: 160px
 
@@ -273,6 +291,7 @@
 
   .product-info_block
     text-align: center
+
     .product-rated
       display: none
 
@@ -290,6 +309,7 @@
   display: flex
   align-items: center
   margin-bottom: 30px
+
   &:hover
     .mini-product_img
       border: 1px solid $primary-color
@@ -297,6 +317,7 @@
 
   &.border
     border: 1px solid $line
+
     .mini-product_img
       border: 0
 
@@ -304,6 +325,7 @@
   &.column
     border-bottom: 1px solid $line
     margin-bottom: 0
+
     .mini-product_img
       border: 0
 
@@ -319,7 +341,6 @@
         border: 1px solid $coffee
 
 
-
   .mini-product_img
     width: 100px
     height: 100px
@@ -327,34 +348,32 @@
     margin-right: 25px
     padding: 10px
     transition: border 0.3s ease
+
     a
       display: flex
       width: 100%
       height: 100%
       justify-content: center
       align-items: center
+
       img
         max-width: 100%
         max-height: 100%
 
 
-
   .mini-product_info
     flex-grow: 1
+
     a
       @include link-medium(18px, $title, 1, $primary-color)
       margin-bottom: 10px
 
     p
       @include font-medium(18px, $title, 1)
+
       del
         @include font-regular(16px, $disable, 1)
         display: inline-block
-
-
-
-
-
 
 
 @include mobile
@@ -388,10 +407,12 @@
 
   .product.list-view
     flex-direction: column
+
     .product-img_block
       margin-bottom: 30px
       width: 100%
       padding-right: 0
+
       .product-img
         height: 138px
 
@@ -404,6 +425,7 @@
       padding-right: 0
       border-right: 0
       margin-bottom: 30px
+
       .add-to-wishlist
         right: 0
 
@@ -419,15 +441,14 @@
         display: none
 
 
-
   .no-gutters-sm
     margin-right: 0
     margin-left: 0
-    &> .col,
-    &> [class*="col-"]
+
+    & > .col,
+    & > [class*="col-"]
       padding-right: 0
       padding-left: 0
-
 
 
 @include tablet
@@ -454,13 +475,13 @@
 
     .product-info_block
       flex: 1 1 33.33333%
+
       .product-describe--1
         display: none
 
 
     .product-select_list
       flex: 1 1 33.33333%
-
 
 
 @include small-desktop
@@ -472,7 +493,6 @@
       flex: 1 1 30%
 
 
-
 @include desktop
   .product.full-list-view
     .product-info_block
@@ -480,7 +500,6 @@
 
     .product-select_list
       flex: 1 1 30%
-
 
 
 @include medium-desktop
@@ -494,6 +513,7 @@
 
 .product-label
   position: relative
+
 .label-name
   width: 27px
   height: 30px
@@ -508,8 +528,9 @@
   top: 5px
   right: 5px
   font-family: NotoSansTC-medium
-  @media screen and ( max-width: 768px )
+  @media screen and (max-width: 768px)
     color: #ffffff !important
+
 .ribbon-name
   transform: rotate(44deg)
   font-size: 12px
@@ -522,7 +543,7 @@
   position: absolute
   top: 20px
   right: 0
-  @media screen and ( max-width: 768px )
+  @media screen and (max-width: 768px)
     color: #ffffff !important
 /** 標籤樣式 **/
 .label-green
@@ -534,6 +555,27 @@
   right: 20px
   top: 0
   z-index: 50
+
+.label-red
+  display: inline-block
+  width: 46px
+  height: 46px
+  background: url(../images/product-label/label-red.svg) no-repeat center
+  position: absolute
+  right: 20px
+  top: 0
+  z-index: 50
+
+.label-blue
+  display: inline-block
+  width: 46px
+  height: 46px
+  background: url(../images/product-label/label-blue.svg) no-repeat center
+  position: absolute
+  right: 20px
+  top: 0
+  z-index: 50
+
 .label-pink
   display: inline-block
   width: 46px
@@ -543,6 +585,7 @@
   right: 20px
   top: 0
   z-index: 50
+
 .label-yellow
   display: inline-block
   width: 46px
@@ -562,6 +605,7 @@
   right: 0
   top: 0
   z-index: 50
+
 .ribbon-orange
   display: inline-block
   width: 70px
@@ -571,6 +615,7 @@
   right: 0
   top: 0
   z-index: 50
+
 .ribbon-pink
   display: inline-block
   width: 70px
@@ -580,6 +625,7 @@
   right: 0
   top: 0
   z-index: 50
+
 .ribbon-yellow
   display: inline-block
   width: 70px
