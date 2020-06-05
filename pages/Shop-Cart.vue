@@ -69,7 +69,7 @@
                     scope="col"
                     style="min-width: 150px;"
                   >
-                    {{$t('specification')}}
+                    {{$t('size')}}
                   </th>
                   <th class="product-price" scope="col">{{$t('price')}}</th>
                   <th
@@ -101,11 +101,11 @@
               <input
                 class="no-round-input coupon-input"
                 type="text"
-                :placeholder="$t('coupon_code')"
+                :placeholder="$t('use_coupon_code')"
                 v-model="coupon"
                 style="width: 200px"
               />
-              <button class="no-round-btn" @click="changeCoupon">{{$t('use_coupon')}}</button>
+              <button class="no-round-btn" @click="changeCoupon" style="width: 180px">{{$t('use_coupon')}}</button>
             </div>
             <div style="color: red">{{this.coupon_message}}</div>
             <div class="coupon mt-20px">
@@ -125,12 +125,15 @@
             </div>
             <div class="coupon-msg"
                  v-if="$store.state.currency==='tw'"
-                 v-show="info.member_number"
+                 v-show="info_reward_total>0"
+                 style="color: red"
             >
               {{$t('have_now')}} <span class="primary-color">{{info_reward_total}}</span>
               {{$t('point_reward')}}
+              <a>
+                {{$t('to')}}{{info.reward[0].end_date}}{{$t('overr')}}
+              </a>
             </div>
-
             <div class="coupon-msg"
                  v-else
                  v-show="info.member_number"
@@ -152,10 +155,6 @@
                 </colgroup>
                 <tbody>
                 <tr>
-                  <th>{{$t('total_weight')}}</th>
-                  <td>{{cartVm.weight}} kg</td>
-                </tr>
-                <tr>
                   <th>{{$t('order_total')}}</th>
                   <td
                     v-if="$store.state.currency==='tw'"
@@ -168,7 +167,9 @@
                 </tr>
                 <!--活動折抵-->
                 <tr v-for="el in cartVm.in_activity_obj" :key="el.activity_id">
-                  <th>{{el.activity_detail.ch_name}}</th>
+                  <th><b>組合優惠折抵</b></th>
+
+                  <th><p>{{el.activity_detail.ch_name}}</p></th>
                   <td>
                     <p class="primary-color"
                        v-if="$store.state.currency==='tw'"
@@ -219,7 +220,7 @@
                   class="normal-btn"
                   @click="checkOrder"
                 >
-                  {{$t('next_write')}}
+                  {{$t('next')}}
                 </button>
                 <div style="color: red">{{weight_message}}</div>
               </div>

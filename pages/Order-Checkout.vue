@@ -55,12 +55,13 @@
                   class="input-radio-display"
                 >
                   <!--台灣-->
+                  <a class="col-4"></a>
                   <input type="radio" id="radio_location1" :value="1" v-model="location">
-                  <label for="radio_location1">台灣</label>
+                  <label for="radio_location1" class="col-3">台灣</label>
                   <!--海外-->
                   <input v-if="cash_on_delivery_weight_ok" type="radio" id="radio_location2" :value="2"
                          v-model="location">
-                  <label v-if="cash_on_delivery_weight_ok" for="radio_location2">海外（Oversea）</label>
+                  <label v-if="cash_on_delivery_weight_ok" for="radio_location2" class="col-3">海外（Oversea）</label>
                 </CInput>
               </div>
               <div class="form-group" v-if="!loading">
@@ -71,11 +72,12 @@
                   class="input-radio-display"
                 >
                   <!--線上付款-->
+                  <a class="col-4"></a>
                   <input type="radio" id="payradio_1" :value="0" v-model="pay_type">
-                  <label for="payradio_1">{{$t('pay_online')}}</label>
+                  <label for="payradio_1" class="col-3">{{$t('pay_online')}}</label>
                   <!--貨到付款-->
                   <input v-if="delivery_ok&&location!==2" type="radio" id="payradio_2" :value="1" v-model="pay_type">
-                  <label v-if="delivery_ok&&location!==2" for="payradio_2">{{$t('pay_later')}}</label>
+                  <label v-if="delivery_ok&&location!==2" for="payradio_2" class="col-3">{{$t('pay_later')}}</label>
                 </CInput>
               </div>
               <!--運送方式-->
@@ -86,16 +88,17 @@
                   :input_has_bg="true"
                   class="input-radio-display"
                 >
+                  <a class="col-4"></a>
                   <span v-for="el of in_weight_and_location_freeshippings" style="margin-right: 3px">
                     <input type="radio" :id="`radio_${el.id}`" :value="el.id" v-model="freeshipping_id"
                            :disabled="pay_type===1&&!el.cash_on_delivery"
                     >
                     <label :for="`radio_${el.id}`"
-                           :class="pay_type===1&&!el.cash_on_delivery?'disabled':''">{{el.frontend_name}}</label>
+                           :class="pay_type===1&&!el.cash_on_delivery?'disabled':''"
+                            class="col-3">{{el.frontend_name}}</label>
+
                   </span>
                 </CInput>
-                <span class="primary-color"
-                      style="font-size: 12px">{{freeshipping_target?freeshipping_target.title:''}}</span>
               </div>
               <!--常用地址 button-->
               <div class="form-group" v-if="freeshipping_target&&!freeshipping_target.cash_on_delivery">
@@ -106,8 +109,7 @@
               <div v-if="freeshipping_target&&!freeshipping_target.cash_on_delivery&&location==1">
                 <div class="form-group">
                   <CInput
-                    :title="$t('shipping_code')"
-                    placeholder=""
+                    :placeholder="$t('shipping_code')+'*'"
                     :required="true"
                     name="shipping_area"
                     :input_has_bg="true"
@@ -115,8 +117,7 @@
                 </div>
                 <div class="form-group">
                   <CInput
-                    :title="$t('address')"
-                    placeholder=""
+                    :placeholder="$t('address')+'*'"
                     :required="true"
                     name="shipping_address"
                     :input_has_bg="true"
@@ -124,9 +125,8 @@
                 </div>
                 <div class="form-group">
                   <CInput
-                    :title="$t('shipping_name')"
+                    :placeholder="$t('shipping_name')+'*'"
                     :required="true"
-                    placeholder=""
                     name="shipping_name"
                     :input_has_bg="true"
                     :validators="[recieveName]"
@@ -134,9 +134,25 @@
                 </div>
                 <div class="form-group">
                   <CInput
-                    :title="$t('shipping_phonee')"
-                    :required="true"
+                    title="稱謂"
                     placeholder=""
+                    :input_has_bg="true"
+                    class="input-radio-display"
+                  >
+                    <!--台灣-->
+                    <a class="col-8"></a>
+                    <input type="radio" id="radio_location1" :value="1" v-model="location">
+                    <label for="radio_location1" class="col-3">先生</label>
+                    <!--海外-->
+                    <input v-if="cash_on_delivery_weight_ok" type="radio" id="radio_location2" :value="2"
+                           v-model="location">
+                    <label v-if="cash_on_delivery_weight_ok" for="radio_location2" class="col-3">小姐</label>
+                  </CInput>
+                </div>
+                <div class="form-group">
+                  <CInput
+                    :placeholder="$t('shipping_phonee')+'*'"
+                    :required="true"
                     name="phone"
                     :input_has_bg="true"
                     :validators="[checkPhone]"
@@ -171,13 +187,29 @@
                     </select>
                   </CInput>
                 </div>
+                <div class="form-group">
+                  <CInput
+                    title="Gender"
+                    placeholder=""
+                    :input_has_bg="true"
+                    class="input-radio-display"
+                  >
+                    <!--台灣-->
+                    <a class="col-8"></a>
+                    <input type="radio" id="radio_location1" :value="1" v-model="location">
+                    <label for="radio_location1" class="col-3">Me.</label>
+                    <!--海外-->
+                    <input v-if="cash_on_delivery_weight_ok" type="radio" id="radio_location2" :value="2"
+                           v-model="location">
+                    <label v-if="cash_on_delivery_weight_ok" for="radio_location2" class="col-3">Mrs.</label>
+                  </CInput>
+                </div>
                 <!--姓名：first name/last name-->
                 <div class="row">
                   <div class="form-group col-6">
                     <CInput
-                      title="First name"
+                      placeholder="First name*"
                       :required="true"
-                      placeholder=""
                       name="first_name"
                       :input_has_bg="true"
                       :validators="[recieveName]"
@@ -185,9 +217,8 @@
                   </div>
                   <div class="form-group col-6">
                     <CInput
-                      title="Last name"
+                      placeholder="Last name*"
                       :required="true"
-                      placeholder=""
                       name="last_name"
                       :input_has_bg="true"
                       :validators="[recieveName]"
@@ -197,9 +228,8 @@
                 <!--地址:Address-->
                 <div class="form-group">
                   <CInput
-                    title="Address"
+                    placeholder="Address*"
                     :required="true"
-                    placeholder=""
                     name="shipping_address"
                     :input_has_bg="true"
                   />
@@ -207,9 +237,8 @@
                 <!--大樓名字-->
                 <div class="form-group">
                   <CInput
-                    title="Apartment /Suite /  Building( Optional )"
+                    placeholder="Apartment /Suite /  Building( Optional )"
                     :required="false"
-                    placeholder=""
                     name="building"
                     :input_has_bg="true"
                   />
@@ -217,9 +246,8 @@
                 <!--公司名字-->
                 <div class="form-group">
                   <CInput
-                    title="Company name( Optional )"
+                    placeholder="Company name( Optional )"
                     :required="false"
-                    placeholder=""
                     name="company_name"
                     :input_has_bg="true"
                   />
@@ -228,18 +256,16 @@
                 <div class="row">
                   <div class="form-group col-6">
                     <CInput
-                      title="City"
+                      placeholder="City*"
                       :required="true"
-                      placeholder=""
                       name="city"
                       :input_has_bg="true"
                     />
                   </div>
                   <div class="form-group col-6">
                     <CInput
-                      title="Postal code"
+                      placeholder="Postal code*"
                       :required="true"
-                      placeholder=""
                       name="postal_code"
                       :input_has_bg="true"
                     />
@@ -249,9 +275,44 @@
                 <!--電話-->
                 <div class="form-group">
                   <CInput
-                    title="Phone number"
+                    placeholder="Phone number*"
                     :required="true"
-                    placeholder=""
+                    name="phone"
+                    :input_has_bg="true"
+                    :validators="[checkPhone]"
+                  />
+                </div>
+                <div class="form-group"
+                     v-if="selected_memberstores.length!==0||!freeshipping_target.use_ecpay_delivery">
+                  <div class="row">
+                    <div class="col-6">
+                      <CInput
+                        placeholder="Height"
+                        :required="false"
+                        name="phone"
+                        :input_has_bg="true"
+                        :validators="[checkPhone]"
+                        style="width: 360px"
+                        suffix="RMB"
+                      />
+                    </div>
+                    <div class="col-6">
+                      <CInput
+                        placeholder="Weight"
+                        :required="false"
+                        name="phone"
+                        :input_has_bg="true"
+                        :validators="[checkPhone]"
+                        style="width: 360px"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group"
+                     v-if="selected_memberstores.length!==0||!freeshipping_target.use_ecpay_delivery">
+                  <CInput
+                    placeholder="Birthday"
+                    :required="false"
                     name="phone"
                     :input_has_bg="true"
                     :validators="[checkPhone]"
@@ -276,18 +337,16 @@
                 </button>
                 <div class="form-group" v-if="!freeshipping_target.use_ecpay_delivery">
                   <CInput
-                    title="分店名稱"
                     :required="true"
-                    placeholder=""
+                    placeholder="分店名稱*"
                     name="store_name"
                     :input_has_bg="true"
                   />
                 </div>
                 <div class="form-group" v-if="!freeshipping_target.use_ecpay_delivery">
                   <CInput
-                    title="分店店號"
+                    placeholder="分店店號*"
                     :required="true"
-                    placeholder=""
                     name="store_id"
                     :input_has_bg="true"
                   />
@@ -295,20 +354,71 @@
                 <div class="form-group"
                      v-if="selected_memberstores.length!==0||!freeshipping_target.use_ecpay_delivery">
                   <CInput
-                    :title="$t('shipping_name')"
+                    :placeholder="$t('shipping_name')+'*'"
                     :required="true"
-                    placeholder=""
                     name="shipping_name"
                     :input_has_bg="true"
                     :validators="[recieveName]"
                   />
                 </div>
+                <div class="form-group">
+                  <CInput
+                    title="稱謂"
+                    placeholder=""
+                    :input_has_bg="true"
+                    class="input-radio-display"
+                  >
+                    <!--台灣-->
+                    <a class="col-8"></a>
+                    <input type="radio" id="radio_location1" :value="1" v-model="location">
+                    <label for="radio_location1" class="col-3">先生</label>
+                    <!--海外-->
+                    <input v-if="cash_on_delivery_weight_ok" type="radio" id="radio_location2" :value="2"
+                           v-model="location">
+                    <label v-if="cash_on_delivery_weight_ok" for="radio_location2" class="col-3">小姐</label>
+                  </CInput>
+                </div>
                 <div class="form-group"
                      v-if="selected_memberstores.length!==0||!freeshipping_target.use_ecpay_delivery">
                   <CInput
-                    :title="$t('shipping_phonee')"
+                    :placeholder="$t('shipping_phonee')+'*'"
                     :required="true"
-                    placeholder=""
+                    name="phone"
+                    :input_has_bg="true"
+                    :validators="[checkPhone]"
+                  />
+                </div>
+                <div class="form-group"
+                     v-if="selected_memberstores.length!==0||!freeshipping_target.use_ecpay_delivery">
+                  <div class="row">
+                    <div class="col-6">
+                      <CInput
+                        placeholder="身高"
+                        :required="false"
+                        name="phone"
+                        :input_has_bg="true"
+                        :validators="[checkPhone]"
+                        style="width: 360px"
+                        suffix="RMB"
+                      />
+                    </div>
+                    <div class="col-6">
+                      <CInput
+                        placeholder="體重"
+                        :required="false"
+                        name="phone"
+                        :input_has_bg="true"
+                        :validators="[checkPhone]"
+                        style="width: 360px"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group"
+                     v-if="selected_memberstores.length!==0||!freeshipping_target.use_ecpay_delivery">
+                  <CInput
+                    placeholder="生日"
+                    :required="false"
                     name="phone"
                     :input_has_bg="true"
                     :validators="[checkPhone]"
@@ -353,8 +463,7 @@
 
               <div class="form-group">
                 <CInput
-                  :title="$t('ororder_remark')"
-                  placeholder=""
+                  :placeholder="$t('ororder_remark')"
                   :input_has_bg="true"
                 >
                   <textarea class="textarea-form-bg" name="" cols="30" rows="7" v-model="order_remark"
@@ -388,10 +497,6 @@
                       </td>
                     </tr>
                     <tr>
-                      <th>{{$t('total_weight')}}</th>
-                      <td>{{total_weight}} kg</td>
-                    </tr>
-                    <tr>
                       <th>{{$t('order_total')}}</th>
                       <td class="price"
                           v-if="$store.state.currency==='tw'"
@@ -400,21 +505,6 @@
                       <td class="price"
                           v-else
                       >${{currencyChange(total)|commaFormat}} ($NT{{total|commaFormat}})
-                      </td>
-                    </tr>
-                    <tr>
-                      <th>{{$t('shipping')}}</th>
-                      <td>
-                        <div class="text-right"
-                             v-if="$store.state.currency==='tw'"
-                        >+${{freeshipping_price|commaFormat}}
-                          {{freeshipping_price>0?'':$t('over_freeshipping')}}
-                        </div>
-                        <div class="text-right"
-                             v-else
-                        >+${{currencyChange(freeshipping_price)|commaFormat}} (+$NT{{freeshipping_price|commaFormat}})
-                          {{freeshipping_price>0?'':$t('over_freeshipping')}}
-                        </div>
                       </td>
                     </tr>
                     <tr v-show="coupon&&coupon.status&&coupon.role<=total">
@@ -431,6 +521,9 @@
                       </td>
                     </tr>
                     <!--活動折抵-->
+                    <tr>
+                      <th><b>組合優惠折抵</b></th>
+                    </tr>
                     <tr v-for="el in in_activity_obj" :key="el.activity_id">
                       <th>{{el.activity_detail.ch_name}}</th>
                       <td>
@@ -455,6 +548,21 @@
                         <div class="primary-color text-right"
                              v-else
                         >-${{currencyChange(reward_discount)|commaFormat}} (-$NT{{reward_discount|commaFormat}})
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>{{$t('shipping')}}</th>
+                      <td>
+                        <div class="text-right"
+                             v-if="$store.state.currency==='tw'"
+                        >+${{freeshipping_price|commaFormat}}
+                          {{freeshipping_price>0?'':'0'}}
+                        </div>
+                        <div class="text-right"
+                             v-else
+                        >+${{currencyChange(freeshipping_price)|commaFormat}} (+$NT{{freeshipping_price|commaFormat}})
+                          {{freeshipping_price>0?'':$t('over_freeshipping')}}
                         </div>
                       </td>
                     </tr>
