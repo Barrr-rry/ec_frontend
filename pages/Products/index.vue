@@ -5,35 +5,7 @@
     <div class="shop-layout">
       <div class="container">
         <div class="row">
-          <div class="col-xl-3">
-            <div class="shop-sidebar fixed">
-              <button id="filter-sidebar--closebtn" class="no-round-btn">
-                {{$t('close_filter')}}
-              </button>
-              <div class="shop-sidebar_department">
-                <div class="department_top mini-tab-title underline">
-                  <h2 class="title">{{type_name}}</h2>
-                </div>
-                <div class="department_bottom">
-                  <ul>
-                    <li
-                      v-for="link of type_links"
-                      :key="link.to"
-                    >
-                      <nuxt-link class="department-link"
-                                 :to="link.to"
-                      >{{link.name}}
-                      </nuxt-link
-                      >
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <price-filter></price-filter>
-            </div>
-            <div class="filter-sidebar--background" style="display: none"></div>
-          </div>
-          <div class="col-xl-9">
+          <div class="col-xl-12">
             <div class="shop-grid-list">
               <div class="shop-products">
                 <div class="shop-products_top mini-tab-title underline">
