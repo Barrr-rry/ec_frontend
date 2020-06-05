@@ -81,6 +81,9 @@
         </div>
       </div>
     </div>
+    <div class="header-only-logo d-flex justify-content-center">
+      <img src="/images/webs/logo.svg" alt="" style="width: 280px">
+    </div>
     <nav class="navigation d-flex align-items-center">
       <div class="container">
         <div class="row">
