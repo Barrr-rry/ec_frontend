@@ -42,7 +42,7 @@ services:
       - NGINX_PROXY_CONTAINER=nginx-proxy
 
   nginx:
-    container_name: "ezgo"
+    container_name: "nginx-container"
     build:
       context: .
       dockerfile: DockerfileNginx-test
@@ -54,10 +54,10 @@ services:
     restart: always
 
     environment:
-      - VIRTUAL_HOST=li1858-106.members.linode.com
+      - VIRTUAL_HOST=li1871-48.members.linode.com
       - VIRTUAL_NETWORK=nginx-proxy
       - VIRTUAL_PORT=80
-      - LETSENCRYPT_HOST=li1858-106.members.linode.com
+      - LETSENCRYPT_HOST=li1871-48.members.linode.com
       - LETSENCRYPT_EMAIL=max@conquers.co
     depends_on:
       - "frontend"
