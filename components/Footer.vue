@@ -1,7 +1,7 @@
 <template>
   <div>
     <footer style="margin-top: 100px">
-      <div class="bg-green inner-padding">
+      <div class="bg-green" style="height: 350px; padding-top: 50px">
         <div class="container">
           <div class="row">
             <div
@@ -56,21 +56,8 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="footer-credit">
-        <div class="container">
-          <div class="author-footer row">
-            <p
-              class="left col-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-start l-footer__footer"
-            >
-              <span class="color1">© EZGO {{$t('company_name')}}</span>
-            </p>
-            <div
-              class="right col-12 col-md-5 d-flex justify-content-center justify-content-md-end"
-            >
-              <img class="payment-method" src="/images/webs/visa.svg" alt=""/>
-            </div>
-          </div>
+        <div class="fooer-bottom-box d-flex justify-content-center">
+          <img class="payment-method" src="/images/webs/visa.svg" alt=""/>
         </div>
       </div>
     </footer>
