@@ -89,9 +89,11 @@
                         {{getProcessPrice(price)}}
                       </h3>
                     </div>
-                    <div class="quantity-select d-flex align-items-center" style="margin-bottom: 10px">
-                      <label class="fz16px">{{product.level1_title}} :</label>
-                      <div class="d-flex">
+                    <div class="quantity-select d-flex" style="margin-bottom: 10px">
+                      <div style="padding-top: 4px">
+                        <label class="fz16px">{{product.level1_title}} :</label>
+                      </div>
+                      <div>
                         <VSelectButton
                           v-for="el of spec_level1_list"
                           :key="el.id"
@@ -102,11 +104,13 @@
                         </VSelectButton>
                       </div>
                     </div>
-                    <div class="quantity-select d-flex align-items-center" style="margin-bottom: 10px"
+                    <div class="quantity-select d-flex" style="margin-bottom: 10px"
                          v-if="has_spec_level2"
                     >
-                      <label class="fz16px">{{product.level2_title}} :</label>
-                      <div style="display: inline-block">
+                      <div style="padding-top: 4px">
+                        <label class="fz16px">{{product.level2_title}} :</label>
+                      </div>
+                      <div>
                         <VSelectButton
                           v-for="el of spec_level2_list"
                           :key="el.id"
