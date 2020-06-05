@@ -15,10 +15,26 @@
               class="header-right d-flex flex-md-row justify-content-end align-items-center"
             >
               <div class="social-link d-flex">
-                <a href="https://www.facebook.com/%E6%B1%B4%E5%88%A9%E8%B3%BC-Ezgo-107385547368839/" target="_blank"><i
-                  class="fab fa-facebook-f"> </i></a>
-                <a href="https://line.me/ti/p/1qvbcczVSW" target="_blank"><i class="fab fa-line"> </i></a>
-                <a href=""><i class="fab fa-twitter" @click="share('twitter')"></i></a>
+                <ImageHover
+                  src="/images/webs/ig-origin.svg"
+                  hover="/images/webs/ig-origin.svg"
+                />
+                <ImageHover
+                  src="/images/webs/twitter-origin.svg"
+                  hover="/images/webs/twitter-origin.svg"
+                />
+                <ImageHover
+                  src="/images/webs/line-origin.svg"
+                  hover="/images/webs/line-origin.svg"
+                />
+                <ImageHover
+                  src="/images/webs/fb-origin.svg"
+                  hover="/images/webs/fb-origin.svg"
+                />
+<!--                <a href="https://www.facebook.com/%E6%B1%B4%E5%88%A9%E8%B3%BC-Ezgo-107385547368839/" target="_blank"><i-->
+<!--                  class="fab fa-facebook-f"> </i></a>-->
+<!--                <a href="https://line.me/ti/p/1qvbcczVSW" target="_blank"><i class="fab fa-line"> </i></a>-->
+<!--                <a href=""><i class="fab fa-twitter" @click="share('twitter')"></i></a>-->
               </div>
               <div class="language">
                 <div class="selected-language">
@@ -377,9 +393,13 @@
 <script>
   import {mapState} from 'vuex'
   import mixinCategory from '@/mixins/mixinCategory'
+  import ImageHover from "@/components/ImageHover"
 
   export default {
     mixins: [mixinCategory],
+    components: {
+      ImageHover
+    },
     data() {
       return {
         init_slideup: false,
