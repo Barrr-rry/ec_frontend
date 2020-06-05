@@ -59,30 +59,53 @@
                 </div>
                 <div class="d-flex mt-3">
                   <!--忠誠獎勵-->
-                  <card-border :title="$t('loyalty_reward_m')">
+                  <card-border :title="$t('reward_total')">
                     <div class="d-flex mb-15px align-items-center">
-                      目前的獎勵金
+                      目前回饋點數
                       <InfoTooltip
                         :content="`下次消費可折抵 ${myself.record_info.record.total_point} 元新台幣`"
                       />
-                      : {{myself.record_info.record.total_point}} 元
-                      <span v-if="myself.record_info.record.year">（最近一筆 {{myself.record_info.record.last_point}}
-                      元獎金將於 {{myself.record_info.record.year}} 年 {{myself.record_info.record.month}} 月 {{myself.record_info.record.day}} 日 到期）</span>
+                      :
+                      <div style="  width: 71px;
+                                    height: 24px;
+                                    font-family: NotoSansTC;
+                                    font-size: 24px;
+                                    font-weight: 500;
+                                    font-stretch: normal;
+                                    font-style: normal;
+                                    line-height: 1;
+                                    letter-spacing: 4px;
+                                    color: #dc5555;">
+                        {{myself.record_info.record.total_point}}
+                      </div>
+                      點 &nbsp&nbsp
+                      <span v-if="myself.record_info.record.year">回饋點數將於 {{myself.record_info.record.year}} 年 {{myself.record_info.record.month}} 月 {{myself.record_info.record.day}} 日 到期</span>
                     </div>
-                    <div class="d-flex mb-15px red-color align-items-center">
-                      待生效獎勵金
+                    <div class="d-flex mb-15px align-items-center">
+                      待生效回饋點數
                       <InfoTooltip
                         :content="`獎勵金生效日為消費後 ${myself.record_info.still_day} 天`"
-                      />
-                      : {{myself.record_info.record_temp.total_point}} 元
-                      <span v-if="myself.record_info.record_temp.year">（最近一筆 {{myself.record_info.record_temp.last_point}} 元獎金將於
-                      {{myself.record_info.record_temp.year}} 年 {{myself.record_info.record_temp.month}} 月 {{myself.record_info.record_temp.day}} 日 生效）</span>
+                      />：
+                      <div style="  width: 71px;
+                                    height: 24px;
+                                    font-family: NotoSansTC;
+                                    font-size: 24px;
+                                    font-weight: 500;
+                                    font-stretch: normal;
+                                    font-style: normal;
+                                    line-height: 1;
+                                    letter-spacing: 4px;">
+                        {{myself.record_info.record_temp.total_point}}
+                      </div>
+                      點  &nbsp&nbsp
+                      <span v-if="myself.record_info.record_temp.year">最近一筆 {{myself.record_info.record_temp.last_point}} 元回饋金將於
+                      {{myself.record_info.record_temp.year}} 年 {{myself.record_info.record_temp.month}} 月 {{myself.record_info.record_temp.day}} 日 生效</span>
                     </div>
                     <!--忠誠獎勵 a link-->
                     <div class="mb-15px d-flex justify-content-end">
                       <nuxt-link
                         to="/rewards"
-                        class="banner-btn normal-btn d-flex align-items-center award-parrent"
+                        class="no-round-btn normal-btn d-flex align-items-center"
                         style="height: 50px; padding: 0px 20px;"
                       >
                         <i class="award mr-5px"></i>
@@ -91,7 +114,7 @@
                     </div>
                     <!--TABLE-->
                     <div class="table-responsive">
-                      <table class="table reward-record-table">
+                      <table class="table reward-record-table" style="background: #eaeff4">
                         <thead>
                         <tr>
                           <th scope="col">更新日期</th>
@@ -126,7 +149,7 @@
                         <div
                           class="col-3 col-sm-3 col-md-2 p0 label align-items-center"
                         >
-                          {{$t('member_name')}}：
+                          {{$t('country')}}：
                         </div>
                         <div class="d-flex align-items-center">
                           {{ myself.name }}
@@ -145,49 +168,10 @@
                           {{ myself.account }}
                         </div>
                         <div class="col-xs">
-                          <div class="primary-color" v-if="myself.validate">{{$t('have_verification')}}</div>
+                          <div class="primary-color" v-if="myself.validate"><b>{{$t('have_verification')}}</b></div>
                           <div class="primary-color pointer" v-else @click="no_validate_modal=true">
                             {{$t('noo_verification')}}
                           </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="d-flex mb-20px">
-                      <div class="d-flex flex-grow-1 align-content-center">
-                        <div
-                          class="col-3 col-sm-3 col-md-2 p0 label align-items-center"
-                        >
-                          {{$t('cellphone')}}：
-                        </div>
-                        <div class="d-flex align-items-center">
-                          {{ myself.cellphone }}
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="d-flex mb-20px">
-                      <div class="d-flex flex-grow-1 align-content-center">
-                        <div
-                          class="col-3 col-sm-3 col-md-2 p0 label align-items-center"
-                        >
-                          {{$t('phone')}}：
-                        </div>
-                        <div class="d-flex align-items-center">
-                          {{ myself.phone }}
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="d-flex mb-20px">
-                      <div class="d-flex flex-grow-1 align-content-center">
-                        <div
-                          class="col-3 col-sm-3 col-md-2 p0 label align-items-center"
-                        >
-                          LINE ID：
-                        </div>
-                        <div class="d-flex align-items-center">
-                          {{ myself.line_id }}
                         </div>
                       </div>
                     </div>
@@ -304,7 +288,7 @@
                       <div class="mb-20px d-flex align-items-center input-radio-display">
                         <!--                        <input type="radio" v-model="default_memberaddress" :value="el.id"/>-->
                         <div class="primary-color" v-if="default_memberaddress===el.id">
-                          {{$t('default_memberaddress')}}
+                          <b>{{$t('default_memberaddress')}}</b>
                         </div>
                         <button
                           class="no-round-btn"

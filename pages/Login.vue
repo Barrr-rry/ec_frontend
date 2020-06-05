@@ -6,7 +6,7 @@
       <div class="container">
         <div class="row">
           <div class="col-12 col-md-6 mx-auto">
-            <h1 class="title">{{$t('login')}}</h1>
+            <h1 class="title">{{$t('member')}}{{$t('login')}}</h1>
             <CForm
               @submit="submit"
               ref="form"

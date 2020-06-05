@@ -23,8 +23,8 @@
               style="-webkit-line-clamp:2;display: -webkit-box;-webkit-box-orient: vertical;overflow: hidden;height: 48px; font-weight:bold;">{{product.name}}
                 </span>
         <del v-if="fake_price">{{getProcessPrice(fake_price)}}</del>
-        <h3 class="product-price" style="text-align: -webkit-center;">{{getProcessPrice(price)}}
-        </h3>
+        <b class="product-price" style="text-align: -webkit-center; color: red">{{getProcessPrice(price)}}
+        </b>
         <p class="product-describe">{{product.sub_title}}</p>
         <h5 class="product-avaiable">{{$t('weight')}}: <span>{{product.weight}} {{$t('kg')}}</span></h5>
       </div>
