@@ -81,7 +81,9 @@
         </div>
       </div>
     </div>
-    <div class="header-only-logo d-flex justify-content-center">
+    <div class="header-only-logo d-flex justify-content-center"
+         v-if="$route.name==='index'"
+    >
       <img src="/images/webs/logo.svg" alt="" style="width: 280px">
     </div>
     <nav class="navigation d-flex align-items-center">
