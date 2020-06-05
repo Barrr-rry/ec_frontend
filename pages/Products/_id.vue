@@ -125,7 +125,7 @@
 
                     <div class="quantity-select d-flex align-items-center">
                       <label class="fz16px">{{$t('count')}} :</label>
-                      <counter class="ml-5px" v-model="quantity"
+                      <counter v-model="quantity"
                                :max="max_quantity"
                                :disabled="!choose_specification_detail"
                       ></counter>
