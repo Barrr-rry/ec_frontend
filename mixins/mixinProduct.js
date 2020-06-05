@@ -156,9 +156,9 @@ export default {
         return null
       }
       if (Array.isArray(price)) {
-        return `$${this.priceToString(price[0])}~$${this.priceToString(price[1])}`
+        return `NT$${this.priceToString(price[0])}~NT$${this.priceToString(price[1])}`
       }
-      return `$${this.priceToString(price)}`
+      return `NT$${this.priceToString(price)}`
     },
     priceToString(price) {
       return this.commaFormat(this.currencyChange(price))
