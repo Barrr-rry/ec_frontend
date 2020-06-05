@@ -7,7 +7,7 @@
       <!--地區-->
       <div class="d-flex mb-20px">
         <div class="d-flex flex-grow-1 align-content-center">
-          <div class="col-5 col-sm-4 p0 d-flex align-items-center">
+          <div class="p0 d-flex align-items-center">
             {{$t('area')}} *：
           </div>
           <CInput
@@ -17,12 +17,12 @@
             error_class=""
           >
             <!--台灣-->
-            <input type="radio" id="radio_location1" :value="1" v-model="location">
-            <label for="radio_location1">台灣</label>
+            <input class="ml-20px" type="radio" id="taiwan" :value="1" v-model="location">
+            <label for="taiwan">台灣</label>
             <!--海外-->
-            <input type="radio" id="radio_location2" :value="2"
+            <input type="radio" id="oversea" :value="2" class="ml-20px"
                    v-model="location">
-            <label for="radio_location2">海外（Oversea）</label>
+            <label for="oversea">海外（Oversea）</label>
           </CInput>
         </div>
       </div>
@@ -93,6 +93,7 @@
             >
               <select
                 v-model="country"
+                class="fill-width"
               >
                 <option :value="el"
                         v-for="el of country_list"
@@ -125,24 +126,22 @@
         <!--姓名：first name/last name-->
         <div class="d-flex mb-20px">
           <div class="d-flex flex-grow-1 align-content-center row">
-            <div class="col-6 d-flex">
-              <CInput
-                :required="true"
-                placeholder=""
-                name="first_name"
-                :validators="[recieveName]"
-                placeholder="First name*"
-              />
-            </div>
-            <div class="col-6 d-flex">
-              <CInput
-                :required="true"
-                placeholder=""
-                name="last_name"
-                :validators="[recieveName]"
-                placeholder="Last name* "
-              />
-            </div>
+            <CInput
+              class="col-6"
+              :required="true"
+              placeholder=""
+              name="first_name"
+              :validators="[recieveName]"
+              placeholder="First name*"
+            />
+            <CInput
+              class="col-6"
+              :required="true"
+              placeholder=""
+              name="last_name"
+              :validators="[recieveName]"
+              placeholder="Last name* "
+            />
           </div>
         </div>
 
@@ -188,24 +187,22 @@
         <!--城市/郵遞區號: City/Postal Code-->
         <div class="d-flex mb-20px">
           <div class="d-flex flex-grow-1 align-content-center row">
-            <div class="col-6 d-flex">
-              <CInput
-                :required="true"
-                placeholder=""
-                name="city"
-                :validators="[recieveName]"
-                placeholder="City* "
-              />
-            </div>
-            <div class="col-6 d-flex">
-              <CInput
-                :required="true"
-                placeholder=""
-                name="postal_code"
-                :validators="[recieveName]"
-                placeholder="Postal *"
-              />
-            </div>
+            <CInput
+              class="col-6"
+              :required="true"
+              placeholder=""
+              name="city"
+              :validators="[recieveName]"
+              placeholder="City* "
+            />
+            <CInput
+              class="col-6"
+              :required="true"
+              placeholder=""
+              name="postal_code"
+              :validators="[recieveName]"
+              placeholder="Postal *"
+            />
           </div>
         </div>
 
