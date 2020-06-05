@@ -31,10 +31,10 @@
                   src="/images/webs/fb-origin.svg"
                   hover="/images/webs/fb-origin.svg"
                 />
-<!--                <a href="https://www.facebook.com/%E6%B1%B4%E5%88%A9%E8%B3%BC-Ezgo-107385547368839/" target="_blank"><i-->
-<!--                  class="fab fa-facebook-f"> </i></a>-->
-<!--                <a href="https://line.me/ti/p/1qvbcczVSW" target="_blank"><i class="fab fa-line"> </i></a>-->
-<!--                <a href=""><i class="fab fa-twitter" @click="share('twitter')"></i></a>-->
+                <!--                <a href="https://www.facebook.com/%E6%B1%B4%E5%88%A9%E8%B3%BC-Ezgo-107385547368839/" target="_blank"><i-->
+                <!--                  class="fab fa-facebook-f"> </i></a>-->
+                <!--                <a href="https://line.me/ti/p/1qvbcczVSW" target="_blank"><i class="fab fa-line"> </i></a>-->
+                <!--                <a href=""><i class="fab fa-twitter" @click="share('twitter')"></i></a>-->
               </div>
               <div class="language">
                 <div class="selected-language">
@@ -89,14 +89,11 @@
     <nav class="navigation d-flex align-items-center">
       <div class="container">
         <div class="row">
-          <div class="col-2 header-logo">
-            <a href="/"></a>
-          </div>
-          <div class="col-8">
+          <div class="col-12">
             <div
               class="navgition-menu d-flex align-items-center justify-content-center"
             >
-              <ul class="mb-0">
+              <ul class="mb-0 d-flex justify-content-between fill-width">
                 <li
                   class="toggleable"
                 >
@@ -341,57 +338,6 @@
       </div>
     </div>
     <div class="mobile-menu-clone"></div>
-    <div class="navigation-filter">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 col-md-4 col-lg-4 col-xl-3 order-2 order-md-1">
-            <div class="department-menu_block">
-              <div
-                class="department-menu d-flex justify-content-between align-items-center white-color"
-              >
-                <i class="fas fa-bars"></i>{{$t('chose_buy')}}<span
-              ><i class="arrow_carrot-down"></i
-              ></span>
-              </div>
-              <div v-show="init_slideup" class="department-dropdown-menu">
-                <ul>
-                  <li v-for="tag of tags"
-                      :id="tag.id"
-                  >
-                    <nuxt-link :to="`/products?t=${tag.id}`">{{tag.name}}</nuxt-link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-8 col-lg-8 col-xl-9 order-1 order-md-2">
-            <div class="website-search">
-              <div class="row no-gutters">
-                <div class="col-9 col-md-8 col-lg-9 col-xl-10">
-                  <div class="search-input">
-                    <input
-                      :placeholder="$t('please_input_brand_or_prodcut_name')"
-                      class="no-round-input no-border"
-                      type="text"
-                      v-model="search_input"
-                      @keyup.enter="search"
-                      :maxlength="40"
-                    />
-                  </div>
-                </div>
-                <div class="col-3 col-md-4 col-lg-3 col-xl-2">
-                  <button class="no-round-btn" style="height: 50px"
-                          @click="search"
-                  >
-                    {{$t('search')}}
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </header>
 </template>
 
@@ -510,28 +456,29 @@
     },
     created() {
       this.currency = this.$cookies.get('currency') || 'tw'
-      if (process.client) {
-        $(window).scroll(function () {
-          if ($(this).scrollTop() > 54) {          /* 要滑動到選單的距離 */
-            $('.navigation').addClass('fix-navigation')   /* 幫選單加上固定效果 */
-            $('.navigation-clone').addClass('clone-visible')
-          } else {
-            $('.navigation').removeClass('fix-navigation') /* 移除選單固定效果 */
-            $('.navigation-clone').removeClass('clone-visible')
-          }
-        })
-      }
-      if (process.client) {
-        $(window).scroll(function () {
-          if ($(this).scrollTop() > 0) {          /* 要滑動到選單的距離 */
-            $('#mobile-menu').addClass('fix-navigation')   /* 幫選單加上固定效果 */
-            $('.mobile-menu-clone').addClass('clone-visible')
-          } else {
-            $('#mobile-menu').removeClass('fix-navigation') /* 移除選單固定效果 */
-            $('.mobile-menu-clone').removeClass('clone-visible')
-          }
-        })
-      }
+      // todo scroll 功能拿掉
+      // if (process.client) {
+      //   $(window).scroll(function () {
+      //     if ($(this).scrollTop() > 54) {          /* 要滑動到選單的距離 */
+      //       $('.navigation').addClass('fix-navigation')   /* 幫選單加上固定效果 */
+      //       $('.navigation-clone').addClass('clone-visible')
+      //     } else {
+      //       $('.navigation').removeClass('fix-navigation') /* 移除選單固定效果 */
+      //       $('.navigation-clone').removeClass('clone-visible')
+      //     }
+      //   })
+      // }
+      // if (process.client) {
+      //   $(window).scroll(function () {
+      //     if ($(this).scrollTop() > 0) {          /* 要滑動到選單的距離 */
+      //       $('#mobile-menu').addClass('fix-navigation')   /* 幫選單加上固定效果 */
+      //       $('.mobile-menu-clone').addClass('clone-visible')
+      //     } else {
+      //       $('#mobile-menu').removeClass('fix-navigation') /* 移除選單固定效果 */
+      //       $('.mobile-menu-clone').removeClass('clone-visible')
+      //     }
+      //   })
+      // }
     }
   }
 </script>
