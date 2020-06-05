@@ -1147,7 +1147,11 @@ const custom_message = {
   },
   check_Opassword: {
     en: '未翻譯',
-    tw: '確認密碼'
+    tw: '再次確認密碼'
+  },
+  check_acc: {
+    en: '未翻譯',
+    tw: '再次確認帳號（Email）'
   },
   product_count: {
     en: '未翻譯',
@@ -1583,7 +1587,11 @@ const custom_message = {
   },
   pass_aga: {
     en: '未翻譯',
-    tw: '請再次輸入密碼'
+    tw: '請再次輸入您的密碼'
+  },
+  acc_aga: {
+    en: '未翻譯',
+    tw: '請再次輸入您的電子郵件'
   },
   real_name: {
     en: '未翻譯',
@@ -1624,6 +1632,18 @@ const custom_message = {
   pay_status: {
     en: '未翻譯',
     tw: '付款狀態'
+  },
+  allow_report: {
+    en: '未翻譯',
+    tw: '是否要接收電子報'
+  },
+  agree_pact: {
+    en: '未翻譯',
+    tw: '是否已閱讀並同意會員條款內容'
+  },
+  member_addr: {
+    en: '未翻譯',
+    tw: '會員居住地'
   },
 
 }

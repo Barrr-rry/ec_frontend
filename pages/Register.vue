@@ -11,10 +11,35 @@
               @submit="submit"
               ref="form"
             >
+              <div class="d-flex mb-10px mt-105px">
+                <div class="d-flex flex-grow-1 align-content-center">
+                  <CInput
+                    :title="$t('member_addr')"
+                    class="flex-grow-1 input-radio-display"
+                    :required="true"
+                    name="location"
+                    error_class=""
+                  >
+                    <!--台灣-->
+                    <input type="radio" id="radio_location1" :value="1" v-model="location">
+                    <a for="radio_location1" >台灣Taiwan</a>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <input type="radio" id="radio_location2" :value="2" v-model="location">
+                    <a for="radio_location2">海外（Oversea）</a>
+                  </CInput>
+                </div>
+              </div>
               <CInput
                 :title="$t('acc_e')"
                 :required="true"
                 :placeholder="$t('input_email')"
+                name="account"
+                :validators="[validateEmail]"
+              />
+              <CInput
+                :title="$t('check_acc')"
+                :required="true"
+                :placeholder="$t('acc_aga')"
                 name="account"
                 :validators="[validateEmail]"
               />
@@ -34,57 +59,14 @@
                 :validators="[validateConfirmPassword]"
                 name="password_confirm"
               />
-              <CInput
-                :title="$t('member_name')"
-                :required="true"
-                :placeholder="$t('real_name')"
-                name="name"
-              />
-              <CInput
-                :title="$t('cellphone')"
-                :required="true"
-                :placeholder="$t('input_cellp')"
-                name="cellphone"
-                :validators="[validateCellPhone, checkPhone]"
-              />
-              <CInput
-                :title="$t('phone')"
-                name="phone"
-                ref="phone"
-                :validators="[validatePhone]"
-              >
-                <div class="row">
-                  <div class="col-3">
-                    <input
-                      class="no-round-input"
-                      type="text"
-                      :placeholder="$t('phone_code')"
-                      v-model="phone.area"
-                    />
-                  </div>
-                  <div class="col-6 p0">
-                    <input
-                      class="no-round-input"
-                      type="text"
-                      :placeholder="$t('phone')"
-                      v-model="phone.local"
-                    />
-                  </div>
-                  <div class="col-3">
-                    <input
-                      class="no-round-input"
-                      type="text"
-                      :placeholder="$t('phone_a')"
-                      v-model="phone.ext"
-                    />
-                  </div>
-                </div>
-              </CInput>
-              <CInput
-                title="LINE ID"
-                :placeholder="$t('input_line')"
-                name="line_id"
-              />
+              <div class="account-save input-radio-display">
+                <input type="checkbox"/>
+                <a>{{$t('allow_report')}}</a>
+              </div>
+              <div class="account-save input-radio-display">
+                <input type="checkbox"/>
+                <a>{{$t('agree_pact')}}</a>
+              </div>
               <CInput
                 :title="$t('verification_code')"
                 :required="true"
@@ -98,7 +80,7 @@
                 <span class="ml-10px pointer hover-li" @click="reDraw">{{$t('cant_see')}}</span>
               </div>
 
-              <div class="account-function">
+              <div class="account-function mt-40px">
                 <button class="no-round-btn" @click="">{{$t('register')}}</button>
                 <!--                <nuxt-link class="create-account" to="/login">或前往登入</nuxt-link>-->
               </div>
