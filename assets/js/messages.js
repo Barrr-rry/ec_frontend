@@ -594,6 +594,10 @@ const custom_message = {
     en: '未翻譯',
     tw: '尺寸表'
   },
+  size: {
+    en: '未翻譯',
+    tw: '尺寸'
+  },
   coupon: {
     en: 'coupon',
     tw: '優惠券'
@@ -601,6 +605,10 @@ const custom_message = {
   coupon_code: {
     en: 'coupon',
     tw: '優惠券碼'
+  },
+  use_coupon_code: {
+    en: 'coupon',
+    tw: '使用優惠券代碼'
   },
   loyalty_reward: {
     en: 'Loyalty reward',
@@ -979,7 +987,7 @@ const custom_message = {
   },
   used_coupon: {
     en: '未翻譯',
-    tw: '本次使用忠誠點數'
+    tw: '本次使用回饋點數'
   },
   no_coupon: {
     en: '未翻譯',
@@ -1023,11 +1031,11 @@ const custom_message = {
   },
   point_reward: {
     en: '未翻譯',
-    tw: '點忠誠點數'
+    tw: '點回饋點數'
   },
   reward: {
     en: '未翻譯',
-    tw: '忠誠點數'
+    tw: '回饋點數'
   },
   cart_no_product: {
     en: '未翻譯',
@@ -1306,7 +1314,7 @@ const custom_message = {
   },
   reward_used: {
     en: '未翻譯',
-    tw: '忠誠點數折抵'
+    tw: '回饋點數折抵'
   },
   back_product: {
     en: '未翻譯',
@@ -1427,7 +1435,7 @@ const custom_message = {
   },
   use_reward: {
     en: '未翻譯',
-    tw: '使用忠誠點數'
+    tw: '使用回饋點數'
   },
   use_reward_now: {
     en: '未翻譯',
@@ -1644,6 +1652,18 @@ const custom_message = {
   member_addr: {
     en: '未翻譯',
     tw: '會員居住地'
+  },
+  to: {
+    en: '未翻譯',
+    tw: '，將於'
+  },
+  overr: {
+    en: '未翻譯',
+    tw: '到期'
+  },
+  search_store: {
+    en: '未翻譯',
+    tw: '查詢超商'
   },
 
 }
