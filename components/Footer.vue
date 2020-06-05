@@ -5,22 +5,13 @@
         <div class="container">
           <div class="row">
             <div
-              class="col-12 col-sm-12 col-md-6 text-sm-center text-md-left footer-left"
+              class="col-12 col-sm-12 col-md-6 text-sm-center text-md-left footer-left row"
             >
-              <div class="footer-logo">
-                <a href="/"></a>
-                <!-- <nuxt-link to="/"
-                  ><img src="" alt=""
-                /></nuxt-link> -->
+              <div class="col-4">
+                <img src="/images/webs/logo.svg" alt="" style="width: 195px">
               </div>
-              <div class="footer-contact">
-                <a href="tel:0907306899" class="normal-a"><p>{{$t('phone')}}: 0907306899</p></a>
-                <a href="mailto:Ezgobuyusa@gmail.com" class="normal-a"><p>Email: Ezgobuyusa@gmail.com</p></a>
-              </div>
-              <div class="footer-social">
-                <a class="" href=""><i class="fab fb" @click="share('facebook')"></i></a>
-                <a class="" href=""><i class="fab line-icon" @click="share('line')"></i></a>
-                <a class="" href=""><i class="fab twitter" @click="share('twitter')"></i></a>
+              <div class="col-8">
+                
               </div>
             </div>
             <div class="col-md-6 col-sm-12 foot-right">
@@ -56,7 +47,7 @@
             </div>
           </div>
         </div>
-        <div class="fooer-bottom-box d-flex justify-content-center">
+        <div class="fooer-bottom-box d-flex justify-content-center mt-40px">
           <img class="payment-method" src="/images/webs/visa.svg" alt=""/>
         </div>
       </div>
