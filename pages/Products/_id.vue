@@ -6,33 +6,7 @@
     <div class="shop-layout">
       <div class="container">
         <div class="row">
-          <div class="col-xl-3">
-            <div class="shop-sidebar fixed">
-              <button id="filter-sidebar--closebtn" class="no-round-btn">
-                {{$t('back_product')}}
-              </button>
-              <div class="shop-sidebar_department">
-                <div class="department_top mini-tab-title underline">
-                  <h2 class="title">{{$t('category')}}</h2>
-                </div>
-                <div class="department_bottom">
-                  <ul>
-                    <li v-for="el of categories"
-                        :key="el.id"
-                    >
-                      <nuxt-link class="department-link"
-                                 :to="getSubLink(el)"
-                      >{{el.name}}
-                      </nuxt-link
-                      >
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="filter-sidebar--background" style="display: none"></div>
-          </div>
-          <div class="col-xl-9">
+          <div class="col-xl-12">
             <div class="shop-detail">
               <div class="row">
                 <div class="col-12">
@@ -41,28 +15,16 @@
                   </div>
                 </div>
                 <div class="col-12 col-lg-6">
-                  <div class="shop-detail_img">
-                    <div class="big-img">
-                      <div class="big-img_block"
+                  <div class="shop-detail_img" style="height: 800px">
+                    <div class="big-img fill-height">
+                      <div class="big-img_block fill-height"
                            v-for="image of no_specifications_productimages"
                            :key="image.id"
                       >
                         <img
                           :src="imageLink(image.image_url)"
                           alt="product image"
-                          style="max-height: 407px; width: 100%; object-fit: contain"
-                        />
-                      </div>
-                    </div>
-                    <div class="slide-img">
-                      <div class="slide-img_block"
-                           v-for="image of no_specifications_productimages"
-                           :key="image.id"
-                      >
-                        <img
-                          :src="imageLink(image.image_url)"
-                          alt="product image"
-                          style="max-height: 126px; object-fit: contain"
+                          style="max-height: 800px; width: 100%; contain;transform:translateY(0px)"
                         />
                       </div>
                     </div>
@@ -146,6 +108,18 @@
                       <i class="fab fb-share" @click="share('facebook')"></i>
                       <i class="fab line-share" @click="share('line')"></i>
                       <i class="fab twitter-share" @click="share('twitter')"></i>
+                    </div>
+                    <div class="slide-img">
+                      <div class="slide-img_block"
+                           v-for="image of no_specifications_productimages"
+                           :key="image.id"
+                      >
+                        <img
+                          :src="imageLink(image.image_url)"
+                          alt="product image"
+                          style="max-height: 126px; object-fit: contain"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -325,4 +299,10 @@
   }
 </script>
 
-<style scoped></style>
+<style scoped lang="sass">
+  /*.slick-list*/
+  /*  **/
+  /*    height: 100%*/
+  /*.big-img_block.slick-active*/
+  /*  height: 100%*/
+</style>
