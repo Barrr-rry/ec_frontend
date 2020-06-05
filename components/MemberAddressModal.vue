@@ -30,30 +30,26 @@
       <div v-if="location===1">
         <div class="d-flex mb-20px">
           <div class="d-flex flex-grow-1 align-content-center">
-            <div class="col-5 col-sm-4 p0 d-flex align-items-center">
-              {{$t('shipping_name')}}：
-            </div>
             <CInput
               class="flex-grow-1"
               :required="true"
               name="shipping_name"
               error_class=""
               :validators="[recieveName]"
+              :placeholder="$t('shipping_name')+'*'"
             />
           </div>
         </div>
 
         <div class="d-flex mb-20px">
           <div class="d-flex flex-grow-1 align-content-center">
-            <div class="col-5 col-sm-4 p0 d-flex align-items-center">
-              {{$t('shipping_phone')}}：
-            </div>
             <CInput
               class="flex-grow-1"
               :required="true"
               name="phone"
               error_class=""
               :validators="[checkPhone]"
+              :placeholder="$t('shipping_phone')+'*'"
             />
           </div>
         </div>
@@ -61,28 +57,24 @@
 
         <div class="d-flex mb-20px">
           <div class="d-flex flex-grow-1 align-content-center">
-            <div class="col-5 col-sm-4 p0 d-flex align-items-center">
-              {{$t('shipping_code')}}：
-            </div>
             <CInput
               class="flex-grow-1"
               :required="true"
               name="shipping_area"
               error_class=""
+              :placeholder="$t('shipping_code')+'*'"
             />
           </div>
         </div>
 
         <div class="d-flex mb-20px">
           <div class="d-flex flex-grow-1 align-content-center">
-            <div class="col-5 col-sm-4 p0 d-flex align-items-center">
-              {{$t('address')}}：
-            </div>
             <CInput
               class="flex-grow-1"
               :required="true"
               name="shipping_address"
               error_class=""
+              :placeholder="$t('address')+'*'"
             />
           </div>
         </div>
@@ -92,14 +84,12 @@
         <!--Country-->
         <div class="d-flex mb-20px">
           <div class="d-flex flex-grow-1 align-content-center">
-            <div class="col-5 col-sm-4 p0 d-flex align-items-center">
-              Country *：
-            </div>
             <CInput
               class="flex-grow-1"
               :required="false"
               name="country"
               error_class=""
+              placeholder="Country *"
             >
               <select
                 v-model="country"
@@ -114,25 +104,43 @@
           </div>
         </div>
 
+        <div class="form-group">
+          <CInput
+            title="Gender"
+            placeholder=""
+            :input_has_bg="true"
+            class="input-radio-display"
+          >
+            <!--台灣-->
+            <a class="col-8"></a>
+            <input type="radio" id="radio_location1" :value="1" v-model="location">
+            <label for="radio_location1" class="col-3">Me.</label>
+            <!--海外-->
+            <input type="radio" id="radio_location2" :value="2"
+                   v-model="location">
+            <label for="radio_location2" class="col-3">Mrs.</label>
+          </CInput>
+        </div>
+
         <!--姓名：first name/last name-->
         <div class="d-flex mb-20px">
           <div class="d-flex flex-grow-1 align-content-center row">
             <div class="col-6 d-flex">
-              <div class="d-flex align-items-center">First name* ：</div>
               <CInput
                 :required="true"
                 placeholder=""
                 name="first_name"
                 :validators="[recieveName]"
+                placeholder="First name*"
               />
             </div>
             <div class="col-6 d-flex">
-              <div class="d-flex align-items-center">Last name* ：</div>
               <CInput
                 :required="true"
                 placeholder=""
                 name="last_name"
                 :validators="[recieveName]"
+                placeholder="Last name* "
               />
             </div>
           </div>
@@ -141,14 +149,12 @@
         <!--地址:Address-->
         <div class="d-flex mb-20px">
           <div class="d-flex flex-grow-1 align-content-center">
-            <div class="col-5 col-sm-4 p0 d-flex align-items-center">
-              Address*：
-            </div>
             <CInput
               class="flex-grow-1"
               :required="true"
               name="shipping_address"
               error_class=""
+              placeholder="Address*"
             />
           </div>
         </div>
@@ -156,14 +162,12 @@
         <!--大樓名字-->
         <div class="d-flex mb-20px">
           <div class="d-flex flex-grow-1 align-content-center">
-            <div class="col-5 col-sm-4 p0 d-flex align-items-center">
-              Apartment /Suite / Building( Optional )：
-            </div>
             <CInput
               class="flex-grow-1"
               :required="false"
               name="building"
               error_class=""
+              placeholder="Apartment /Suite / Building( Optional )"
             />
           </div>
         </div>
@@ -171,14 +175,12 @@
         <!--公司名字-->
         <div class="d-flex mb-20px">
           <div class="d-flex flex-grow-1 align-content-center">
-            <div class="col-5 col-sm-4 p0 d-flex align-items-center">
-              Company name( Optional )：
-            </div>
             <CInput
               class="flex-grow-1"
               :required="false"
               name="company_name"
               error_class=""
+              placeholder="Company name( Optional )"
             />
           </div>
         </div>
@@ -187,21 +189,21 @@
         <div class="d-flex mb-20px">
           <div class="d-flex flex-grow-1 align-content-center row">
             <div class="col-6 d-flex">
-              <div class="d-flex align-items-center">City* ：</div>
               <CInput
                 :required="true"
                 placeholder=""
                 name="city"
                 :validators="[recieveName]"
+                placeholder="City* "
               />
             </div>
             <div class="col-6 d-flex">
-              <div class="d-flex align-items-center">Postal* ：</div>
               <CInput
                 :required="true"
                 placeholder=""
                 name="postal_code"
                 :validators="[recieveName]"
+                placeholder="Postal *"
               />
             </div>
           </div>
@@ -210,15 +212,13 @@
         <!--電話-->
         <div class="d-flex mb-20px">
           <div class="d-flex flex-grow-1 align-content-center">
-            <div class="col-5 col-sm-4 p0 d-flex align-items-center">
-              Phone number* ：
-            </div>
             <CInput
               class="flex-grow-1"
               :required="true"
               name="phone"
               error_class=""
               :validators="[checkPhone]"
+              placeholder="Phone number* "
             />
           </div>
         </div>

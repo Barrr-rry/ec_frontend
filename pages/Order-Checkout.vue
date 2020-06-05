@@ -197,7 +197,7 @@
                     <!--台灣-->
                     <a class="col-8"></a>
                     <input type="radio" id="radio_location1" :value="1" v-model="location">
-                    <label for="radio_location1" class="col-3">Me.</label>
+                    <label for="radio_location1" class="col-3">Mr.</label>
                     <!--海外-->
                     <input v-if="cash_on_delivery_weight_ok" type="radio" id="radio_location2" :value="2"
                            v-model="location">

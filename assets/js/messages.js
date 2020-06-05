@@ -819,7 +819,7 @@ const custom_message = {
   },
   reward_description: {
     en: '未翻譯',
-    tw: '忠誠獎勵說明'
+    tw: '回饋點數說明'
   },
   member_name: {
     en: '未翻譯',
@@ -1503,7 +1503,7 @@ const custom_message = {
   },
   edit_information: {
     en: '未翻譯',
-    tw: '編輯個人資料'
+    tw: '編輯個人訊息'
   },
   order_detaill: {
     en: '未翻譯',
@@ -1664,6 +1664,14 @@ const custom_message = {
   search_store: {
     en: '未翻譯',
     tw: '查詢超商'
+  },
+  reward_total: {
+    en: '未翻譯',
+    tw: '回饋點數總覽'
+  },
+  country: {
+    en: '未翻譯',
+    tw: '會籍地區'
   },
 
 }
