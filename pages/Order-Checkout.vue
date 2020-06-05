@@ -86,17 +86,21 @@
                   :input_has_bg="true"
                   class="input-radio-display d-flex"
                 >
+                  <div
+                    class="ml-10px row"
+                  >
                   <span v-for="(el,key) of in_weight_and_location_freeshippings" style="margin-right: 3px"
-                        :class="key===0?'ml-20px':''"
+                        class="col-3"
                   >
                     <input type="radio" :id="`radio_${el.id}`" :value="el.id" v-model="freeshipping_id"
                            :disabled="pay_type===1&&!el.cash_on_delivery"
                     >
                     <label :for="`radio_${el.id}`"
                            :class="pay_type===1&&!el.cash_on_delivery?'disabled':''"
-                           class="col-3">{{el.frontend_name}}</label>
+                    >{{el.frontend_name}}</label>
 
                   </span>
+                  </div>
                 </CInput>
               </div>
               <!--常用地址 button-->
