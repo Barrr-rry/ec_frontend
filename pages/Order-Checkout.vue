@@ -55,13 +55,12 @@
                   class="input-radio-display"
                 >
                   <!--台灣-->
-                  <a class="col-4"></a>
-                  <input type="radio" id="radio_location1" :value="1" v-model="location">
-                  <label for="radio_location1" class="col-3">台灣</label>
+                  <input class="ml-20px" type="radio" id="taiwan" :value="1" v-model="location">
+                  <label for="taiwan" class="col-3">台灣</label>
                   <!--海外-->
-                  <input v-if="cash_on_delivery_weight_ok" type="radio" id="radio_location2" :value="2"
+                  <input v-if="cash_on_delivery_weight_ok" type="radio" id="oversea" :value="2"
                          v-model="location">
-                  <label v-if="cash_on_delivery_weight_ok" for="radio_location2" class="col-3">海外（Oversea）</label>
+                  <label v-if="cash_on_delivery_weight_ok" for="oversea" class="col-3">海外（Oversea）</label>
                 </CInput>
               </div>
               <div class="form-group" v-if="!loading">
@@ -72,8 +71,7 @@
                   class="input-radio-display"
                 >
                   <!--線上付款-->
-                  <a class="col-4"></a>
-                  <input type="radio" id="payradio_1" :value="0" v-model="pay_type">
+                  <input class="ml-20px" type="radio" id="payradio_1" :value="0" v-model="pay_type">
                   <label for="payradio_1" class="col-3">{{$t('pay_online')}}</label>
                   <!--貨到付款-->
                   <input v-if="delivery_ok&&location!==2" type="radio" id="payradio_2" :value="1" v-model="pay_type">
@@ -86,16 +84,17 @@
                   :title="$t('order_method')"
                   placeholder=""
                   :input_has_bg="true"
-                  class="input-radio-display"
+                  class="input-radio-display d-flex"
                 >
-                  <a class="col-4"></a>
-                  <span v-for="el of in_weight_and_location_freeshippings" style="margin-right: 3px">
+                  <span v-for="(el,key) of in_weight_and_location_freeshippings" style="margin-right: 3px"
+                        :class="key===0?'ml-20px':''"
+                  >
                     <input type="radio" :id="`radio_${el.id}`" :value="el.id" v-model="freeshipping_id"
                            :disabled="pay_type===1&&!el.cash_on_delivery"
                     >
                     <label :for="`radio_${el.id}`"
                            :class="pay_type===1&&!el.cash_on_delivery?'disabled':''"
-                            class="col-3">{{el.frontend_name}}</label>
+                           class="col-3">{{el.frontend_name}}</label>
 
                   </span>
                 </CInput>
@@ -141,12 +140,12 @@
                   >
                     <!--台灣-->
                     <a class="col-8"></a>
-                    <input type="radio" id="radio_location1" :value="1" v-model="location">
-                    <label for="radio_location1" class="col-3">先生</label>
+                    <input type="radio" id="sir" :value="1" v-model="location">
+                    <label for="sir" class="col-3">先生</label>
                     <!--海外-->
-                    <input v-if="cash_on_delivery_weight_ok" type="radio" id="radio_location2" :value="2"
+                    <input v-if="cash_on_delivery_weight_ok" type="radio" id="sis" :value="2"
                            v-model="location">
-                    <label v-if="cash_on_delivery_weight_ok" for="radio_location2" class="col-3">小姐</label>
+                    <label v-if="cash_on_delivery_weight_ok" for="sis" class="col-3">小姐</label>
                   </CInput>
                 </div>
                 <div class="form-group">
@@ -523,6 +522,7 @@
                     <!--活動折抵-->
                     <tr>
                       <th><b>組合優惠折抵</b></th>
+                      <th></th>
                     </tr>
                     <tr v-for="el in in_activity_obj" :key="el.activity_id">
                       <th>{{el.activity_detail.ch_name}}</th>
