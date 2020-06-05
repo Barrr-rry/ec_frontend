@@ -1256,6 +1256,10 @@ const custom_message = {
     en: '未翻譯',
     tw: '會員認證成功'
   },
+  member: {
+    en: '未翻譯',
+    tw: '會員'
+  },
   member_success_1: {
     en: '未翻譯',
     tw: '可以開始愉快的購物囉！'
