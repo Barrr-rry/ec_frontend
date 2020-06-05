@@ -5,16 +5,43 @@
         <div class="container">
           <div class="row">
             <div
-              class="col-12 col-sm-12 col-md-6 text-sm-center text-md-left footer-left row"
+              class="col-12 col-sm-12 col-md-7 text-sm-center text-md-left footer-left row"
             >
               <div class="col-4">
                 <img src="/images/webs/logo.svg" alt="" style="width: 195px">
               </div>
               <div class="col-8">
-                
+                <div class="mt-40px ml-20px">
+                  <ImageHover
+                    class="mr-10px"
+                    src="/images/webs/ig.svg"
+                    hover="/images/webs/ig-w.svg"
+                  />
+                  <ImageHover
+                    class="mr-10px"
+                    src="/images/webs/twitter.svg"
+                    hover="/images/webs/twitter-w.svg"
+                  />
+                  <ImageHover
+                    class="mr-10px"
+                    src="/images/webs/line.svg"
+                    hover="/images/webs/line-w.svg"
+                  />
+                  <ImageHover
+                    class="mr-10px"
+                    src="/images/webs/facebook.svg"
+                    hover="/images/webs/facebook-w.svg"
+                  />
+                </div>
+                <div class="footer-copyright ml-20px">
+                  Copyright 2020 HaveFun Men's Underwear Inc.
+                </div>
+                <div class="footer-copyright ml-20px">
+                  All rights reserved.
+                </div>
               </div>
             </div>
-            <div class="col-md-6 col-sm-12 foot-right">
+            <div class="col-md-5 col-sm-12 foot-right">
               <div class="row">
                 <div
                   class="col-12 col-sm-4 text-sm-center text-md-left footer-margin"
@@ -56,10 +83,12 @@
 </template>
 <script>
   import FooterQuickLink from '@/components/FooterQuicklink'
+  import ImageHover from "@/components/ImageHover"
 
   export default {
     components: {
-      FooterQuickLink
+      FooterQuickLink,
+      ImageHover
     },
     data() {
       return {}
