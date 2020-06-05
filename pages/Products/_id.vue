@@ -103,7 +103,7 @@
                         {{$t('add_favourite')}}
                       </button>
                     </div>
-                    <div class="product-share">
+                    <div class="product-share mb-20px">
                       {{$t('shere_products')}} ：
                       <i class="fab fb-share" @click="share('facebook')"></i>
                       <i class="fab line-share" @click="share('line')"></i>
@@ -123,12 +123,11 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-12">
+                <div class="col-12 mt-40px">
                   <div class="shop-detail_more-info">
                     <div id="tab-so3">
                       <ul class="mb-0">
                         <li class="active"><a class="fill-width" href="#tab-1">{{$t('products_description')}}</a></li>
-                        <li><a class="fill-width" href="#tab-2">{{$t('products_detail')}}</a></li>
                       </ul>
                       <div id="tab-1">
                         <div class="custom-desc">
@@ -138,12 +137,6 @@
                             style="display: block;"
                             v-html="product.product_info"
                           ></div>
-                        </div>
-                      </div>
-                      <div id="tab-2">
-                        <div class="custom-desc tab-content"
-                             v-html="product.detail_info"
-                        >
                         </div>
                       </div>
                     </div>
