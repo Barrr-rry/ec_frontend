@@ -71,11 +71,7 @@
                 </div>
                 <div class="col-12 col-lg-6">
                   <div class="shop-detail_info">
-                    <h5 class="product-type color-type">{{product.brand_en_name}}</h5>
                     <h2 class="product-name">{{product.name}}</h2>
-                    <p class="product-describe">
-                      {{product.sub_title}}
-                    </p>
                     <p class="delivery-status fz16px">{{$t('over')}} {{lowest_freeshipping}}
                       {{$t('free_shipping_3000')}}</p>
                     <div class="activity">
