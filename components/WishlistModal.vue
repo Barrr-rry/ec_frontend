@@ -1,41 +1,53 @@
 <template>
   <modal v-model="input" :title="$t('add_cartt')" @ok="ok" width="600">
     <div class="price-rate" v-if="product&&product.specifications_detail">
-      <h3 class="product-price">
-        <del v-if="fake_price">{{getProcessPrice(fake_price)}}
+      <h3 class="product-price"
+      >
+        <del v-if="fake_price"
+        >{{getProcessPrice(fake_price)}}
         </del>
         {{getProcessPrice(price)}}
       </h3>
     </div>
-    <div class="quantity-select" style="margin-bottom: 10px">
-      <label class="fz16px">{{product.level1_title}} :</label>
-      <VSelectButton
-        v-for="el of spec_level1_list"
-        :key="el.id"
-        :option="el.id"
-        v-model="choose_level1"
-        :disabled="isSelectDisabled(el)"
-      >{{el.name}}
-      </VSelectButton>
+    <div class="quantity-select d-flex" style="margin-bottom: 10px">
+      <div style="min-width: 70px; padding-top: 5px">
+        <label class="fz16px">{{product.level1_title}} :</label>
+      </div>
+      <div>
+        <VSelectButton
+          v-for="el of spec_level1_list"
+          :key="el.id"
+          :option="el.id"
+          v-model="choose_level1"
+          :disabled="isSelectDisabled(el)"
+        >{{el.name}}
+        </VSelectButton>
+      </div>
     </div>
-    <div class="quantity-select" style="margin-bottom: 10px"
+    <div class="quantity-select d-flex" style="margin-bottom: 10px"
          v-if="has_spec_level2"
     >
-      <label class="fz16px">{{product.level2_title}} :</label>
-      <VSelectButton
-        v-for="el of spec_level2_list"
-        :key="el.id"
-        :option="el.id"
-        v-model="choose_level2"
-        :disabled="isSelectDisabled(el)"
-      >{{el.name}}
-      </VSelectButton>
+      <div style="min-width: 70px; padding-top: 5px">
+        <label class="fz16px">{{product.level2_title}} :</label>
+      </div>
+      <div>
+        <VSelectButton
+          v-for="el of spec_level2_list"
+          :key="el.id"
+          :option="el.id"
+          v-model="choose_level2"
+          :disabled="isSelectDisabled(el)"
+        >{{el.name}}
+        </VSelectButton>
+      </div>
     </div>
 
 
     <div class="quantity-select d-flex align-items-center">
-      <label class="fz16px">{{$t('count')}} :</label>
-      <counter class="ml-5px" v-model="quantity"></counter>
+      <div style="min-width: 70px">
+        <label class="fz16px">{{$t('count')}} :</label>
+      </div>
+      <counter v-model="quantity"></counter>
       <span class="col-6 pl-5px primary-color">{{stock_display_text}}</span>
     </div>
   </modal>
