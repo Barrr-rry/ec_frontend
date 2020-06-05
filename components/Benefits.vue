@@ -11,7 +11,7 @@
             >
               <img
                 class="benefit-img icon-size"
-                src="images/webs/truck.svg"
+                src="images/webs/benefit1.svg"
                 alt=""
               />
               <p class="benefit-title ">{{$t('free_shipping')}}</p>
@@ -28,12 +28,11 @@
             >
               <img
                 class="benefit-img icon-size"
-                src="images/webs/coupon.svg"
+                src="images/webs/benefit2.svg"
                 alt=""
               />
-              <p class="benefit-title ">{{$t('coupon')}}</p>
+              <p class="benefit-title ">{{$t('size_chart')}}</p>
               <p class="benefit-describle pt-0px">
-                {{$t('coupon_fake_value')}}
               </p>
             </div>
           </div>
@@ -45,7 +44,7 @@
             >
               <img
                 class="benefit-img icon-size"
-                src="images/webs/award.svg"
+                src="images/webs/benefit3.svg"
                 alt=""
               />
               <p class="benefit-title ">{{$t('loyalty_reward')}}</p>

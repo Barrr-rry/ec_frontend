@@ -588,7 +588,11 @@ const custom_message = {
   },
   free_shipping: {
     en: 'Free shipping',
-    tw: '滿額免運費'
+    tw: '運費'
+  },
+  size_chart: {
+    en: '未翻譯',
+    tw: '尺寸表'
   },
   coupon: {
     en: 'coupon',
@@ -600,7 +604,7 @@ const custom_message = {
   },
   loyalty_reward: {
     en: 'Loyalty reward',
-    tw: '忠誠獎勵'
+    tw: '回饋點數'
   },
   loyalty_reward_m: {
     en: 'Loyalty reward',
@@ -655,7 +659,7 @@ const custom_message = {
   },
   free_shipping_fake_value: {
     en: '未翻譯',
-    tw: '滿 3000 元免運費'
+    tw: '滿額享免運費'
   },
   coupon_fake_value: {
     en: '未翻譯',
@@ -663,7 +667,7 @@ const custom_message = {
   },
   loyalty_reward_fake_value: {
     en: '未翻譯',
-    tw: '筆筆消費享獎勵積分！'
+    tw: '筆筆消費皆有回饋！'
   },
   sale_goods: {
     en: '未翻譯',
