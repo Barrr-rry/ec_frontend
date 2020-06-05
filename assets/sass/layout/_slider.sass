@@ -1,75 +1,73 @@
-.slider 
+.slider
 	position: relative
 	margin-top: 30px
-	&:hover .slick-arrow 
+	&:hover .slick-arrow
 		opacity: 1
 		visibility: visible
-	
-	.slider_wrapper 
-		.slider-block 
+
+	.slider_wrapper
+		.slider-block
 			position: relative
 			display: flex
-			background: 
+			background:
 				repeat: no-repeat
 				size: cover
 				position: center
-			
+
 			padding: 100px 0
-			img 
+			img
 				min-width: 100%
-			
-			.slider-content 
+
+			.slider-content
 				height: 100%
 				width: 100%
 				top: 0
 				left: 0
-				.slider-text 
-					h5 
+				.slider-text
+					h5
 						@include font-medium(14px, $primary-color, 1)
 						letter-spacing: 2.8px
 						margin-bottom: 10px
-					
-					h1 
+
+					h1
 						@include font-medium(60px, $title, 1)
 						margin-bottom: 15px
-					
-					h3 
+
+					h3
 						@include font-medium(30px, $primary-color, 1)
 						margin-bottom: 50px
-						span 
+						span
 							@include font-regular(18px, $regular, 1)
 							display: inline-block
-						
-					
-				
-				.slider-img 
+
+
+
+				.slider-img
 					position: relative
-					img 
+					img
 						width: 100%
-					
-					.img 
+
+					.img
 						position: absolute
 						top: 0
 						left: 0
 						max-height: 100%
-					
-					.prallax-img 
+
+					.prallax-img
 						position: absolute
 						top: 0
 						left: 0
-						#img-block 
+						#img-block
 							// position: absolute
 							// top: 0
 							// left: 0
-	.benefit-block 
-		position: absolute 
-		bottom: -50px 
-		width: 100% 
+	.benefit-block
+		width: 100%
 		z-index: 10
-		.our-benefits 
-		
-	
-	.slick-arrow 
+		.our-benefits
+
+
+	.slick-arrow
 		@extend .slider-btn
 		height: 40px
 		width: 40px
@@ -78,221 +76,221 @@
 		z-index: 10
 		opacity: 0
 		visibility: hidden
-	
-	.slick-prev 
+
+	.slick-prev
 		position: absolute
 		left: 15px
-	
-	.slick-next 
-		position: absolute		
+
+	.slick-next
+		position: absolute
 		right: 15px
-	
-	.slider-banner 
+
+	.slider-banner
 		margin-top: 30px
-		a 
-			img 
+		a
+			img
 				width: 100%
-			
-		
-	
-	&.slider-hp-2 
-		.slider_wrapper 
-			.slick-arrow 
+
+
+
+	&.slider-hp-2
+		.slider_wrapper
+			.slick-arrow
 				display: none!important
-			
-		
-	
 
 
-.slider_v2 
+
+
+
+.slider_v2
 	margin-top: 0
-	.slider_wrapper 
-		.slider-block 
+	.slider_wrapper
+		.slider-block
 			padding: 175px 0 100px
-			.slider-content 
+			.slider-content
 				margin-top: 0
 				display: flex
 				align-items: center
-				.slider_img 
+				.slider_img
 					margin-bottom: 60px
-					img 
+					img
 						max-height: 270px
-						
-				
-			
-		
-	
-	.slick-arrow 
+
+
+
+
+
+	.slick-arrow
 		@include button($coffee,$white,13px,999px,2px,$coffee,15px 30px,$trans,$coffee,$coffee)
 		height: 50px
 		width: 50px
 		top: 50%
 		transform: translateY(-50%)
 		padding: 0
-	
-	.slick-prev 
+
+	.slick-prev
 		position: absolute
 		left: 70px
-	
-	.slick-next 
-		position: absolute		
-		right: 70px
-	
 
-@include mobile 
-	.slider 
-		.slider_wrapper 
-			.slider-block 
+	.slick-next
+		position: absolute
+		right: 70px
+
+
+@include mobile
+	.slider
+		.slider_wrapper
+			.slider-block
 				padding: 60px 0
-				.slider-content 
-					.slider-text 
+				.slider-content
+					.slider-text
 						margin-bottom: 40px
-						h1 
-							font-size: 45px	
-						
-					
-				
-			
-		
-		.benefit-block 
+						h1
+							font-size: 45px
+
+
+
+
+
+		.benefit-block
 			position: unset
 			// margin-top: 15px
-			
-			.our-benefits 
+
+			.our-benefits
 				padding: 10px 0
-				.benefit-detail 
+				.benefit-detail
 					padding: 15px 0
-			
-			
-		
-		.slick-arrow 
+
+
+
+		.slick-arrow
 			opacity: 1
 			visibility: visible
-		
-	
-	.slider-banner 
+
+
+	.slider-banner
 		margin-top: 30px
-		a 
-			img 
+		a
+			img
 				width: 100%
 				margin-bottom: 30px
-			
-		
-	
-	.slider_v2 
-		.slider_wrapper 
-			.slick-arrow 
+
+
+
+	.slider_v2
+		.slider_wrapper
+			.slick-arrow
 				height: 40px
 				width: 40px
-			
-			.slick-prev 
-				left: 15px
-			
-			.slick-next 
-				right: 15px
-			
-		
-	
 
-@include tablet 
-	.slider 
-		.slider_wrapper 
-			.slider-block 
+			.slick-prev
+				left: 15px
+
+			.slick-next
+				right: 15px
+
+
+
+
+@include tablet
+	.slider
+		.slider_wrapper
+			.slider-block
 				padding: 60px 0
-				.slider-content 
-					.slider-text 
+				.slider-content
+					.slider-text
 						margin-bottom: 40px
-					
-					.slider-img 
+
+					.slider-img
 						width: 50%
 						margin: auto
-					
-				
-			
-		
-		.benefit-block 
+
+
+
+
+		.benefit-block
 			position: unset
 			// margin-top: 15px
-		
-		.slick-arrow 
+
+		.slick-arrow
 			opacity: 1
 			visibility: visible
-		
-	
-	.slider-banner 
+
+
+	.slider-banner
 		margin-top: 30px
-		a 
-			img 
+		a
+			img
 				width: 100%
 				margin-bottom: 30px
-			
-		
-	
-	.slider_v2 
-		.slider_wrapper 
-			.slick-arrow 
+
+
+
+	.slider_v2
+		.slider_wrapper
+			.slick-arrow
 				height: 40px
 				width: 40px
-			
-			.slick-prev 
+
+			.slick-prev
 				left: 15px
-			
-			.slick-next 
+
+			.slick-next
 				right: 15px
-			
-		
-	
+
+
+
 
 @include small-desktop
-	.slider 
-		.slider_wrapper 
-			.slider-block 
-				img 
+	.slider
+		.slider_wrapper
+			.slider-block
+				img
 					max-height: 500px
-				
-			
-		
-		.slick-arrow 
+
+
+
+		.slick-arrow
 			opacity: 1
 			visibility: visible
-		
-	
-	.slider-banner 
+
+
+	.slider-banner
 		margin-top: 30px
-		a 
-			img 
+		a
+			img
 				width: 100%
 				margin-bottom: 30px
-			
-		
-	
-	.slider_v2 
-		.slider_wrapper 
-			.slick-prev 
+
+
+
+	.slider_v2
+		.slider_wrapper
+			.slick-prev
 				left: 15px
-			
-			.slick-next 
+
+			.slick-next
 				right: 15px
-			
-		
-	
+
+
+
 
 @include desktop
-	.slider 
-		.slider_wrapper 
-			.slider-block 
-				img 
+	.slider
+		.slider_wrapper
+			.slider-block
+				img
 					max-height: 600px
-				
-			
-		
-		.slick-arrow 
+
+
+
+		.slick-arrow
 			opacity: 1
 			visibility: visible
-		
-	
+
+
 .slider-btn, .slider .slick-arrow
   	padding: 0px
 .slick-list
-    @media (max-width: 767px) 
+    @media (max-width: 767px)
         margin-top: 20px
