@@ -1,7 +1,15 @@
 header
+	.header-white
+		*
+			color: white
+		// todo important 不應該用
+		a
+			color: white !important
+		div
+			color: white !important
 	.header-block
 		height: auto
-		background-color: $line-2
+		background-color: #0b1d37
 		padding: 15px
 		position: relative
 		// z-index: 1000
@@ -82,7 +90,7 @@ header
 					content: "|"
 					padding: 0 10px
 					line-height: 1
-					color: $line
+					color: #d8d8d8
 
 
 			.login
@@ -721,13 +729,23 @@ header.coffee-2
   	transition: opacity .5s ease-out
   	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2)
 
+.icon-heart-heart
+	display: inline-block
+	transform: translateY(4px)
+	+icon-bg('../images/webs/heart.svg', 21px)
+
+	&:hover
+		background-image: url("../images/webs/heart.svg")
+
+.shopping-cart-icon
+	transform: translateY(4px)
 
 .shopping-cart-icon
   	display: inline-block
-  	+icon-bg('../images/webs/shopping_cart_22X22.svg', 21px)
+  	+icon-bg('../images/webs/cart.svg', 21px)
 
   	&:hover
-  	  	background-image: url("../images/webs/shopping_cart_g_22X22.svg")
+  	  	background-image: url("../images/webs/cart.svg")
 
 .shopping-cart-circle-icon
   	display: inline-block

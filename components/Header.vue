@@ -1,23 +1,18 @@
 <template>
   <header v-if="computed_brands.length&&categories.length">
     <div class="header-block d-flex align-items-center">
-      <div class="container">
+      <div class="container header-white">
         <div class="row">
           <div class="col-12 col-md-6">
             <div
               class="header-left d-flex flex-md-row align-items-center fill-height"
             >
-              <p class="d-flex align-items-center">
-                <a href="mailto:Ezgobuyusa@gmail.com" class="normal-a"><i class="fas fa-envelope"></i>Ezgobuyusa@gmail.com</a>
-              </p>
-              <p class="d-flex align-items-center">
-                <a href="tel:0907306899" class="normal-a"><i class="fas fa-phone"></i>0907306899</a>
-              </p>
+              All prices are in TWD. 全館買三送一
             </div>
           </div>
           <div class="col-12 col-md-6">
             <div
-              class="header-right d-flex flex-md-row justify-content-md-end justify-content-center align-items-center"
+              class="header-right d-flex flex-md-row justify-content-end align-items-center"
             >
               <div class="social-link d-flex">
                 <a href="https://www.facebook.com/%E6%B1%B4%E5%88%A9%E8%B3%BC-Ezgo-107385547368839/" target="_blank"><i
@@ -34,20 +29,19 @@
                   </ul>
                 </div>
               </div>
+              <nuxt-link
+                class="function-icon ml-10px mr-10px"
+                to="/wishlist"
+                id="wishlist"
+              >
+                <i class="icon-heart-heart"/>
+              </nuxt-link>
               <div class="language">
-                <div class="selected-language" v-if="currency==='tw'">
-                  {{$t('ntdoller')}}<i class="arrow_carrot-down"></i>
-                  <ul class="list-language">
-                    <li class="hover-li" @click="change_currency('tw')">{{$t('ntdoller')}}</li>
-                    <li class="hover-li" @click="change_currency('en')">{{$t('usdoller')}}</li>
-                  </ul>
-                </div>
-                <div class="selected-language" v-else>
-                  {{$t('usdoller')}}<i class="arrow_carrot-down"></i>
-                  <ul class="list-language">
-                    <li class="hover-li" @click="change_currency('tw')">{{$t('ntdoller')}}</li>
-                    <li class="hover-li" @click="change_currency('en')">{{$t('usdoller')}}</li>
-                  </ul>
+                <div class="selected-language">
+                  <nuxt-link to="/shop-cart" class="normal-a d-flex"
+                  ><i class="shopping-cart-icon"></i>
+                    <span class="badge badge-notify" v-if="count">{{count}}</span>
+                  </nuxt-link>
                 </div>
               </div>
               <div class="login d-flex"
@@ -76,9 +70,6 @@
         <div class="row">
           <div class="col-2 header-logo">
             <a href="/"></a>
-            <!-- <nuxt-link class="logo" to="/"
-            ><img src="" alt=""
-            /></nuxt-link> -->
           </div>
           <div class="col-8">
             <div
@@ -154,21 +145,11 @@
             <div
               class="product-function d-flex align-items-center justify-content-end"
             >
-              <div id="wishlist">
-                <nuxt-link
-                  class="function-icon icon_heart_alt"
-                  to="/wishlist"
-                ></nuxt-link>
-              </div>
-              <nuxt-link to="/shop-cart" class="normal-a d-flex"
-              ><i class="shopping-cart-icon"></i>
-                <span class="badge badge-notify" v-if="count">{{count}}</span>
-              </nuxt-link>
-              <div id="cart">
-                <nuxt-link class="function-icon" to="/shop-cart" v-if="count">
-                  <span>${{currencyChange(total)|commaFormat}}</span></nuxt-link
-                >
-              </div>
+              <!--              <div id="cart">-->
+              <!--                <nuxt-link class="function-icon" to="/shop-cart" v-if="count">-->
+              <!--                  <span>${{currencyChange(total)|commaFormat}}</span></nuxt-link-->
+              <!--                >-->
+              <!--              </div>-->
             </div>
           </div>
         </div>
@@ -529,3 +510,6 @@
     }
   }
 </script>
+<style lang="sass">
+
+</style>
