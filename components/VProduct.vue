@@ -9,22 +9,21 @@
       <div class="product-img_block">
         <span class="product-img"
         ><img :src="imageLink(image)" alt=""
-              style="height: 180px; max-height: 100%; object-fit: contain"
         /></span>
       </div>
       <div class="product-info_block">
-        <div class="activity">
+        <div class="activity mb-10px mt-10px">
           <div class="activity-box" v-if="product &&product.activity">{{product.activity_detail.ch_name}}</div>
         </div>
-        <h5 class="product-type" style="text-align: -webkit-center;">
-          <span v-if="product.brand_en_name">{{product.brand_en_name}}</span>
-          <span v-else><br></span>
-        </h5>
+<!--        <h5 class="product-type" style="text-align: -webkit-center;">-->
+<!--          <span v-if="product.brand_en_name">{{product.brand_en_name}}</span>-->
+<!--          <span v-else><br></span>-->
+<!--        </h5>-->
         <span class="product-name ellipsis"
               style="-webkit-line-clamp:2;display: -webkit-box;-webkit-box-orient: vertical;overflow: hidden;height: 48px; font-weight:bold;">{{product.name}}
                 </span>
+        <del v-if="fake_price">{{getProcessPrice(fake_price)}}</del>
         <h3 class="product-price" style="text-align: -webkit-center;">{{getProcessPrice(price)}}
-          <del v-if="fake_price">{{getProcessPrice(fake_price)}}</del>
         </h3>
         <p class="product-describe">{{product.sub_title}}</p>
         <h5 class="product-avaiable">{{$t('weight')}}: <span>{{product.weight}} {{$t('kg')}}</span></h5>
