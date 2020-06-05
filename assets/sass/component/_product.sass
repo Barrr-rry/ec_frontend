@@ -3,12 +3,13 @@
   flex-direction: column
   justify-content: center
   align-items: center
-  padding: 30px
+  padding-bottom: 30px
   border: 1px solid $line
   position: relative
   z-index: 6
   transition: 0.3s ease
   margin-bottom: 10px
+  height: 580px
 
   &.borderless
     border: 0
@@ -41,10 +42,6 @@
       .product-price
         transform: translateY(0px)
 
-      .product-img
-        img
-          transform: scale(1.1)
-          transform-origin: 50% 50%
   @media (hover: hover)
     &:hover:after
       height: 45px
@@ -67,10 +64,9 @@
     transition: 0.3s
 
   .product-img
-    height: 138px
+    height: 420px
     width: 100%
     display: flex
-    margin-bottom: 30px
     justify-content: center
     align-items: center
 
@@ -157,6 +153,7 @@
 
 
   .product-img_block
+    width: 100%
     text-align: center
     flex: 1 1 33.3333%
     padding-right: 30px
@@ -553,7 +550,7 @@
   background: url(../images/product-label/label-green.svg) no-repeat center
   position: absolute
   right: 20px
-  top: 0
+  top: -5px
   z-index: 50
 
 .label-red
@@ -563,7 +560,7 @@
   background: url(../images/product-label/label-red.svg) no-repeat center
   position: absolute
   right: 20px
-  top: 0
+  top: -5px
   z-index: 50
 
 .label-blue
@@ -573,7 +570,7 @@
   background: url(../images/product-label/label-blue.svg) no-repeat center
   position: absolute
   right: 20px
-  top: 0
+  top: -5px
   z-index: 50
 
 .label-pink
@@ -583,7 +580,7 @@
   background: url(../images/product-label/label-pink.svg) no-repeat center
   position: absolute
   right: 20px
-  top: 0
+  top: -5px
   z-index: 50
 
 .label-yellow
@@ -593,7 +590,7 @@
   background: url(../images/product-label/label-yellow.svg) no-repeat center
   position: absolute
   right: 20px
-  top: 0
+  top: -5px
   z-index: 50
 /** 緞帶樣式 **/
 .ribbon-green
@@ -603,7 +600,7 @@
   background: url(../images/product-label/ribbon-green.svg) no-repeat center
   position: absolute
   right: 0
-  top: 0
+  top: -5px
   z-index: 50
 
 .ribbon-orange
@@ -613,7 +610,7 @@
   background: url(../images/product-label/ribbon-orange.svg) no-repeat center
   position: absolute
   right: 0
-  top: 0
+  top: -5px
   z-index: 50
 
 .ribbon-pink
@@ -623,7 +620,7 @@
   background: url(../images/product-label/ribbon-pink.svg) no-repeat center
   position: absolute
   right: 0
-  top: 0
+  top: -5px
   z-index: 50
 
 .ribbon-yellow
@@ -633,7 +630,7 @@
   background: url(../images/product-label/ribbon-yellow.svg) no-repeat center
   position: absolute
   right: 0
-  top: 0
+  top: -5px
   z-index: 50
 
 .product-select

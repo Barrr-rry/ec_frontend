@@ -9,7 +9,6 @@
       <div class="product-img_block">
         <span class="product-img"
         ><img :src="imageLink(image)" alt=""
-              style="height: 180px; max-height: 100%; object-fit: contain"
         /></span>
       </div>
       <div class="product-info_block">
