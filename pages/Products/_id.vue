@@ -79,7 +79,8 @@
                     <p class="delivery-status fz16px">{{$t('over')}} {{lowest_freeshipping}}
                       {{$t('free_shipping_3000')}}</p>
                     <div class="activity">
-                      <div class="activity-box" v-if="product &&product.activity">{{product.activity_detail.ch_name}}</div>
+                      <div class="activity-box" v-if="product &&product.activity">{{product.activity_detail.ch_name}}
+                      </div>
                     </div>
                     <div class="price-rate">
                       <h3 class="product-price">
@@ -88,29 +89,37 @@
                         {{getProcessPrice(price)}}
                       </h3>
                     </div>
-                    <div class="quantity-select" style="margin-bottom: 10px">
-                      <label class="fz16px">{{product.level1_title}} :</label>
-                      <VSelectButton
-                        v-for="el of spec_level1_list"
-                        :key="el.id"
-                        :option="el.id"
-                        v-model="choose_level1"
-                        :disabled="isSelectDisabled(el)"
-                      >{{el.name}}
-                      </VSelectButton>
+                    <div class="quantity-select d-flex" style="margin-bottom: 10px">
+                      <div style="padding-top: 4px">
+                        <label class="fz16px">{{product.level1_title}} :</label>
+                      </div>
+                      <div>
+                        <VSelectButton
+                          v-for="el of spec_level1_list"
+                          :key="el.id"
+                          :option="el.id"
+                          v-model="choose_level1"
+                          :disabled="isSelectDisabled(el)"
+                        >{{el.name}}
+                        </VSelectButton>
+                      </div>
                     </div>
-                    <div class="quantity-select" style="margin-bottom: 10px"
+                    <div class="quantity-select d-flex" style="margin-bottom: 10px"
                          v-if="has_spec_level2"
                     >
-                      <label class="fz16px">{{product.level2_title}} :</label>
-                      <VSelectButton
-                        v-for="el of spec_level2_list"
-                        :key="el.id"
-                        :option="el.id"
-                        v-model="choose_level2"
-                        :disabled="isSelectDisabled(el)"
-                      >{{el.name}}
-                      </VSelectButton>
+                      <div style="padding-top: 4px">
+                        <label class="fz16px">{{product.level2_title}} :</label>
+                      </div>
+                      <div>
+                        <VSelectButton
+                          v-for="el of spec_level2_list"
+                          :key="el.id"
+                          :option="el.id"
+                          v-model="choose_level2"
+                          :disabled="isSelectDisabled(el)"
+                        >{{el.name}}
+                        </VSelectButton>
+                      </div>
                     </div>
 
 
