@@ -11,7 +11,7 @@
                 <img src="/images/webs/logo.svg" alt="" style="width: 195px">
               </div>
               <div class="col-8">
-                <div class="mt-40px ml-20px">
+                <div class="mt-50px ml-10px mb-15px">
                   <ImageHover
                     class="mr-10px"
                     src="/images/webs/ig.svg"
@@ -33,10 +33,10 @@
                     hover="/images/webs/facebook-w.svg"
                   />
                 </div>
-                <div class="footer-copyright ml-20px">
+                <div class="footer-copyright ml-10px mb-5px">
                   Copyright 2020 HaveFun Men's Underwear Inc.
                 </div>
-                <div class="footer-copyright ml-20px">
+                <div class="footer-copyright ml-10px">
                   All rights reserved.
                 </div>
               </div>

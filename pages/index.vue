@@ -55,7 +55,7 @@
       </div>
     </div>
     <!-- End slider-->
-    <div class="feature-products mb-40px mt-40px mt-80px-md">
+    <div class="feature-products mt-80px-sm mt-40px-md mt-40px">
       <div class="container">
         <div class="row">
           <div class="col-12">

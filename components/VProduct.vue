@@ -13,7 +13,7 @@
       </div>
       <div class="product-info_block">
         <div class="activity mb-10px mt-10px">
-          <div class="activity-box" v-if="product &&product.activity">{{product.activity_detail.ch_name}}</div>
+          <div class="activity-box" v-if="product && product.activity">{{product.activity_detail.ch_name}}</div>
         </div>
 <!--        <h5 class="product-type" style="text-align: -webkit-center;">-->
 <!--          <span v-if="product.brand_en_name">{{product.brand_en_name}}</span>-->

@@ -1,12 +1,12 @@
 <template>
-  <div class="slider">
+  <div class="slider mt-0px">
     <div class="full-fluid">
       <div class="slider_wrapper">
         <div class="slider-block pointer"
              :style="{
              'background-image':`url('${imageLink(banner.bigimage)}')`
              }"
-             style="min-height: 725px"
+             style="min-height: 710px"
              @click="toLink(banner)"
              v-for="banner in banners" :key="banner.id">
           <div class="slider-content">

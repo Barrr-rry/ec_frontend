@@ -111,14 +111,14 @@ $loop: 30
         @extend .mt-#{$i*$pxsize}px
 
     .m#{$a}-#{$i*$pxsize}px-md
-      @media all and (min-width: 768px)
+      @media all and (max-width: 768px)
         @if $a != 'a'
           margin-#{$b}: #{$i*$pxsize}px !important
         @else
           margin: #{$i*$pxsize}px !important
 
     .m#{$a}-#{$i*$pxsize}px-sm
-      @media all and (min-width: 576px)
+      @media all and (max-width: 576px)
         @if $a != 'a'
           margin-#{$b}: #{$i*$pxsize}px !important
         @else

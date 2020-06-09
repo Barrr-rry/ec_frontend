@@ -13,6 +13,16 @@ header
 		padding: 15px
 		position: relative
 		// z-index: 1000
+
+		img
+			display: inline-block
+			margin: 0 12px
+			&:last-child
+				margin-right: 0
+
+			&:nth-child(1)
+				margin-left: 0
+
 		.header-left
 			p
 				@include font-regular(16px, $title, 1)
@@ -104,7 +114,7 @@ header
 
 
 	.navigation
-		padding: 20px 0
+		padding: 15px 0
 		.navgition-menu
 			height: 100%
 			ul
@@ -134,7 +144,7 @@ header
 					.menu-item
 						@include link-regular(16px, $title, 1, $primary-color)
 						text-transform: uppercase
-						padding: 10px 0
+						// padding: 10px 0
 						&:after
 							content: "\33"
 							font-family: 'ElegantIcons'

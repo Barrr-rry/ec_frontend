@@ -9,7 +9,7 @@
   z-index: 6
   transition: 0.3s ease
   margin-bottom: 10px
-  height: 620px
+  // max-height: 620px
   del
     color: #0b1d37
 
@@ -28,7 +28,7 @@
   @media (hover: hover)
     &:hover
       // border: 0px solid $trans
-      box-shadow: 0px 20px 32px 0 rgba(53, 78, 84, 0.15)
+      // box-shadow: 0px 20px 32px 0 rgba(53, 78, 84, 0.15)
       z-index: 20
 
       .product-select
@@ -47,7 +47,7 @@
   @media (hover: hover)
     &:hover:after
       height: 45px
-      box-shadow: 0px 10px 10px 0 rgba(53, 78, 84, 0.05)
+      // box-shadow: 0px 10px 0px 0 rgba(53, 78, 84, 0.05)
       opacity: 1
       bottom: -40px
 
@@ -56,24 +56,30 @@
     position: absolute
     display: block
     bottom: 0px
-    left: 0
+    left: -1px
+    right: -1px
     height: 0px
-    width: 100%
     background-color: white
     z-index: 0
     opacity: 0
-    border: 1px solid $trans
+    border-bottom: 1px solid $line
+    border-left: 1px solid $line
+    border-right: 1px solid $line
     transition: 0.3s
+    
+  .product-img_block
+    width: 100%
 
   .product-img
-    height: 420px
+    // height: 420px
     width: 100%
     display: flex
     justify-content: center
 
     img
-      max-width: 100%
-      max-height: 100%
+      width: auto
+      display: block
+      max-height: 420px
       transition: 0.3s ease
 
     @media screen and (max-width: 576px)
@@ -86,7 +92,7 @@
     margin-bottom: 10px
 
   .product-name
-    @include font-regular(15px, $title, 24px)
+    @include font-regular(15px, $primary-color, 24px)
     -webkit-line-clamp: 2
     margin-bottom: 5px
     transition: 0.4s
@@ -99,11 +105,12 @@
 
   .product-price
     color: #e02020
-    @include font-medium(20px, $title, 1)
+    @include font-medium(24px, $title, 1)
     transition: .4s ease
+    margin-top: 5px
 
     del
-      @include font-regular(16px, $disable, 1)
+      @include font-regular(14px, $disable, 1)
       display: inline-block
 
 
@@ -120,8 +127,8 @@
       transform: scale(0) translateY(0px)
       transiton: 0.4s
 
-  .product-price
-    font-size: 20px !important
+  // .product-price
+  //   font-size: 20px !important
 
 .product.list-view
   flex-direction: row
