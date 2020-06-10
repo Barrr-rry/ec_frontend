@@ -1,50 +1,54 @@
 <template>
   <div>
     <footer style="margin-top: 100px">
-      <div class="bg-green" style="height: 350px; padding-top: 50px">
+      <div class="bg-green pt-50px">
         <div class="container">
           <div class="row">
             <div
-              class="col-12 col-sm-12 col-md-7 text-sm-center text-md-left footer-left row"
+              class="col-12 col-sm-12 col-md-12 col-lg-7 text-lg-left mb-0px-sm mb-40px-md mb-40px"
             >
-              <div class="col-4">
-                <img src="/images/webs/logo.svg" alt="" style="width: 195px">
-              </div>
-              <div class="col-8">
-                <div class="mt-50px ml-10px mb-15px">
-                  <ImageHover
-                    class="mr-10px"
-                    src="/images/webs/ig.svg"
-                    hover="/images/webs/ig-w.svg"
-                  />
-                  <ImageHover
-                    class="mr-10px"
-                    src="/images/webs/twitter.svg"
-                    hover="/images/webs/twitter-w.svg"
-                  />
-                  <ImageHover
-                    class="mr-10px"
-                    src="/images/webs/line.svg"
-                    hover="/images/webs/line-w.svg"
-                  />
-                  <ImageHover
-                    class="mr-10px"
-                    src="/images/webs/facebook.svg"
-                    hover="/images/webs/facebook-w.svg"
-                  />
+              <div class="row">
+                <div class="col-12 col-md-6 col-lg-4">
+                  <img src="/images/webs/logo.svg" class="logo" alt="" style="max-width: 195px;  width: 100%;">
                 </div>
-                <div class="footer-copyright ml-10px mb-5px">
-                  Copyright 2020 HaveFun Men's Underwear Inc.
-                </div>
-                <div class="footer-copyright ml-10px">
-                  All rights reserved.
+                <div class="col-12 col-md-6 col-lg-8">
+                  <div class="social-media mt-50px ml-10px-md ml-10px-lg ml-0 mb-50px-sm mb-15px-md mb-0px">
+                    <ImageHover
+                      class="mr-10px"
+                      src="/images/webs/ig.svg"
+                      hover="/images/webs/ig-w.svg"
+                    />
+                    <ImageHover
+                      class="mr-10px"
+                      src="/images/webs/twitter.svg"
+                      hover="/images/webs/twitter-w.svg"
+                    />
+                    <ImageHover
+                      class="mr-10px"
+                      src="/images/webs/line.svg"
+                      hover="/images/webs/line-w.svg"
+                    />
+                    <ImageHover
+                      class="mr-10px"
+                      src="/images/webs/facebook.svg"
+                      hover="/images/webs/facebook-w.svg"
+                    />
+                  </div>
+                  <div class="desktop-copyright">
+                    <div class="footer-copyright ml-10px mb-5px">
+                      Copyright 2020 HaveFun Men's Underwear Inc.
+                    </div>
+                    <div class="footer-copyright ml-10px">
+                      All rights reserved.
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="col-md-5 col-sm-12 foot-right">
+            <div class="col-12 col-md-12 col-lg-4 foot-right">
               <div class="row">
                 <div
-                  class="col-12 col-sm-4 text-sm-center text-md-left footer-margin"
+                  class="col-12 col-sm-4 text-md-left footer-margin"
                 >
                   <FooterQuickLink title="會員中心">
                     <nuxt-link to="/delivery-instructions"
@@ -55,7 +59,7 @@
                   </FooterQuickLink>
                 </div>
                 <div
-                  class="col-12 col-sm-4 text-sm-center text-md-left footer-margin"
+                  class="col-12 col-sm-4 text-md-left footer-margin"
                 >
                   <FooterQuickLink title="訂單資訊">
                     <nuxt-link to="/member-centre">尺寸表</nuxt-link>
@@ -64,7 +68,7 @@
                   </FooterQuickLink>
                 </div>
                 <div
-                  class="col-12 col-sm-4 text-sm-center text-md-left footer-margin"
+                  class="col-12 col-sm-4 text-md-left footer-margin"
                 >
                   <FooterQuickLink title="訂購資訊">
                     <nuxt-link to="/privacy-statement">配送與換貨說明</nuxt-link>
@@ -74,8 +78,18 @@
             </div>
           </div>
         </div>
-        <div class="fooer-bottom-box d-flex justify-content-center mt-40px">
-          <img class="payment-method" src="/images/webs/visa.svg" alt=""/>
+        <div class="fooer-bottom-box mt-40px">
+          <div class="mobile-copyright text-center pt-30px pb-30px">
+            <div class="footer-copyright ml-10px mb-5px">
+              Copyright 2020 HaveFun Men's Underwear Inc.
+            </div>
+            <div class="footer-copyright ml-10px">
+              All rights reserved.
+            </div>
+          </div>
+          <div class="d-flex justify-content-center pb-50px pt-0px-sm pt-30px-md pt-0px">
+            <img class="payment-method" src="/images/webs/visa.svg" alt=""/>
+          </div>
         </div>
       </div>
     </footer>
@@ -120,4 +134,12 @@
   footer .footer-quicklink a {
     color: #fff;
   }
+
+  footer .logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateX(10px)
+  }
+
 </style>

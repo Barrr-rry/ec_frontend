@@ -22,6 +22,10 @@ footer
   .footer-quicklink
     display: flex
     flex-direction: column
+    +mobile
+      align-items: center
+    +tablet
+      align-items: center
 
     h5
       @include font-bold(16px, $title, 1)
@@ -130,6 +134,12 @@ footer.pink
   .footer-quicklink
     a
       @include link-medium(16px, $regular, 30px, $pink)
+
+      +mobile
+        font-size: 18px
+
+      +tablet
+        font-size: 18px
 
 
   .newletter
@@ -246,8 +256,8 @@ $footer-left-max-width: 850px
 .footer-left, .footer-quicklink
   +max-width($footer-left-max-width)
     margin-bottom: 20px
-    *
-      text-align: center
+    // *
+    //   text-align: center
 
 
 .footer-margin
@@ -309,10 +319,24 @@ $footer-left-max-width: 850px
   font-size: 14px
   line-height: 2.62
 
+  +mobile
+    font-size: 18px
+
+  +tablet
+    font-size: 18px
+
   .icon_plus, .icon_minus-06
     position: absolute
     right: -25px
     top: 12px
+
+    +mobile
+      top: 15px
+
+    +tablet
+      top: 15px
+
+
 
 .footer-logo
   a
@@ -390,10 +414,43 @@ footer .footer-contact p, footer .footer-quicklink a
   line-height: 2.62
 
 .fooer-bottom-box
-  height: 80px
+  // height: 80px
   border-top: 1px solid rgba(216, 216, 216, 0.18)
   //border-top: solid 1px rgba(216 216 216, 0.18)
 
 .footer-copyright
   color: white
   font-size: 12px
+
+
+
+.desktop-copyright
+  display:  block
+  +mobile
+    display: none
+
+  +tablet
+    display: none
+
+  +small-desktop
+    display: block
+
+.mobile-copyright
+  display: none
+  
+  +mobile
+    display: block
+
+  +tablet
+    display: block
+
+  +small-desktop
+    display: none
+
+
+footer .social-media
+  +mobile
+    text-align: center
+
+  +tablet
+    text-align: center

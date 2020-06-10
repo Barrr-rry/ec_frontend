@@ -1,180 +1,10 @@
 <template>
   <header v-if="computed_brands.length&&categories.length">
-    <div class="header-block d-flex align-items-center">
-      <div class="container header-white">
-        <div class="row">
-          <div class="col-12 col-md-6">
-            <div
-              class="header-left d-flex flex-md-row align-items-center fill-height"
-            >
-              All prices are in TWD. 全館買三送一
-            </div>
-          </div>
-          <div class="col-12 col-md-6">
-            <div
-              class="header-right d-flex flex-md-row justify-content-end align-items-center"
-            >
-              <div class="social-link d-flex">
-                <ImageHover
-                  src="/images/webs/ig-origin.svg"
-                  hover="/images/webs/ig-origin.svg"
-                />
-                <ImageHover
-                  src="/images/webs/twitter-origin.svg"
-                  hover="/images/webs/twitter-origin.svg"
-                />
-                <ImageHover
-                  src="/images/webs/line-origin.svg"
-                  hover="/images/webs/line-origin.svg"
-                />
-                <ImageHover
-                  src="/images/webs/fb-origin.svg"
-                  hover="/images/webs/fb-origin.svg"
-                />
-<!--                <a href="https://www.facebook.com/%E6%B1%B4%E5%88%A9%E8%B3%BC-Ezgo-107385547368839/" target="_blank"><i-->
-<!--                  class="fab fa-facebook-f"> </i></a>-->
-<!--                <a href="https://line.me/ti/p/1qvbcczVSW" target="_blank"><i class="fab fa-line"> </i></a>-->
-<!--                <a href=""><i class="fab fa-twitter" @click="share('twitter')"></i></a>-->
-              </div>
-              <div class="language">
-                <div class="selected-language">
-                  {{display_lang}}<i class="arrow_carrot-down"></i>
-                  <ul class="list-language">
-                    <li class="hover-li" @click="change_locale('tw')">{{$t('Chinese')}}</li>
-                    <li class="hover-li" @click="change_locale('en')">English</li>
-                  </ul>
-                </div>
-              </div>
-              <nuxt-link
-                class="function-icon ml-10px mr-10px"
-                to="/wishlist"
-                id="wishlist"
-              >
-                <i class="icon-heart-heart"/>
-              </nuxt-link>
-              <div class="language">
-                <div class="selected-language">
-                  <nuxt-link to="/shop-cart" class="normal-a d-flex"
-                  ><i class="shopping-cart-icon"></i>
-                    <span class="badge badge-notify" v-if="count">{{count}}</span>
-                  </nuxt-link>
-                </div>
-              </div>
-              <div class="login d-flex"
-                   v-if="!has_token"
-              >
-                <nuxt-link to="/login"
-                ><i class="fas fa-user"></i>{{$t('login')}}
-                </nuxt-link
-                >
-              </div>
-              <div class="login d-flex"
-                   v-else
-              >
-                <nuxt-link to="/member-centre"
-                ><i class="fas fa-user"></i>
-                </nuxt-link>
-                <a class="pointer" @click="logout">{{$t('logout')}}</a>
-              </div>
-            </div>
-          </div>
-        </div>
+  <div id="mobile-menu">
+      <div class="mobile-menu--msg">
+        All prices are in TWD. 全館買三送一
       </div>
-    </div>
-    <div class="header-only-logo d-flex justify-content-center"
-         v-if="$route.name==='index'"
-    >
-      <img src="/images/webs/logo.svg" alt="" style="width: 280px">
-    </div>
-    <nav class="navigation d-flex align-items-center">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <div
-              class="navgition-menu d-flex align-items-center justify-content-center"
-            >
-              <ul class="mb-0 d-flex justify-content-between fill-width">
-                <li
-                  class="toggleable"
-                >
-                  <nuxt-link :to="`/brands`" class="menu-item">
-                    {{$t('brand_category')}}
-                  </nuxt-link
-                  >
-                  <ul class="sub-menu shop">
-                    <li v-for="brand of computed_brands" :key="brand.id">
-                      <nuxt-link :to="`/products?b=${brand.id}`">{{
-                        brand.en_name
-                        }}
-                      </nuxt-link>
-                    </li>
-                    <li>
-                      <nuxt-link to="/brands">{{$t('all_brands')}}</nuxt-link>
-                    </li>
-                  </ul>
-                </li>
-
-                <li
-                  v-for="cata of categories"
-                  :key="cata.id"
-                  class="toggleable"
-                >
-                  <nuxt-link :to="`/categories/${cata.id}`" class="menu-item">
-                    {{ cata.name }}
-                  </nuxt-link>
-                  <template v-if="checkMoreDeeper(cata.sub_categories)">
-                    <ul class="sub-menu shop d-flex" style="min-width: 1100px">
-                      <div class="nav-column" v-for="sub of cata.sub_categories" :key="sub.id">
-                        <h2>{{sub.name}}</h2>
-                        <li v-for="sub_sub of sub.sub_categories">
-                          <nuxt-link :to="getSubLink(sub_sub)">{{
-                            sub_sub.name
-                            }}
-                          </nuxt-link>
-                        </li>
-                      </div>
-                    </ul>
-                  </template>
-                  <template v-else>
-                    <ul class="sub-menu shop">
-                      <div class="nav-column">
-                        <li v-for="sub of cata.sub_categories" :key="sub.id">
-                          <nuxt-link :to="getSubLink(sub)">{{
-                            sub.name
-                            }}
-                          </nuxt-link>
-                        </li>
-                      </div>
-                    </ul>
-                  </template>
-                </li>
-
-                <li class="toggleable">
-                  <nuxt-link class="menu-item" to="/about-us"
-                  >{{$t('about_us')}}
-                  </nuxt-link
-                  >
-                  <span class="sub-menu--expander"></span>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-2">
-            <div
-              class="product-function d-flex align-items-center justify-content-end"
-            >
-              <!--              <div id="cart">-->
-              <!--                <nuxt-link class="function-icon" to="/shop-cart" v-if="count">-->
-              <!--                  <span>${{currencyChange(total)|commaFormat}}</span></nuxt-link-->
-              <!--                >-->
-              <!--              </div>-->
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav>
-    <div class="navigation-clone"></div>
-    <div id="mobile-menu">
+      <div class="mobile-menu--tools">
       <div class="container">
         <div class="row">
           <div class="col-3">
@@ -307,17 +137,17 @@
               <div class="ogamin-mobile-menu_bg"></div>
             </div>
           </div>
-          <div class="col-6">
+          <!--<div class="col-6">
             <div
               class="mobile-menu_logo text-center d-flex justify-content-center align-items-center"
             >
               <a href="/"></a>
-              <!-- <nuxt-link to="/"
+              <nuxt-link to="/"
               ><img src="" alt=""
-              /></nuxt-link> -->
+              /></nuxt-link>
             </div>
-          </div>
-          <div class="col-3">
+          </div>-->
+          <div class="col-9">
             <div
               class="mobile-product_function d-flex align-items-center justify-content-end"
             >
@@ -336,7 +166,183 @@
           </div>
         </div>
       </div>
+      </div>
     </div>
+    <div class="header-block d-flex align-items-center">
+      <div class="container header-white">
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <div
+              class="header-left d-flex flex-md-row align-items-center fill-height"
+            >
+              All prices are in TWD. 全館買三送一
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div
+              class="header-right d-flex flex-md-row justify-content-end align-items-center"
+            >
+              <div class="social-link d-flex">
+                <ImageHover
+                  src="/images/webs/ig-origin.svg"
+                  hover="/images/webs/ig-origin.svg"
+                />
+                <ImageHover
+                  src="/images/webs/twitter-origin.svg"
+                  hover="/images/webs/twitter-origin.svg"
+                />
+                <ImageHover
+                  src="/images/webs/line-origin.svg"
+                  hover="/images/webs/line-origin.svg"
+                />
+                <ImageHover
+                  src="/images/webs/fb-origin.svg"
+                  hover="/images/webs/fb-origin.svg"
+                />
+<!--                <a href="https://www.facebook.com/%E6%B1%B4%E5%88%A9%E8%B3%BC-Ezgo-107385547368839/" target="_blank"><i-->
+<!--                  class="fab fa-facebook-f"> </i></a>-->
+<!--                <a href="https://line.me/ti/p/1qvbcczVSW" target="_blank"><i class="fab fa-line"> </i></a>-->
+<!--                <a href=""><i class="fab fa-twitter" @click="share('twitter')"></i></a>-->
+              </div>
+              <div class="language">
+                <div class="selected-language">
+                  {{display_lang}}<i class="arrow_carrot-down"></i>
+                  <ul class="list-language">
+                    <li class="hover-li" @click="change_locale('tw')">{{$t('Chinese')}}</li>
+                    <li class="hover-li" @click="change_locale('en')">English</li>
+                  </ul>
+                </div>
+              </div>
+              <nuxt-link
+                class="function-icon ml-10px mr-10px"
+                to="/wishlist"
+                id="wishlist"
+              >
+                <i class="icon-heart-heart"/>
+              </nuxt-link>
+              <div class="language">
+                <div class="selected-language">
+                  <nuxt-link to="/shop-cart" class="normal-a d-flex"
+                  ><i class="shopping-cart-icon"></i>
+                    <span class="badge badge-notify" v-if="count">{{count}}</span>
+                  </nuxt-link>
+                </div>
+              </div>
+              <div class="login d-flex"
+                   v-if="!has_token"
+              >
+                <nuxt-link to="/login"
+                ><i class="fas fa-user"></i>{{$t('login')}}
+                </nuxt-link
+                >
+              </div>
+              <div class="login d-flex"
+                   v-else
+              >
+                <nuxt-link to="/member-centre"
+                ><i class="fas fa-user"></i>
+                </nuxt-link>
+                <a class="pointer" @click="logout">{{$t('logout')}}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="header-only-logo d-flex justify-content-center"
+         v-if="$route.name==='index'"
+    >
+      <img src="/images/webs/logo.svg" alt="">
+    </div>
+    <nav class="navigation d-flex align-items-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div
+              class="navgition-menu d-flex align-items-center justify-content-center"
+            >
+              <ul class="mb-0 d-flex justify-content-between fill-width">
+                <li
+                  class="toggleable"
+                >
+                  <nuxt-link :to="`/brands`" class="menu-item">
+                    {{$t('brand_category')}}
+                  </nuxt-link
+                  >
+                  <ul class="sub-menu shop">
+                    <li v-for="brand of computed_brands" :key="brand.id">
+                      <nuxt-link :to="`/products?b=${brand.id}`">{{
+                        brand.en_name
+                        }}
+                      </nuxt-link>
+                    </li>
+                    <li>
+                      <nuxt-link to="/brands">{{$t('all_brands')}}</nuxt-link>
+                    </li>
+                  </ul>
+                </li>
+
+                <li
+                  v-for="cata of categories"
+                  :key="cata.id"
+                  class="toggleable"
+                >
+                  <nuxt-link :to="`/categories/${cata.id}`" class="menu-item">
+                    {{ cata.name }}
+                  </nuxt-link>
+                  <template v-if="checkMoreDeeper(cata.sub_categories)">
+                    <ul class="sub-menu shop d-flex" style="min-width: 1100px">
+                      <div class="nav-column" v-for="sub of cata.sub_categories" :key="sub.id">
+                        <h2>{{sub.name}}</h2>
+                        <li v-for="sub_sub of sub.sub_categories">
+                          <nuxt-link :to="getSubLink(sub_sub)">{{
+                            sub_sub.name
+                            }}
+                          </nuxt-link>
+                        </li>
+                      </div>
+                    </ul>
+                  </template>
+                  <template v-else>
+                    <ul class="sub-menu shop">
+                      <div class="nav-column">
+                        <li v-for="sub of cata.sub_categories" :key="sub.id">
+                          <nuxt-link :to="getSubLink(sub)">{{
+                            sub.name
+                            }}
+                          </nuxt-link>
+                        </li>
+                      </div>
+                    </ul>
+                  </template>
+                </li>
+
+                <li class="toggleable">
+                  <nuxt-link class="menu-item" to="/about-us"
+                  >{{$t('about_us')}}
+                  </nuxt-link
+                  >
+                  <span class="sub-menu--expander"></span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-2">
+            <div
+              class="product-function d-flex align-items-center justify-content-end"
+            >
+              <!--              <div id="cart">-->
+              <!--                <nuxt-link class="function-icon" to="/shop-cart" v-if="count">-->
+              <!--                  <span>${{currencyChange(total)|commaFormat}}</span></nuxt-link-->
+              <!--                >-->
+              <!--              </div>-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="navigation-clone"></div>
+    
     <div class="mobile-menu-clone"></div>
     <div class="navigation-filter" v-if="$route.name!=='index'">
       <div class="container">

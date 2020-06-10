@@ -1,11 +1,12 @@
 #mobile-menu 
-	margin-bottom: 15px
-	padding: 15px 0
+	// margin-bottom: 15px
+	// padding: 15px 0
+	background-color: $primary-color
 	display: none
 	.mobile-menu_block 
 		height: 100%
 		.mobile-menu--control 
-			@include link-icon(18px,$title,1,$primary-color)
+			@include link-icon(18px,$white,1,$white)
 		
 		.ogamin-mobile-menu_bg 
 		    position: fixed
@@ -126,3 +127,14 @@
 		
 	
 
+
+
+
+.mobile-menu--msg
+	@include font-regular(16px, $white, 1)
+	padding: 18px 40px
+	border: solid 1px rgba(151, 151, 151, 0.18)
+
+
+.mobile-menu--tools
+	padding: 20px 0

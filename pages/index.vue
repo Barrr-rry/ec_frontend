@@ -3,11 +3,11 @@
     <!-- End header-->
     <slider></slider>
     <!--Search Input-->
-    <div class="navigation-filter mt-40px">
+    <div class="navigation-filter mt-30px-sm mt-40px-md mt-30px">
       <div class="container">
         <div class="row">
-          <div class="col-12 col-md-4 col-lg-4 col-xl-3 order-2 order-md-1">
-            <div class="department-menu_block">
+          <div class="col-12 col-md-4 col-lg-4 col-xl-3 order-1">
+            <div class="department-menu_block mb-30px-sm mb-0px-md mb-30px">
               <div
                 class="department-menu d-flex justify-content-between align-items-center white-color"
               >
@@ -26,7 +26,7 @@
               </div>
             </div>
           </div>
-          <div class="col-12 col-md-8 col-lg-8 col-xl-9 order-1 order-md-2">
+          <div class="col-12 col-md-8 col-lg-8 col-xl-9 order-2">
             <div class="website-search">
               <div class="row no-gutters">
                 <div class="col-9 col-md-8 col-lg-9 col-xl-10">
@@ -55,7 +55,7 @@
       </div>
     </div>
     <!-- End slider-->
-    <div class="feature-products mt-80px-sm mt-40px-md mt-40px">
+    <div class="feature-products mt-40px-sm mt-40px-md mt-30px">
       <div class="container">
         <div class="row">
           <div class="col-12">

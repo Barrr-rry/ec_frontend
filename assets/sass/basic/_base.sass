@@ -110,19 +110,28 @@ $loop: 30
         @extend .ml-#{$i*$pxsize}px
         @extend .mt-#{$i*$pxsize}px
 
-    .m#{$a}-#{$i*$pxsize}px-md
-      @media all and (max-width: 768px)
+
+@for $i from 0 through $loop
+  @each $a, $b in $direction
+    .m#{$a}-#{$i*$pxsize}px-sm
+      @media all and (min-width: 576px)
         @if $a != 'a'
           margin-#{$b}: #{$i*$pxsize}px !important
         @else
           margin: #{$i*$pxsize}px !important
 
-    .m#{$a}-#{$i*$pxsize}px-sm
-      @media all and (max-width: 576px)
+
+@for $i from 0 through $loop
+  @each $a, $b in $direction
+    .m#{$a}-#{$i*$pxsize}px-md
+      @media all and (min-width: 768px)
         @if $a != 'a'
           margin-#{$b}: #{$i*$pxsize}px !important
         @else
           margin: #{$i*$pxsize}px !important
+
+
+
 
 @for $i from 0 through $loop
   @each $a, $b in $direction
@@ -132,6 +141,18 @@ $loop: 30
       @else
         padding: #{$i*$pxsize}px !important
 
+@for $i from 0 through $loop
+  @each $a, $b in $direction
+    .p#{$a}-#{$i*$pxsize}px-sm
+      @media all and (min-width: 576px)
+        @if $a != 'a'
+          padding-#{$b}: #{$i*$pxsize}px !important
+        @else
+          padding: #{$i*$pxsize}px !important
+
+          
+@for $i from 0 through $loop
+  @each $a, $b in $direction
     .p#{$a}-#{$i*$pxsize}px-md
       @media all and (min-width: 768px)
         @if $a != 'a'
@@ -139,12 +160,8 @@ $loop: 30
         @else
           padding: #{$i*$pxsize}px !important
 
-    .p#{$a}-#{$i*$pxsize}px-sm
-      @media all and (min-width: 576px)
-        @if $a != 'a'
-          padding-#{$b}: #{$i*$pxsize}px !important
-        @else
-          padding: #{$i*$pxsize}px !important
+
+
 
 
 // opacity

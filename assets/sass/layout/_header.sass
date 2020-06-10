@@ -179,7 +179,7 @@ header
 
 						&.shop
 							padding: 30px
-							min-width: 700px
+							min-width: 300px
 							left: -100px
 							.nav-column
 								margin-right: 75px
@@ -810,6 +810,30 @@ i.arrow_carrot-down
 .sub-menu.d-flex .nav-column li a
     line-height: 1.5!important
 .header-only-logo
-	background-color: $primary-color
 	height: 380px
+	background-color: $primary-color
 	border-top: solid 1px rgba(216, 216, 216, 0.18)
+
+	img
+		width: 234px
+
+	+mobile
+		height: 223px
+		border-top: none
+
+		img
+			width: 138px
+
+	+tablet
+		height: 223px
+		border-top: none
+		img
+			width: 138px
+
+	+small-desktop 
+		height: 223px
+		border-top: none
+		img
+			width: 138px
+
+
