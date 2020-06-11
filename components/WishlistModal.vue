@@ -48,7 +48,7 @@
         <label class="fz16px">{{$t('count')}} :</label>
       </div>
       <counter v-model="quantity"></counter>
-      <span class="col-6 pl-5px primary-color">{{stock_display_text}}</span>
+      <span class="col-6 pl-5px gray-text fz14px ml-5px">{{stock_display_text}}</span>
     </div>
   </modal>
 </template>

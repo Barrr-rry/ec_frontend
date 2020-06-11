@@ -1,5 +1,5 @@
 <template>
-  <div class="shop-pagination">
+  <div class="shop-pagination mt-60px">
     <ul>
       <li v-if="!pages.includes(1)">
         <button class="no-round-btn smooth">

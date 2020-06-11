@@ -49,6 +49,10 @@ a.normal-btn
 	
 	&.black 
 		@include button($black,$white,13px,0px,2px,$black,15px 30px,$trans,$black,$black)
+
+  &.white
+    @include button($trans,$primary-color,14px,0,2px,$primary-color,15px 30px,$trans,$primary-color,$primary-color)
+    
   
      
 .increase-icon 
@@ -138,9 +142,9 @@ button.close
   position: relative
   
   &:hover
-    background-color: #88c74a
+    background-color: $primary-color
     color: #fff
-    border: 1px solid #88c74a
+    border: 1px solid $primary-color
     text-decoration: none
 
   &:focus

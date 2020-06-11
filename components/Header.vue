@@ -148,20 +148,15 @@
             </div>
           </div>-->
           <div class="col-9">
-            <div
-              class="mobile-product_function d-flex align-items-center justify-content-end"
-            >
-              <nuxt-link
-                class="function-icon icon_heart_alt pl-0px"
-                to="/wishlist"
-              ></nuxt-link
-              >
-              <nuxt-link
-                class="function-icon shopping-cart-icon pl-0px ml-15px"
-                to="/shop-cart"
-              >
+            <div class="mobile-product_function d-flex align-items-center justify-content-end">
+            
+              <nuxt-link class="function-icon pl-0px" to="/wishlist"><i class="icon-heart-heart"/></nuxt-link>
+              <nuxt-link class="function-icon shopping-cart-icon pl-0px ml-15px" to="/shop-cart">
                 <span class="badge badge-notify" v-if="count">{{count}}</span>
               </nuxt-link>
+              <div class="login d-flex" v-if="!has_token">
+                <nuxt-link to="/login"><i class="fas fa-user"></i></nuxt-link>
+              </div>
             </div>
           </div>
         </div>
@@ -171,14 +166,14 @@
     <div class="header-block d-flex align-items-center">
       <div class="container header-white">
         <div class="row">
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-md-5">
             <div
               class="header-left d-flex flex-md-row align-items-center fill-height"
             >
               All prices are in TWD. 全館買三送一
             </div>
           </div>
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-md-7">
             <div
               class="header-right d-flex flex-md-row justify-content-end align-items-center"
             >
@@ -214,7 +209,7 @@
                 </div>
               </div>
               <nuxt-link
-                class="function-icon ml-10px mr-10px"
+                class="function-icon mr-10px"
                 to="/wishlist"
                 id="wishlist"
               >
@@ -249,12 +244,10 @@
         </div>
       </div>
     </div>
-    <div class="header-only-logo d-flex justify-content-center"
-         v-if="$route.name==='index'"
-    >
+    <div class="header-only-logo d-flex justify-content-center">
       <img src="/images/webs/logo.svg" alt="">
     </div>
-    <nav class="navigation d-flex align-items-center">
+    <nav class="navigation d-flex align-items-center nav-shadow">
       <div class="container">
         <div class="row">
           <div class="col-12">
@@ -344,7 +337,7 @@
     <div class="navigation-clone"></div>
     
     <div class="mobile-menu-clone"></div>
-    <div class="navigation-filter" v-if="$route.name!=='index'">
+    <div class="navigation-filter mt-40px" v-if="$route.name!=='index'">
       <div class="container">
         <div class="row">
           <div class="col-12 col-md-4 col-lg-4 col-xl-3 order-2 order-md-1">

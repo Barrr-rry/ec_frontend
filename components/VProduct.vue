@@ -25,8 +25,10 @@
         <del v-if="fake_price">{{getProcessPrice(fake_price)}}</del>
         <b class="product-price" style="text-align: -webkit-center; color: red">{{getProcessPrice(price)}}
         </b>
-        <p class="product-describe">{{product.sub_title}}</p>
-        <h5 class="product-avaiable">{{$t('weight')}}: <span>{{product.weight}} {{$t('kg')}}</span></h5>
+        <!--
+          <p class="product-describe">{{product.sub_title}}</p>
+          <h5 class="product-avaiable">{{$t('weight')}}: <span>{{product.weight}} {{$t('kg')}}</span></h5>
+        -->
       </div>
       <div class="product-select">
         <button class="add-to-wishlist round-icon-btn" @click.prevent="toWish" :class="[wish_active?'love-active':'']">

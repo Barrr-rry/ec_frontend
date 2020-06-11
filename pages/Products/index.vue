@@ -23,22 +23,11 @@
                     <div class="col-12 col-xl-8">
                       <div class="product-option">
                         <div class="product-filter">
-                          <select class="select-form small-h" name="" @change="changeRouter($event,'order_by')">
-                            <option value="-created_at">{{$t('new_post')}}</option>
-                            <option value="price">{{$t('low_to')}}</option>
-                            <option value="-price">{{$t('hi_to')}}</option>
-                          </select>
                           <select class="select-form small-h" name="" @change="changeRouter($event,'limit')">
                             <option value="10">{{$t('get_10')}}</option>
                             <option value="20">{{$t('get_20')}}</option>
                             <option value="30">{{$t('get_30')}}</option>
                           </select>
-                        </div>
-                        <div class="view-method">
-                          <p id="grid-view" class="active">
-                            <i class="fas fa-th-large"></i>
-                          </p>
-                          <p id="list-view"><i class="fas fa-list"></i></p>
                         </div>
                       </div>
                     </div>

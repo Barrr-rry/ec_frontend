@@ -13,7 +13,7 @@
         </div>
         <div class="modal-footer">
           <slot name="footer">
-            <button @click="close()" type="button" class="no-round-btn">
+            <button @click="close()" type="button" class="no-round-btn white">
               {{$t('cancel')}}
             </button>
             <button @click="ok()" type="button" class="no-round-btn">

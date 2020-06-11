@@ -13,7 +13,8 @@
       .product-option
         display: flex
         align-items: center
-        justify-content: space-between
+        justify-content: flex-end
+        // justify-content: space-between
 
         .view-method
           p
@@ -29,6 +30,8 @@
 
 
     .shop-pagination
+      text-align: center
+      
       ul
         margin-bottom: 0
 
@@ -172,7 +175,8 @@
       text-align: center
       padding: 15px
       margin-bottom: 30px
-      @include font-regular(14px, $title, 1)
+      letter-spacing: 3px
+      @include font-regular(14px, $gray-2, 1)
 
 
     .color-select
@@ -195,7 +199,7 @@
       margin-bottom: 50px
 
       label
-        @include font-regular(14px, $title, 1)
+        @include font-regular(14px, $primary-color, 1)
         display: inline-block
         margin-right: 15px
         white-space: nowrap
@@ -227,7 +231,11 @@
 
     .product-share
       display: flex
-        align-items: center
+      align-items: center
+      color: $primary-color
+
+      i
+        margin: 0 5px
 
       h5
         @include font-regular(18px, $title, 1)
@@ -243,7 +251,8 @@
 
 
   .shop-detail_more-info
-    border: 1px solid $line
+    color: $primary-color
+    border: 1px solid $primary-color
 
     #tab-so3
       ul
@@ -935,3 +944,8 @@
 
 .pt20px
   padding-top: 20px
+
+.terms-li
+  color: $primary-color
+  font-size: 16px
+  line-height: 2

@@ -24,7 +24,7 @@
                         <img
                           :src="imageLink(image.image_url)"
                           alt="product image"
-                          style="max-height: 800px; width: 100%; contain;transform:translateY(0px)"
+                          style="max-height: 800px; width: auto; contain;transform:translateY(0px)"
                         />
                       </div>
                     </div>
@@ -33,7 +33,7 @@
                 </div>
                 <div class="col-12 col-lg-6">
                   <div class="shop-detail_info">
-                    <h2 class="product-name">{{product.name}}</h2>
+                    <h2 class="product-name mb-20px">{{product.name}}</h2>
                     <p class="delivery-status fz16px">{{$t('over')}} {{lowest_freeshipping}}
                       {{$t('free_shipping_3000')}}</p>
                     <div class="activity">
@@ -87,7 +87,7 @@
                                :max="max_quantity"
                                :disabled="!choose_specification_detail"
                       ></counter>
-                      <span class="col-6 pl-5px primary-color">{{stock_display_text}}</span>
+                      <span class="col-6 pl-5px gray-text ml-10px">{{stock_display_text}}</span>
                     </div>
                     <div class="product-select row pl-15px pr-15px">
                       <button class="add-to-cart normal-btn outline col-12" @click="toCart">
@@ -105,9 +105,9 @@
                     </div>
                     <div class="product-share mb-20px">
                       {{$t('shere_products')}} ：
-                      <i class="fab fb-share" @click="share('facebook')"></i>
-                      <i class="fab line-share" @click="share('line')"></i>
-                      <i class="fab twitter-share" @click="share('twitter')"></i>
+                      <i class="small fab fb-share" @click="share('facebook')"></i>
+                      <i class="small fab line-share" @click="share('line')"></i>
+                      <i class="small fab twitter-share" @click="share('twitter')"></i>
                     </div>
                     <div class="slide-img">
                       <div class="slide-img_block"
@@ -124,7 +124,7 @@
                   </div>
                 </div>
                 <div class="col-12 mt-40px">
-                  <div class="shop-detail_more-info">
+                  <div class="shop-detail_more-info mb-40px">
                     <div id="tab-so3">
                       <ul class="mb-0">
                         <li class="active"><a class="fill-width" href="#tab-1">{{$t('products_description')}}</a></li>
@@ -145,7 +145,6 @@
 
                 <div class="col-12">
                   <h3>{{$t('company_terms_1')}}</h3>
-                  <br/>
                   <div class="terms-li">
                     <li>{{$t('company_terms_2')}}</li>
                     <li>
@@ -156,9 +155,10 @@
                     <li>{{$t('company_terms_5')}}</li>
                     <li>{{$t('company_terms_6')}}</li>
                   </div>
-                  <br/>
+
+                  <br/><br/>
+
                   <h3>{{$t('company_terms_12')}}</h3>
-                  <br/>
                   <div class="terms-li">
                     <li>
                       <div>
@@ -175,6 +175,8 @@
                       </div>
                     </li>
                   </div>
+                  <br/><br/>
+
                 </div>
               </div>
             </div>
