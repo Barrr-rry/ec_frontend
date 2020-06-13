@@ -2,7 +2,7 @@
   <div>
     <breadcrumb :end="$t('cartt')"></breadcrumb>
     <!-- End breadcrumb-->
-    <div class="order-step" v-if="items.length">
+    <div class="order-step mb-80px" v-if="items.length">
       <div class="container">
         <div class="row">
           <div class="col-12">
@@ -43,7 +43,7 @@
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <div class="product-table">
+            <div class="product-table mb-40px">
               <table class="table table-responsive">
                 <colgroup>
                   <col span="1" style="width: 15%"/>
@@ -55,19 +55,18 @@
                 </colgroup>
                 <thead>
                 <tr>
-                  <th></th>
-                  <th class="product-iamge" scope="col">{{$t('product_iamge')}}</th>
+                  <th class="product-iamge" style="min-width: 180px;" scope="col">{{$t('product_iamge')}}</th>
                   <th
                     class="product-name"
                     scope="col"
-                    style="min-width: 150px;"
+                    style="min-width: 210px;"
                   >
                     {{$t('name_specification')}}
                   </th>
                   <th
                     class="product-name"
                     scope="col"
-                    style="min-width: 150px;"
+                    style="min-width: 210px;"
                   >
                     {{$t('size')}}
                   </th>
@@ -75,11 +74,11 @@
                   <th
                     class="product-quantity"
                     scope="col"
-                    style="min-width: 250px"
+                    style="min-width: 120px"
                   >
                     {{$t('count')}}
                   </th>
-                  <th class="product-total" scope="col">{{$t('little_total')}}</th>
+                  <th class="product-total" scope="col" style="min-width: 150px">{{$t('little_total')}}</th>
                   <th class="product-clear" scope="col"></th>
                 </tr>
                 </thead>
@@ -103,9 +102,9 @@
                 type="text"
                 :placeholder="$t('use_coupon_code')"
                 v-model="coupon"
-                style="width: 200px"
+                style="width: 312px"
               />
-              <button class="no-round-btn" @click="changeCoupon" style="width: 180px">{{$t('use_coupon')}}</button>
+              <button class="no-round-btn" @click="changeCoupon" style="width: 230px">{{$t('use_coupon')}}</button>
             </div>
             <div style="color: red">{{this.coupon_message}}</div>
             <div class="coupon mt-20px">
@@ -114,10 +113,10 @@
                 type="number"
                 :placeholder="$t('used_coupon')"
                 v-model="reward_discount_temp"
-                style="width: 200px"
+                style="width: 312px"
                 :disabled="!info_reward_total"
               />
-              <button class="no-round-btn"
+              <button class="no-round-btn" style="width: 230px"
                       @click="useReward"
                       :disabled="reward_discount_temp>info.rewards || !info_reward_total">{{$t('use_reward')}}
               </button>
@@ -147,8 +146,8 @@
         <div class="row justify-content-end">
           <div class="col-12 col-md-6 col-lg-4">
             <div class="cart-total_block">
-              <h2>{{$t('price_detail')}}</h2>
-              <table class="table">
+              <h2 class="mb-20px">{{$t('price_detail')}}</h2>
+              <table class="table mb-20px">
                 <colgroup>
                   <col span="1" style="width: 50%"/>
                   <col span="1" style="width: 50%"/>
@@ -156,11 +155,11 @@
                 <tbody>
                 <tr>
                   <th>{{$t('order_total')}}</th>
-                  <td
+                  <td style="text-align: right"
                     v-if="$store.state.currency==='tw'"
                   >${{cartVm.product_total|commaFormat}}
                   </td>
-                  <td
+                  <td style="text-align: right"
                     v-else
                   >${{currencyChange(cartVm.product_total)|commaFormat}} (NT${{cartVm.product_total|commaFormat}})
                   </td>
@@ -170,7 +169,7 @@
                   <th><b>組合優惠折抵</b></th>
 
                   <th><p>{{el.activity_detail.ch_name}}</p></th>
-                  <td>
+                  <td style="text-align: right">
                     <p class="primary-color"
                        v-if="$store.state.currency==='tw'"
                     >-${{cartVm.activitySave(el)|commaFormat}}</p>
@@ -182,7 +181,7 @@
 
                 <tr v-if="coupon_instance&&coupon_instance.status&&coupon_instance.role<=cartVm.product_total">
                   <th>{{$t('coupon_used')}}</th>
-                  <td>
+                  <td style="text-align: right">
                     <p class="primary-color"
                        v-if="$store.state.currency==='tw'"
                     >-${{coupon_discount|commaFormat}}</p>
@@ -204,11 +203,11 @@
                 </tr>
                 <tr>
                   <th>{{$t('total')}}</th>
-                  <td
+                  <td style="text-align: right"
                     v-if="$store.state.currency==='tw'"
                   >${{cartVm.total_count|commaFormat}}
                   </td>
-                  <td
+                  <td style="text-align: right"
                     v-else
                   >${{currencyChange(cartVm.total_count) |commaFormat}} ($NT{{cartVm.total_count|commaFormat}})
                   </td>
@@ -217,7 +216,7 @@
               </table>
               <div class="checkout-method">
                 <button
-                  class="normal-btn"
+                  class="no-round-btn"
                   @click="checkOrder"
                 >
                   {{$t('next')}}

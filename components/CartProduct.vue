@@ -8,7 +8,6 @@
         v-else-if="item.product.status && sold_out_status">
       <h2 class="fill-width text-align-center white-color">SOLD OUT</h2>
     </td>
-    <td v-else></td>
     <td class="product-iamge">
       <div class="img-wrapper">
         <nuxt-link to="" class="img-wrapper" :to="`/products/${item.product.id}`">
@@ -45,13 +44,11 @@
     <td class="product-price"
         v-if="$store.state.currency==='tw'"
     >
-      <div>
-        ${{item.specification_detail.price|commaFormat}}
-      </div>
+      <span>${{item.specification_detail.price|commaFormat}}</span>
       <div class="red-color" v-if="cart_status===2">未符合折扣</div>
       <div class="gray-text" v-if="cart_status===3">已享受折扣</div>
-      <div class="activity">
-        <div class="activity-box" v-if="item.product &&item.product.activity">{{item.product.activity_detail.ch_name}}
+      <div class="activity" v-if="item.product &&item.product.activity">
+        <div class="activity-box">{{item.product.activity_detail.ch_name}}
         </div>
       </div>
     </td>
@@ -60,22 +57,22 @@
     >${{currencyChange(item.specification_detail.price)|commaFormat}}
       (NT${{item.specification_detail.price|commaFormat}})
     </td>
-    <td class="product-quantity">
+    <td class="product-quantity" style="min-width: 120px;">
       <div class="row align-items-center">
-        <div class="col-12">
+        <div class="col-12 mb-10px">
           <counter v-model="quantity"
                    :class="[stock_display_text==='缺貨'?'red-color':'']"
                    :max="max_quantity"
           ></counter>
         </div>
-        <div class="col-12 d-flex justify-content-start" style="margin-left: 12px"
-             :class="[stock_display_text==='缺貨'?'red-color':'primary-color']"
+        <div class="col-12 d-flex justify-content-start" style="margin-left: 12px; font-size:14px;"
+             :class="[stock_display_text==='缺貨'?'red-color':'gray-text2']"
         >
           {{stock_display_text}}
         </div>
       </div>
     </td>
-    <td class="product-total"
+    <td class="product-total"  style="min-width: 150px"
         v-if="$store.state.currency==='tw'"
     >${{currencyChange(item.specification_detail.price*quantity)|commaFormat}}
     </td>
