@@ -32,7 +32,7 @@
                   <span class="ml-10px pointer hover-li" @click="reDraw">{{$t('cant_see')}}</span>
                 </div>
               </div>
-              <div class="content content-color text-align-center">
+              <div class="content content-color text-align-center mb-20px">
                 {{$t('mail_to')}}
               </div>
               <div class="account-function">

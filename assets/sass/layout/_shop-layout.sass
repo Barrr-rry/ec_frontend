@@ -223,16 +223,16 @@
 
 
       .add-to-compare
-        border: 2px solid $line
+        border: 2px solid $primary-color
 
-        &:hover
-          border: 2px solid $primary-color
+        // &:hover
+        //   border: 2px solid $primary-color
 
 
     .product-share
       display: flex
       align-items: center
-      color: $primary-color
+      color: $disable
 
       i
         margin: 0 5px
@@ -949,3 +949,40 @@
   color: $primary-color
   font-size: 16px
   line-height: 2
+
+
+.slide-img .slide-img_block img
+  width: 100%
+  max-width: 100%
+
+.shop-detail .slide-img
+
+  .slick-list
+    padding-left: 20px
+    padding-right: 20px
+  
+  button.slick-prev
+    position: absolute
+    top: 50%
+    margin-top: -20px
+    left: 0
+    width: 40px
+    height: 40px
+    border: none
+    background-color: #eaeff4
+
+    i
+      font-size: 12px
+
+  button.slick-next
+    position: absolute
+    top: 50%
+    margin-top: -20px
+    right: 0
+    width: 40px
+    height: 40px
+    border: none
+    background-color: #eaeff4
+
+    i
+      font-size: 12px

@@ -60,7 +60,7 @@
         <div class="row">
           <div class="col-12">
             <div class="row no-gutters-sm">
-              <div class="col-6 col-md-4 col-lg-3"
+              <div class="col-12 col-md-6 col-lg-3"
                    v-for="product of data.new_products"
                    :key="product.id"
               >

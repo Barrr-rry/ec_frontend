@@ -44,7 +44,7 @@
         <del>${{product.fake_price|commaFormat}}</del>
         ${{product.price|commaFormat}}
       </h3>
-      <button class="add-to-cart normal-btn outline col-12" @click="toCartModal">
+      <button class="add-to-cart normal-btn col-12" @click="toCartModal">
         <i class="fab shop-cart-icon"></i>
         {{$t('add_cart')}}
       </button>

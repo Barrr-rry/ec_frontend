@@ -245,7 +245,7 @@
       </div>
     </div>
     <div class="header-only-logo d-flex justify-content-center">
-      <img src="/images/webs/logo.svg" alt="">
+      <nuxt-link to="/"><img src="/images/webs/logo.svg" alt=""></nuxt-link>
     </div>
     <nav class="navigation d-flex align-items-center nav-shadow">
       <div class="container">
@@ -284,15 +284,17 @@
                     {{ cata.name }}
                   </nuxt-link>
                   <template v-if="checkMoreDeeper(cata.sub_categories)">
-                    <ul class="sub-menu shop d-flex" style="min-width: 1100px">
-                      <div class="nav-column" v-for="sub of cata.sub_categories" :key="sub.id">
-                        <h2>{{sub.name}}</h2>
-                        <li v-for="sub_sub of sub.sub_categories">
-                          <nuxt-link :to="getSubLink(sub_sub)">{{
-                            sub_sub.name
-                            }}
-                          </nuxt-link>
-                        </li>
+                    <ul class="sub-menu min-width shop d-flex">
+                      <div class="d-flex nav-columns">
+                        <div class="nav-column" v-for="sub of cata.sub_categories" :key="sub.id">
+                          <h2>{{sub.name}}</h2>
+                          <li v-for="sub_sub of sub.sub_categories">
+                            <nuxt-link :to="getSubLink(sub_sub)">{{
+                              sub_sub.name
+                              }}
+                            </nuxt-link>
+                          </li>
+                        </div>
                       </div>
                     </ul>
                   </template>

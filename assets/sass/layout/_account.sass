@@ -6,11 +6,11 @@
 	
 	form 
 		label 
-			@include font-regular(16px, $title, 1)
+			@include font-regular(16px, $primary-color, 1)
 			margin-bottom: 10px
 		
 		input 
-			margin-bottom: 30px
+			margin-bottom: 40px
 		
 		.account-method 
 			margin-bottom: 40px
@@ -42,5 +42,70 @@
 				text-transform: uppercase
 				text-decoration: underline
 			
-			
-	
+	.account-save a
+		color: $primary-color
+
+	form label.inline-row
+		display: inline-block
+		margin-bottom: 0
+
+		input[type="radio"],input[type="checkbox"]
+			display: none
+
+		.radio-icon
+			display: inline-block
+			width: 15px
+			height: 15px
+			border: 1px solid #0b1d37
+			border-radius: 50%
+			position: relative
+			transition: all .3s ease
+			vertical-align: middle
+			margin-right: 10px
+
+			&:before
+				content: ""
+				position: absolute
+				top: 4px
+				left: 4px
+				right: 4px
+				bottom: 4px
+				background-color: #fff
+				border-radius: 50%
+				// opacity: 0
+				// transform: scale(0)
+				transition: all .3s ease
+
+
+		.checkbox-icon
+			display: inline-block
+			width: 15px
+			height: 15px
+			border: 1px solid #0b1d37
+			border-radius: 3px
+			position: relative
+			transition: all .3s ease
+			vertical-align: middle
+
+			&:before
+				content: ""
+				position: absolute
+				top: 4px
+				left: 4px
+				right: 4px
+				bottom: 4px
+				background-color: #fff
+				border-radius: 3px
+				opacity: 0
+				transform: scale(0)
+				transition: all .3s ease
+
+		input[type="radio"]:checked + .radio-icon,
+		input[type="checkbox"]:checked + .checkbox-icon
+			background-color: $primary-color
+			&:before
+				transform: scale(1)
+				opacity: 1
+
+input[type="radio"], input[type="checkbox"]
+	border-color: red

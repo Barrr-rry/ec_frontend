@@ -21,11 +21,18 @@
                     error_class=""
                   >
                     <!--台灣-->
-                    <input type="radio" id="radio_location1" :value="1" v-model="location">
-                    <a for="radio_location1" >台灣Taiwan</a>
-                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                    <input type="radio" id="radio_location2" :value="2" v-model="location">
-                    <a for="radio_location2">海外（Oversea）</a>
+                    <div class="mb-40px">
+                      <label for="radio_location1" class="inline-row mr-50px">
+                        <input class="mb-0px mr-15px" type="radio" id="radio_location1" :value="1" v-model="location">
+                        <div class="radio-icon"></div>
+                        <a for="radio_location1" >台灣Taiwan</a>
+                      </label>
+                      <label for="radio_location2" class="inline-row">
+                        <input class="mb-0px  mr-15px" type="radio" id="radio_location2" :value="2" v-model="location">
+                        <div class="radio-icon"></div>
+                        <a for="radio_location2">海外（Oversea）</a>
+                      </label>
+                    </div>
                   </CInput>
                 </div>
               </div>
@@ -59,12 +66,12 @@
                 :validators="[validateConfirmPassword]"
                 name="password_confirm"
               />
-              <div class="account-save input-radio-display">
-                <input type="checkbox"/>
+              <div class="account-save input-radio-display mb-30px">
+                <input type="checkbox" class="mb-0px"/>
                 <a>{{$t('allow_report')}}</a>
               </div>
-              <div class="account-save input-radio-display">
-                <input type="checkbox"/>
+              <div class="account-save input-radio-display mb-40px">
+                <input type="checkbox" class="mb-0px"/>
                 <a>{{$t('agree_pact')}}</a>
               </div>
               <CInput

@@ -89,8 +89,8 @@
                       ></counter>
                       <span class="col-6 pl-5px gray-text ml-10px">{{stock_display_text}}</span>
                     </div>
-                    <div class="product-select row pl-15px pr-15px">
-                      <button class="add-to-cart normal-btn outline col-12" @click="toCart">
+                    <div class="product-select mb-0px row pl-15px pr-15px">
+                      <button class="add-to-cart normal-btn solid col-12" @click="toCart">
                         <i class="fab shop-cart-icon"></i>
                         {{$t('add_cart')}}
                       </button>
@@ -103,7 +103,7 @@
                         {{$t('add_favourite')}}
                       </button>
                     </div>
-                    <div class="product-share mb-20px">
+                    <div class="product-share mb-25px">
                       {{$t('shere_products')}} ：
                       <i class="small fab fb-share" @click="share('facebook')"></i>
                       <i class="small fab line-share" @click="share('line')"></i>

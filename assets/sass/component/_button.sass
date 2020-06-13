@@ -1,33 +1,52 @@
 .normal-btn 
-	@include button($primary-color,$white,13px,999px,2px,$primary-color,15px 30px,$trans,$primary-color,$primary-color)
+	+button($primary-color,$white,13px,999px,2px,$primary-color,15px 30px,$primary-color,$white,$primary-color)
+
 	&.pink 
-		@include button($pink,$white,13px,999px,2px,$pink,15px 30px,$trans,$pink,$pink)
+		+button($pink,$white,13px,999px,2px,$pink,15px 30px,$trans,$pink,$pink)
 	
 	&.coffee 
-		@include button($coffee,$white,13px,999px,2px,$coffee,15px 30px,$trans,$coffee,$coffee)
+		+button($coffee,$white,13px,999px,2px,$coffee,15px 30px,$trans,$coffee,$coffee)
 	
 	&.black 
-		@include button($black,$white,13px,999px,2px,$black,15px 30px,$trans,$black,$black)
+		+button($black,$white,13px,999px,2px,$black,15px 30px,$trans,$black,$black)
 	
 	&.outline 
-		@include button($white,$primary-color,13px,999px,2px,$primary-color,15px 30px,$primary-color,$white,$primary-color)
-  &.outline:hover .shop-cart-icon 
+		+button($white,$primary-color,13px,999px,2px,$primary-color,15px 30px,$white,$primary-color,$primary-color)
+  
+  &.outline
+    .shop-cart-icon 
+      background-image: url("../images/webs/shoppingcart.svg")
+      width: 18px
+      height: 18px
+      background-repeat: no-repeat
+      background-position: center
+      background-size: cover
+      transition: 0.3s ease
+
+    // &:hover .shop-cart-icon 
+    //   background-image: url("../images/webs/shoppingcart_w_18x18.svg")
+
+
+.normal-btn 
+  .shop-cart-icon
     background-image: url("../images/webs/shoppingcart_w_18x18.svg")
     width: 18px
     height: 18px
     background-repeat: no-repeat
     background-position: center
     background-size: cover
-  .shop-cart-icon 
-    background-image: url("../images/webs/shoppingcart.svg")
-    width: 18px
-    height: 18px
-    background-repeat: no-repeat
-    background-position: center
-    background-size: cover
     transition: 0.3s ease
+
+  // &:hover .shop-cart-icon
+  //   background-image: url("../images/webs/shoppingcart.svg")
+
+
+      
 .normal-btn
   font-size: 18px !important
+
+  i.fab
+    color: $white
 a.normal-btn
   height: 52px
   padding: 10px 30px

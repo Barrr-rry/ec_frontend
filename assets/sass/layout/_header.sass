@@ -170,7 +170,6 @@ header
 						z-index: 100
 						transition: 0.1s
 						border-radius: 5px
-
 						max-height: calc( 100vh - 150px )
 						overflow: auto
 						li
@@ -186,8 +185,16 @@ header
 							padding: 30px
 							min-width: 300px
 							left: -100px
+
+							.nav-columns.d-flex
+								flex-flow: row wrap
 							.nav-column
-								margin-right: 75px
+								flex: 1
+								padding-right: 20px
+
+								&:last-child
+									padding-right: 0
+
 								h2
 									@include font-medium(18px, $title, 1.5)
 									margin-bottom: 15px
@@ -818,6 +825,12 @@ i.arrow_carrot-down
 	height: 380px
 	background-color: $primary-color
 	border-top: solid 1px rgba(216, 216, 216, 0.18)
+	align-items: center
+	justify-content: center
+
+	a
+		display: inline-block
+		vertical-align: middle
 
 	img
 		width: 234px
@@ -842,3 +855,21 @@ i.arrow_carrot-down
 			width: 138px
 
 
+
+
+header .navigation .navgition-menu ul .toggleable:first-child .sub-menu.shop
+	left: -30px
+	transform: none
+
+header .navigation .navgition-menu ul .toggleable:last-child .sub-menu.shop
+	right: -30px
+	left: auto
+	transform: none
+
+.sub-menu.min-width
+	width: 1000px
+	+medium-desktop
+		width: 1000px
+	+desktop
+		width: 800px
+	
