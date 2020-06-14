@@ -55,12 +55,19 @@
                   class="input-radio-display"
                 >
                   <!--台灣-->
-                  <input class="ml-20px" type="radio" id="taiwan" :value="1" v-model="location">
-                  <label for="taiwan" class="col-3">台灣</label>
+                  <label for="taiwan" class="custom-label inline-row ml-10px mr-20px">
+                    <input type="radio" id="taiwan" :value="1" v-model="location">
+                    <div class="radio-icon"></div>
+                    <span>台灣</span>
+                  </label>
                   <!--海外-->
-                  <input v-if="cash_on_delivery_weight_ok" type="radio" id="oversea" :value="2"
+                  <label for="oversea" class="custom-label inline-row">
+                    <input v-if="cash_on_delivery_weight_ok" type="radio" id="oversea" :value="2"
                          v-model="location">
-                  <label v-if="cash_on_delivery_weight_ok" for="oversea" class="col-3">海外（Oversea）</label>
+                    <div class="radio-icon"></div>
+                    <span v-if="cash_on_delivery_weight_ok">海外（Oversea）</span>
+                  </label>
+
                 </CInput>
               </div>
               <div class="form-group" v-if="!loading">
@@ -71,11 +78,18 @@
                   class="input-radio-display"
                 >
                   <!--線上付款-->
-                  <input class="ml-20px" type="radio" id="payradio_1" :value="0" v-model="pay_type">
-                  <label for="payradio_1" class="col-3">{{$t('pay_online')}}</label>
+                  <label for="payradio_1" class="custom-label inline-row ml-10px mr-20px">
+                    <input type="radio" id="payradio_1" :value="0" v-model="pay_type">
+                    <div class="radio-icon"></div>
+                    <span>{{$t('pay_online')}}</span>
+                  </label>
+
                   <!--貨到付款-->
-                  <input v-if="delivery_ok&&location!==2" type="radio" id="payradio_2" :value="1" v-model="pay_type">
-                  <label v-if="delivery_ok&&location!==2" for="payradio_2" class="col-3">{{$t('pay_later')}}</label>
+                  <label for="payradio_2" class="custom-label inline-row ml-10px mr-20px">
+                    <input v-if="delivery_ok&&location!==2" type="radio" id="payradio_2" :value="1" v-model="pay_type">
+                    <div class="radio-icon"></div>
+                    <span v-if="delivery_ok&&location!==2" for="payradio_2">{{$t('pay_later')}}</span>
+                  </label>
                 </CInput>
               </div>
               <!--運送方式-->
@@ -89,16 +103,13 @@
                   <div
                     class="ml-10px row"
                   >
-                  <span v-for="(el,key) of in_weight_and_location_freeshippings" style="margin-right: 3px"
-                        class="col-3"
-                  >
-                    <input type="radio" :id="`radio_${el.id}`" :value="el.id" v-model="freeshipping_id"
-                           :disabled="pay_type===1&&!el.cash_on_delivery"
-                    >
-                    <label :for="`radio_${el.id}`"
-                           :class="pay_type===1&&!el.cash_on_delivery?'disabled':''"
-                    >{{el.frontend_name}}</label>
-
+                  <span v-for="(el,key) of in_weight_and_location_freeshippings">
+                    <label :for="`radio_${el.id}`" class="custom-label inline-row ml-5px mr-20px">
+                      <input type="radio" :id="`radio_${el.id}`" :value="el.id" v-model="freeshipping_id"
+                           :disabled="pay_type===1&&!el.cash_on_delivery">
+                      <div class="radio-icon"></div>
+                      <span :class="pay_type===1&&!el.cash_on_delivery?'disabled':''">{{el.frontend_name}}</span>
+                    </label>
                   </span>
                   </div>
                 </CInput>
@@ -143,13 +154,22 @@
                     class="input-radio-display"
                   >
                     <!--台灣-->
-                    <a class="col-8"></a>
-                    <input type="radio" id="sir" :value="1" v-model="location">
-                    <label for="sir" class="col-3">先生</label>
+                    <label for="sir" class="custom-label inline-row ml-10px mr-20px">
+                      <input type="radio" id="sir" :value="1" v-model="location">
+                      <div class="radio-icon"></div>
+                      <span>先生</span>
+                    </label>
+
                     <!--海外-->
-                    <input v-if="cash_on_delivery_weight_ok" type="radio" id="sis" :value="2"
+                    <label for="sis" v-if="cash_on_delivery_weight_ok" class="custom-label inline-row">
+                      <input v-if="cash_on_delivery_weight_ok" type="radio" id="sis" :value="2"
                            v-model="location">
-                    <label v-if="cash_on_delivery_weight_ok" for="sis" class="col-3">小姐</label>
+                      <div class="radio-icon"></div>
+                      <span>小姐</span>
+                    </label>
+
+                    
+                    
                   </CInput>
                 </div>
                 <div class="form-group">
@@ -180,7 +200,7 @@
                     :input_has_bg="true"
                   >
                     <select
-                      v-model="country"
+                      v-model="country" class="custom-select mt-10px"
                     >
                       <option :value="el"
                               v-for="el of country_list"
@@ -198,13 +218,18 @@
                     class="input-radio-display"
                   >
                     <!--台灣-->
-                    <a class="col-8"></a>
-                    <input type="radio" id="radio_location1" :value="1" v-model="location">
-                    <label for="radio_location1" class="col-3">Mr.</label>
+                    <label for="radio_location1" class="custom-label inline-row ml-10px mr-20px">
+                      <input type="radio" id="radio_location1" :value="1" v-model="location">
+                      <div class="radio-icon"></div>
+                      <span>Mr.</span>
+                    </label>
                     <!--海外-->
-                    <input v-if="cash_on_delivery_weight_ok" type="radio" id="radio_location2" :value="2"
+                    <label for="radio_location2" class="custom-label inline-row" v-if="cash_on_delivery_weight_ok" >
+                      <input v-if="cash_on_delivery_weight_ok" type="radio" id="radio_location2" :value="2"
                            v-model="location">
-                    <label v-if="cash_on_delivery_weight_ok" for="radio_location2" class="col-3">Mrs.</label>
+                      <div class="radio-icon"></div>
+                      <span>Mrs.</span>
+                    </label>
                   </CInput>
                 </div>
                 <!--姓名：first name/last name-->
@@ -332,8 +357,11 @@
               <!--貨到付款-->
               <div v-if="freeshipping_target&&freeshipping_target.cash_on_delivery">
                 <div v-for="el of selected_memberstores" :key="el.id" class="input-radio-display">
-                  <input type="radio" :id="`memberstore_radio_${el.id}`" :value=el.id v-model="memberstore_id">
-                  <label :for="`memberstore_radio_${el.id}`">{{el.store_name}}</label>
+                  <label :for="`memberstore_radio_${el.id}`" class="custom-label inline-row ml-10px mr-20px">
+                    <input type="radio" :id="`memberstore_radio_${el.id}`" :value=el.id v-model="memberstore_id">
+                    <div class="radio-icon"></div>
+                    <span>{{el.store_name}}</span>
+                  </label>
                 </div>
                 <button class="no-round-btn mt-20px mb-20px" type="button" @click="createNewAddress">
                   {{selected_memberstores.length?$t('rechoose_store'):$t('choose_store')}}
@@ -479,7 +507,7 @@
               <h2 class="form-title">{{$t('order_detail')}}</h2>
               <div class="shopping-cart">
                 <div class="cart-total_block">
-                  <table class="table">
+                  <table class="table border">
                     <colgroup>
                       <col span="1" style="width: 50%">
                       <col span="1" style="width: 50%">
@@ -584,8 +612,10 @@
                     </tbody>
                   </table>
                 </div>
-                <button class="normal-btn submit-btn" @click="ok">{{$t('next')}}
-                </button>
+                <div class="checkout-method">
+                  <button class="normal-btn no-round-btn submit-btn" @click="ok">{{$t('next')}}
+                  </button>
+                </div>
 
                 <br>
                 <div class="text-align-center mt-30px">{{$t('pay_get')}}

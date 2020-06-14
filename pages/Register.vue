@@ -22,12 +22,12 @@
                   >
                     <!--台灣-->
                     <div class="mb-40px">
-                      <label for="radio_location1" class="inline-row mr-50px">
+                      <label for="radio_location1" class="custom-label inline-row mr-50px">
                         <input class="mb-0px mr-15px" type="radio" id="radio_location1" :value="1" v-model="location">
                         <div class="radio-icon"></div>
                         <a for="radio_location1" >台灣Taiwan</a>
                       </label>
-                      <label for="radio_location2" class="inline-row">
+                      <label for="radio_location2" class="custom-label inline-row">
                         <input class="mb-0px  mr-15px" type="radio" id="radio_location2" :value="2" v-model="location">
                         <div class="radio-icon"></div>
                         <a for="radio_location2">海外（Oversea）</a>

@@ -1,5 +1,5 @@
 <template>
-  <modal v-model="input" :title="item?$t('edit_address'):$t('create_address')" @ok="ok" width="800">
+  <modal v-model="input" :title="item?$t('edit_address'):$t('create_address')" @ok="ok" width="650">
     <CForm
       @submit="submit"
       ref="form"
@@ -16,13 +16,20 @@
             name="location"
             error_class=""
           >
+
             <!--台灣-->
-            <input class="ml-20px" type="radio" id="taiwan" :value="1" v-model="location">
-            <label for="taiwan">台灣</label>
+            <label for="taiwan" class="custom-label inline-row mr-20px">
+              <input class="" type="radio" id="taiwan" :value="1" v-model="location">
+              <div class="radio-icon"></div>
+              <span>台灣</span>
+            </label>
             <!--海外-->
-            <input type="radio" id="oversea" :value="2" class="ml-20px"
+            <label for="oversea" class="custom-label inline-row">
+              <input type="radio" id="oversea" :value="2" class=""
                    v-model="location">
-            <label for="oversea">海外（Oversea）</label>
+              <div class="radio-icon"></div>
+              <span>海外（Oversea）</span>
+            </label>
           </CInput>
         </div>
       </div>
@@ -93,7 +100,7 @@
             >
               <select
                 v-model="country"
-                class="fill-width"
+                class="fill-width custom-select"
               >
                 <option :value="el"
                         v-for="el of country_list"
@@ -113,13 +120,19 @@
             class="input-radio-display"
           >
             <!--台灣-->
-            <a class="col-8"></a>
-            <input type="radio" id="radio_location1" :value="1" v-model="location">
-            <label for="radio_location1" class="col-3">Me.</label>
+            <label for="radio_location1" class="custom-label inline-row ml-5px mr-20px">
+              <input type="radio" id="radio_location1" :value="1" v-model="location">
+              <div class="radio-icon"></div>
+              <span>Me.</span>
+            </label>
+
             <!--海外-->
-            <input type="radio" id="radio_location2" :value="2"
+            <label for="radio_location2" class="custom-label inline-row">
+              <input type="radio" id="radio_location2" :value="2"
                    v-model="location">
-            <label for="radio_location2" class="col-3">Mrs.</label>
+              <div class="radio-icon"></div>
+              <span>Mrs.</span>
+            </label>
           </CInput>
         </div>
 
@@ -207,7 +220,7 @@
         </div>
 
         <!--電話-->
-        <div class="d-flex mb-20px">
+        <div class="d-flex">
           <div class="d-flex flex-grow-1 align-content-center">
             <CInput
               class="flex-grow-1"

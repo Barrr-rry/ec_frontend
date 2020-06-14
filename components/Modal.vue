@@ -3,7 +3,7 @@
     <div :style="computed_width" class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h3 class="modal-title">{{ title }}</h3>
+          <h3 class="modal-title mb-0px">{{ title }}</h3>
           <button class="close no-round-btn">
             <i @click="close()" class="icon_close"></i>
           </button>

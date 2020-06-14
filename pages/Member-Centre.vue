@@ -11,7 +11,7 @@
                 {{$t('back_member_center')}}
               </button>
               <div class="shop-sidebar_department">
-                <div class="department_top mini-tab-title underline">
+                <div class="department_top mini-tab-title underline mb-30px">
                   <h2 class="title">{{$t('member_center')}}</h2>
                 </div>
                 <div class="department_bottom">
@@ -59,7 +59,7 @@
                 </div>
                 <div class="d-flex mt-3">
                   <!--忠誠獎勵-->
-                  <card-border :title="$t('reward_total')">
+                  <card-border :title="$t('reward_total')" class="color-primary">
                     <div class="d-flex mb-15px align-items-center">
                       目前回饋點數
                       <InfoTooltip
@@ -68,6 +68,7 @@
                       :
                       <div style="  width: 71px;
                                     height: 24px;
+                                    text-align: right;
                                     font-family: NotoSansTC;
                                     font-size: 24px;
                                     font-weight: 500;
@@ -75,11 +76,12 @@
                                     font-style: normal;
                                     line-height: 1;
                                     letter-spacing: 4px;
-                                    color: #dc5555;">
+                                    color: #dc5555; 
+                                    margin-right:10px;">
                         {{myself.record_info.record.total_point}}
                       </div>
                       點 &nbsp&nbsp
-                      <span v-if="myself.record_info.record.year">回饋點數將於 {{myself.record_info.record.year}} 年 {{myself.record_info.record.month}} 月 {{myself.record_info.record.day}} 日 到期</span>
+                      <span v-if="myself.record_info.record.year" style="font-size:14px;">回饋點數將於 {{myself.record_info.record.year}} 年 {{myself.record_info.record.month}} 月 {{myself.record_info.record.day}} 日 到期</span>
                     </div>
                     <div class="d-flex mb-15px align-items-center">
                       待生效回饋點數
@@ -88,17 +90,19 @@
                       />：
                       <div style="  width: 71px;
                                     height: 24px;
+                                    text-align: right;
                                     font-family: NotoSansTC;
                                     font-size: 24px;
                                     font-weight: 500;
                                     font-stretch: normal;
                                     font-style: normal;
                                     line-height: 1;
-                                    letter-spacing: 4px;">
+                                    letter-spacing: 4px;
+                                    margin-right:10px;">
                         {{myself.record_info.record_temp.total_point}}
                       </div>
                       點  &nbsp&nbsp
-                      <span v-if="myself.record_info.record_temp.year">最近一筆 {{myself.record_info.record_temp.last_point}} 元回饋金將於
+                      <span v-if="myself.record_info.record_temp.year" style="font-size:14px;">最近一筆 {{myself.record_info.record_temp.last_point}} 元回饋金將於
                       {{myself.record_info.record_temp.year}} 年 {{myself.record_info.record_temp.month}} 月 {{myself.record_info.record_temp.day}} 日 生效</span>
                     </div>
                     <!--忠誠獎勵 a link-->
@@ -113,21 +117,21 @@
                       </nuxt-link>
                     </div>
                     <!--TABLE-->
-                    <div class="table-responsive">
-                      <table class="table reward-record-table" style="background: #eaeff4">
+                    <div class="table-responsive" style="padding: 0 15px; background: #eaeff4;">
+                      <table class="table reward-record-table" style="border-top:none;">
                         <thead>
                         <tr>
-                          <th scope="col">更新日期</th>
-                          <th scope="col">摘要</th>
-                          <th scope="col">回饋點數變動</th>
-                          <th scope="col">回饋點數餘額</th>
+                          <th width="20%" height="45" style="text-align: center;" scope="col">更新日期</th>
+                          <th width="48%" height="45" scope="col">摘要</th>
+                          <th width="16%" height="45" scope="col">回饋點數變動</th>
+                          <th width="16%" height="45" scope="col">回饋點數餘額</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr v-for="el of rewardrecords"
                             :key="el.id"
                         >
-                          <td>{{el.created_at}}</td>
+                          <td style="text-align: center;" >{{el.created_at}}</td>
                           <td>{{el.desc}}</td>
                           <td>{{displayPoint(el.point)}}</td>
                           <td>{{el.total_point}}</td>
@@ -143,7 +147,9 @@
                     :editBtn="true"
                     @edit="member_modal = true"
                     :title="$t('acc_inf_m')"
+                    class="outline-header small-main"
                   >
+                    
                     <div class="d-flex mb-20px">
                       <div class="d-flex flex-grow-1 align-content-center">
                         <div
@@ -206,7 +212,7 @@
 
                 <div class="d-flex mt-5">
                   <!--常用地址-->
-                  <card-border :closeBtn="false" :title="$t('common_address')">
+                  <card-border :closeBtn="false" :title="$t('common_address')" class="outline-header">
                     <card-border
                       :closeBtn="myself.default_memberaddress!==el.id&&myself.memberaddress.length>0"
                       :editBtn="true"
