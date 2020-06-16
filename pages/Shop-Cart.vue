@@ -55,30 +55,27 @@
                 </colgroup>
                 <thead>
                 <tr>
-                  <th class="product-iamge" style="min-width: 180px;" scope="col">{{$t('product_iamge')}}</th>
+                  <th class="product-iamge min-180" scope="col">{{$t('product_iamge')}}</th>
                   <th
-                    class="product-name"
+                    class="product-name min-w210"
                     scope="col"
-                    style="min-width: 210px;"
                   >
                     {{$t('name_specification')}}
                   </th>
                   <th
-                    class="product-name"
+                    class="product-name min-w210"
                     scope="col"
-                    style="min-width: 210px;"
                   >
                     {{$t('size')}}
                   </th>
-                  <th class="product-price" scope="col">{{$t('price')}}</th>
+                  <th class="product-price min-w150" scope="col">{{$t('price')}}</th>
                   <th
-                    class="product-quantity"
+                    class="product-quantity min-w150"
                     scope="col"
-                    style="min-width: 120px"
                   >
                     {{$t('count')}}
                   </th>
-                  <th class="product-total" scope="col" style="min-width: 150px">{{$t('little_total')}}</th>
+                  <th class="product-total min-w150" scope="col">{{$t('little_total')}}</th>
                   <th class="product-clear" scope="col"></th>
                 </tr>
                 </thead>
@@ -166,17 +163,20 @@
                 </tr>
                 <!--活動折抵-->
                 <tr v-for="el in cartVm.in_activity_obj" :key="el.activity_id">
-                  <th><b>組合優惠折抵</b></th>
-
-                  <th><p>{{el.activity_detail.ch_name}}</p></th>
-                  <td style="text-align: right">
-                    <p class="primary-color"
-                       v-if="$store.state.currency==='tw'"
-                    >-${{cartVm.activitySave(el)|commaFormat}}</p>
-                    <p class="primary-color"
-                       v-else
-                    >-${{currencyChange(cartVm.activitySave(el))|commaFormat}}
-                      (-$NT{{cartVm.activitySave(el)|commaFormat}})</p>
+                  <td colspan="2">
+                    <div class="mb-20px"><span style="color: #0b1d37;">組合優惠折抵</span></div>
+                    <div class="d-flex align-items-center">
+                      <div style="flex: 50%"><p>{{el.activity_detail.ch_name}}</p></div>
+                      <div style="flex: 50%; text-align: right">
+                        <p class="primary-color"
+                          v-if="$store.state.currency==='tw'"
+                        >-${{cartVm.activitySave(el)|commaFormat}}</p>
+                        <p class="primary-color"
+                          v-else
+                        >-${{currencyChange(cartVm.activitySave(el))|commaFormat}}
+                          (-$NT{{cartVm.activitySave(el)|commaFormat}})</p>
+                      </div>
+                    </div>
                   </td>
                 </tr>
 

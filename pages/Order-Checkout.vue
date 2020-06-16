@@ -85,10 +85,10 @@
                   </label>
 
                   <!--貨到付款-->
-                  <label for="payradio_2" class="custom-label inline-row ml-10px mr-20px">
-                    <input v-if="delivery_ok&&location!==2" type="radio" id="payradio_2" :value="1" v-model="pay_type">
+                  <label for="payradio_2" class="custom-label inline-row ml-10px mr-20px" v-if="delivery_ok&&location!==2">
+                    <input  type="radio" id="payradio_2" :value="1" v-model="pay_type">
                     <div class="radio-icon"></div>
-                    <span v-if="delivery_ok&&location!==2" for="payradio_2">{{$t('pay_later')}}</span>
+                    <span for="payradio_2">{{$t('pay_later')}}</span>
                   </label>
                 </CInput>
               </div>
@@ -516,7 +516,7 @@
                     <tr v-for="cart of carts"
                         :id="cart.id"
                     >
-                      <th class="name">{{cart.product.name}} x {{cart.quantity}}</th>
+                      <th class="name gray-text2">{{cart.product.name}} x {{cart.quantity}}</th>
                       <td class="price black" style="border-top: 0"
                           v-if="$store.state.currency==='tw'"
                       >${{cart.specification_detail.price*cart.quantity|commaFormat}}
@@ -528,7 +528,7 @@
                       </td>
                     </tr>
                     <tr>
-                      <th>{{$t('order_total')}}</th>
+                      <th class="gray-text2">{{$t('order_total')}}</th>
                       <td class="price"
                           v-if="$store.state.currency==='tw'"
                       >${{total|commaFormat}}
@@ -552,26 +552,28 @@
                       </td>
                     </tr>
                     <!--活動折抵-->
-                    <tr>
-                      <th><b>組合優惠折抵</b></th>
-                      <th></th>
-                    </tr>
                     <tr v-for="el in in_activity_obj" :key="el.activity_id">
-                      <th>{{el.activity_detail.ch_name}}</th>
-                      <td>
-                        <div class="primary-color text-right"
-                             v-if="$store.state.currency==='tw'"
-                        >-${{activitySave(el)|commaFormat}}
-                        </div>
-                        <div class="primary-color text-right"
-                             v-else
-                        >-${{currencyChange(activitySave(el))|commaFormat}} (-$NT{{activitySave(el)|commaFormat}})
+                      <td colspan="2">
+                        <div class="mb-20px text-align: left;"><span style="color: #0b1d37;">組合優惠折抵</span></div>
+                        <div class="d-flex align-items-center">
+                          <div class="gray-text2" style="flex:50%; text-align: left;">{{el.activity_detail.ch_name}}</div>
+                          <div style="flex:50%;">
+                            <div class="primary-color text-right"
+                                v-if="$store.state.currency==='tw'"
+                            >-${{activitySave(el)|commaFormat}}
+                            </div>
+                            <div class="primary-color text-right"
+                                v-else
+                            >-${{currencyChange(activitySave(el))|commaFormat}} (-$NT{{activitySave(el)|commaFormat}})
+                            </div>
+                          </div>
                         </div>
                       </td>
+                      
                     </tr>
 
                     <tr v-show="reward_discount">
-                      <th>{{$t('reward_used')}}</th>
+                      <th class="gray-text2">{{$t('reward_used')}}</th>
                       <td>
                         <div class="primary-color text-right"
                              v-if="$store.state.currency==='tw'"
@@ -584,7 +586,7 @@
                       </td>
                     </tr>
                     <tr>
-                      <th>{{$t('shipping')}}</th>
+                      <th class="gray-text2">{{$t('shipping')}}</th>
                       <td>
                         <div class="text-right"
                              v-if="$store.state.currency==='tw'"
@@ -599,7 +601,7 @@
                       </td>
                     </tr>
                     <tr>
-                      <th>{{$t('total')}}</th>
+                      <th class="gray-text2">{{$t('total')}}</th>
                       <td class="total"
                           v-if="$store.state.currency==='tw'"
                       >${{total_count|commaFormat}}

@@ -44,14 +44,34 @@
 							height: 100%
 
 
+				.min-w210
+					min-width: 210px
+
+				.min-w150
+					min-width: 150px
+
+				.min-w180
+					min-width: 180px
 
 				.product-name
 					@include font-regular(16px, $title, 1)
 					display: table-cell
+					
 
 				.product-price
 					@extend .product-name
 					color: $primary-color
+
+					span.price
+						display: block
+						margin-bottom: 22px
+
+					.sale-msg
+						font-size: 14px
+						margin-bottom: 10px
+
+					.activity
+						height: auto
 
 				.product-total
 					@extend .product-price

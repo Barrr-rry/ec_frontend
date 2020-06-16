@@ -200,12 +200,18 @@
 <!--                <a href=""><i class="fab fa-twitter" @click="share('twitter')"></i></a>-->
               </div>
               <div class="language">
-                <div class="selected-language">
+                <!--
+                  <div class="selected-language">
                   {{display_lang}}<i class="arrow_carrot-down"></i>
                   <ul class="list-language">
                     <li class="hover-li" @click="change_locale('tw')">{{$t('Chinese')}}</li>
                     <li class="hover-li" @click="change_locale('en')">English</li>
                   </ul>
+                </div>
+                -->
+                <div class="selected-language">
+                  <span @click="change_locale('tw')">中</span> /
+                  <span @click="change_locale('en')">EN</span>
                 </div>
               </div>
               <nuxt-link
