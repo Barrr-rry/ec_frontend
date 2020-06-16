@@ -129,7 +129,7 @@
             >
               {{$t('have_now')}} <span class="primary-color">{{info_reward_total}}</span>
               {{$t('point_reward')}}
-              <a>
+              <a v-if="info.reward&&info.reward[0]">
                 {{$t('to')}}{{info.reward[0].end_date}}{{$t('overr')}}
               </a>
             </div>
@@ -156,11 +156,11 @@
                 <tr>
                   <th>{{$t('order_total')}}</th>
                   <td style="text-align: right"
-                    v-if="$store.state.currency==='tw'"
+                      v-if="$store.state.currency==='tw'"
                   >${{cartVm.product_total|commaFormat}}
                   </td>
                   <td style="text-align: right"
-                    v-else
+                      v-else
                   >${{currencyChange(cartVm.product_total)|commaFormat}} (NT${{cartVm.product_total|commaFormat}})
                   </td>
                 </tr>
@@ -175,7 +175,8 @@
                     >-${{cartVm.activitySave(el)|commaFormat}}</p>
                     <p class="primary-color"
                        v-else
-                    >-${{currencyChange(cartVm.activitySave(el))|commaFormat}} (-$NT{{cartVm.activitySave(el)|commaFormat}})</p>
+                    >-${{currencyChange(cartVm.activitySave(el))|commaFormat}}
+                      (-$NT{{cartVm.activitySave(el)|commaFormat}})</p>
                   </td>
                 </tr>
 
@@ -204,11 +205,11 @@
                 <tr>
                   <th>{{$t('total')}}</th>
                   <td style="text-align: right"
-                    v-if="$store.state.currency==='tw'"
+                      v-if="$store.state.currency==='tw'"
                   >${{cartVm.total_count|commaFormat}}
                   </td>
                   <td style="text-align: right"
-                    v-else
+                      v-else
                   >${{currencyChange(cartVm.total_count) |commaFormat}} ($NT{{cartVm.total_count|commaFormat}})
                   </td>
                 </tr>
