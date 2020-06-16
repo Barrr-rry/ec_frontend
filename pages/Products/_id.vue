@@ -90,7 +90,7 @@
                       <span class="col-6 pl-5px gray-text ml-10px">{{stock_display_text}}</span>
                     </div>
                     <div class="product-select mb-0px row pl-15px pr-15px">
-                      <button class="add-to-cart normal-btn solid col-12" @click="toCart">
+                      <button class="add-to-cart normal-btn outline col-12" @click="toCart">
                         <i class="fab shop-cart-icon"></i>
                         {{$t('add_cart')}}
                       </button>

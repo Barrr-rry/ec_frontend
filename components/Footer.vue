@@ -9,7 +9,7 @@
             >
               <div class="row">
                 <div class="col-12 col-md-6 col-lg-4">
-                  <img src="/images/webs/logo.svg" class="logo" alt="" style="max-width: 195px;  width: 100%;">
+                  <nuxt-link to="/"><img src="/images/webs/logo.svg" class="logo" alt="" style="max-width: 195px;  width: 100%;"></nuxt-link>
                 </div>
                 <div class="col-12 col-md-6 col-lg-8">
                   <div class="social-media mt-50px ml-10px-md ml-10px-lg ml-0 mb-50px-sm mb-15px-md mb-0px">
