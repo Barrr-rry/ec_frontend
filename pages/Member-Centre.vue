@@ -60,50 +60,49 @@
                 <div class="d-flex mt-3">
                   <!--忠誠獎勵-->
                   <card-border :title="$t('reward_total')" class="color-primary">
-                    <div class="d-flex mb-15px align-items-center">
-                      目前回饋點數
-                      <InfoTooltip
-                        :content="`下次消費可折抵 ${myself.record_info.record.total_point} 元新台幣`"
-                      />
-                      :
-                      <div style="  width: 71px;
-                                    height: 24px;
-                                    text-align: right;
-                                    font-family: NotoSansTC;
-                                    font-size: 24px;
-                                    font-weight: 500;
-                                    font-stretch: normal;
-                                    font-style: normal;
-                                    line-height: 1;
-                                    letter-spacing: 4px;
-                                    color: #dc5555; 
-                                    margin-right:10px;">
-                        {{myself.record_info.record.total_point}}
+                    <div class="mb-15px">
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <div class="point-group d-flex">
+                            <div class="point-group--title">
+                              <span>目前回饋點數</span>
+                              <InfoTooltip
+                                :content="`下次消費可折抵 ${myself.record_info.record.total_point} 元新台幣`"
+                              />:
+                            </div>
+                            <div class="point-group--info">
+                              <span class="point-group--block">
+                                {{myself.record_info.record.total_point}}
+                              </span>
+                              點
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6"><span v-if="myself.record_info.record.year" style="font-size:14px;">回饋點數將於 {{myself.record_info.record.year}} 年 {{myself.record_info.record.month}} 月 {{myself.record_info.record.day}} 日 到期</span></div>
                       </div>
-                      點 &nbsp&nbsp
-                      <span v-if="myself.record_info.record.year" style="font-size:14px;">回饋點數將於 {{myself.record_info.record.year}} 年 {{myself.record_info.record.month}} 月 {{myself.record_info.record.day}} 日 到期</span>
                     </div>
-                    <div class="d-flex mb-15px align-items-center">
-                      待生效回饋點數
-                      <InfoTooltip
-                        :content="`獎勵金生效日為消費後 ${myself.record_info.still_day} 天`"
-                      />：
-                      <div style="  width: 71px;
-                                    height: 24px;
-                                    text-align: right;
-                                    font-family: NotoSansTC;
-                                    font-size: 24px;
-                                    font-weight: 500;
-                                    font-stretch: normal;
-                                    font-style: normal;
-                                    line-height: 1;
-                                    letter-spacing: 4px;
-                                    margin-right:10px;">
-                        {{myself.record_info.record_temp.total_point}}
+                    <div class="mb-15px">
+                      <div class="row">
+                        <div class="col-12 col-lg-5">
+                          <div class="point-group d-flex">
+                            <div class="point-group--title">
+                              <span>待生效回饋點數</span>
+                              <InfoTooltip
+                                :content="`獎勵金生效日為消費後 ${myself.record_info.still_day} 天`"
+                              />：
+                            </div>
+                            <div class="point-group--info">
+                              <span class="point-group--block primary-color">
+                                {{myself.record_info.record_temp.total_point}}
+                              </span>點
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-12 col-lg-7">
+                          <span v-if="myself.record_info.record_temp.year" style="font-size:14px;">最近一筆 {{myself.record_info.record_temp.last_point}} 元回饋金將於
+                          {{myself.record_info.record_temp.year}} 年 {{myself.record_info.record_temp.month}} 月 {{myself.record_info.record_temp.day}} 日 生效</span>
+                        </div>
                       </div>
-                      點  &nbsp&nbsp
-                      <span v-if="myself.record_info.record_temp.year" style="font-size:14px;">最近一筆 {{myself.record_info.record_temp.last_point}} 元回饋金將於
-                      {{myself.record_info.record_temp.year}} 年 {{myself.record_info.record_temp.month}} 月 {{myself.record_info.record_temp.day}} 日 生效</span>
                     </div>
                     <!--忠誠獎勵 a link-->
                     <div class="mb-15px d-flex justify-content-end">
