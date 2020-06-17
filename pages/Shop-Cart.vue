@@ -103,7 +103,7 @@
               />
               <button class="no-round-btn" @click="changeCoupon" style="width: 230px">{{$t('use_coupon')}}</button>
             </div>
-            <div style="color: red">{{this.coupon_message}}</div>
+            <div class="primary-color coupon-msg-sm mt-10px">{{this.coupon_message}}</div>
             <div class="coupon mt-20px">
               <input
                 class="no-round-input coupon-input"
@@ -119,10 +119,9 @@
               </button>
               <div style="color: red" v-if="info.rewards<reward_discount_temp">{{$t('use_reward_now')}}</div>
             </div>
-            <div class="coupon-msg"
+            <div class="red-color coupon-msg-sm mt-10px"
                  v-if="$store.state.currency==='tw'"
                  v-show="info_reward_total>0"
-                 style="color: red"
             >
               {{$t('have_now')}} <span class="primary-color">{{info_reward_total}}</span>
               {{$t('point_reward')}}

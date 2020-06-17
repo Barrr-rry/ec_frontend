@@ -36,7 +36,7 @@
                     <h2 class="product-name mb-20px">{{product.name}}</h2>
                     <p class="delivery-status fz16px">{{$t('over')}} {{lowest_freeshipping}}
                       {{$t('free_shipping_3000')}}</p>
-                    <div class="activity">
+                    <div class="activity mb-20px">
                       <div class="activity-box" v-if="product &&product.activity">{{product.activity_detail.ch_name}}
                       </div>
                     </div>
@@ -117,7 +117,7 @@
                         <img
                           :src="imageLink(image.image_url)"
                           alt="product image"
-                          style="max-height: 126px; object-fit: contain"
+                          style="max-height: 252px; object-fit: contain"
                         />
                       </div>
                     </div>
