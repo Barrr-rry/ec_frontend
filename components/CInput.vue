@@ -1,6 +1,6 @@
 <template>
   <div>
-    <label v-if="title">{{computed_title}}</label>
+    <label class="label-title" v-if="title">{{computed_title}}</label>
     <slot>
       <input
         v-on="$listeners"

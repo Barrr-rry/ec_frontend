@@ -11,7 +11,7 @@
         ><img :src="imageLink(image)" alt=""
         /></span>
       </div>
-      <div class="product-info_block">
+      <div class="product-info_block" style="border:none; padding-right:0; text-align: center;">
         <div class="activity mb-10px mt-10px">
           <div class="activity-box" v-if="product && product.activity">{{product.activity_detail.ch_name}}</div>
         </div>

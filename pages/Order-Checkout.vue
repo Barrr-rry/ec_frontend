@@ -99,20 +99,16 @@
                   :title="$t('order_method')"
                   placeholder=""
                   :input_has_bg="true"
-                  class="input-radio-display d-flex"
+                  class="input-radio-display"
                 >
-                  <div
-                    class="ml-10px row"
-                  >
-                  <span v-for="(el,key) of in_weight_and_location_freeshippings">
-                    <label :for="`radio_${el.id}`" class="custom-label inline-row ml-5px mr-20px">
-                      <input type="radio" :id="`radio_${el.id}`" :value="el.id" v-model="freeshipping_id"
-                           :disabled="pay_type===1&&!el.cash_on_delivery">
-                      <div class="radio-icon"></div>
-                      <span :class="pay_type===1&&!el.cash_on_delivery?'disabled':''">{{el.frontend_name}}</span>
-                    </label>
-                  </span>
-                  </div>
+                <span v-for="(el,key) of in_weight_and_location_freeshippings" class="ml-5px">
+                  <label :for="`radio_${el.id}`" class="custom-label inline-row ml-5px mr-20px">
+                    <input type="radio" :id="`radio_${el.id}`" :value="el.id" v-model="freeshipping_id"
+                          :disabled="pay_type===1&&!el.cash_on_delivery">
+                    <div class="radio-icon"></div>
+                    <span :class="pay_type===1&&!el.cash_on_delivery?'disabled':''">{{el.frontend_name}}</span>
+                  </label>
+                </span>
                 </CInput>
               </div>
               <!--常用地址 button-->
@@ -155,7 +151,7 @@
                     class="input-radio-display"
                   >
                     <!--台灣-->
-                    <label for="sir" class="custom-label inline-row ml-10px mr-20px">
+                    <label for="sir" class="custom-label inline-row ml-0px mr-20px">
                       <input type="radio" id="sir" :value="1" v-model="location">
                       <div class="radio-icon"></div>
                       <span>先生</span>
@@ -358,7 +354,7 @@
               <!--貨到付款-->
               <div v-if="freeshipping_target&&freeshipping_target.cash_on_delivery">
                 <div v-for="el of selected_memberstores" :key="el.id" class="input-radio-display">
-                  <label :for="`memberstore_radio_${el.id}`" class="custom-label inline-row ml-10px mr-20px">
+                  <label :for="`memberstore_radio_${el.id}`" class="custom-label inline-row ml-0px mr-20px">
                     <input type="radio" :id="`memberstore_radio_${el.id}`" :value=el.id v-model="memberstore_id">
                     <div class="radio-icon"></div>
                     <span>{{el.store_name}}</span>
