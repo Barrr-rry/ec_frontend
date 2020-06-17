@@ -35,6 +35,7 @@
         </div>
       </div>
     </div>
+
     <!-- End order step-->
     <div class="shop-checkout">
       <div class="container">

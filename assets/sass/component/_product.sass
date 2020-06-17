@@ -70,11 +70,13 @@
   .product-img_block
     width: 100%
 
+
   .product-img
     // height: 420px
     width: 100%
     display: flex
     justify-content: center
+    
 
     img
       width: auto
@@ -82,8 +84,13 @@
       max-height: 420px
       transition: 0.3s ease
 
-    @media screen and (max-width: 576px)
+    +mobile
+      display: block
       height: auto
+
+      img
+        width: 100%
+        max-width: auto
 
   .product-type
     @include font-medium(12px, $primary-color, 1)
@@ -407,8 +414,8 @@
         transform: translateY(0)
 
 
-    .product-img
-      padding: 20px
+    // .product-img
+    //   padding: 20px
 
     .product-select
       display: none
@@ -660,3 +667,9 @@
 
 .share-btn-icon:hover
   background-image: url('../images/webs/share_hover.svg')
+
+
+
+.mobile-hide
+  +mobile
+    display: none

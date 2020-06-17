@@ -3,13 +3,13 @@
     <div class="full-fluid">
       <div class="slider_wrapper">
         <div class="slider-block pointer"
-             :style="{
-             'background-image':`url('${imageLink(banner.bigimage)}')`
-             }"
-             style="min-height: 710px"
              @click="toLink(banner)"
              v-for="banner in banners" :key="banner.id">
-          <div class="slider-content">
+
+             <div class="img-banner" :style="{
+             'background-image':`url('${imageLink(banner.bigimage)}')`
+             }"></div>
+          <!--<div class="slider-content">
             <div class="container pl-0px pr-0">
               <div class="row align-items-center justify-content-center">
                 <div class="col-12 col-md-5 col-xl-6">
@@ -42,7 +42,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div>-->
         </div>
 
 

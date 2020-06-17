@@ -8,10 +8,10 @@
               class="col-12 col-sm-12 col-md-12 col-lg-7 text-lg-left mb-0px-sm mb-40px-md mb-40px"
             >
               <div class="row">
-                <div class="col-12 col-md-6 col-lg-4">
+                <div class="col-12 col-lg-4">
                   <nuxt-link to="/"><img src="/images/webs/logo.svg" class="logo" alt="" style="max-width: 195px;  width: 100%;"></nuxt-link>
                 </div>
-                <div class="col-12 col-md-6 col-lg-8">
+                <div class="col-12 col-lg-8">
                   <div class="social-media mt-50px ml-10px-md ml-10px-lg ml-0 mb-50px-sm mb-15px-md mb-0px">
                     <ImageHover
                       class="mr-10px"

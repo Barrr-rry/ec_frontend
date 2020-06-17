@@ -7,7 +7,7 @@
       <div class="container">
         <div class="row">
           <div class="col-12 col-md-4 col-lg-4 col-xl-3 order-1">
-            <div class="department-menu_block mb-30px-sm mb-0px-md mb-30px">
+            <div class="department-menu_block mb-30px-sm mb-0px-md mb-30px mobile-hide">
               <div
                 class="department-menu d-flex justify-content-between align-items-center white-color"
               >
@@ -60,7 +60,7 @@
         <div class="row">
           <div class="col-12">
             <div class="row no-gutters-sm">
-              <div class="col-12 col-md-6 col-lg-3"
+              <div class="col-6 col-md-6 col-lg-3"
                    v-for="product of data.new_products"
                    :key="product.id"
               >
