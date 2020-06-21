@@ -54,7 +54,7 @@
                     <nuxt-link to="/delivery-instructions"
                     >我的帳戶
                     </nuxt-link>
-                    <nuxt-link to="/terms">我的最愛</nuxt-link>
+                    <nuxt-link to="/wishlist">我的最愛</nuxt-link>
                     <nuxt-link to="/rewards">訂單查詢</nuxt-link>
                   </FooterQuickLink>
                 </div>
@@ -63,8 +63,8 @@
                 >
                   <FooterQuickLink title="訂單資訊">
                     <nuxt-link to="/member-centre">尺寸表</nuxt-link>
-                    <nuxt-link to="/wishlist">條款與細則</nuxt-link>
-                    <nuxt-link to="/ordertracking">商業合作</nuxt-link>
+                    <nuxt-link to="/terms">條款與細則</nuxt-link>
+                    <nuxt-link to="/for-business">商業合作</nuxt-link>
                   </FooterQuickLink>
                 </div>
                 <div

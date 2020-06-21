@@ -5,46 +5,131 @@
       <div class="container delivery">
         <h1 class="title green-underline ml-0px">{{$t('company_terms')}}</h1>
         <br/>
-        <h3>{{$t('company_terms_1')}}</h3>
-        <br/>
-        <div class="about_us_h3">
-          <p>
-            {{$t('company_terms_2')}}
-          </p>
-          <p>
-            {{$t('company_terms_3')}}
-          </p>
-          <p>
-            {{$t('company_terms_4')}}
-          </p>
-          <p>
-            {{$t('company_terms_11')}}
-          </p>
-          <p>
-            {{$t('company_terms_5')}}
-          </p>
-          <p>
-            {{$t('company_terms_6')}}
-          </p>
+
+        <div v-if="$i18n.locale == 'tw'">
+          <div class="about_us_h3">
+            <p>{{$t('company_terms_txt_1')}}</p>
+            <p>{{$t('company_terms_txt_2')}}</p>
+          </div>
+          <br>
+
+          <h3>{{$t('company_terms_1_title')}}</h3>
+          <br/>
+          <div class="about_us_h3">
+            <p>{{$t('company_terms_1_1')}}</p>
+            <p>{{$t('company_terms_1_2')}}</p>
+            <p>{{$t('company_terms_1_3')}}</p>
+            <p>{{$t('company_terms_1_4')}}</p>
+          </div>
+          <br>
+
+          <h3>{{$t('company_terms_2_title')}}</h3>
+          <br/>
+          <div class="about_us_h3">
+            <ol class="ol-number">
+              <li><p>{{$t('company_terms_2_1')}}</p></li>
+              <li><p>{{$t('company_terms_2_2')}}</p></li>
+              <li><p>{{$t('company_terms_2_3')}}</p></li>
+              <li><p>{{$t('company_terms_2_4')}}</p></li>
+              <li><p>{{$t('company_terms_2_5')}}</p></li>
+            </ol>
+          </div>
+          <br>
+
+          <h3>{{$t('company_terms_3_title')}}</h3>
+          <br/>
+          <div class="about_us_h3">
+            <ol class="ol-number">
+              <li><p>{{$t('company_terms_3_1')}}</p></li>
+              <li><p>{{$t('company_terms_3_2')}}</p></li>
+              <li><p>{{$t('company_terms_3_3')}}</p></li>
+            </ol>
+          </div>
+          <br>
+
+          <h3>{{$t('company_terms_4_title')}}</h3>
+          <br/>
+          <div class="about_us_h3">
+            <ol class="ol-number">
+              <li><p>{{$t('company_terms_4_1')}}</p></li>
+              <li><p>{{$t('company_terms_4_2')}}</p></li>
+            </ol>
+          </div>
+          <br>
+
+          <h3>{{$t('company_terms_5_title')}}</h3>
+          <br/>
+          <div class="about_us_h3">
+            <ol class="ol-number">
+              <li><p>{{$t('company_terms_5_1')}}</p></li>
+              <li><p>{{$t('company_terms_5_2')}}</p></li>
+              <li><p>{{$t('company_terms_5_3')}}</p></li>
+              <li><p>{{$t('company_terms_5_4')}}</p></li>
+            </ol>
+          </div>
+          <br>
         </div>
-        <br/>
-        <h3>{{$t('company_terms_12')}}</h3>
-        <br/>
-        <div class="about_us_h3">
-          <p>
-            {{$t('company_terms_7')}}
-          </p>
-          <p>
-            {{$t('company_terms_8')}}
-          </p>
-          <p>
-            {{$t('company_terms_9')}}
-          </p>
-          <p>
-            {{$t('company_terms_10')}}
-          </p>
+
+
+        <div v-else>
+          <div class="about_us_h3">
+            <p>{{$t('company_terms_txt_1')}}</p>
+            <p>{{$t('company_terms_txt_2')}}</p>
+          </div>
+          <br>
+
+          <h3>{{$t('company_terms_1_title')}}</h3>
+          <br/>
+          <div class="about_us_h3">
+            <p>{{$t('company_terms_1_1')}}</p>
+            <p>{{$t('company_terms_1_2')}}</p>
+            <p>{{$t('company_terms_1_3')}}</p>
+            <p>{{$t('company_terms_1_4')}}</p>
+          </div>
+          <br>
+
+          <h3>{{$t('company_terms_2_title')}}</h3>
+          <br/>
+          <div class="about_us_h3">
+            <p>{{$t('company_terms_2_1')}}</p>
+            <p>{{$t('company_terms_2_2')}}</p>
+            <p>{{$t('company_terms_2_3')}}</p>
+            <p>{{$t('company_terms_2_4')}}</p>
+            <p>{{$t('company_terms_2_5')}}</p>
+          </div>
+          <br>
+
+          <h3>{{$t('company_terms_3_title')}}</h3>
+          <br/>
+          <div class="about_us_h3">
+            <p>{{$t('company_terms_3_1')}}</p>
+            <p>{{$t('company_terms_3_2')}}</p>
+            <p>{{$t('company_terms_3_3')}}</p>
+          </div>
+          <br>
+
+          <h3>{{$t('company_terms_4_title')}}</h3>
+          <br/>
+          <div class="about_us_h3">
+            <p>{{$t('company_terms_4_1')}}</p>
+            <p>{{$t('company_terms_4_2')}}</p>
+          </div>
+          <br>
+
+          <h3>{{$t('company_terms_5_title')}}</h3>
+          <br/>
+          <div class="about_us_h3">
+            <p>{{$t('company_terms_5_1')}}</p>
+            <p>{{$t('company_terms_5_2')}}</p>
+            <p>{{$t('company_terms_5_3')}}</p>
+            <p>{{$t('company_terms_5_4')}}</p>
+          </div>
+          <br>
         </div>
-        <br/>
+        
+
+
+
       </div>
     </div>
   </div>

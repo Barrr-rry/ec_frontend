@@ -144,38 +144,73 @@
                 </div>
 
                 <div class="col-12">
-                  <h3>{{$t('company_terms_1')}}</h3>
-                  <div class="terms-li">
-                    <li>{{$t('company_terms_2')}}</li>
-                    <li>
-                      {{$t('company_terms_3')}}
-                    </li>
-                    <li>{{$t('company_terms_4')}}</li>
-                    <li>{{$t('company_terms_11')}}</li>
-                    <li>{{$t('company_terms_5')}}</li>
-                    <li>{{$t('company_terms_6')}}</li>
+
+                  <div v-if="$i18n.locale == 'tw'">
+                    <h3 class="terms-title">{{$t('product_terms_1')}}</h3>
+                    <div class="terms-li">
+                      <ol class="ol-number">
+                        <li>{{$t('product_terms_1_1')}}</li>
+                        <li>{{$t('product_terms_1_2')}}</li>
+                        <li>{{$t('product_terms_1_3')}}</li>
+                        <li>{{$t('product_terms_1_4')}}</li>
+                      </ol>
+                    </div>
+                    <br><br>
+
+                    <h3 class="terms-title">{{$t('product_terms_2')}}</h3>
+                    <div class="terms-li">
+                      <ol class="ol-number">
+                        <li>{{$t('product_terms_2_1')}}</li>
+                        <li>{{$t('product_terms_2_2')}}</li>
+                        <li>{{$t('product_terms_2_3')}}</li>
+                      </ol>
+                    </div>
+
+                    <br><br>
+
+                    <h3 class="terms-title">{{$t('product_terms_3')}}</h3>
+                    <div class="terms-li">
+                      <ol class="ol-number">
+                        <li>{{$t('product_terms_3_1')}}</li>
+                        <li>{{$t('product_terms_3_2')}}</li>
+                        <li>{{$t('product_terms_3_3')}}</li>
+                        <li>{{$t('product_terms_3_4')}}</li>
+                        <li>{{$t('product_terms_3_5')}}</li>
+                        <li>{{$t('product_terms_3_6')}}</li>
+                      </ol>
+                    </div>
+
                   </div>
 
-                  <br/><br/>
+                  <div v-else>
+                    <h3 class="terms-title">{{$t('product_terms_1')}}</h3>
+                    <div class="terms-li">
+                      <ol class="ol-number">
+                        <li>{{$t('product_terms_1_1')}}</li>
+                        <li>{{$t('product_terms_1_2')}}</li>
+                        <li>{{$t('product_terms_1_3')}}</li>
+                        <li>{{$t('product_terms_1_4')}}</li>
+                        <li>{{$t('product_terms_1_5')}}</li>
+                      </ol>
+                    </div>
+                    <br>
 
-                  <h3>{{$t('company_terms_12')}}</h3>
-                  <div class="terms-li">
-                    <li>
-                      <div>
-                        <div>{{$t('company_terms_7')}}</div>
-                        <div>
-                          {{$t('company_terms_8')}}
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div>
-                        <div>{{$t('company_terms_9')}}</div>
-                        <div>{{$t('company_terms_10')}}</div>
-                      </div>
-                    </li>
+                    <h3 class="terms-title">{{$t('product_terms_2')}}</h3>
+                    <div class="terms-li">
+                      <p>{{$t('product_terms_2_1')}}</p>
+                      <p>{{$t('product_terms_2_2')}}</p>
+                      <p>{{$t('product_terms_2_3')}}</p>
+                      <i class="gray-text2"><p>{{$t('product_terms_2_4')}}</p></i>
+                    </div>
+                    <br>
+
+                    <h3 class="terms-title">{{$t('product_terms_3')}}</h3>
+                    <div class="terms-li">
+                      <p>{{$t('product_terms_3_1')}}<b>{{$t('product_terms_3_2')}}</b></p>
+                    </div>
+
                   </div>
-                  <br/><br/>
+                  
 
                 </div>
               </div>

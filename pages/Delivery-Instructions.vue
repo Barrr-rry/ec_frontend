@@ -4,21 +4,43 @@
     <div class="content  center-xs delivery-box">
       <div class="container delivery">
         <h1 class="title green-underline ml-0px">{{$t('delivery_instructions')}}</h1>
-        <br/>
-        <p class="delivery_title">{{$t('company_terms_0')}}</p>
-        <br/>
         <div class="about_us_h3">
           <p>
-            {{$t('company_terms_0_1_0')}}
-          </p>
-          <p>
-            {{$t('company_terms_0_2_0')}}
-          </p>
-          <p>
-            {{$t('company_terms_0_3_0')}}
+            {{$t('delivery_rule_txt1')}} <br>
+            {{$t('delivery_rule_txt2')}} 
           </p>
         </div>
         <br/>
+        <p class="delivery_title">{{$t('delivery_rule_0')}}</p>
+        <br/>
+        <div class="about_us_h3">
+          <ol class="ol-number">
+            <li>{{$t('delivery_rule_0_1_0')}}</li>
+            <li>{{$t('delivery_rule_0_2_0')}}</li>
+            <li>{{$t('delivery_rule_0_3_0')}}</li>
+          </ol>
+        </div>
+        <br/>
+
+        <p class="delivery_title">{{$t('delivery_rule_1')}}</p>
+        <br/>
+        <div class="about_us_h3">
+          <p>{{$t('delivery_rule_1_1_0')}}</p>
+        </div>
+        <br/>
+
+        <p class="delivery_title">{{$t('delivery_rule_2')}}</p>
+        <br/>
+        <div class="about_us_h3">
+          <ol class="ol-number">
+            <li>{{$t('delivery_rule_2_1_0')}}</li>
+            <li>{{$t('delivery_rule_2_2_0')}}</li>
+          </ol>
+        </div>
+        <br/>
+
+
+        <!--
         <p class="delivery_title">{{$t('instructions')}}:</p>
         <br/>
         <div class="about_us_h3">
@@ -136,6 +158,7 @@
           </p>
           <p>{{$t('delivery_instructions_35')}}</p>
         </div>
+        -->
       </div>
     </div>
   </div>

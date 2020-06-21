@@ -72,7 +72,7 @@
               </div>
               <div class="account-save input-radio-display mb-40px">
                 <input type="checkbox" class="mb-0px"/>
-                <a>{{$t('agree_pact')}}</a>
+                <nuxt-link to="/register-terms">{{$t('agree_pact')}}</nuxt-link>
               </div>
               <CInput
                 :title="$t('verification_code')"

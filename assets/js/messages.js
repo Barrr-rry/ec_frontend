@@ -21,7 +21,7 @@ const custom_message = {
   },
   delivery_instructions: {
     en: '未翻譯',
-    tw: '配送與退換貨說明'
+    tw: '配送與退換貨政策'
   },
   instructions: {
     en: '未翻譯',
@@ -190,88 +190,256 @@ const custom_message = {
     en: '未翻譯',
     tw: '因個人因素要求退貨者，需自行負擔運費。'
   },
+  for_business: {
+    en: 'Business Cooperation',
+    tw: '商業合作'
+  },
+  for_business_txt1_1: {
+    en: 'We offer stylish, comfortable, and sexy underwear for men.',
+    tw: '我們致力於提供時尚、舒適、性感的男性內著。'
+  },
+  for_business_txt1_2: {
+    en: 'We are looking forward to cooperating with top business partners.',
+    tw: '歡迎各類優質廠商合作，期待與您一起創造更多的火花。'
+  },
+  for_business_txt2: {
+    en: 'Contact us via havefunwear@gmail.com and we will reply shortly',
+    tw: '歡迎與我們聯絡。可先以電子郵件方式寄至 havefunwear@gmail.com，我們將盡速與您聯繫。'
+  },
+  delivery_rule_txt1: {
+    en: '未翻譯',
+    tw: "本商品褲頭有HaveFun Men's Underwear的專屬安全膠針。"
+  },
+  delivery_rule_txt2: {
+    en: '未翻譯',
+    tw: "因內褲屬於貼身衣物，基於衛生考量，如需退換貨請注意，所有退換貨的商品需於七天鑑賞期內寄回，七天鑑賞期非試用期，為確保您的權益，必須保留HaveFun Men's Underwear安全膠針無剪斷無毀損、不下水、不剪標、不試穿、無異味。"
+  },
+  delivery_rule_0: {
+    en: '未翻譯',
+    tw: '換貨：'
+  },
+  delivery_rule_0_1_0: {
+    en: '未翻譯',
+    tw: '如收到商品瑕疵或破損，請於取件隔日開始算七日鑑賞期內，提供訂單編號及瑕疵照片至Line私訊，客服會盡速為您處理。'
+  },
+  delivery_rule_0_2_0: {
+    en: '未翻譯',
+    tw: '尺寸不合，七日內可提供換貨一次，如購買3件商品，1件需換貨，僅需把該商品退回即可。'
+  },
+  delivery_rule_0_3_0: {
+    en: '未翻譯',
+    tw: '本公司會免費幫您寄送換貨商品過去，但您需先負責將商品寄回本公司且自行負擔寄回的運費。'
+  },
+  delivery_rule_1: {
+    en: '未翻譯',
+    tw: '寄錯商品：'
+  },
+  delivery_rule_1_1_0: {
+    en: '未翻譯',
+    tw: '如收到商品錯誤，請於取件隔日開始算七日鑑賞期內，提供訂單編號及商品照片至Line客服私訊，客服會盡速為您處理。'
+  },
+  delivery_rule_2: {
+    en: '未翻譯',
+    tw: '退貨：'
+  },
+  delivery_rule_2_1_0: {
+    en: '未翻譯',
+    tw: '請於取件隔日開始算七日鑑賞期內，提供訂單編號至Line客服私訊聯繫，可加速後續的手續。'
+  },
+  delivery_rule_2_2_0: {
+    en: '未翻譯',
+    tw: '退回商品需包裝完整。'
+  },
   company_terms: {
-    en: '未翻譯',
-    tw: '訂購須知與公司條款'
+    en: 'TERMS & CONDITIONS',
+    tw: '會員權益及隱私權條款'
   },
-  company_terms_1: {
-    en: '未翻譯',
-    tw: '訂購流程'
+  company_terms_txt_1: {
+    en: "If you have any questions about the Private Statement of HaveFun Men's Underwear website, the following notices, or personal data protection, please contact HaveFun men's underwear Customer Service Center. We will respond and elaborate as soon as possible.",
+    tw: "在您開始使用 HaveFun Men's Underwear 所經營之網站之前，請詳細閱讀以下所有服務條款："
   },
-  company_terms_0: {
-    en: '未翻譯',
-    tw: '免運標準'
+  company_terms_txt_2: {
+    en: '',
+    tw: "您接受並且遵守本網站所列之所有服務條款。以下條款適用於所有網站訪問者、使用者以及任何個人單位使用該網站的所有服務。"
   },
-  company_terms_0_1_0: {
-    en: '未翻譯',
-    tw: '郵寄一律 60 元，滿 3000 免運，限制重量 1 公斤內。 '
+  company_terms_txt_3: {
+    en: '',
+    tw: "一經使用該網站之任一服務，即您同意所列之所有服務條款。若您不同意所列之服務條款，則請您立即離開此網站或者不使用任何網站之任何服務提供。"
   },
-  company_terms_0_2_0: {
-    en: '未翻譯',
-    tw: '宅配一律 90 元，滿 3000 免運，限制重量 999 公斤內。 '
+
+  company_terms_1_title: {
+    en: 'How We Use Your Personal Data',
+    tw: "使用者隱私權保護聲明"
   },
-  company_terms_0_3_0: {
-    en: '未翻譯',
-    tw: '超商取貨一律 65 元，滿 3000 免運，限制重量 5 公斤內。\n '
+  company_terms_1_1: {
+    en: "Personal data refers to undisclosed information relating to your identification, such as name, telephone number, address or email contact, including your past data of using HaveFun Men's Underwear products and services.",
+    tw: "本網站 HaveFun Men's Underwear 針對消費者與個人資料之蒐集和運用，依中華民國「電腦處理個人資料保護法」及本隱私權保護聲明，HaveFun Men's Underwear 已加強相關之保護措施，但也鄭重提醒您：請勿在網路上公開透露您個人資料，因該資料有可能會被他人蒐集和使用，特別是在網路上公開的發言場合，如聊天室、留言版，更應避免發表個人身份、密碼或電子郵件等相關個人資料。"
   },
-  company_terms_0_1_1: {
-    en: '未翻譯',
-    tw: '元，滿 '
+  company_terms_1_2: {
+    en: "When you register a HaveFun Men's Underwear account, use HaveFun Men's Underwear product, browse website of HaveFun Men's Underwear or our business partners, and attend promotion or rewarding events, HaveFun men's underwear collects your personal data. Also, HaveFun men's underwear may combine your information providing by other corporations with your personal data obtained by HaveFun men's underwear.",
+    tw: ""
   },
-  company_terms_0_1_2: {
-    en: '未翻譯',
-    tw: '免運，限制重量'
+  company_terms_1_3: {
+    en: "When you sign up for HaveFun Men's Underwear, you are asked for information such as name, email address, birth date, gender, etc. When you purchase our products, you may need to submit further details including address or financial information. You are free to choose to provide your personal data to us or not. But if certain data fields are required fields, you can not use related HaveFun men's underwear products and services without providing the data.",
+    tw: ""
   },
-  company_terms_0_1_3: {
-    en: '未翻譯',
-    tw: '公斤內。'
+  company_terms_1_4: {
+    en: "HaveFun Men's Underwear also collects the data of your transactions, including related information of our services which you use, and automatically receives and records the data of your computer and browser, inclusive of IP address, software and hardware specification, and your browsing history.",
+    tw: ""
   },
-  company_terms_2: {
-    en: '未翻譯',
-    tw: '請先登入會員，選擇所要購買商品尺寸與數量，並加入購物車。'
+
+  company_terms_2_title: {
+    en: "Probable Purposes for Using Your Data Globally, During the Period When You Use HaveFun Men's Underwear Products and Services",
+    tw: "個人資料蒐集及使用"
   },
-  company_terms_3: {
-    en: '未翻譯',
-    tw: '確認購物車內容，如有折扣代碼歡迎使用，試算運費後，請點選付款。'
+  company_terms_2_1: {
+    en: 'Customizing ads and web contents that you see, to fulfill your request for products and services. Also improving our services, contacting you, conducting researches, and providing marketing analyses or business reports without personal data for internal and external customers.',
+    tw: "當您瀏覽 HaveFun Men's Underwear 相關網站時，不會主動要求輸入個人資料。"
   },
-  company_terms_4: {
-    en: '未翻譯',
-    tw: '選擇註冊成為會員，舊客戶請直接登入。'
+  company_terms_2_2: {
+    en: "HaveFun Men's Underwear website may include some links or services of other social networking websites. Please check the linked websites, websites of business partners, and individually operating web stores for the privacy statement and personal data related disclosure details of their own.",
+    tw: "當使用者需要完成購物流程、訂閱電子報、或參加其他活動時，HaveFun Men's Underwear 會要求使用者登錄個人資料，以便完成交易與相關會員服務。"
   },
-  company_terms_11: {
-    en: '未翻譯',
-    tw: '請填寫完整收件資訊。'
+  company_terms_2_3: {
+    en: '',
+    tw: "HaveFun Men's Underwear 及其相關網站所取得的個人資料，都僅供 HaveFun Men's Underwear 內部依照原說明的使用目的和範圍。"
   },
-  company_terms_5: {
-    en: '未翻譯',
-    tw: '點選下單，完成訂單。下單完成後可進入會員中心查詢。'
+  company_terms_2_4: {
+    en: '',
+    tw: "除非事先說明或依照台灣相關法律規定外，HaveFun Men's Underwear 不會擅自將使用者的個人資料提供給第三者或作為其他目的之用。"
   },
-  company_terms_6: {
-    en: '未翻譯',
-    tw: '完成後，我們會在出貨前 Email 通知您！'
+  company_terms_2_5: {
+    en: '',
+    tw: "HaveFun Men's Underwear 會自動記錄使用者在網站內的瀏覽活動等相關資料，但這些資料僅供作為流量分析和網路行為調查，以便於改善網站的服務品質。"
   },
-  company_terms_7: {
-    en: '未翻譯',
-    tw: '信用卡即時線上一次刷卡付款'
+
+  company_terms_3_title: {
+    en: "Specific Purposes for Collecting, Processing and Using Personal Data By HaveFun Men's Underwear",
+    tw: "使用者資料"
   },
-  company_terms_8: {
-    en: '未翻譯',
-    tw: ' (\n' +
-      '                方便又好用的付款方式，當您選擇線上刷卡方式進行交易時，作業流程透過SSL\n' +
-      '                加密機制，保障您的個人隱私資料 )'
+  company_terms_3_1: {
+    en: 'Marketing, consumer and customer management and services, information and communication services, internet shopping or other electronic commerce services, advertising and business activity management, and other contractual, quasi-contractual or legal relationship managing businesses or affairs.',
+    tw: "註冊過程中您可以為自己設定一組電子郵件及密碼，經由該帳號，您可依照網站說明使用相關會員服務。"
   },
-  company_terms_9: {
-    en: '未翻譯',
-    tw: '超商付款取貨'
+  company_terms_3_2: {
+    en: '',
+    tw: "請妥善保管您的會員帳號及密碼，不要將上述資料提供給任何人。"
   },
-  company_terms_10: {
-    en: '未翻譯',
-    tw: '( 適合不方便在家收貨或無信用卡的客戶 )'
+  company_terms_3_3: {
+    en: '',
+    tw: "如果您與他人共用一台電腦或使用公共電腦，請記得關閉您的瀏覽器並清除瀏覽紀錄，以防止他人看到上述資料或取得進入您帳號的方法。"
   },
-  company_terms_12: {
-    en: '未翻譯',
-    tw: '付款說明'
+  company_terms_4_title: {
+    en: 'Data Sharing and Revealing',
+    tw: "會員及隱私權保護政策之修訂"
   },
+  company_terms_4_1: {
+    en: "Unless providing the products or services for your request and obtaining your authorization beforehand, HaveFun Men's Underwear do not share your personal data to unrelated individuals or corporates. You can check and modify the personal data in your HaveFun Men's Underwear account anytime, including marketing preferences, etc.",
+    tw: "HaveFun Men's Underwear 保留更改本聲明各項內容之權利，我們將於網站同一位置公告更改之聲明外，不另外對會員進行個別通知。"
+  },
+  company_terms_4_2: {
+    en: "HaveFun Men's Underwear may add new categories of marketing information on the marketing preferences page from time to time. We reserve the right to send you particular messages related to HaveFun Men's Underwear services, such as service or administration announcements. These messages are considered as part of your HaveFun men's underwear account. You can not choose to reject receiving them.",
+    tw: "若您對本隱私權保護政策有任何問題，請直接與本公司聯繫。"
+  },
+
+  company_terms_5_title: {
+    en: 'Alteration of Privacy Protection Policy',
+    tw: "終止服務"
+  },
+  company_terms_5_1: {
+    en: "HaveFun Men's Underwear has the right to alter this privacy statement and related disclosure details whenever necessary, and to publish it on HaveFun Men's Underwear website after alteration without further individual notice. You may read the altered privacy statement and related disclosure details on this website at any time.",
+    tw: "在不需要任何事前通知以下，我們有可能隨時終止您使用我們網站服務的權限；以上終止服務決定並不需要任何理由即可即時生效，包括但不限於您違反本服務條款。"
+  },
+  company_terms_5_2: {
+    en: '',
+    tw: "終止服務適用於所有條款的規定，包括但不限於所有權規定、擔保聲明、賠款以及有限責任。"
+  },
+  company_terms_5_3: {
+    en: '',
+    tw: "在不需要任何事前通知以下，我們有可能隨時終止您所持有的登入帳號；以上終止服務決定並不需要任何理由即可即時生效，包括但不限於您違反本服務條款。一旦確定終止，您將會立即無法繼續使用所有服務。"
+  },
+  company_terms_5_4: {
+    en: '',
+    tw: "若您希望終止您的帳號，您可以隨時終止服務。終止服務適用於所有條款的規定，包括但不限於所有權規定、擔保聲明、賠款以及有限責任。"
+  },
+
+  product_terms_1: {
+    en: 'Order procedure: ',
+    tw: "訂購流程"
+  },
+  product_terms_1_1: {
+    en: 'Sign in or create an account. Become a member and join our membership reward system as a new user by using your email address and password.',
+    tw: "請先登入會員。如無會員，只需在註冊處輸入您的e-mail和密碼，即可輕鬆成為會員並享有回饋金會員帳戶！"
+  },
+  product_terms_1_2: {
+    en: 'Add items to the shopping cart.',
+    tw: "確認購物車內容，如有折扣代碼歡迎使用，試算總金額後，請點選付款。"
+  },
+  product_terms_1_3: {
+    en: 'Confirm order and enter promotion code if available. Confirm total amount and proceed to pay.',
+    tw: "請填寫完整收件資訊。"
+  },
+  product_terms_1_4: {
+    en: 'Fill in complete information on the invoice form.',
+    tw: "點選下單，完成訂單。下單完成後可進入會員中心查詢。"
+  },
+  product_terms_1_5: {
+    en: 'Click ‘Check out’ button to complete the order. Members can view purchase records from their account after completion of the order.',
+    tw: ""
+  },
+
+  product_terms_2: {
+    en: 'Payment method: ',
+    tw: "付款說明"
+  },
+  product_terms_2_1: {
+    en: 'Please note that online credit card transactions are possible!',
+    tw: "信用卡即時線上一次刷卡付款 ( 方便又好用的付款方式，當您選擇線上刷卡方式進行交易時，作業流程透過SSL 加密機制，保障您的個人隱私資料 )"
+  },
+  product_terms_2_2: {
+    en: 'Customers in Taiwan are offered to pay cash on delivery or by credit card.',
+    tw: "超商付款取貨-僅供配送地在台灣（台、澎、金、馬地區）( 適合不方便在家收貨或無信用卡的客戶 )"
+  },
+  product_terms_2_3: {
+    en: 'For international customers, please choose credit card as your payment method.',
+    tw: "海外地區一律使用信用卡先付款"
+  },
+  product_terms_2_4: {
+    en: 'Online credit card transactions are convenient and practical. Its operation process applies SSL to secure privacy of personal data',
+    tw: ""
+  },
+
+  product_terms_3: {
+    en: 'Shipping method:',
+    tw: "運送方式"
+  },
+  product_terms_3_1: {
+    en: 'Free shipping for international orders over NT$ 1800. In this case please select ',
+    tw: "超商取貨 出貨後約2-3天會到超商 (假日可領貨)。"
+  },
+  product_terms_3_2: {
+    en: 'International Standard.',
+    tw: "宅配取貨 每週一至週五固定出貨，出貨後約2天會到 (假日不送貨)。"
+  },
+  product_terms_3_3: {
+    en: '',
+    tw: "全站消費金額滿NT$800元免運。限定台灣（台、澎、金、馬地區）"
+  },
+  product_terms_3_4: {
+    en: '',
+    tw: "選取超商取貨，貨品寄出後不論任何原因超過7天未領取，導至被退回原商家，將可能會被設定為黑名單日後不得購買，特殊原因請洽詢本公司Line客服。"
+  },
+  product_terms_3_5: {
+    en: '',
+    tw: "選取超商取貨，為保障雙方權益 請務必填寫「與證件相符之真實姓名」；若因取件者未出示證件或拒絕簽名造成超商無法提供取件服務，導至被退回原商家。並酌收70元再次超商配送之物流處理費用。"
+  },
+  product_terms_3_6: {
+    en: '',
+    tw: "如本店無法接受您的訂單，將於收到您的訂單後二個工作日內通知您。但法令另有規定者除外。"
+  },
+
+
+
   common_problem: {
     en: '未翻譯',
     tw: '常見問題'
@@ -611,53 +779,46 @@ const custom_message = {
     tw: '使用優惠券代碼'
   },
   loyalty_reward: {
-    en: 'Loyalty reward',
-    tw: '回饋點數'
+    en: 'Reward point system',
+    tw: '回饋金點數制度'
   },
   loyalty_reward_m: {
     en: 'Loyalty reward',
     tw: '忠誠獎勵'
   },
   loyalty_reward_1: {
-    en: '未翻譯',
-    tw: '什麼是忠誠獎勵計劃？'
+    en: 'Earn one reward point for every NT$30 spent via our website.',
+    tw: '於本網站每消費 30 元（台幣）可獲得1點回饋金點數。'
   },
   loyalty_reward_2: {
-    en: '未翻譯',
-    tw: '忠誠獎勵計劃是一個讓顧客可以透過訂單獲得獎勵金的機制，您可以透過購買我們的產品獲得獎勵金。您的獎勵金可用於購買\n' +
-      '            EZGO 網站上的所有產品。'
+    en: 'Reward points earned will be credited to your account 21 days after completion of the purchase, i.e. without cancellation or refund request.',
+    tw: '回饋金點數將於消費 21 日後，訂單成功交易完成且無退款或取消始撥入回饋金帳戶。'
   },
   loyalty_reward_3: {
-    en: '未翻譯',
-    tw: '有限制能賺取多少獎勵金嗎？'
+    en: 'Each reward point is equivalent to NT$ 1.',
+    tw: '回饋金 1 點可折抵消費 NT$1元'
   },
   loyalty_reward_4: {
-    en: '未翻譯',
-    tw: '賺取的獎勵金額是沒有限制的。'
+    en: 'Reward points are valid for one year. Its validity will be automatically extended for another year with your next purchase within that timeline.',
+    tw: '回饋金點數有效期限為 1 年，如期間有消費可自動延長使用期限 1 年並且累積回饋金。'
   },
   loyalty_reward_5: {
-    en: '未翻譯',
-    tw: '忠誠獎需要多久可以顯示獎勵金？'
+    en: "Point validity can also be extended by earning reward points through participation in activities organized by HaveFun Men's Underwear.",
+    tw: '參與活動獲得回饋金點數也可延長回饋金使用期限。'
   },
   loyalty_reward_6: {
-    en: '未翻譯',
-    tw: '我們通常在訂購日後的 30\n' +
-      '            天內將獎勵金發放至會員中心。包含處理取消訂單、撤單拒付、產品退貨或其他相關問題所必需的時間。有效期\n' +
-      '            90 天，將於獎勵金發放至您的帳戶後開始計算。'
+    en: 'Reward points can only be used for purchases via our website. They are invalidated and reset to zero after expiration of the timeline. They can be neither converted into cash nor reclaimed.',
+    tw: '回饋金點數僅能使用於消費折抵，不得變換為現金，如超過期限未使用即歸零，不得返還。'
   },
   loyalty_reward_7: {
-    en: '未翻譯',
-    tw: '獎勵金何時過期？'
+    en: "HaveFun Men's Underwear reserves the right to clarify, modify or terminate the reward point system as well as the right to renew memberships and to modify members’ rights and interests. Any change in this regard will be announced on our website without further notice.",
+    tw: "HaveFun Men's Underwear 保留回饋金活動解釋、修改、調整、終止，以及會員資格續存、會員權益調整之權利，如有調整以 HaveFun Men's Underwear 官方網站公告為主，不再另行通知。"
   },
-  loyalty_reward_8: {
-    en: '未翻譯',
-    tw: '獎勵金將於發放至您的帳戶後 90 天過期。'
-  },
-  loyalty_reward_9: {
+  loyalty_reward_btn1: {
     en: '未翻譯',
     tw: '立即註冊會員'
   },
-  loyalty_reward_10: {
+  loyalty_reward_btn2: {
     en: '未翻譯',
     tw: '查看我的忠誠獎勵'
   },
@@ -1247,6 +1408,22 @@ const custom_message = {
   register: {
     en: '未翻譯',
     tw: '註冊'
+  },
+  register_terms: {
+    en: '未翻譯',
+    tw: '會員條款'
+  },
+  register_terms_1_1: {
+    en: 'Members can view their purchase records and reward points on their accounts.',
+    tw: '註冊會員之後，您可使用會員專屬頁面，包含筆筆消費皆有回饋累積在您的帳戶！'
+  },
+  register_terms_1_2: {
+    en: 'One point is rewarded for every NT$30 spent. Reward points can be redeemed for the next purchase (1 reward point = NT$ 1). ',
+    tw: '每 30 元（台幣） 消費即可累積 1 點回饋金點數，可在下次消費折抵。（ 1 點 = NT$ 1 ) '
+  },
+  register_terms_1_3: {
+    en: 'Sign up for free with just your e-mail and the password!',
+    tw: '您只需要使用 E-mail 和密碼即可免費註冊！'
   },
   category_page: {
     en: '未翻譯',
