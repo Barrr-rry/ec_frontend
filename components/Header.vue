@@ -178,22 +178,29 @@
               class="header-right d-flex flex-md-row justify-content-end align-items-center"
             >
               <div class="social-link d-flex">
+                <a href="" class="social-link--item"><i class="social-ig"></i></a>
+                <a href="" class="social-link--item"><i class="social-twi"></i></a>
+                <a href="" class="social-link--item"><i class="social-line"></i></a>
+                <a href="" class="social-link--item"><i class="social-fb"></i></a>
+                <!--
+
                 <ImageHover
                   src="/images/webs/ig-origin.svg"
-                  hover="/images/webs/ig-origin.svg"
+                  hover="/images/webs/ig-hover.svg"
                 />
                 <ImageHover
-                  src="/images/webs/twitter-origin.svg"
-                  hover="/images/webs/twitter-origin.svg"
+                  src="/images/webs/twi-origin.svg"
+                  hover="/images/webs/twi-hover.svg"
                 />
                 <ImageHover
                   src="/images/webs/line-origin.svg"
-                  hover="/images/webs/line-origin.svg"
+                  hover="/images/webs/line-hover.svg"
                 />
                 <ImageHover
                   src="/images/webs/fb-origin.svg"
-                  hover="/images/webs/fb-origin.svg"
+                  hover="/images/webs/fb-hover.svg"
                 />
+                -->
 <!--                <a href="https://www.facebook.com/%E6%B1%B4%E5%88%A9%E8%B3%BC-Ezgo-107385547368839/" target="_blank"><i-->
 <!--                  class="fab fa-facebook-f"> </i></a>-->
 <!--                <a href="https://line.me/ti/p/1qvbcczVSW" target="_blank"><i class="fab fa-line"> </i></a>-->
