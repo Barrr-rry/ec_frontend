@@ -36,7 +36,7 @@
                 </div>
                 <div class="shop-products_bottom">
                   <div class="row no-gutters-sm" v-if="products.length">
-                    <div class="col-6 col-md-4"
+                    <div class="col-6 col-md-6 col-lg-3"
                          v-for="product of products"
                     >
                       <v-product

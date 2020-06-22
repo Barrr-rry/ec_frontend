@@ -39,7 +39,7 @@
         <img src alt />
       </button>
     </div>
-    <div class="product-select_list">
+    <!--<div class="product-select_list">
       <h3 class="product-price" style="text-align: -webkit-center;" v-if="product.fake_price">
         <del>${{product.fake_price|commaFormat}}</del>
         ${{product.price|commaFormat}}
@@ -57,6 +57,7 @@
         {{$t('add_favourite')}}
       </button>
     </div>
+    -->
     <WishlistModal
       v-model="wishmodal"
       :specifications="specifications_modal"

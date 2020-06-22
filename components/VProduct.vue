@@ -45,7 +45,8 @@
           <img src="" alt=""/>
         </button>
       </div>
-      <div class="product-select_list">
+      <!--
+        <div class="product-select_list">
         <h3 class="product-price" style="text-align: -webkit-center;" v-if="fake_price">
           <del>{{getProcessPrice(price)}}</del>
           {{getProcessPrice(price)}}
@@ -64,6 +65,7 @@
         </button>
 
       </div>
+      -->
     </div>
   </nuxt-link>
 </template>

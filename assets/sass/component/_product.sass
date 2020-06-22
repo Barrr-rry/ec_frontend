@@ -137,145 +137,145 @@
   // .product-price
   //   font-size: 20px !important
 
-.product.list-view
-  // flex-direction: row
+// .product.list-view
+//   // flex-direction: row
 
-  &:after
-    display: none
+//   &:after
+//     display: none
 
-  &:hover
-    .product-select
-      button
-        transform: scale(1) translateY(0)
-
-
-    .product-name
-      transform: traslateY(0)
-      opacity: 1
-      visibility: visible
-
-    .product-price
-      transform: translateY(0)
-
-    .product-img_block
-      .quickview
-        opacity: 1
-        visibility: visible
-        -webkit-transform: translateY(0)
-          -moz-transform: translateY(0)
-            -ms-transform: translateY(0)
-              -o-transform: translateY(0)
-                transform: translateY(0)
+//   &:hover
+//     .product-select
+//       button
+//         transform: scale(1) translateY(0)
 
 
-  .product-img_block
-    width: 100%
-    text-align: center
-    flex: 1 1 33.3333%
-    padding-right: 30px
+//     .product-name
+//       transform: traslateY(0)
+//       opacity: 1
+//       visibility: visible
 
-    .product-img
-      margin-bottom: 0
-      height: auto
-      overflow: hidden
+//     .product-price
+//       transform: translateY(0)
 
-    .quickview
-
-      opacity: 0
-      visibility: hidden
-      transition: 0.3s ease
-      width: 100%
-      padding: 10px
-      -webkit-transform: translateY(50px)
-        -moz-transform: translateY(50px)
-          -ms-transform: translateY(50px)
-            -o-transform: translateY(50px)
-              transform: translateY(50px)
+//     .product-img_block
+//       .quickview
+//         opacity: 1
+//         visibility: visible
+//         -webkit-transform: translateY(0)
+//           -moz-transform: translateY(0)
+//             -ms-transform: translateY(0)
+//               -o-transform: translateY(0)
+//                 transform: translateY(0)
 
 
-  .product-info_block
-    flex: 1 1 33.3333%
-    padding-right: 30px
-    border-right: 1px solid $line
-    position: relative
+//   .product-img_block
+//     width: 100%
+//     text-align: center
+//     flex: 1 1 33.3333%
+//     // padding-right: 30px
 
-    .product-name
-      @include link-medium(20px, $title, 24px, $primary-color)
+//     .product-img
+//       margin-bottom: 0
+//       height: auto
+//       overflow: hidden
 
-    .product-price
-      display: none
+//     .quickview
 
-    .product-rated
-      margin-bottom: 15px
-
-      i
-        color: #fac451
-        font-size: 13px
-
-      span
-        @include font-regular(13px, $disable, 1)
-        display: inline-block
-
-
-    .product-describe
-      @include font-regular(16px, $regular, 26px)
-      margin-bottom: 20px
-
-    .product-avaiable
-      @include font-regular(14px, $regular, 26px)
-
-      span
-        color: $primary-color
-        display: inline-block
+//       opacity: 0
+//       visibility: hidden
+//       transition: 0.3s ease
+//       width: 100%
+//       padding: 10px
+//       -webkit-transform: translateY(50px)
+//         -moz-transform: translateY(50px)
+//           -ms-transform: translateY(50px)
+//             -o-transform: translateY(50px)
+//               transform: translateY(50px)
 
 
-    .add-to-wishlist
-      position: absolute
-      top: 0
-      right: 30px
+//   .product-info_block
+//     flex: 1 1 33.3333%
+//     padding-right: 30px
+//     border-right: 1px solid $line
+//     position: relative
+
+//     .product-name
+//       @include link-medium(20px, $title, 24px, $primary-color)
+
+//     .product-price
+//       display: none
+
+//     .product-rated
+//       margin-bottom: 15px
+
+//       i
+//         color: #fac451
+//         font-size: 13px
+
+//       span
+//         @include font-regular(13px, $disable, 1)
+//         display: inline-block
 
 
-  .product-select
-    display: none
+//     .product-describe
+//       @include font-regular(16px, $regular, 26px)
+//       margin-bottom: 20px
 
-  .product-select_list
-    flex: 1 1 33.3333%
-    padding-left: 30px
+//     .product-avaiable
+//       @include font-regular(14px, $regular, 26px)
 
-    .delivery-status
-      width: 100%
-      display: block
-      background-color: $line
-      text-align: center
-      padding: 15px
-      margin-bottom: 30px
-      @include font-regular(14px, $title, 1)
-
-    .product-price
-      color: $primary-color
-      font-size: 24px
-      margin-bottom: 25px
-
-      del
-        font-size: 14px
-        display: block
-        margin-bottom: 5px
+//       span
+//         color: $primary-color
+//         display: inline-block
 
 
-    button
-      margin-bottom: 10px
-      width: 100%
-      padding: 10px
-
-      &:last-child
-        margin-bottom: 0
+//     .add-to-wishlist
+//       position: absolute
+//       top: 0
+//       right: 30px
 
 
-    .add-to-compare
-      border: 2px solid $line
+//   .product-select
+//     display: none
 
-      &:hover
-        border: 2px solid $primary-color
+//   .product-select_list
+//     flex: 1 1 33.3333%
+//     padding-left: 30px
+
+//     .delivery-status
+//       width: 100%
+//       display: block
+//       background-color: $line
+//       text-align: center
+//       padding: 15px
+//       margin-bottom: 30px
+//       @include font-regular(14px, $title, 1)
+
+//     .product-price
+//       color: $primary-color
+//       font-size: 24px
+//       margin-bottom: 25px
+
+//       del
+//         font-size: 14px
+//         display: block
+//         margin-bottom: 5px
+
+
+//     button
+//       margin-bottom: 10px
+//       width: 100%
+//       padding: 10px
+
+//       &:last-child
+//         margin-bottom: 0
+
+
+//     .add-to-compare
+//       border: 2px solid $line
+
+//       &:hover
+//         border: 2px solid $primary-color
 
 .product.full-list-view
   @extend .product.list-view
@@ -427,16 +427,16 @@
   .product.list-view
     flex-direction: column
 
-    .product-img_block
-      margin-bottom: 30px
-      width: 100%
-      padding-right: 0
+    // .product-img_block
+    //   margin-bottom: 30px
+    //   width: 100%
+    //   padding-right: 0
 
-      .product-img
-        height: 138px
+    //   .product-img
+    //     height: 138px
 
-      .quickview-list
-        display: none
+    //   .quickview-list
+    //     display: none
 
 
     .product-info_block
