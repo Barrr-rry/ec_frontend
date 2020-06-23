@@ -37,7 +37,7 @@
                     <p class="delivery-status fz16px">{{$t('over')}} {{lowest_freeshipping}}
                       {{$t('free_shipping_3000')}}</p>
                     <div class="activity mb-20px">
-                      <div class="activity-box">{{product.activity_detail.ch_name}}
+                      <div class="activity-box" v-if="product.activity != null">{{product.activity_detail.ch_name}}
                       </div>
                     </div>
                     <div class="price-rate">
@@ -210,7 +210,7 @@
                     </div>
 
                   </div>
-                  
+
 
                 </div>
               </div>
