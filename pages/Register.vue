@@ -15,7 +15,7 @@
                 <div class="d-flex flex-grow-1 align-content-center">
                   <CInput
                     :title="$t('member_addr')"
-                    class="flex-grow-1 input-radio-display"
+                    class="flex-grow-1 input-radio-display mb-20px"
                     :required="true"
                     name="location"
                     error_class=""
@@ -28,7 +28,7 @@
                         <a for="radio_location1" >台灣Taiwan</a>
                       </label>
                       <label for="radio_location2" class="custom-label inline-row">
-                        <input class="mb-0px  mr-15px" type="radio" id="radio_location2" :value="2" v-model="location">
+                        <input class="mb-0px mr-15px" type="radio" id="radio_location2" :value="2" v-model="location">
                         <div class="radio-icon"></div>
                         <a for="radio_location2">海外（Oversea）</a>
                       </label>
@@ -37,6 +37,7 @@
                 </div>
               </div>
               <CInput
+                class="mb-20px"
                 :title="$t('acc_e')"
                 :required="true"
                 :placeholder="$t('input_email')"
@@ -44,6 +45,7 @@
                 :validators="[validateEmail]"
               />
               <CInput
+                class="mb-20px"
                 :title="$t('check_acc')"
                 :required="true"
                 :placeholder="$t('acc_aga')"
@@ -51,6 +53,7 @@
                 :validators="[validateEmail]"
               />
               <CInput
+                class="mb-20px"
                 :title="$t('password')"
                 :required="true"
                 type="password"
@@ -59,6 +62,7 @@
                 name="password"
               />
               <CInput
+                class="mb-20px"
                 :title="$t('check_Opassword')"
                 :required="true"
                 type="password"
@@ -75,6 +79,7 @@
                 <nuxt-link to="/register-terms">{{$t('agree_pact')}}</nuxt-link>
               </div>
               <CInput
+                class="mb-20px"
                 :title="$t('verification_code')"
                 :required="true"
                 :placeholder="$t('ver')"

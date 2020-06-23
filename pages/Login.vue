@@ -17,6 +17,7 @@
                 :placeholder="$t('input_email')"
                 name="account"
                 v-model="account"
+                class="mb-20px"
               />
               <CInput
                 :title="$t('password')"
@@ -25,6 +26,7 @@
                 :placeholder="$t('new_pass')"
                 name="password"
                 v-model="password"
+                class="mb-20px"
               />
               <div class="account-method">
                 <div class="account-save input-radio-display">

@@ -317,7 +317,6 @@
                         name="phone"
                         :input_has_bg="true"
                         :validators="[checkPhone]"
-                        style="width: 360px"
                         suffix="RMB"
                       />
                     </div>
@@ -328,7 +327,6 @@
                         name="phone"
                         :input_has_bg="true"
                         :validators="[checkPhone]"
-                        style="width: 360px"
                       />
                     </div>
                   </div>
@@ -426,7 +424,6 @@
                         name="phone"
                         :input_has_bg="true"
                         :validators="[checkPhone]"
-                        style="width: 360px"
                         suffix="RMB"
                       />
                     </div>
@@ -437,7 +434,6 @@
                         name="phone"
                         :input_has_bg="true"
                         :validators="[checkPhone]"
-                        style="width: 360px"
                       />
                     </div>
                   </div>
@@ -494,8 +490,13 @@
                   :placeholder="$t('ororder_remark')"
                   :input_has_bg="true"
                 >
-                  <textarea class="textarea-form-bg" name="" cols="30" rows="7" v-model="order_remark"
-                  ></textarea>
+
+                  <div class="styled-input">
+                    <textarea class="textarea-form-bg" name="" cols="30" rows="7" v-model="order_remark" required></textarea>
+                    <label>{{$t('ororder_remark')}}</label>
+                    <span></span>
+                  </div>
+
                 </CInput>
               </div>
 
