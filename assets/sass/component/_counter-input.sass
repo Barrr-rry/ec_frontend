@@ -2,11 +2,11 @@
   display: block !important
   font-size: 0
   max-width: 100%
-  overflow: hidden
   position: relative
   max-width: 140px
   min-width: 140px
   box-sizing: border-box
+  overflow: hidden
 
   &.big
     max-width: 180px
@@ -78,7 +78,7 @@
 
 
   &__input
-    -moz-appearance: textfield
+    -moz-appearance: textfield !important
     background-color: #fff
     border: 1px solid #ddd
     border-radius: 0.25rem
@@ -86,11 +86,12 @@
     font-size: 1rem
     line-height: 1.5
     max-width: 100%
-    min-height: 1.5rem
+    min-height: 2.375rem
     min-width: 3rem
     // padding: 0.4375rem 0.875rem
     transition: border-color 0.15s
     width: 100%
+    
 
     &::-webkit-outer-spin-button,
     &::-webkit-inner-spin-button
