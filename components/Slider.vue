@@ -47,7 +47,7 @@
 
 
       </div>
-      <benefits></benefits>
+      <benefits class="mobile-hide"></benefits>
     </div>
   </div>
 </template>
