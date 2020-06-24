@@ -165,8 +165,8 @@
                       <span>小姐</span>
                     </label>
 
-                    
-                    
+
+
                   </CInput>
                 </div>
                 <div class="form-group">
@@ -423,7 +423,6 @@
                         :required="false"
                         name="phone"
                         :input_has_bg="true"
-                        :validators="[checkPhone]"
                         suffix="RMB"
                       />
                     </div>
@@ -433,7 +432,6 @@
                         :required="false"
                         name="phone"
                         :input_has_bg="true"
-                        :validators="[checkPhone]"
                       />
                     </div>
                   </div>
@@ -445,7 +443,6 @@
                     :required="false"
                     name="phone"
                     :input_has_bg="true"
-                    :validators="[checkPhone]"
                   />
                 </div>
               </div>
@@ -567,7 +564,7 @@
                           </div>
                         </div>
                       </td>
-                      
+
                     </tr>
 
                     <tr v-show="reward_discount">
