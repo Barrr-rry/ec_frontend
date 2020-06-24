@@ -1826,9 +1826,17 @@ const custom_message = {
     en: '未翻譯',
     tw: '是否要接收電子報'
   },
-  agree_pact: {
+  agree_pact_1: {
     en: '未翻譯',
-    tw: '是否已閱讀並同意會員條款內容'
+    tw: '是否已閱讀並同意'
+  },
+  agree_pact_2: {
+    en: '未翻譯',
+    tw: '會員條款'
+  },
+  agree_pact_3: {
+    en: '未翻譯',
+    tw: '內容'
   },
   member_addr: {
     en: '未翻譯',

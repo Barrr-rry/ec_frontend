@@ -76,7 +76,9 @@
               </div>
               <div class="account-save input-radio-display mb-40px">
                 <input type="checkbox" class="mb-0px"/>
-                <nuxt-link to="/register-terms">{{$t('agree_pact')}}</nuxt-link>
+                {{$t('agree_pact_1')}}
+                <nuxt-link to="/register-terms" style="text-decoration:underline;">{{$t('agree_pact_2')}}</nuxt-link>
+                {{$t('agree_pact_3')}}
               </div>
               <CInput
                 class="mb-20px"
