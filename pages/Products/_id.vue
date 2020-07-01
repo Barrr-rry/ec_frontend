@@ -15,7 +15,7 @@
                   </div>
                 </div>
                 <div class="col-12 col-lg-6">
-                  <div class="shop-detail_img" style="height: 800px">
+                  <div class="shop-detail_img">
                     <div class="big-img fill-height">
                       <div class="big-img_block fill-height"
                            v-for="image of no_specifications_productimages"
@@ -32,98 +32,102 @@
                   <div class="img_control"></div>
                 </div>
                 <div class="col-12 col-lg-6">
-                  <div class="shop-detail_info">
-                    <h2 class="product-name mb-20px">{{product.name}}</h2>
-                    <p class="delivery-status fz16px">{{$t('over')}} {{lowest_freeshipping}}
-                      {{$t('free_shipping_3000')}}</p>
-                    <div class="activity mb-20px">
-                      <div class="activity-box" v-if="product.activity != null">{{product.activity_detail.ch_name}}
+                  <div class="shop-detail_info flex-order">
+                    <div class="flex-order--item order-mob-2">
+                      <h2 class="product-name mb-20px">{{product.name}}</h2>
+                      <p class="delivery-status fz16px">{{$t('over')}} {{lowest_freeshipping}}
+                        {{$t('free_shipping_3000')}}</p>
+                      <div class="activity mb-20px">
+                        <div class="activity-box" v-if="product.activity != null">{{product.activity_detail.ch_name}}
+                        </div>
                       </div>
-                    </div>
-                    <div class="price-rate">
-                      <h3 class="product-price">
-                        <del v-if="fake_price">{{getProcessPrice(fake_price)}}
-                        </del>
-                        {{getProcessPrice(price)}}
-                      </h3>
-                    </div>
-                    <div class="quantity-select d-flex" style="margin-bottom: 10px">
-                      <div style="padding-top: 4px">
-                        <label class="fz16px">{{product.level1_title}} :</label>
+                      <div class="price-rate">
+                        <h3 class="product-price">
+                          <del v-if="fake_price">{{getProcessPrice(fake_price)}}
+                          </del>
+                          {{getProcessPrice(price)}}
+                        </h3>
                       </div>
-                      <div>
-                        <VSelectButton
-                          v-for="el of spec_level1_list"
-                          :key="el.id"
-                          :option="el.id"
-                          v-model="choose_level1"
-                          :disabled="isSelectDisabled(el)"
-                        >{{el.name}}
-                        </VSelectButton>
+                      <div class="quantity-select d-flex" style="margin-bottom: 10px">
+                        <div style="padding-top: 4px">
+                          <label class="fz16px">{{product.level1_title}} :</label>
+                        </div>
+                        <div>
+                          <VSelectButton
+                            v-for="el of spec_level1_list"
+                            :key="el.id"
+                            :option="el.id"
+                            v-model="choose_level1"
+                            :disabled="isSelectDisabled(el)"
+                          >{{el.name}}
+                          </VSelectButton>
+                        </div>
                       </div>
-                    </div>
-                    <div class="quantity-select d-flex" style="margin-bottom: 10px"
-                         v-if="has_spec_level2"
-                    >
-                      <div style="padding-top: 4px">
-                        <label class="fz16px">{{product.level2_title}} :</label>
+                      <div class="quantity-select d-flex" style="margin-bottom: 10px"
+                          v-if="has_spec_level2"
+                      >
+                        <div style="padding-top: 4px">
+                          <label class="fz16px">{{product.level2_title}} :</label>
+                        </div>
+                        <div>
+                          <VSelectButton
+                            v-for="el of spec_level2_list"
+                            :key="el.id"
+                            :option="el.id"
+                            v-model="choose_level2"
+                            :disabled="isSelectDisabled(el)"
+                          >{{el.name}}
+                          </VSelectButton>
+                        </div>
                       </div>
-                      <div>
-                        <VSelectButton
-                          v-for="el of spec_level2_list"
-                          :key="el.id"
-                          :option="el.id"
-                          v-model="choose_level2"
-                          :disabled="isSelectDisabled(el)"
-                        >{{el.name}}
-                        </VSelectButton>
-                      </div>
-                    </div>
 
 
-                    <div class="quantity-select d-flex align-items-center">
-                      <label class="fz16px">{{$t('count')}} :</label>
-                      <counter v-model="quantity"
-                               :max="max_quantity"
-                               :disabled="!choose_specification_detail"
-                      ></counter>
-                      <span class="col-6 pl-5px gray-text ml-10px">{{stock_display_text}}</span>
+                      <div class="quantity-select d-flex align-items-center">
+                        <label class="fz16px">{{$t('count')}} :</label>
+                        <counter v-model="quantity"
+                                :max="max_quantity"
+                                :disabled="!choose_specification_detail"
+                        ></counter>
+                        <span class="col-6 pl-5px gray-text ml-10px">{{stock_display_text}}</span>
+                      </div>
+                      <div class="product-select mb-0px row pl-15px pr-15px">
+                        <button class="add-to-cart normal-btn outline col-12" @click="toCart">
+                          <i class="fab shop-cart-icon"></i>
+                          {{$t('add_cart')}}
+                        </button>
+                        <button
+                          class="add-to-compare normal-btn outline mb-10px col-12"
+                          :class="[wish_active?'love-active':'']"
+                          @click="toWish"
+                        >
+                          <i class="function-icon icon_heart_alt"></i>
+                          {{$t('add_favourite')}}
+                        </button>
+                      </div>
+                      <div class="product-share mb-25px">
+                        {{$t('shere_products')}} ：
+                        <i class="small fab fb-share" @click="share('facebook')"></i>
+                        <i class="small fab line-share" @click="share('line')"></i>
+                        <i class="small fab twitter-share" @click="share('twitter')"></i>
+                      </div>
                     </div>
-                    <div class="product-select mb-0px row pl-15px pr-15px">
-                      <button class="add-to-cart normal-btn outline col-12" @click="toCart">
-                        <i class="fab shop-cart-icon"></i>
-                        {{$t('add_cart')}}
-                      </button>
-                      <button
-                        class="add-to-compare normal-btn outline mb-10px col-12"
-                        :class="[wish_active?'love-active':'']"
-                        @click="toWish"
-                      >
-                        <i class="function-icon icon_heart_alt"></i>
-                        {{$t('add_favourite')}}
-                      </button>
-                    </div>
-                    <div class="product-share mb-25px">
-                      {{$t('shere_products')}} ：
-                      <i class="small fab fb-share" @click="share('facebook')"></i>
-                      <i class="small fab line-share" @click="share('line')"></i>
-                      <i class="small fab twitter-share" @click="share('twitter')"></i>
-                    </div>
-                    <div class="slide-img">
-                      <div class="slide-img_block"
-                           v-for="image of no_specifications_productimages"
-                           :key="image.id"
-                      >
-                        <img
-                          :src="imageLink(image.image_url)"
-                          alt="product image"
-                          style="max-height: 252px; object-fit: contain"
-                        />
+                    <div class="flex-order--item order-mob-1">
+                      <div class="slide-img">
+                        <div class="slide-img_block"
+                            v-for="image of no_specifications_productimages"
+                            :key="image.id"
+                        >
+                          <img
+                            :src="imageLink(image.image_url)"
+                            alt="product image"
+                            style="max-height: 252px; object-fit: contain"
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="col-12 mt-40px">
+                <div class="col-12 mt-sm-0 mt-40px">
                   <div class="shop-detail_more-info mb-40px">
                     <div id="tab-so3">
                       <ul class="mb-0">

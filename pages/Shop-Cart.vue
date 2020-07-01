@@ -192,7 +192,7 @@
                 </tr>
                 <tr v-if="reward_discount">
                   <th>{{$t('reward_used')}}</th>
-                  <td>
+                  <td style="text-align: right">
                     <p class="primary-color"
                        v-if="$store.state.currency==='tw'"
                     >-${{reward_discount|commaFormat}}</p>

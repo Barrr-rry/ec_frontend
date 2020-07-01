@@ -70,11 +70,21 @@
 
       .big-img_block
         width: 100%
-        height: 830px
+        height: 500px
         overflow: hidden
         display: flex
         align-items: center
         justify-content: center
+
+        +mobile
+          height: 500px
+
+        +tablet
+          height: 550px
+
+        +desktop
+          height: 800px
+          
 
         img
           width: 100%
@@ -151,7 +161,13 @@
 
 
   .shop-detail_info
-    margin-bottom: 50px
+    margin-bottom: 30px
+
+    +tablet
+      margin-bottom: 30px
+
+    +desktop
+      margin-bottom: 50px
 
     .product-type
       margin-bottom: 10px
@@ -1044,3 +1060,27 @@ h3.terms-title
   +mobile
     text-align: left
     min-width: 24px
+
+@media screen and (max-width: 976px)    
+  .flex-order
+    display: flex
+    flex-flow: row wrap
+    width: 100%
+
+  .flex-order--item
+    flex: 100%
+
+  .flex-order--item.order-mob-1
+    order: 1
+    margin-bottom: 30px
+
+  .flex-order--item.order-mob-2
+    order: 2
+
+
+
+.shop-detail_info .slide-img_block
+  padding: 0 6.5px
+
+  // img
+  //   border: 1px solid red

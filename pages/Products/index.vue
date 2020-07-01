@@ -13,14 +13,14 @@
                     <div class="col-6 col-xl-4">
                       <h2 class="title ellipsis">{{tip_text}}</h2>
                     </div>
-                    <div class="col-6 text-right">
+                    <!--<div class="col-6 text-right">
                       <div id="show-filter-sidebar">
                         <h5 class="fz18px">
                           <i class="fas fa-bars"></i>{{$t('filter_set')}}
                         </h5>
                       </div>
-                    </div>
-                    <div class="col-12 col-xl-8">
+                    </div>-->
+                    <div class="col-6 text-right">
                       <div class="product-option">
                         <div class="product-filter">
                           <select class="select-form small-h" name="" @change="changeRouter($event,'limit')">
