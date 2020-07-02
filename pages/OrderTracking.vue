@@ -72,9 +72,9 @@
             </div>
             <div v-if="orders.length">
               <order-card class="mb-20px"
-                          v-for="order of orders"
-                          :key="order.id"
-                          :order="order"
+                  v-for="order of orders"
+                  :key="order.id"
+                  :order="order"
               >
               </order-card>
             </div>
