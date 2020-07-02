@@ -3,7 +3,7 @@ const env = require('dotenv').config({ path: `.env.${process.env.MODE}` })
 export default {
   loading: {
     color: '#0b1d37',
-    height: '5px'
+    height: '5px',
   },
   mode: 'universal',
   env: env.parsed,

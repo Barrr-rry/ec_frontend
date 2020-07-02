@@ -15,7 +15,7 @@
       <!--      <div v-else class="right-content fail">{{$t('pay_fail')}}</div>-->
     </div>
     <div ref="detail" class="order-detail">
-      <div class="pl-45px pt-15px">
+      <div class="order-detail--main pl-45px pt-15px">
         <div class="mb-20px">{{$t('order_date')}} : {{order.created_at}}</div>
         <div class="mb-20px">{{$t('order_status')}} : {{order.simple_status_display}}</div>
         <br>
@@ -60,7 +60,7 @@
               <div class="t1 img-wrapper">
                 <img
                   :src="imageLink(image(product.productimages))"
-                  style="max-width: 160px;max-height: 170px"
+                  style="width: auto;max-height: 170px"
                   alt="product image"/>
               </div>
               <div class="row flex-grow-1">
