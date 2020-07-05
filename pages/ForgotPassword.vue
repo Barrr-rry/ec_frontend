@@ -17,6 +17,7 @@
                 :placeholder="$t('input_email')"
                 name="account"
                 :validators="[validateEmail]"
+                class="mb-20px"
               />
               <CInput
                 :title="$t('verification_code')"
@@ -24,6 +25,7 @@
                 :placeholder="$t('ver')"
                 name="code"
                 :validators="[validateCode]"
+                class="mb-20px"
               />
               <div class="account-method">
                 <div class="d-flex align-items-center">

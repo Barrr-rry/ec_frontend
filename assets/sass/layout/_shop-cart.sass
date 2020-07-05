@@ -193,19 +193,71 @@
 	display: flex
 	align-items: stretch
 	justify-content: center
+	+mobile
+		display: block
 
+	+tablet
+		display: block
 
+	+small-desktop
+		display: block
 
+	+large-desktop
+		display: flex
+
+.shop-box--btn
+	align-self: flex-end
+	
 .shop-box
-	flex: 100%
+	display: flex
+	flex-flow: row wrap
+	justify-content: center
+	flex: 50%
 	padding: 40px
+	box-sizing: border-box
 	border: 1px solid #d8d8d8
 
+	+mobile
+		flex: 100%
+		padding: 40px 20px
+		display: block
+		border: 1px solid #d8d8d8
 
-	
+	+tablet
+		flex: 100%
+		padding: 40px 30px
+		display: block
+		border: 1px solid #d8d8d8
+
+	+small-desktop
+		flex: 100%
+		padding: 40px
+		display: block
+		border: 1px solid #d8d8d8
+
+	+large-desktop 
+		flex: 50%
+		padding: 40px
+
+	.shop-main
+		flex: 100%
+
 
 	&+.shop-box
 		border-left: none
+		+mobile
+			border: 1px solid #d8d8d8
+			border-top: none
+		+tablet
+			border: 1px solid #d8d8d8
+			border-top: none
+
+		+small-desktop
+			border: 1px solid #d8d8d8
+			border-top: none
+
+		+large-desktop
+			border-left: none
 
 	button.no-round-btn
 		display: block
@@ -268,7 +320,7 @@
 			display: none
 
 		
-			&:checked+i.checkbox-icon
+			&:checked + i.checkbox-icon:before
 				opacity: 1
 				transform: scale(1)
 					
@@ -282,7 +334,7 @@
 
 
 .shop-box--msg
-	margin-bottom: 140px
+	margin-bottom: 40px
 	p
 		display: block
 		font-size: 16px
