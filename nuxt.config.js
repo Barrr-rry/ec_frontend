@@ -2,7 +2,7 @@ const webpack = require('webpack')
 const env = require('dotenv').config({ path: `.env.${process.env.MODE}` })
 export default {
   loading: {
-    color: '#0b1d37',
+    color: '#1aa4bd',
     height: '5px',
   },
   mode: 'universal',
