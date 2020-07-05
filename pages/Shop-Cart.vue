@@ -291,6 +291,55 @@
         </div>
       </div>
     </div>
+
+    <!-- login box -->
+    <div class="shop-bottombox">
+      <div class="container">
+        <div class="shop-boxes">
+          <div class="shop-box">
+            <h3 class="shop-box--title">會員登入</h3>
+            <div class="shop-box--form">
+              <div class="shop-box--form-row">
+                <label for="" class="title">帳號（ Email ）*</label>
+                <input type="text" placeholder="請輸入您的電子郵件">
+              </div>
+              <div class="shop-box--form-row">
+                <label for="" class="title">密碼*</label>
+                <input type="password" placeholder="請輸入 6 ~ 12 個字的密碼（ 需包含數字與英文 ）">
+              </div>
+              <div class="shop-box--form-row">
+                <div class="row">
+                  <div class="col-6">
+                    <label for="keep-infor" class="label-checbox">
+                      <input type="checkbox" name="" id="keep-infor">
+                      <i class="checkbox-icon"></i>
+                      <span>記住帳號密碼</span>
+                    </label>
+                  </div>
+                  <div class="col-6" style="text-align: right">
+                    <a href="#" class="forgot-password">忘記密碼</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="shop-box--btn" style="text-align: center;">
+              <button class="no-round-btn" style="min-width: 200px;">登入</button>
+            </div>
+          </div>
+          <div class="shop-box">
+            <h3 class="shop-box--title">註冊會員</h3>
+            <div class="shop-box--msg">
+              <p>註冊會員之後，您可使用會員專屬頁面，包含筆筆消費皆有回饋累積在您的帳戶！</p>
+              <p>每 30 元（台幣） 消費即可累積 1 點回饋金點數，可在下次消費折抵。（ 1 點 = NT$ 1 )</p>
+              <p style="color: #dc5555;">您只需要使用 E-mail 和密碼即可免費註冊！</p>
+            </div>
+            <div class="shop-box--btn" style="text-align: center;">
+              <button class="no-round-btn" style="min-width: 200px;">註冊並結帳</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <ValidateModal v-model="no_validate_modal"></ValidateModal>
     <CartSpecificationModal></CartSpecificationModal>
   </div>
