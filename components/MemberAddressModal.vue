@@ -123,7 +123,7 @@
             <label for="radio_location1" class="custom-label inline-row ml-5px mr-20px">
               <input type="radio" id="radio_location1" :value="1" v-model="location">
               <div class="radio-icon"></div>
-              <span>Me.</span>
+              <span>Mr.</span>
             </label>
 
             <!--海外-->
