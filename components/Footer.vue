@@ -51,11 +51,10 @@
                   class="col-12 col-sm-4 text-md-left footer-margin"
                 >
                   <FooterQuickLink title="會員中心">
-                    <nuxt-link to="/delivery-instructions"
-                    >我的帳戶
+                    <nuxt-link to="/member-centre">我的帳戶
                     </nuxt-link>
                     <nuxt-link to="/wishlist">我的最愛</nuxt-link>
-                    <nuxt-link to="/rewards">訂單查詢</nuxt-link>
+                    <nuxt-link to="/ordertracking">訂單查詢</nuxt-link>
                   </FooterQuickLink>
                 </div>
                 <div
