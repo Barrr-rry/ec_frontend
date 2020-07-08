@@ -50,7 +50,7 @@
 
       <div class="d-flex mb-20px">
         <div class="d-flex flex-grow-1 align-content-center">
-          <div class="col-5 col-sm-3 p0 d-flex align-items-center">
+          <div class="col-5 col-sm-3 p0 d-flex align-items-top" style="padding-top: 10px">
             {{$t('phone')}}：
           </div>
           <CInput
