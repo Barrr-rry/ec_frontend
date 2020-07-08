@@ -41,6 +41,7 @@ export default {
     validateEmail(rule, value, callback) {
       let re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       if (re.test(value)) {
+        this._email = value
         callback()
       } else {
         callback('請輸入Email 格式')
@@ -66,6 +67,12 @@ export default {
     validateConfirmPassword(rule, value, callback) {
       if (this._paswwrod !== value) {
         callback('請輸入相同密碼')
+      }
+      callback()
+    },
+    validateConfirmEmail(rule, value, callback) {
+      if (this._email !== value) {
+        callback('請輸入相同信箱')
       }
       callback()
     },

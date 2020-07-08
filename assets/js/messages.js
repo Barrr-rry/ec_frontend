@@ -1455,7 +1455,7 @@ const custom_message = {
   },
   register_success: {
     en: '未翻譯',
-    tw: '恭喜您！已經註冊成功，驗證信已經寄到您的信箱囉！'
+    tw: '恭喜您！已經註冊成功'
   },
   to_buy: {
     en: '未翻譯',
