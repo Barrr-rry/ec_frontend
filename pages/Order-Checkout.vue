@@ -604,7 +604,7 @@
       },
       in_weight_and_location_freeshippings() {
         // 只顯示沒有超重的運送方式
-        return this.freeshippings.filter(x => x.weight > this.total_weight && x.location === this.location)
+        return this.freeshippings.filter(x => x.weight > this.total_weight && x.location === this.location && !(this.pay_type === 1 && !x.cash_on_delivery))
       },
       cash_on_delivery_weight_ok() {
         // 貨到付款 裡面只要有一個人的重量符合標準 則等於 true
