@@ -101,6 +101,7 @@ export default {
     { src: '@/plugins/axiosPlugin', ssr: true },
     { src: '@/plugins/vueFilter', ssr: true },
     { src: '@/plugins/vueNotification', ssr: false },
+    { src: '@/plugins/datepickPlugin', ssr: false },
   ],
   /*
    ** Nuxt.js dev-modules

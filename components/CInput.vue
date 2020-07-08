@@ -13,17 +13,17 @@
         v-model="input"
       />
       -->
-      
+
       <div class="styled-input">
         <input v-on="$listeners"
-              :class="[has_error?'mb-0px':'',input_has_bg?'no-round-input-bg':'no-round-input']"
-              :type="type"
-              v-model="input" required>
+               :class="[has_error?'mb-0px':'',input_has_bg?'no-round-input-bg':'no-round-input']"
+               :type="type"
+               v-model="input" required>
         <label v-if="title">{{computed_title}}</label>
         <label v-else>{{ $attrs.placeholder }}</label>
-        <span></span>
+        <span class="c-input-suffix" v-if="suffix">{{suffix}}</span>
       </div>
-      
+
     </slot>
     <div :class="error_class" style="color: red"
          v-if="has_error"
@@ -44,6 +44,10 @@
       error_class: {
         type: String,
         default: 'mb-30px'
+      },
+      suffix: {
+        type: String,
+        default: null
       },
       input_has_bg: {
         type: Boolean,
@@ -128,6 +132,10 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="sass">
+  .c-input-suffix
+    position: absolute
+    right: 5px
+    top: 10px
 
 </style>
