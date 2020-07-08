@@ -41,7 +41,7 @@
                                                                                              v-show="order.coupon_discount_code">({{order.coupon_discount_code}})</a>
           <div class="mb-20px">{{$t('used_reward')}} : -${{order.reward_price|commaFormat}}</div>
           <div class="mb-20px">{{$t('reward_back')}} : <a
-            style="color: #88c74a">${{target_reward.point|commaFormat}}</a></div>
+            style="color: #88c74a">${{target_reward|commaFormat}}</a></div>
           <br>
           <div class="mb-20px">{{$t('total')}} : ${{order.total_price|commaFormat}}</div>
           <div class="mb-20px">{{$t('pay_method')}} : {{order.pay_type?'貨到付款':'線上付款'}}</div>
@@ -116,9 +116,13 @@
       },
       target_reward() {
         if (this.order.rewrad.length) {
-          return this.order.rewrad[0]
-        } else {
-          return this.order.rewrad_temp[0]
+          return this.order.rewrad[0].point
+        }
+        else if (this.order.rewrad_temp.length){
+          return this.order.rewrad_temp[0].point
+        }
+        else {
+          return 0
         }
       },
       order_status() {
@@ -129,7 +133,7 @@
         } else if (this.order.take_number) {
           return this.order.payment_type
         } else {
-          return $t('pay_fail')
+          return this.$t('pay_fail')
         }
       },
       products() {
