@@ -452,8 +452,7 @@
                 >
 
                   <div class="styled-input">
-                    <textarea class="textarea-form-bg" name="" cols="30" rows="7" v-model="order_remark"
-                              required></textarea>
+                    <textarea class="textarea-form-bg" name="" cols="30" rows="7" v-model="order_remark"></textarea>
                     <label>{{$t('ororder_remark')}}</label>
                     <span></span>
                   </div>
