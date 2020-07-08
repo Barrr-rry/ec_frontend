@@ -293,7 +293,7 @@
     </div>
 
     <!-- 會員未登入顯示的區塊 -->
-    <div class="shop-bottombox">
+    <div class="shop-bottombox" v-if="!has_token">
       <div class="container">
         <div class="shop-boxes">
           <div class="shop-box">
@@ -318,7 +318,7 @@
                       </label>
                     </div>
                     <div class="col-12 col-md-6" style="text-align: right">
-                      <nuxt-link to="/forgotpnuxt-linkssword" class="forgot-password">忘記密碼</nuxt-link>
+                      <nuxt-link to="/forgotpassword" class="forgot-password">忘記密碼</nuxt-link>
                     </div>
                   </div>
                 </div>
@@ -338,7 +338,7 @@
               </div>
             </div>
             <div class="shop-box--btn" style="text-align: center;">
-                <button class="no-round-btn" style="min-width: 200px;">註冊並結帳</button>
+                <nuxt-link to="/register"><button class="no-round-btn" style="min-width: 200px;">註冊並結帳</button></nuxt-link>
               </div>
           </div>
         </div>
