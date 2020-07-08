@@ -18,38 +18,23 @@
                 </button>
                 <div class="mobile-menu_items">
                   <ul class="mb-0 d-flex flex-column">
-                    <li class="toggleable">
-                      <nuxt-link class="menu-item" to="/brands"
-                      >{{$t('brand_category')}}
-                      </nuxt-link
-                      >
-                      <span class="sub-menu--expander"
-                      ><i class="icon_plus"></i
-                      ></span>
-                      <ul class="sub-menu">
-                        <li v-for="brand of computed_brands" :key="brand.id">
-                          <nuxt-link :to="`/products?b=${brand.id}`">{{
-                            brand.en_name
-                            }}
-                          </nuxt-link>
-                        </li>
-                        <li>
-                          <nuxt-link to="/brands">{{$t('all_brands')}}</nuxt-link>
-                        </li>
-                      </ul>
-                    </li>
                     <li class="toggleable"
-                        v-for="cata of categories"
+                        v-for="cata of categories.slice().reverse()"
                         :key="cata.id"
                     >
-                      <nuxt-link :to="`/categories/${cata.id}`" class="menu-item">
+                      <nuxt-link :to="`/products?c=${cata.id}`" class="menu-item">
                         {{ cata.name }}
                       </nuxt-link>
                       <span class="sub-menu--expander"
                       ><i class="icon_plus"></i
                       ></span>
                       <ul class="sub-menu">
-                        <li v-for="sub of cata.sub_categories" :key="sub.id">
+                        <li>
+                          <nuxt-link to="products">
+                            全部商品
+                          </nuxt-link>
+                        </li>
+                        <li v-for="sub of cata.sub_categories.slice().reverse()" :key="sub.id">
                           <nuxt-link :to="getSubLink(sub)">{{
                             sub.name
                             }}
@@ -268,32 +253,13 @@
               class="navgition-menu d-flex align-items-center justify-content-center"
             >
               <ul class="mb-0 d-flex justify-content-between fill-width">
-                <li
-                  class="toggleable"
-                >
-                  <nuxt-link :to="`/brands`" class="menu-item">
-                    {{$t('brand_category')}}
-                  </nuxt-link
-                  >
-                  <ul class="sub-menu shop">
-                    <li v-for="brand of computed_brands" :key="brand.id">
-                      <nuxt-link :to="`/products?b=${brand.id}`">{{
-                        brand.en_name
-                        }}
-                      </nuxt-link>
-                    </li>
-                    <li>
-                      <nuxt-link to="/brands">{{$t('all_brands')}}</nuxt-link>
-                    </li>
-                  </ul>
-                </li>
 
                 <li
-                  v-for="cata of categories"
+                  v-for="cata of categories.slice().reverse()"
                   :key="cata.id"
                   class="toggleable"
                 >
-                  <nuxt-link :to="`/categories/${cata.id}`" class="menu-item">
+                  <nuxt-link :to="`/products?c=${cata.id}`" class="menu-item">
                     {{ cata.name }}
                   </nuxt-link>
                   <template v-if="checkMoreDeeper(cata.sub_categories)">
@@ -302,7 +268,8 @@
                         <div class="nav-column" v-for="sub of cata.sub_categories" :key="sub.id">
                           <h2>{{sub.name}}</h2>
                           <li v-for="sub_sub of sub.sub_categories">
-                            <nuxt-link :to="getSubLink(sub_sub)">{{
+                            <nuxt-link :to="getSubLink(sub_sub)">
+                              {{
                               sub_sub.name
                               }}
                             </nuxt-link>
@@ -314,7 +281,12 @@
                   <template v-else>
                     <ul class="sub-menu shop">
                       <div class="nav-column">
-                        <li v-for="sub of cata.sub_categories" :key="sub.id">
+                        <li>
+                          <nuxt-link to="products">
+                            全部商品
+                          </nuxt-link>
+                        </li>
+                        <li v-for="sub of cata.sub_categories.slice().reverse()" :key="sub.id">
                           <nuxt-link :to="getSubLink(sub)">{{
                             sub.name
                             }}
@@ -323,14 +295,6 @@
                       </div>
                     </ul>
                   </template>
-                </li>
-
-                <li class="toggleable">
-                  <nuxt-link class="menu-item" to="/about-us"
-                  >{{$t('about_us')}}
-                  </nuxt-link
-                  >
-                  <span class="sub-menu--expander"></span>
                 </li>
               </ul>
             </div>
@@ -499,6 +463,7 @@
             break
           }
         }
+        console.log(categories,status)
         return status
       },
       search() {
