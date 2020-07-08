@@ -148,7 +148,7 @@
                     :title="$t('acc_inf_m')"
                     class="outline-header small-main"
                   >
-                    
+
                     <div class="d-flex mb-20px">
                       <div class="d-flex flex-grow-1 align-content-center">
                         <div
@@ -171,12 +171,6 @@
                         </div>
                         <div class="d-flex align-items-center mr-20px" style="position: relative">
                           {{ myself.account }}
-                        </div>
-                        <div class="col-xs">
-                          <div class="primary-color" v-if="myself.validate"><b>{{$t('have_verification')}}</b></div>
-                          <div class="primary-color pointer" v-else @click="no_validate_modal=true">
-                            {{$t('noo_verification')}}
-                          </div>
                         </div>
                       </div>
                     </div>

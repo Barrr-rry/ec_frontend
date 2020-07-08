@@ -16,19 +16,20 @@
                   <CInput
                     :title="$t('member_addr')"
                     class="flex-grow-1 input-radio-display mb-20px"
-                    :required="true"
-                    name="location"
+                    :required="false"
+                    name="local"
                     error_class=""
+                    v-model="local"
                   >
                     <!--台灣-->
                     <div class="mb-40px">
                       <label for="radio_location1" class="custom-label inline-row mr-50px">
-                        <input class="mb-0px mr-15px" type="radio" id="radio_location1" :value="1" v-model="location">
+                        <input class="mb-0px mr-15px" type="radio" id="radio_location1" :value="1" v-model="local">
                         <div class="radio-icon"></div>
                         <a for="radio_location1" >台灣Taiwan</a>
                       </label>
                       <label for="radio_location2" class="custom-label inline-row">
-                        <input class="mb-0px mr-15px" type="radio" id="radio_location2" :value="2" v-model="location">
+                        <input class="mb-0px mr-15px" type="radio" id="radio_location2" :value="2" v-model="local">
                         <div class="radio-icon"></div>
                         <a for="radio_location2">海外（Oversea）</a>
                       </label>
@@ -49,8 +50,8 @@
                 :title="$t('check_acc')"
                 :required="true"
                 :placeholder="$t('acc_aga')"
-                name="account"
-                :validators="[validateEmail]"
+                name="account_confirm"
+                :validators="[validateConfirmEmail]"
               />
               <CInput
                 class="mb-20px"
@@ -70,12 +71,19 @@
                 :validators="[validateConfirmPassword]"
                 name="password_confirm"
               />
-              <div class="account-save input-radio-display mb-30px">
-                <input type="checkbox" class="mb-0px"/>
-                <a>{{$t('allow_report')}}</a>
-              </div>
+              <CInput
+                :title="$t('member_addr')"
+                :required="false"
+                name="email_status"
+                v-model="email_status"
+              >
+                <div class="account-save input-radio-display mb-30px">
+                  <input type="checkbox" class="mb-0px" v-model="email_status">
+                  <a>{{$t('allow_report')}}</a>
+                </div>
+              </CInput>
               <div class="account-save input-radio-display mb-40px">
-                <input type="checkbox" class="mb-0px"/>
+                <input type="checkbox" class="mb-0px" v-model="agree">
                 {{$t('agree_pact_1')}}
                 <nuxt-link to="/register-terms" style="text-decoration:underline;">{{$t('agree_pact_2')}}</nuxt-link>
                 {{$t('agree_pact_3')}}
@@ -95,7 +103,7 @@
               </div>
 
               <div class="account-function mt-40px">
-                <button class="no-round-btn" @click="">{{$t('register')}}</button>
+                <button :disabled='!agree' class="no-round-btn" @click="">{{$t('register')}}</button>
                 <!--                <nuxt-link class="create-account" to="/login">或前往登入</nuxt-link>-->
               </div>
             </CForm>
@@ -130,7 +138,10 @@
           local: '',
           ext: ''
         },
-        code: this.generateCode()
+        code: this.generateCode(),
+        local: 1,
+        agree: false,
+        email_status: true
       }
     },
     watch: {
@@ -158,10 +169,6 @@
 
       },
       submit(val) {
-        let phone = val.phone
-        if (phone) {
-          val.phone = `${phone.area}-${phone.local}#${phone.ext}`
-        }
         this.loading = true
         this.$api.member.register(val).then(() => {
           this.$router.push('/register-success')
