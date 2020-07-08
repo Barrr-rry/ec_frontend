@@ -389,7 +389,7 @@
                 >
                   <!--台灣-->
                   <label for="sir" class="custom-label inline-row ml-0px mr-20px">
-                    <input type="radio" id="sir" :value="1" v-model="location">
+                    <input type="radio" id="sir" :value="1" v-model="gender">
                     <div class="radio-icon"></div>
                     <span>先生</span>
                   </label>
@@ -397,7 +397,7 @@
                   <!--海外-->
                   <label for="sis" v-if="cash_on_delivery_weight_ok" class="custom-label inline-row">
                     <input v-if="cash_on_delivery_weight_ok" type="radio" id="sis" :value="2"
-                           v-model="location">
+                           v-model="gender">
                     <div class="radio-icon"></div>
                     <span>小姐</span>
                   </label>
@@ -619,6 +619,7 @@
     mixins: [validator, mixinDefaultInit],
     data() {
       return {
+        gender: 1,
         moment,
         birthday: null,
         country: null,
@@ -919,6 +920,7 @@
         val.reward_discount = this.reward_discount
         val.freeshipping_id = this.freeshipping_target.id
         val.birthday = this.toBirthday()
+        val.gender = this.gender
         if (this.coupon && this.coupon.id && this.coupon.status) {
           val.coupon_id = this.coupon.id
         }
