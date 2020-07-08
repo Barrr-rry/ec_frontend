@@ -149,7 +149,7 @@
           </div>-->
           <div class="col-9">
             <div class="mobile-product_function d-flex align-items-center justify-content-end">
-            
+
               <nuxt-link class="function-icon pl-0px" to="/wishlist"><i class="icon-heart-heart"/></nuxt-link>
               <nuxt-link class="function-icon shopping-cart-icon pl-0px ml-15px" to="/shop-cart">
                 <span class="badge badge-notify" v-if="count">{{count}}</span>
@@ -350,7 +350,7 @@
       </div>
     </nav>
     <div class="navigation-clone"></div>
-    
+
     <div class="mobile-menu-clone"></div>
     <div class="navigation-filter mt-40px" v-if="$route.name!=='index'">
       <div class="container">

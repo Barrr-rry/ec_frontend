@@ -223,9 +223,6 @@
                 </button>
                 <div style="color: red">{{weight_message}}</div>
               </div>
-              <div class="text-align-center mt-30px">
-                {{$t('pay_get')}} <span class="primary-color">{{reward}}</span> {{$t('point_reward')}}
-              </div>
             </div>
           </div>
         </div>
