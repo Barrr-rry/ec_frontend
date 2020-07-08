@@ -64,7 +64,9 @@ let createVm = (parent_vm) => {
         let ret = 0
         for (let key in this.carts_obj) {
           let el = this.carts_obj[key]
-          ret += el.quantity * el.specification_detail.price
+          if (el.specification_detail.quantity > 0) {
+            ret += el.quantity * el.specification_detail.price
+          }
         }
         this.product_total = ret
       },
