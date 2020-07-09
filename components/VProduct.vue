@@ -21,7 +21,7 @@
           <span v-else><br></span>
         </h5>
         <span class="product-name ellipsis"
-              style="-webkit-line-clamp:2;display: -webkit-box;-webkit-box-orient: vertical;overflow: hidden;height: 48px; font-weight:bold;">{{product.name}}
+              style="-webkit-line-clamp:2;display: -webkit-box;-webkit-box-orient: vertical;overflow: hidden;height: 48px; font-weight:bold;">{{product.cn_name}}
                 </span>
         <h3 class="product-price" style="text-align: -webkit-center;">{{getProcessPrice(price)}}
           <del v-if="fake_price">{{getProcessPrice(fake_price)}}</del>

@@ -72,7 +72,7 @@
                 <div class="col-12 col-lg-6">
                   <div class="shop-detail_info">
                     <h5 class="product-type color-type">{{product.brand_en_name}}</h5>
-                    <h2 class="product-name">{{product.name}}</h2>
+                    <h2 class="product-name">{{product.cn_name}}</h2>
                     <p class="product-describe">
                       {{product.sub_title}}
                     </p>
@@ -100,7 +100,7 @@
                           :option="el.id"
                           v-model="choose_level1"
                           :disabled="isSelectDisabled(el)"
-                        >{{el.name}}
+                        >{{el.cn_name}}
                         </VSelectButton>
                       </div>
                     </div>
@@ -117,7 +117,7 @@
                           :option="el.id"
                           v-model="choose_level2"
                           :disabled="isSelectDisabled(el)"
-                        >{{el.name}}
+                        >{{el.cn_name}}
                         </VSelectButton>
                       </div>
                     </div>
