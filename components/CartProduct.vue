@@ -21,7 +21,7 @@
     </td>
     <td class="product-name">
       <div class="to-flex-col align-items-center">
-        <nuxt-link :to="`/products/${item.product.id}`" class="normal-a">{{item.product.name}}</nuxt-link>
+        <nuxt-link :to="`/products/${item.product.id}`" class="normal-a">{{item.product.cn_name}}</nuxt-link>
       </div>
     </td>
     <td class="product-name">
@@ -195,8 +195,8 @@
         if (!this.specification_detail) {
           return ''
         }
-        let sp1 = this.specification_detail.spec1_name
-        let sp2 = this.specification_detail.spec2_name
+        let sp1 = this.specification_detail.spec1_cn_name
+        let sp2 = this.specification_detail.spec2_cn_name
         if (sp2) {
           return `${sp1} - ${sp2}`
         }

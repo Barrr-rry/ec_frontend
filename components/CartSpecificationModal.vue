@@ -7,7 +7,7 @@
         :key="el.id"
         :option="el.id"
         v-model="choose_level1"
-      >{{el.name}}
+      >{{el.cn_name}}
       </VSelectButton>
     </div>
     <div class="quantity-select" style="margin-bottom: 10px"
@@ -19,7 +19,7 @@
         :key="el.id"
         :option="el.id"
         v-model="choose_level2"
-      >{{el.name}}
+      >{{el.cn_name}}
       </VSelectButton>
     </div>
   </modal>

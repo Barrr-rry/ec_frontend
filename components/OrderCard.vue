@@ -64,7 +64,7 @@
                   alt="product image"/>
               </div>
               <div class="row flex-grow-1">
-                <div class="t2 col-12 col-sm-3">{{product.name}}</div>
+                <div class="t2 col-12 col-sm-3">{{product.cn_name}}</div>
                 <div class="t3 col-12 col-sm-3">{{$t('specification')}} :
                   {{getSpecName(product.specification_detail)}}
                 </div>
@@ -149,8 +149,8 @@
         })
       },
       getSpecName(specification_detail) {
-        let spec1_name = specification_detail.spec1_name
-        let spec2_name = specification_detail.spec2_name
+        let spec1_name = specification_detail.spec1_cn_name
+        let spec2_name = specification_detail.spec2_cn_name
         let ret = [spec1_name]
         if (spec2_name) {
           ret.push(spec2_name)
