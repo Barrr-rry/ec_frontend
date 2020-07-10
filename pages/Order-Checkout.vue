@@ -419,7 +419,7 @@
                   <div class="col-6">
                     <CInput
                       placeholder="身高"
-                      :required="false"
+                      :required="true"
                       name="height"
                       :input_has_bg="true"
                       suffix="cm"
@@ -429,7 +429,7 @@
                   <div class="col-6">
                     <CInput
                       placeholder="體重"
-                      :required="false"
+                      :required="true"
                       name="weight"
                       :input_has_bg="true"
                       suffix="kg"
@@ -443,6 +443,8 @@
                   format="yyyy-MM-dd"
                   type="date"
                   placeholder="生日"
+                  :typeable="true"
+                  required
                 ></datepicker>
               </div>
               <div class="form-group">
