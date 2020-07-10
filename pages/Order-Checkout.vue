@@ -173,14 +173,14 @@
                   >
                     <!--台灣-->
                     <label for="radio_location1" class="custom-label inline-row ml-10px mr-20px">
-                      <input type="radio" id="radio_location1" :value="1" v-model="location">
+                      <input type="radio" id="radio_location1" :value="1" v-model="gender">
                       <div class="radio-icon"></div>
                       <span>Mr.</span>
                     </label>
                     <!--海外-->
                     <label for="radio_location2" class="custom-label inline-row" v-if="cash_on_delivery_weight_ok">
                       <input v-if="cash_on_delivery_weight_ok" type="radio" id="radio_location2" :value="2"
-                             v-model="location">
+                             v-model="gender">
                       <div class="radio-icon"></div>
                       <span>Mrs.</span>
                     </label>
@@ -273,8 +273,7 @@
                         :required="false"
                         name="phone"
                         :input_has_bg="true"
-                        :validators="[checkPhone]"
-                        suffix="RMB"
+                        suffix="cm"
                       />
                     </div>
                     <div class="col-6">
@@ -283,7 +282,7 @@
                         :required="false"
                         name="phone"
                         :input_has_bg="true"
-                        :validators="[checkPhone]"
+                        suffix="kg"
                       />
                     </div>
                   </div>
@@ -295,7 +294,6 @@
                     :required="false"
                     name="phone"
                     :input_has_bg="true"
-                    :validators="[checkPhone]"
                   />
                 </div>
                 <!--儲存常用地址-->
