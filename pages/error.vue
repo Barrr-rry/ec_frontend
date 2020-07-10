@@ -9,7 +9,7 @@
             <h1>{{$t('not_found')}}</h1>
             <p class="content-color">{{$t('sorry')}}</p><a class="normal-btn" href="index.html">{{$t('back_index')}}</a>
           </div>
-          <div class="col-12 col-md-7"><img src="/images/pages/404_img.png" alt="404 image"></div>
+          <div class="col-12 col-md-7"><img src="/images/pages/404_img.svg" alt="404 image"></div>
         </div>
       </div>
     </div>
