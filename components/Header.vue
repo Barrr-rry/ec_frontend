@@ -263,20 +263,18 @@
                     {{ cata.name }}
                   </nuxt-link>
                   <template v-if="checkMoreDeeper(cata.sub_categories)">
-                    <ul class="sub-menu min-width shop d-flex">
-                      <div class="d-flex nav-columns">
-                        <div class="nav-column" v-for="sub of cata.sub_categories" :key="sub.id">
-                          <h2>{{sub.name}}</h2>
-                          <li v-for="sub_sub of sub.sub_categories">
-                            <nuxt-link :to="getSubLink(sub_sub)">
-                              {{
-                              sub_sub.name
-                              }}
-                            </nuxt-link>
-                          </li>
-                        </div>
+                    <div class="d-flex nav-columns">
+                      <div class="nav-column" v-for="sub of cata.sub_categories" :key="sub.id">
+                        <h2>{{sub.name}}</h2>
+                        <li v-for="sub_sub of sub.sub_categories">
+                          <nuxt-link :to="getSubLink(sub_sub)">
+                            {{
+                            sub_sub.name
+                            }}
+                          </nuxt-link>
+                        </li>
                       </div>
-                    </ul>
+                    </div>
                   </template>
                   <template v-else>
                     <ul class="sub-menu shop">
