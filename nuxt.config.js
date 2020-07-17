@@ -19,7 +19,7 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: 'EZGO',
+    title: 'HaveFun Men\'s Underwear | 男性內褲',
     meta: [
       { charset: 'utf-8' },
       { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge,chrome=1' },
@@ -34,6 +34,54 @@ export default {
       {
         name: 'format-detection',
         content: 'telephone=no'
+      },
+      {
+        name: "keywords",
+        content: "HaveFun Men's Underwear,男性內褲,男內褲,三角內褲,四角內褲,比基尼三角,提臀內褲,四角褲,三角褲,男性內著,貼身衣物"
+      },
+      {
+        name: "description",
+        content: "HaveFun Men's Underwear 致力於提供時尚、舒適、性感的男性內著。"
+      },
+      {
+        name: "copyright",
+        content: "HaveFun Men's Underwear"
+      },
+      {
+        name: "author",
+        content: "康闓科技股份有限公司"
+      },
+      {
+        property: "og:type",
+        content: "website"
+      },
+      {
+        property: "og:url",
+        content: ""
+      },
+      {
+        property: "og:title",
+        content: "HaveFun Men's Underwear | 男性內褲"
+      },
+      {
+        property: "og:description",
+        content: "HaveFun Men's Underwear 致力於提供時尚、舒適、性感的男性內著。"
+      },
+      {
+        property: "og:img",
+        content: ""
+      },
+      {
+        property: "og:site_name",
+        content: "HaveFun Men's Underwear"
+      },
+      {
+        name: "google",
+        content: "translate"
+      },
+      {
+        name: "robots",
+        content: "index,follow"
       },
     ],
     link: [

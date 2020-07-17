@@ -9,7 +9,7 @@ export default {
   },
   async asyncData() {
     return {
-      title: '汴利購 EZGO｜最值得信賴、價格實惠的保健食品代購品牌'
+      title: 'HaveFun Men\'s Underwear | 男性內褲'
     }
   },
   head() {
