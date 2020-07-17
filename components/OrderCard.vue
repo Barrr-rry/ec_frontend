@@ -115,11 +115,11 @@
         return this.order.pay_status === 0 && this.order.pay_type === 1 && this.order.simple_status_display !== '已取消'
       },
       target_reward() {
-        if (this.order.rewrad.length) {
-          return this.order.rewrad[0]
+        if (this.order.rewrad.length && this.order.rewrad[0].point >= 0) {
+          return this.order.rewrad[0].point
         }
         else if (this.order.rewrad_temp.length){
-          return this.order.rewrad_temp[0]
+          return this.order.rewrad_temp[0].point
         }
         else {
           return 0
