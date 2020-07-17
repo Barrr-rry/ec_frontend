@@ -1862,6 +1862,98 @@ const custom_message = {
     en: '未翻譯',
     tw: '會籍地區'
   },
+  reward_noww: {
+    en: '未翻譯',
+    tw: '目前回饋點數'
+  },
+  unreward: {
+    en: '未翻譯',
+    tw: '待生效回饋點數'
+  },
+  last: {
+    en: '未翻譯',
+    tw: '最近一筆'
+  },
+  year: {
+    en: '未翻譯',
+    tw: '元回饋金將於'
+  },
+  money_to: {
+    en: '未翻譯',
+    tw: '元回饋金將於'
+  },
+  mounth: {
+    en: '未翻譯',
+    tw: '月'
+  },
+  day: {
+    en: '未翻譯',
+    tw: '日'
+  },
+  start: {
+    en: '未翻譯',
+    tw: '生效'
+  },
+  update_at: {
+    en: '未翻譯',
+    tw: '更新日期'
+  },
+  detail: {
+    en: '未翻譯',
+    tw: '摘要'
+  },
+  reward_do: {
+    en: '未翻譯',
+    tw: '回饋點數變動'
+  },
+  reward_balance: {
+    en: '未翻譯',
+    tw: '回饋點數餘額'
+  },
+  Oversea: {
+    en: 'Oversea',
+    tw: '海外（Oversea）'
+  },
+  tw: {
+    en: 'Taiwan',
+    tw: '台灣'
+  },
+  size_t: {
+    en: '未翻譯',
+    tw: '尺寸表'
+  },
+  aaa: {
+    en: '未翻譯',
+    tw: '條款與細則'
+  },
+  cac: {
+    en: '未翻譯',
+    tw: '商業合作'
+  },
+  sas: {
+    en: '未翻譯',
+    tw: '配送與換貨說明'
+  },
+  len: {
+    en: '未翻譯',
+    tw: '身高'
+  },
+  wei: {
+    en: '未翻譯',
+    tw: '體重'
+  },
+  bir: {
+    en: '未翻譯',
+    tw: '生日'
+  },
+  mr: {
+    en: 'Mr.',
+    tw: '先生'
+  },
+  mrs: {
+    en: 'Mrs.',
+    tw: '小姐'
+  },
 
 }
 for (const key in custom_message) {

@@ -26,12 +26,12 @@
                       <label for="radio_location1" class="custom-label inline-row mr-50px">
                         <input class="mb-0px mr-15px" type="radio" id="radio_location1" :value="1" v-model="local">
                         <div class="radio-icon"></div>
-                        <a for="radio_location1" >台灣Taiwan</a>
+                        <a for="radio_location1" >{{$t('tw')}}</a>
                       </label>
                       <label for="radio_location2" class="custom-label inline-row">
                         <input class="mb-0px mr-15px" type="radio" id="radio_location2" :value="2" v-model="local">
                         <div class="radio-icon"></div>
-                        <a for="radio_location2">海外（Oversea）</a>
+                        <a for="radio_location2">{{$t('Oversea')}}</a>
                       </label>
                     </div>
                   </CInput>

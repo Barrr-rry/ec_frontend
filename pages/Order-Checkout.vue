@@ -59,14 +59,14 @@
                   <label for="taiwan" class="custom-label inline-row ml-10px mr-20px">
                     <input type="radio" id="taiwan" :value="1" v-model="location">
                     <div class="radio-icon"></div>
-                    <span>台灣</span>
+                    <span>{{$t('tw')}}</span>
                   </label>
                   <!--海外-->
                   <label for="oversea" class="custom-label inline-row">
                     <input v-if="cash_on_delivery_weight_ok" type="radio" id="oversea" :value="2"
                            v-model="location">
                     <div class="radio-icon"></div>
-                    <span v-if="cash_on_delivery_weight_ok">海外（Oversea）</span>
+                    <span v-if="cash_on_delivery_weight_ok">{{$t('Oversea')}}</span>
                   </label>
 
                 </CInput>
@@ -389,7 +389,7 @@
                   <label for="sir" class="custom-label inline-row ml-0px mr-20px">
                     <input type="radio" id="sir" :value="1" v-model="gender">
                     <div class="radio-icon"></div>
-                    <span>先生</span>
+                    <span>{{$t('mr')}}</span>
                   </label>
 
                   <!--海外-->
@@ -397,7 +397,7 @@
                     <input v-if="cash_on_delivery_weight_ok" type="radio" id="sis" :value="2"
                            v-model="gender">
                     <div class="radio-icon"></div>
-                    <span>小姐</span>
+                    <span>{{$t('mrs')}}</span>
                   </label>
 
 
@@ -416,7 +416,7 @@
                 <div class="row">
                   <div class="col-6">
                     <CInput
-                      placeholder="身高"
+                      :placeholder="$t('len')"
                       :required="true"
                       name="height"
                       :input_has_bg="true"
@@ -426,7 +426,7 @@
                   </div>
                   <div class="col-6">
                     <CInput
-                      placeholder="體重"
+                      :placeholder="$t('wei')"
                       :required="true"
                       name="weight"
                       :input_has_bg="true"
@@ -440,7 +440,7 @@
                   v-model="birthday"
                   format="yyyy-MM-dd"
                   type="date"
-                  placeholder="生日"
+                  :placeholder="$t('bir')"
                   :typeable="true"
                   required
                 ></datepicker>

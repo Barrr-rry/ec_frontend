@@ -50,27 +50,27 @@
                 <div
                   class="col-12 col-sm-4 text-md-left footer-margin"
                 >
-                  <FooterQuickLink title="會員中心">
-                    <nuxt-link to="/member-centre">我的帳戶
+                  <FooterQuickLink :title="$t('member_center')">
+                    <nuxt-link to="/member-centre">{{$t('member_center')}}
                     </nuxt-link>
-                    <nuxt-link to="/wishlist">我的最愛</nuxt-link>
-                    <nuxt-link to="/ordertracking">訂單查詢</nuxt-link>
+                    <nuxt-link to="/wishlist">{{$t('my_favourite')}}</nuxt-link>
+                    <nuxt-link to="/ordertracking">{{$t('order_record')}}</nuxt-link>
                   </FooterQuickLink>
                 </div>
                 <div
                   class="col-12 col-sm-4 text-md-left footer-margin"
                 >
-                  <FooterQuickLink title="訂單資訊">
-                    <nuxt-link to="/member-centre">尺寸表</nuxt-link>
-                    <nuxt-link to="/terms">條款與細則</nuxt-link>
-                    <nuxt-link to="/for-business">商業合作</nuxt-link>
+                  <FooterQuickLink :title="$t('order_detail')">
+                    <nuxt-link to="/member-centre">{{$t('size_t')}}</nuxt-link>
+                    <nuxt-link to="/terms">{{$t('aaa')}}</nuxt-link>
+                    <nuxt-link to="/for-business">{{$t('cac')}}</nuxt-link>
                   </FooterQuickLink>
                 </div>
                 <div
                   class="col-12 col-sm-4 text-md-left footer-margin"
                 >
-                  <FooterQuickLink title="訂購資訊">
-                    <nuxt-link to="/privacy-statement">配送與換貨說明</nuxt-link>
+                  <FooterQuickLink :title="$t('ordering_information')">
+                    <nuxt-link to="/privacy-statement">{{$t('sas')}}</nuxt-link>
                   </FooterQuickLink>
                 </div>
               </div>

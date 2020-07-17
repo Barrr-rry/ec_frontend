@@ -65,7 +65,7 @@
                         <div class="col-12 col-md-6">
                           <div class="point-group d-flex">
                             <div class="point-group--title">
-                              <span>目前回饋點數</span>
+                              <span>{{$t('reward_noww')}}</span>
                               <InfoTooltip
                                 :content="`下次消費可折抵 ${myself.record_info.record.total_point} 元新台幣`"
                               />:
@@ -86,7 +86,7 @@
                         <div class="col-12 col-lg-5">
                           <div class="point-group d-flex">
                             <div class="point-group--title">
-                              <span>待生效回饋點數</span>
+                              <span>{{$t('unreward')}}</span>
                               <InfoTooltip
                                 :content="`獎勵金生效日為消費後 ${myself.record_info.still_day} 天`"
                               />：
@@ -99,8 +99,8 @@
                           </div>
                         </div>
                         <div class="col-12 col-lg-7">
-                          <span v-if="myself.record_info.record_temp.year" style="font-size:14px;">最近一筆 {{myself.record_info.record_temp.last_point}} 元回饋金將於
-                          {{myself.record_info.record_temp.year}} 年 {{myself.record_info.record_temp.month}} 月 {{myself.record_info.record_temp.day}} 日 生效</span>
+                          <span v-if="myself.record_info.record_temp.year" style="font-size:14px;">{{$t('last')}} {{myself.record_info.record_temp.last_point}} {{$t('money_to')}}
+                          {{myself.record_info.record_temp.year}} {{$t('year')}} {{myself.record_info.record_temp.month}} {{$t('mounth')}} {{myself.record_info.record_temp.day}} {{$t('day')}} {{$t('start')}}</span>
                         </div>
                       </div>
                     </div>
@@ -120,10 +120,10 @@
                       <table class="table reward-record-table" style="border-top:none;">
                         <thead>
                         <tr>
-                          <th width="20%" height="45" style="text-align: center;" scope="col">更新日期</th>
-                          <th width="48%" height="45" scope="col">摘要</th>
-                          <th width="16%" height="45" scope="col">回饋點數變動</th>
-                          <th width="16%" height="45" scope="col">回饋點數餘額</th>
+                          <th width="20%" height="45" style="text-align: center;" scope="col">{{$t('update_at')}}</th>
+                          <th width="48%" height="45" scope="col">{{$t('detail')}}</th>
+                          <th width="16%" height="45" scope="col">{{$t('reward_do')}}</th>
+                          <th width="16%" height="45" scope="col">{{$t('reward_balance')}}</th>
                         </tr>
                         </thead>
                         <tbody>

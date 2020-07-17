@@ -21,14 +21,14 @@
             <label for="taiwan" class="custom-label inline-row mr-20px">
               <input class="" type="radio" id="taiwan" :value="1" v-model="location">
               <div class="radio-icon"></div>
-              <span>台灣</span>
+              <span>{{$t('tw')}}</span>
             </label>
             <!--海外-->
             <label for="oversea" class="custom-label inline-row">
               <input type="radio" id="oversea" :value="2" class=""
                    v-model="location">
               <div class="radio-icon"></div>
-              <span>海外（Oversea）</span>
+              <span>{{$t('Oversea')}}</span>
             </label>
           </CInput>
         </div>
