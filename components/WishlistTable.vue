@@ -47,7 +47,10 @@
             </nuxt-link>
           </div>
         </td>
-        <td class="product-price">${{currencyChange(el.product_detail.price)|commaFormat}}</td>
+        <td class="product-price">
+          <del>NT${{currencyChange(getPrice(el.product_detail)[1])|commaFormat}}</del><br/><br/>
+          <b class="red-color" style="text-align: -webkit-center;">NT${{currencyChange(getPrice(el.product_detail)[0])|commaFormat}}</b>
+        </td>
         <td class="product-quantity">
           {{el.join_at}}
         </td>
@@ -90,6 +93,19 @@
       }
     },
     methods: {
+      getPrice(val) {
+        let price = [99999999999, 0]
+        let ret = val.specifications_detail
+        for (let rett of ret) {
+          if (price[0] > rett.price) {
+            price[0] = rett.price
+          }
+          if (price[1] < rett.fake_price) {
+            price[1] = rett.price
+          }
+        }
+        return price
+      },
       currencyChange(val) {
         let ret = val * this.$store.state.price.item[this.$store.state.currency]
         return parseFloat(ret.toFixed(2))
