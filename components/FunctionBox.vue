@@ -66,7 +66,7 @@
   }
 
   .function-box:hover .content {
-    color: #88c749;
+    color: #0b1d37;
   }
 
   .function-box .content {
@@ -77,5 +77,6 @@
     padding-left: 10px;
     padding-right: 10px;
     line-height: 26px;
+    color: black;
   }
 </style>
