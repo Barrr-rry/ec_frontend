@@ -83,7 +83,7 @@
                 </div>
               </CInput>
               <div class="account-save input-radio-display mb-40px">
-                <input type="checkbox" class="mb-0px" v-model="agree">
+                <input type="checkbox" class="mb-0px" v-model="agree" :required="true">
                 {{$t('agree_pact_1')}}
                 <nuxt-link to="/register-terms" style="text-decoration:underline;">{{$t('agree_pact_2')}}</nuxt-link>
                 {{$t('agree_pact_3')}}
@@ -103,7 +103,7 @@
               </div>
 
               <div class="account-function mt-40px">
-                <button :disabled='!agree' class="no-round-btn" @click="">{{$t('register')}}</button>
+                <button class="no-round-btn" @click="">{{$t('register')}}</button>
                 <!--                <nuxt-link class="create-account" to="/login">或前往登入</nuxt-link>-->
               </div>
             </CForm>
