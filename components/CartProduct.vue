@@ -75,7 +75,7 @@
               </div>
             </div>
           </td>
-          <td class="product-total min-w150" 
+          <td class="product-total min-w150"
               v-if="$store.state.currency==='tw'"
           >${{currencyChange(item.specification_detail.price*quantity)|commaFormat}}
           </td>
@@ -229,6 +229,7 @@
           quantity: this.quantity,
           specification_detail: this.specification_detail,
           activity_detail: this.item.product.activity_detail,
+          status: this.item.product.status,
           vm: this,
         })
       },
