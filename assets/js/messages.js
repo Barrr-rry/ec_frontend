@@ -1988,11 +1988,15 @@ const custom_message = {
   },
   Phone_number: {
     en: 'Phone number*',
-    tw: '聯絡電話*'
+    tw: '收貨人電話*'
   },
   Gender: {
     en: 'Gender',
-    tw: '性別'
+    tw: '稱謂:'
+  },
+  to_c: {
+    en: '未翻譯',
+    tw: '運送國籍'
   },
 
 }

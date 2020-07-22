@@ -56,6 +56,7 @@
                   class="input-radio-display"
                 >
                   <!--台灣-->
+                  <span>{{$t('to_c')}}</span>
                   <label for="taiwan" class="custom-label inline-row ml-10px mr-20px">
                     <input type="radio" id="taiwan" :value="1" v-model="location">
                     <div class="radio-icon"></div>
@@ -78,6 +79,7 @@
                   :input_has_bg="true"
                   class="input-radio-display"
                 >
+                  <span>{{$t('pay_method')}}</span>
                   <!--線上付款-->
                   <label for="payradio_1" class="custom-label inline-row ml-10px mr-20px">
                     <input type="radio" id="payradio_1" :value="0" v-model="pay_type">
@@ -102,6 +104,7 @@
                   :input_has_bg="true"
                   class="input-radio-display"
                 >
+                  <span>{{$t('order_method')}}</span>
                 <span v-for="(el,key) of in_weight_and_location_freeshippings" class="ml-5px">
                   <label :for="`radio_${el.id}`" class="custom-label inline-row ml-5px mr-20px">
                     <input type="radio" :id="`radio_${el.id}`" :value="el.id" v-model="freeshipping_id"
@@ -171,18 +174,19 @@
                     :input_has_bg="true"
                     class="input-radio-display"
                   >
+                    <span>{{$t('Gender')}}</span>
                     <!--台灣-->
                     <label for="radio_location1" class="custom-label inline-row ml-10px mr-20px">
                       <input type="radio" id="radio_location1" :value="1" v-model="gender">
                       <div class="radio-icon"></div>
-                      <span>Mr.</span>
+                      <span>{{$t('mr')}}</span>
                     </label>
                     <!--海外-->
                     <label for="radio_location2" class="custom-label inline-row" v-if="cash_on_delivery_weight_ok">
                       <input v-if="cash_on_delivery_weight_ok" type="radio" id="radio_location2" :value="2"
                              v-model="gender">
                       <div class="radio-icon"></div>
-                      <span>Mrs.</span>
+                      <span>{{$t('mrs')}}</span>
                     </label>
                   </CInput>
                 </div>
@@ -369,81 +373,84 @@
               <!--                </div>-->
               <!--              </div>-->
 
-              <div class="form-group">
-                <CInput
-                  :placeholder="$t('shipping_name')+'*'"
-                  :required="true"
-                  name="shipping_name"
-                  :input_has_bg="true"
-                  :validators="[recieveName]"
-                />
-              </div>
-              <div class="form-group">
-                <CInput
-                  title="稱謂"
-                  placeholder=""
-                  :input_has_bg="true"
-                  class="input-radio-display"
-                >
-                  <!--台灣-->
-                  <label for="sir" class="custom-label inline-row ml-0px mr-20px">
-                    <input type="radio" id="sir" :value="1" v-model="gender">
-                    <div class="radio-icon"></div>
-                    <span>{{$t('mr')}}</span>
-                  </label>
+                <div v-if="location===1">
+                <div class="form-group">
+                  <CInput
+                    :placeholder="$t('shipping_name')+'*'"
+                    :required="true"
+                    name="shipping_name"
+                    :input_has_bg="true"
+                    :validators="[recieveName]"
+                  />
+                </div>
+                <div class="form-group">
+                  <CInput
+                    title="稱謂"
+                    placeholder=""
+                    :input_has_bg="true"
+                    class="input-radio-display"
+                  >
+                    <span>{{$t('Gender')}}</span>
+                    <!--台灣-->
+                    <label for="sir" class="custom-label inline-row ml-0px mr-20px">
+                      <input type="radio" id="sir" :value="1" v-model="gender">
+                      <div class="radio-icon"></div>
+                      <span>{{$t('mr')}}</span>
+                    </label>
 
-                  <!--海外-->
-                  <label for="sis" v-if="cash_on_delivery_weight_ok" class="custom-label inline-row">
-                    <input v-if="cash_on_delivery_weight_ok" type="radio" id="sis" :value="2"
-                           v-model="gender">
-                    <div class="radio-icon"></div>
-                    <span>{{$t('mrs')}}</span>
-                  </label>
+                    <!--海外-->
+                    <label for="sis" v-if="cash_on_delivery_weight_ok" class="custom-label inline-row">
+                      <input v-if="cash_on_delivery_weight_ok" type="radio" id="sis" :value="2"
+                             v-model="gender">
+                      <div class="radio-icon"></div>
+                      <span>{{$t('mrs')}}</span>
+                    </label>
 
 
-                </CInput>
-              </div>
-              <div class="form-group">
-                <CInput
-                  :placeholder="$t('shipping_phonee')+'*'"
-                  :required="true"
-                  name="phone"
-                  :input_has_bg="true"
-                  :validators="[checkPhone]"
-                />
-              </div>
-              <div class="form-group">
-                <div class="row">
-                  <div class="col-6">
-                    <CInput
-                      :placeholder="$t('len')"
-                      :required="true"
-                      name="height"
-                      :input_has_bg="true"
-                      suffix="cm"
+                  </CInput>
+                </div>
+                <div class="form-group">
+                  <CInput
+                    :placeholder="$t('shipping_phonee')+'*'"
+                    :required="true"
+                    name="phone"
+                    :input_has_bg="true"
+                    :validators="[checkPhone]"
+                  />
+                </div>
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-6">
+                      <CInput
+                        :placeholder="$t('len')"
+                        :required="true"
+                        name="height"
+                        :input_has_bg="true"
+                        suffix="cm"
 
-                    />
-                  </div>
-                  <div class="col-6">
-                    <CInput
-                      :placeholder="$t('wei')"
-                      :required="true"
-                      name="weight"
-                      :input_has_bg="true"
-                      suffix="kg"
-                    />
+                      />
+                    </div>
+                    <div class="col-6">
+                      <CInput
+                        :placeholder="$t('wei')"
+                        :required="true"
+                        name="weight"
+                        :input_has_bg="true"
+                        suffix="kg"
+                      />
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="form-group">
-                <datepicker
-                  v-model="birthday"
-                  format="yyyy-MM-dd"
-                  type="date"
-                  :placeholder="$t('bir')"
-                  :typeable="true"
-                  required
-                ></datepicker>
+                <div class="form-group">
+                  <datepicker
+                    v-model="birthday"
+                    format="yyyy-MM-dd"
+                    type="date"
+                    :placeholder="$t('bir')"
+                    :typeable="true"
+                    required
+                  ></datepicker>
+                </div>
               </div>
               <div class="form-group">
                 <CInput
