@@ -8,10 +8,18 @@ const maxAge = 1000 * 60 * 60
 export default function (context, inject) {
   let {$axios, ssrContext, redirect, app} = context
   const baseURL = process.env.VUE_APP_API_URL
+  // cache 判斷是不是SSR 還是client 對應不同的 cache 機制
+  // axCache from axCache.js
   const defaultCache = process.server
     ? ssrContext.$axCache
     : new LRU({maxAge: maxAge})
 
+  /***
+   * caches 機制
+   * cacheFlag: 參數名稱要叫什麼 詳情看 api/modules/banners.js obj.useCache = true
+   * defaultCache: 才是defaultCache 的module
+   * ax: axious 初始化
+   * */
   const ax = $axios.create({
     baseURL,
     adapter: cacheAdapterEnhancer($axios.defaults.adapter, {
@@ -25,13 +33,14 @@ export default function (context, inject) {
   })
   ax.all = $axios.all
   ax.baseURL = baseURL
+  // 設定如果 401 redirect to 401
   const err = (error) => {
     if (error.response && error.response.status === 401) {
       redirect('/login')
     }
     return Promise.reject(error)
   }
-
+  // 自動增加token
   ax.interceptors.request.use((config) => {
     const token = app.$cookies.get('token')
     if (token) {
@@ -44,6 +53,8 @@ export default function (context, inject) {
   ax.interceptors.response.use((response) => {
     return response
   }, err)
+
+  // 設定cache ax api
   inject('defaultCache', defaultCache)
   inject('ax', ax)
   inject('api', api(app))

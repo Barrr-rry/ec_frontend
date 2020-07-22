@@ -127,6 +127,7 @@ export default {
 
       /* unselect the range */
       this.$refs.copy_data.setAttribute('type', 'hidden')
+      // process.client 是只有在client 端才有 用nuxt 需要增加這個if 判斷
       if (process.client) {
         window.getSelection().removeAllRanges()
       }
@@ -151,6 +152,7 @@ export default {
     let url = `${location.origin}/products/${this.product.id}`
     this.message = `快來看看『${this.product.name}』，價格超實惠！快來汴利購搶購吧！${url}`
     this.$refs.product.addEventListener('animationend', function() {
+      // process.client 是只有在client 端才有 用nuxt 需要增加這個if 判斷
       if (process.client) {
         $('div.product.fadeInUp').removeClass('fadeInUp')
       }

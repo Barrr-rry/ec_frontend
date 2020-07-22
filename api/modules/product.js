@@ -24,6 +24,7 @@ export default (app) => {
       if (filter_obj) {
         obj.params = filter_obj
       }
+      // 需要cache 機制
       obj.useCache = true
       return app.$ax.get(`/${this.table_name}/`, obj)
     },

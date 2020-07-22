@@ -104,10 +104,12 @@
         ['resetWishModal']
       ),
       toCartAPI(values) {
+        // 如果沒有登入 就用cookie 當方式進行
         if (!this.$store.state.membertoken.has_token) {
           addTOCart(values, this.$store)
           return Promise.resolve()
         }
+        // 更新完資料後要再重新要資料
         return this.$api.cart.postData(values).then(() => {
           this.$store.dispatch('cart/getCount')
           this.$store.dispatch('cart/getTotal')

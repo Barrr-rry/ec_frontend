@@ -83,6 +83,7 @@ export {
 
 export default {
   fetch(ctx) {
+    // 這個就可以在每一個頁面要的資料
     return fetchReturn(ctx)
   }
 }

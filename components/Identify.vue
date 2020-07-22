@@ -4,6 +4,10 @@
   </div>
 </template>
 <script>
+  /**
+   * 驗證碼的組件
+   * 複製貼上的 不是自己開發的
+   * */
   export default {
     name: 'Identify',
     props: {

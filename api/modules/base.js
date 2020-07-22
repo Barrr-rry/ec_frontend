@@ -1,3 +1,7 @@
+/***
+ * 所有的api 都從這個更改的
+ * 因為大部分api 就是CRUD
+ * */
 export default (app) => {
   return {
     table_name: '',

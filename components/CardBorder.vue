@@ -46,6 +46,7 @@
     },
     methods: {
       close_self() {
+        // process.client 是只有在client 端才有 用nuxt 需要增加這個if 判斷
         if (process.client) {
           window.$(this.$refs.self).slideToggle()
         }

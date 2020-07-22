@@ -342,9 +342,6 @@
         }
       },
       initData() {
-        // if (process.client) {
-        //   $('header .department-dropdown-menu').slideUp()
-        // }
         let obj = getFilterParams(this.filter, this.$route.query)
         this.$store.dispatch('product/getList', obj).then(() => {
           if (process.client) {

@@ -293,6 +293,7 @@
     },
     methods: {
       initFields(first_init = true) {
+        // 初始化資料
         if (first_init) {
           this.location = 1
           this.country = null
@@ -354,6 +355,7 @@
         this.$refs.form.submit()
       },
       create(data) {
+        // 取得member info
         this.$api.member.memberaddress(data).then(() => {
           this.$store.dispatch('member/info').then(() => {
             this.input = false

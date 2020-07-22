@@ -1,5 +1,9 @@
 import camelCase from 'lodash/camelCase'
-
+/**
+ * 從file 去import 各個api ex: banner activity...etc
+ * 這樣就可以呼叫
+ * api.banner api.activity...etc
+ * */
 
 export default (app) => {
   const files = require.context('@/api/modules', true, /^.*\.js$/)

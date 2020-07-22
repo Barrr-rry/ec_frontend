@@ -484,29 +484,6 @@
     },
     created() {
       this.currency = this.$cookies.get('currency') || 'tw'
-      // todo scroll 功能拿掉
-      // if (process.client) {
-      //   $(window).scroll(function () {
-      //     if ($(this).scrollTop() > 54) {          /* 要滑動到選單的距離 */
-      //       $('.navigation').addClass('fix-navigation')   /* 幫選單加上固定效果 */
-      //       $('.navigation-clone').addClass('clone-visible')
-      //     } else {
-      //       $('.navigation').removeClass('fix-navigation') /* 移除選單固定效果 */
-      //       $('.navigation-clone').removeClass('clone-visible')
-      //     }
-      //   })
-      // }
-      // if (process.client) {
-      //   $(window).scroll(function () {
-      //     if ($(this).scrollTop() > 0) {          /* 要滑動到選單的距離 */
-      //       $('#mobile-menu').addClass('fix-navigation')   /* 幫選單加上固定效果 */
-      //       $('.mobile-menu-clone').addClass('clone-visible')
-      //     } else {
-      //       $('#mobile-menu').removeClass('fix-navigation') /* 移除選單固定效果 */
-      //       $('.mobile-menu-clone').removeClass('clone-visible')
-      //     }
-      //   })
-      // }
     }
   }
 </script>

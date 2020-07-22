@@ -116,6 +116,7 @@
     },
     watch: {
       input(val) {
+        // 預設是有設定default 沒有的話就是第一個
         if (val && this.myself.memberaddress.length > 0) {
           this.default_memberaddress = this.myself.default_memberaddress || this.myself.memberaddress[0].id
         }

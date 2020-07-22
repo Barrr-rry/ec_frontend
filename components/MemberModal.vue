@@ -103,7 +103,9 @@
         this.$refs.form.submit()
       },
       submit(data) {
+        // member 更新資料
         let p = this.phone
+        // 更新手機
         let phone =''
         if(p.local && p.area && p.ext){
           phone = `${p.area}-${p.local}#${p.ext}`
@@ -118,6 +120,7 @@
           phone =''
         }
         data.phone = phone
+        // update 更新資料
         this.$api.member.self_update(data).then((res) => {
           let obj = {...this.$store.state.member.item}
           for (let key in res.data) {
@@ -128,6 +131,7 @@
           if (data.account !== this.item.account) {
             this.$toast.success(this.$t('send_mail_to_validate'))
           }
+          // store update 寫法
           this.$store.commit('member/changeValue', {
             key: 'item',
             value: obj

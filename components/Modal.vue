@@ -27,6 +27,9 @@
 </template>
 
 <script>
+  /**
+   * 寫一個組件給其他modal 共用
+   * */
   export default {
     name: 'Modal',
     props: {

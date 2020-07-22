@@ -36,6 +36,9 @@
 
 <script>
   import vModel from "@/mixins/vModel"
+  /***
+   * 跟 CForm 互相搭配
+   * */
 
   export default {
     name: "CInput",
@@ -78,6 +81,7 @@
       return {
         has_error: false,
         error_message: '',
+        // 給cform 辨識用的
         whoami: '<CInput>'
       }
     },
@@ -101,6 +105,8 @@
         this.error_message = ''
       },
       check() {
+        // 判斷依據
+        // 是否必填
         if (this.required) {
           if (!this.input) {
             this.has_error = true
@@ -108,6 +114,7 @@
             return false
           }
         }
+        // 可以加入validators 自定義的驗證方式
         for (let validate of this.validators) {
           let rule = null
           let value = this.input
@@ -121,9 +128,11 @@
           try {
             validate(rule, value, callback)
           } catch (e) {
+            // 未通過驗證
             return false
           }
         }
+        // 通過驗證
         this.has_error = false
         this.error_message = ''
         return true

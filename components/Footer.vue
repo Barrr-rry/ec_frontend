@@ -108,6 +108,7 @@
     },
     methods: {
       share(social) {
+        // 判斷你是要share 到 FB...etc 透過第三方工具
         const webTitle = `EZGO`,
           webUrl = location.href
         window.open('https://www.addtoany.com/add_to/' + social + '?linkurl=' + webUrl + '&amp;linkname=' + encodeURI(webTitle))

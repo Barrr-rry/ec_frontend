@@ -94,6 +94,7 @@
     },
     methods: {
       getPrice(val) {
+        // 更新price
         let price = [99999999999, 0]
         let ret = val.specifications_detail
         for (let rett of ret) {

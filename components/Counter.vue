@@ -45,6 +45,7 @@
 
 <script>
   let isNaN = Number.isNaN
+  // process.client 是只有在client 端才有 用nuxt 需要增加這個if 判斷
   if (process.client) {
     isNaN = Number.isNaN || window.isNaN
   }
@@ -171,6 +172,7 @@
        */
       paste(event) {
         let clipboardData = event.clipboardData
+        // process.client 是只有在client 端才有 用nuxt 需要增加這個if 判斷
         if (process.client) {
           clipboardData = event.clipboardData || window.clipboardData
         }

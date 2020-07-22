@@ -66,9 +66,10 @@
     },
     mounted() {
       const self = this
+      // 取得最高價錢 以及最低價錢
       this.price_0 = this.$route.query.min_price || this.page_info.min_price
       this.price_1 = this.$route.query.max_price || this.page_info.max_price
-
+      // jquery 套件寫法
       this.slider = $('#slider-range').slider({
         range: true,
         min: this.page_info.min_price,
@@ -96,6 +97,7 @@
         })
       },
       slider_render() {
+        // 不同組件 透過這樣方式更改文字
         $('#amount').val('$' + this.price_0 + ' - $' + this.price_1)
       }
     }

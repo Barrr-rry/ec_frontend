@@ -104,6 +104,7 @@
     },
     data() {
       return {
+        // 產生驗證碼
         code: this.generateCode()
       }
     },
@@ -116,6 +117,7 @@
     },
     methods: {
       initFields() {
+        // 對資料初始化
         let obj = {
           password: null,
           new_password: null,
@@ -127,6 +129,7 @@
         this.$refs.form.submit()
       },
       submit(data) {
+        // 更新資料
         this.$api.member.password(data).then(() => {
           this.input = false
           this.$toast.success(this.$t('chg_password'))
@@ -137,7 +140,9 @@
         })
       },
       reDraw() {
+        // 產生驗證碼
         this.code = this.generateCode()
+        // 畫圖驗證碼的東西
         this.$refs.identify.drawPic()
       },
       generateCode() {

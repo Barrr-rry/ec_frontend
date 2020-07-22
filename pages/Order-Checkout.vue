@@ -980,9 +980,6 @@
       }
     },
     mounted() {
-      if (process.client) {
-        window.vm = this
-      }
       if (this.country_list.length) {
         this.country = this.country_list[0]
       }

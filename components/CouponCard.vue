@@ -52,6 +52,7 @@
         return this.$ax.baseURL.replace('/api/', '/media/') + path
       },
       copy() {
+        // process.client 是只有在client 端才有 用nuxt 需要增加這個if 判斷
         if (process.client) {
           function isOS() {
             return navigator.userAgent.match(/ipad|iphone/i);

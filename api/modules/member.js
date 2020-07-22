@@ -6,6 +6,7 @@ export default (app) => {
     table_name: 'member',
     login(values) {
       return app.$ax.post(`/${this.table_name}/login/`, values).then((res) => {
+        // 登入成功後主動設定toekn 並且存入cookie
         app.$ax.setHeader('Authorization', `Token ${res.data.token}`)
         app.$cookies.set('token', res.data.token)
         return Promise.resolve(res)

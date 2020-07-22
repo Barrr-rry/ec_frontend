@@ -37,6 +37,9 @@
 
 <script>
   import vModel from "@/mixins/vModel"
+  /**
+   * 目前似乎看到沒有人用 也許是多做的 在沒有人用有空可以刪掉
+   * */
 
   export default {
     mixins: [vModel],

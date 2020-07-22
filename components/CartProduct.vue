@@ -130,20 +130,24 @@
     },
     computed: {
       max_quantity() {
-        // counter 的數量
+        // counter 的數量 判斷是否顯示max count
         if (!this.item.specification_detail) {
+          // 無限多個數量
           return Infinity
         }
+        // 根據config 判斷 是不是有庫存判斷
         let config = this.configsetting
         return config.product_stock_setting === 3 ? Math.max(this.item.specification_detail.quantity, this.quantity) : Infinity
       },
       sold_out_status() {
+        // 判斷是不是賣完了
         let product_stock_setting = this.configsetting.product_stock_setting
         let ret = false
         let detail = this.item.specification_detail
         if (!detail) {
           return ret
         }
+        // 下面這個是判斷機制
         if (product_stock_setting === 2 && detail.inventory_status === 2) {
           ret = true
         }
@@ -153,6 +157,7 @@
         return ret
       },
       stock_display_text() {
+        // 根據庫存狀態顯示相對應的文字
         let detail = this.item.specification_detail
         if (!detail) {
           return ''
@@ -185,6 +190,7 @@
         }
         return ''
       },
+      // 這寫法是取得store 的資料用的
       ...mapState('membertoken', {
         has_token: state => state.has_token
       }),
@@ -195,6 +201,7 @@
         items: state => state.items
       }),
       spec_level1_and_level2() {
+        // level + level2 組成的name
         if (!this.specification_detail) {
           return ''
         }
@@ -225,6 +232,7 @@
     },
     methods: {
       trigger() {
+        // 給父組件去做使用 他會在判斷所有的參數
         this.cartVm.trigger(this.specification_detail.id, {
           quantity: this.quantity,
           specification_detail: this.specification_detail,
@@ -242,6 +250,7 @@
       },
       apiCartUpdate(id, values, reload) {
         this.$api.cart.putData(id, values).then(() => {
+          // process.client 是只有在client 端才有 用nuxt 需要增加這個if 判斷
           if (reload && process.client) {
             window.location.reload()
           }
@@ -249,8 +258,10 @@
       },
       cartRemove(id) {
         if (!this.has_token) {
+          // 如果單除要移除 cookie 裡面的要做許多事情
           let cart = cartRemove(this.item.product.id, this.specification_detail.id)
           let {new_cart, product_ids, total_count} = cartProcessInfo(cart)
+          // 更新新的cart 資訊在cookie
           this.$cookies.set('cart', new_cart)
           storeProcess(this.$store, new_cart, product_ids, total_count)
           let removed_items = this.items.filter(x => !(x.product.id === this.item.product.id && x.specification_detail.id === this.item.specification_detail.id))
@@ -263,10 +274,12 @@
 
       },
       currencyChange(val) {
+        // 幣值計算問題
         let ret = val * this.$store.state.price.item[this.$store.state.currency]
         return parseFloat(ret.toFixed(2))
       },
       image(productimages) {
+        // 只顯示主要的image
         for (let img of productimages) {
           if (img.main_image) {
             return img.image_url
@@ -274,6 +287,7 @@
         }
       },
       cartModalMethod(specification_detail) {
+        // 更新規格 並且update cart
         this.old_specification_detail = {...this.specification_detail}
         this.specification_detail = specification_detail
         this.updateCart(true)
@@ -289,10 +303,12 @@
         if (this.has_token) {
           this.apiCartUpdate(this.item.id, values, reload)
         } else {
+          // 沒有登入的話 還要更新cookie 資料
           let cart = cartUpdate(this.item.product.id, this.old_specification_detail.id, values)
           let {new_cart, product_ids, total_count} = cartProcessInfo(cart)
           this.$cookies.set('cart', new_cart)
           storeProcess(this.$store, new_cart, product_ids, total_count)
+          // process.client 是只有在client 端才有 用nuxt 需要增加這個if 判斷
           if (reload && process.client) {
             window.location.reload()
           }

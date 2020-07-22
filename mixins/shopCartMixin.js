@@ -1,6 +1,7 @@
 let couponMixin = {
   computed: {
     coupon_discount() {
+      // 計算coupon 的折扣
       if (this.coupon_instance && this.coupon_instance.status && this.coupon_instance.role <= this.product_total) {
         if (this.coupon_instance.method === 1) {
           return parseInt(this.coupon_instance.discount)
@@ -15,6 +16,7 @@ let couponMixin = {
   watch: {},
   methods: {
     setCopupon2Cookie() {
+      // 將coupone 資訊丟入cookie
       // order 前先設定
       if (this.coupon_instance && this.coupon_instance.status && this.coupon_instance.role <= this.product_total) {
         this.$cookies.set('coupon', this.coupon_instance.discount_code)

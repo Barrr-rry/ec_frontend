@@ -1,6 +1,9 @@
 import {initFunction, preload, loadFadeout} from "@/static/js/main"
 import Cookie from 'js-cookie'
 
+/**
+ * 每一個頁面共用的資料
+ * */
 export default {
   data() {
     return {

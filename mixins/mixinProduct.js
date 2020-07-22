@@ -25,9 +25,11 @@ export default {
       return this.getPrice(key)
     },
     spec_level1_list() {
+      // get level1
       return this.product.specifications.filter(x => x.level === 1)
     },
     spec_level2_list() {
+      // get level 2
       return this.product.specifications.filter(x => x.level === 2)
     },
     has_spec_level2() {
