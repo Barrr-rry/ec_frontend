@@ -96,7 +96,7 @@
               :required="false"
               name="country"
               error_class=""
-              placeholder="Country *"
+              :placeholder="$t('Country')"
             >
               <select
                 v-model="country"
@@ -121,7 +121,7 @@
           >
             <!--台灣-->
             <label for="radio_location1" class="custom-label inline-row ml-5px mr-20px">
-              <input type="radio" id="radio_location1" :value="1" v-model="location">
+              <input type="radio" id="radio_location1" :value="1" v-model="gender">
               <div class="radio-icon"></div>
               <span>Mr.</span>
             </label>
@@ -129,7 +129,7 @@
             <!--海外-->
             <label for="radio_location2" class="custom-label inline-row">
               <input type="radio" id="radio_location2" :value="2"
-                   v-model="location">
+                   v-model="gender">
               <div class="radio-icon"></div>
               <span>Mrs.</span>
             </label>
@@ -142,18 +142,16 @@
             <CInput
               class="col-6"
               :required="true"
-              placeholder=""
+              :placeholder="$t('First_name')"
               name="first_name"
               :validators="[recieveName]"
-              placeholder="First name*"
             />
             <CInput
               class="col-6"
               :required="true"
-              placeholder=""
+              :placeholder="$t('Last_name')"
               name="last_name"
               :validators="[recieveName]"
-              placeholder="Last name* "
             />
           </div>
         </div>
@@ -166,7 +164,7 @@
               :required="true"
               name="shipping_address"
               error_class=""
-              placeholder="Address*"
+              :placeholder="$t('Addresss')"
             />
           </div>
         </div>
@@ -179,7 +177,7 @@
               :required="false"
               name="building"
               error_class=""
-              placeholder="Apartment /Suite / Building( Optional )"
+              :placeholder="$t('Apartment_Suite_Building')"
             />
           </div>
         </div>
@@ -192,7 +190,7 @@
               :required="false"
               name="company_name"
               error_class=""
-              placeholder="Company name( Optional )"
+              :placeholder="$t('Company_name')"
             />
           </div>
         </div>
@@ -203,18 +201,16 @@
             <CInput
               class="col-6"
               :required="true"
-              placeholder=""
+              :placeholder="$t('City')"
               name="city"
               :validators="[recieveName]"
-              placeholder="City* "
             />
             <CInput
               class="col-6"
               :required="true"
-              placeholder=""
+              :placeholder="$t('Postal_code')"
               name="postal_code"
               :validators="[recieveName]"
-              placeholder="Postal *"
             />
           </div>
         </div>
@@ -228,7 +224,7 @@
               name="phone"
               error_class=""
               :validators="[checkPhone]"
-              placeholder="Phone number* "
+              :placeholder="$t('Phone_number')"
             />
           </div>
         </div>
@@ -261,6 +257,7 @@
       return {
         first_init: true,
         location: 1,
+        gender: 1,
         country: null,
         update_fields: ['shipping_name', 'phone', 'shipping_area', 'shipping_address', 'city',
           'first_name',

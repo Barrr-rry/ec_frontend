@@ -1990,6 +1990,10 @@ const custom_message = {
     en: 'Phone number*',
     tw: '聯絡電話*'
   },
+  Gender: {
+    en: 'Gender',
+    tw: '性別'
+  },
 
 }
 for (const key in custom_message) {
