@@ -6,6 +6,7 @@ export const state = () => {
     cookie: null,
     lang: 'tw',
     previous_url: null,
+    force_update: false,
     currency: null,
   }
 }
@@ -24,6 +25,9 @@ export const mutations = {
   },
   setToken(state, token) {
     state.token = token
+  },
+  setForceUpdate(state, force_update) {
+    state.force_update = force_update
   },
   setPreviousUrl(state, previous_url) {
     state.previous_url = previous_url
