@@ -119,11 +119,12 @@
             :input_has_bg="true"
             class="input-radio-display"
           >
+            <span>{{$t('Gender')}}</span>
             <!--台灣-->
             <label for="radio_location1" class="custom-label inline-row ml-5px mr-20px">
               <input type="radio" id="radio_location1" :value="1" v-model="gender">
               <div class="radio-icon"></div>
-              <span>Mr.</span>
+              <span>{{$t('mr')}}</span>
             </label>
 
             <!--海外-->
@@ -131,7 +132,7 @@
               <input type="radio" id="radio_location2" :value="2"
                    v-model="gender">
               <div class="radio-icon"></div>
-              <span>Mrs.</span>
+              <span>{{$t('mrs')}}</span>
             </label>
           </CInput>
         </div>
