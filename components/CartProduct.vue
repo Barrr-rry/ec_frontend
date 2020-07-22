@@ -226,6 +226,7 @@
           quantity: this.quantity,
           specification_detail: this.specification_detail,
           activity_detail: this.item.product.activity_detail,
+          status: this.item.product.status,
           vm: this,
         })
       },
