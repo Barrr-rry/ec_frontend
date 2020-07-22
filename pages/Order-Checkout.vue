@@ -289,12 +289,14 @@
                 </div>
                 <div class="form-group"
                      v-if="selected_memberstores.length!==0||!freeshipping_target.use_ecpay_delivery">
-                  <CInput
+                  <datepicker
+                    v-model="birthday"
+                    format="yyyy-MM-dd"
+                    type="date"
                     :placeholder="$t('bir')"
-                    :required="false"
-                    name="phone"
-                    :input_has_bg="true"
-                  />
+                    :typeable="true"
+                    required
+                  ></datepicker>
                 </div>
                 <!--儲存常用地址-->
                 <div class="form-group">
