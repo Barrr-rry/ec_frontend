@@ -1621,6 +1621,39 @@ const custom_message = {
     en: '未翻譯',
     tw: '付款狀態'
   },
+  Country: {
+    en: 'Country',
+    tw: '國家：'
+  },
+  First_name: {
+    en: 'First name',
+    tw: '名稱'
+  },
+  Last_name: {
+    en: 'Last name',
+    tw: '姓氏'
+  },
+  Apartment_Suite_Building: {
+    en: 'Apartment /Suite /  Building( Optional )',
+    tw: '公寓/套房/建築物（選填）'
+  },
+  Company_name: {
+    en: 'Company name( Optional )',
+    tw: '公司名稱（選填）'
+  },
+  City: {
+    en: 'City',
+    tw: '城市'
+  },
+  Postal_code: {
+    en: 'Postal code',
+    tw: '郵遞區號'
+  },
+  Phone_number: {
+    en: 'Phone number',
+    tw: '聯絡電話'
+  },
+
 
 }
 for (const key in custom_message) {
