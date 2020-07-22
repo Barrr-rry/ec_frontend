@@ -154,7 +154,7 @@
               <div v-if="freeshipping_target&&!freeshipping_target.cash_on_delivery&&location===2">
                 <div class="form-group">
                   <CInput
-                    title="Country"
+                    :title="$t('Country')"
                     placeholder=""
                     :required="false"
                     name="country"
@@ -175,7 +175,7 @@
                 <div class="row">
                   <div class="form-group col-6">
                     <CInput
-                      title="First name"
+                      :title="$t('First_name')"
                       :required="true"
                       placeholder=""
                       name="first_name"
@@ -185,7 +185,7 @@
                   </div>
                   <div class="form-group col-6">
                     <CInput
-                      title="Last name"
+                      :title="$t('Last_name')"
                       :required="true"
                       placeholder=""
                       name="last_name"
@@ -197,7 +197,7 @@
                 <!--地址:Address-->
                 <div class="form-group">
                   <CInput
-                    title="Address"
+                    :title="$t('address_label')"
                     :required="true"
                     placeholder=""
                     name="shipping_address"
@@ -207,7 +207,7 @@
                 <!--大樓名字-->
                 <div class="form-group">
                   <CInput
-                    title="Apartment /Suite /  Building( Optional )"
+                    :title="$t('Apartment_Suite_Building')"
                     :required="false"
                     placeholder=""
                     name="building"
@@ -217,7 +217,7 @@
                 <!--公司名字-->
                 <div class="form-group">
                   <CInput
-                    title="Company name( Optional )"
+                    :title="$t('Company_name')"
                     :required="false"
                     placeholder=""
                     name="company_name"
@@ -228,7 +228,7 @@
                 <div class="row">
                   <div class="form-group col-6">
                     <CInput
-                      title="City"
+                      :title="$t('City')"
                       :required="true"
                       placeholder=""
                       name="city"
@@ -237,7 +237,7 @@
                   </div>
                   <div class="form-group col-6">
                     <CInput
-                      title="Postal code"
+                      :title="$t('Postal_code')"
                       :required="true"
                       placeholder=""
                       name="postal_code"
@@ -249,7 +249,7 @@
                 <!--電話-->
                 <div class="form-group">
                   <CInput
-                    title="Phone number"
+                    :title="$t('Phone_number')"
                     :required="true"
                     placeholder=""
                     name="phone"
