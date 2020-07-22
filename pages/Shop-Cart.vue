@@ -427,10 +427,24 @@
         }
         return false
       },
+      any_off_product() {
+        // 判斷有沒下架
+        for (let el of this.$refs.cart_products) {
+          if (!el.item.product.status) {
+            return true
+          }
+        }
+        return false
+      },
       checkOrder() {
         // 判斷如果缺貨就不做後面的事
         if (this.any_out_of_stock()) {
           this.$toast.warning('商品缺貨請確認')
+          return
+        }
+        // 判斷如果下架就不做後面的事
+        if (this.any_off_product()) {
+          this.$toast.warning('您的購物車有下架商品，請點擊「X」按鈕，刪除後再進行購買！')
           return
         }
 
