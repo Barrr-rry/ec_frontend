@@ -64,7 +64,7 @@
                         </div>
                       </div>
                       <div class="quantity-select d-flex" style="margin-bottom: 10px"
-                          v-if="has_spec_level2"
+                           v-if="has_spec_level2"
                       >
                         <div style="padding-top: 4px">
                           <label class="fz16px">{{product.level2_title}} :</label>
@@ -85,8 +85,8 @@
                       <div class="quantity-select d-flex align-items-center">
                         <label class="fz16px">{{$t('count')}} :</label>
                         <counter v-model="quantity"
-                                :max="max_quantity"
-                                :disabled="!choose_specification_detail"
+                                 :max="max_quantity"
+                                 :disabled="!choose_specification_detail"
                         ></counter>
                         <span class="col-6 pl-5px gray-text ml-10px">{{stock_display_text}}</span>
                       </div>
@@ -114,8 +114,8 @@
                     <div class="flex-order--item order-mob-1">
                       <div class="slide-img">
                         <div class="slide-img_block"
-                            v-for="image of no_specifications_productimages"
-                            :key="image.id"
+                             v-for="image of no_specifications_productimages"
+                             :key="image.id"
                         >
                           <img
                             :src="imageLink(image.image_url)"
@@ -236,6 +236,7 @@
   import {addTOCart} from '@/assets/js/localCart'
   import mixinProduct from "@/mixins/mixinProduct"
   import VSelectButton from "@/components/VSelectButton"
+  import axios from 'axios'
 
   export default {
     mixins: [mixinCategory, mixinDefaultInit, mixinToWish, mixinProduct],
@@ -251,6 +252,7 @@
     data() {
       return {
         specification: null,
+        title: 'HaveFun Men\'s Underwear | 男性內褲'
       }
     },
     computed: {
@@ -291,6 +293,21 @@
         }
         return ret
       },
+    },
+    head() {
+      return {
+        title: this.title
+      }
+    },
+    asyncData(ctx) {
+      return axios.get(`${ctx.env.VUE_APP_API_URL}product/${ctx.params.id}/`)
+        .then((res) => {
+          return {
+            title: res.data.name+' | HaveFun Men\'s Underwear'
+          }
+        }).catch((err) => {
+          console.log(err)
+        })
     },
     methods: {
       currencyChange(val) {

@@ -74,6 +74,7 @@
   import VProduct from "@/components/VProduct"
   import Pagination from "@/components/Pagination"
   import mixinDefaultInit from "@/mixins/mixinDefaultInit"
+  import axios from "axios";
 
   let mapping = {
     b: 'brand',
@@ -280,10 +281,16 @@
       filter.limit = ctx.query.limit || filter.limit
       filter.order_by = ctx.query.order_by || filter.order_by
       let type = get_type(ctx.query)
-      return {
-        type,
-        filter,
-      }
+      return axios.get(`${ctx.env.VUE_APP_API_URL}category/${ctx.query.c}/`)
+        .then((res) => {
+          return {
+            title: res.data.name+' | HaveFun Men\'s Underwear',
+            type,
+            filter,
+          }
+        }).catch((err) => {
+          console.log(err)
+        })
 
     },
     watch: {
@@ -307,6 +314,11 @@
       let filter = {...filter_default}
       let obj = getFilterParams(filter, ctx.query)
       return fetchReturn(ctx, [ctx.store.dispatch('product/getList', obj)])
+    },
+    head() {
+      return {
+        title: this.title
+      }
     },
     methods: {
       changeRouter(val, key) {

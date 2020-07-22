@@ -224,18 +224,14 @@
                 <div class="form-group">
                   <CInput
                     :placeholder="$t('Apartment_Suite_Building')"
-                    :required="false"
                     name="building"
-                    :input_has_bg="true"
                   />
                 </div>
                 <!--公司名字-->
                 <div class="form-group">
                   <CInput
                     :placeholder="$t('Company_name')"
-                    :required="false"
                     name="company_name"
-                    :input_has_bg="true"
                   />
                 </div>
                 <!--城市/郵遞區號: City/Postal Code-->
@@ -275,7 +271,7 @@
                       <CInput
                         :placeholder="$t('len')"
                         :required="false"
-                        name="phone"
+                        name="height"
                         :input_has_bg="true"
                         suffix="cm"
                       />
@@ -284,7 +280,7 @@
                       <CInput
                         :placeholder="$t('wei')"
                         :required="false"
-                        name="phone"
+                        name="weight"
                         :input_has_bg="true"
                         suffix="kg"
                       />
@@ -293,12 +289,14 @@
                 </div>
                 <div class="form-group"
                      v-if="selected_memberstores.length!==0||!freeshipping_target.use_ecpay_delivery">
-                  <CInput
+                  <datepicker
+                    v-model="birthday"
+                    format="yyyy-MM-dd"
+                    type="date"
                     :placeholder="$t('bir')"
-                    :required="false"
-                    name="phone"
-                    :input_has_bg="true"
-                  />
+                    :typeable="true"
+                    required
+                  ></datepicker>
                 </div>
                 <!--儲存常用地址-->
                 <div class="form-group">
