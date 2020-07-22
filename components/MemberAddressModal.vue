@@ -203,14 +203,12 @@
               :required="true"
               :placeholder="$t('City')"
               name="city"
-              :validators="[recieveName]"
             />
             <CInput
               class="col-6"
               :required="true"
               :placeholder="$t('Postal_code')"
               name="postal_code"
-              :validators="[recieveName]"
             />
           </div>
         </div>
@@ -310,6 +308,7 @@
         } else {
           if (first_init) {
             this.location = this.item.location
+            this.gender = this.item.gender
             if (this.location === 2) {
               this.country = this.item.country
             }
@@ -378,6 +377,7 @@
       submit(data) {
         data = this.obj_fit(data)
         data.location = this.location
+        data.gender = this.gender
         if (this.location === 2) {
           data.country = this.country
         }
