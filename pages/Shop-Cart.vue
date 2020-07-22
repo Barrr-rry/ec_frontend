@@ -168,10 +168,10 @@
                       <div style="flex: 50%"><p>{{el.activity_detail.ch_name}}</p></div>
                       <div style="flex: 50%; text-align: right">
                         <p class="primary-color"
-                          v-if="$store.state.currency==='tw'"
+                           v-if="$store.state.currency==='tw'"
                         >-${{cartVm.activitySave(el)|commaFormat}}</p>
                         <p class="primary-color"
-                          v-else
+                           v-else
                         >-${{currencyChange(cartVm.activitySave(el))|commaFormat}}
                           (-$NT{{cartVm.activitySave(el)|commaFormat}})</p>
                       </div>
@@ -299,17 +299,21 @@
               <div class="shop-box--form">
                 <div class="shop-box--form-row">
                   <label for="" class="title">帳號（ Email ）*</label>
-                  <input type="text" placeholder="請輸入您的電子郵件">
+                  <input type="text" placeholder="請輸入您的電子郵件"
+                         v-model="account"
+                  >
                 </div>
                 <div class="shop-box--form-row">
                   <label for="" class="title">密碼*</label>
-                  <input type="password" placeholder="請輸入 6 ~ 12 個字的密碼（ 需包含數字與英文 ）">
+                  <input type="password" placeholder="請輸入 6 ~ 12 個字的密碼（ 需包含數字與英文 ）"
+                         v-model="password"
+                  >
                 </div>
                 <div class="shop-box--form-row">
                   <div class="row">
                     <div class="col-12 col-md-6">
                       <label for="keep-infor" class="label-checbox">
-                        <input type="checkbox" name="" id="keep-infor">
+                        <input type="checkbox" name="" id="keep-infor" v-model="savepass">
                         <i class="checkbox-icon"></i>
                         <span>記住帳號密碼</span>
                       </label>
@@ -322,8 +326,8 @@
               </div>
             </div>
             <div class="shop-box--btn" style="text-align: center;">
-                <button class="no-round-btn" style="min-width: 200px;">登入</button>
-              </div>
+              <button class="no-round-btn" style="min-width: 200px;" @click="submit">登入</button>
+            </div>
           </div>
           <div class="shop-box">
             <div class="shop-main">
@@ -335,8 +339,10 @@
               </div>
             </div>
             <div class="shop-box--btn" style="text-align: center;">
-                <nuxt-link to="/register"><button class="no-round-btn" style="min-width: 200px;">註冊並結帳</button></nuxt-link>
-              </div>
+              <nuxt-link to="/register">
+                <button class="no-round-btn" style="min-width: 200px;">註冊並結帳</button>
+              </nuxt-link>
+            </div>
           </div>
         </div>
       </div>
@@ -379,6 +385,11 @@
       let cartVm = createVm(this)
 
       return {
+        // login parameter
+        savepass: false,
+        account: null,
+        password: null,
+
         cartVm,
         cart: {},
         timout_instance: null,
@@ -475,8 +486,81 @@
           this.apiRemove(id)
         }
       },
+
+      // login methods
+      loginSuccessProcess() {
+        if (/^http/.test(this.$store.state.previous_url)) {
+          this.$router.push('/')
+          return
+        }
+        let other_urls = ['register', 'forgotpassword', 'password', 'login']
+        for (let url_part of other_urls) {
+          if (this.$store.state.previous_url.includes(url_part)) {
+            this.$router.push('/')
+            return
+          }
+        }
+        this.$router.push(this.$store.state.previous_url)
+      },
+      setLoginVariable(token) {
+        // change cookie & store
+        this.$store.commit('setToken', token)
+        this.$store.commit('membertoken/changeValue', {key: 'has_token', value: true})
+        this.$cookies.set('savepass', this.savepass)
+        if (this.savepass) {
+          this.$cookies.set('account', this.account)
+          this.$cookies.set('password', this.password)
+        } else {
+          this.$cookies.set('account', null)
+          this.$cookies.set('password', null)
+        }
+      },
+      async addTOCart() {
+        /**
+         * 確認原本購物車有沒有資料 如果有的話就不要新增
+         * */
+        await this.$store.dispatch('cart/getCount')
+        if (this.$store.state.cart.count) {
+          return
+        }
+        let cart = getCookieCart()
+        let promist_list = []
+        for (let values of cart) {
+          promist_list.push(this.$api.cart.postData(values))
+        }
+        await Promise.all(promist_list)
+        this.$cookies.set('cart', [])
+
+      },
+      async submit() {
+        let val = {
+          account: this.account,
+          password: this.password
+        }
+        try {
+          let res = await this.$api.member.login(val)
+          this.setLoginVariable(res.data.token)
+          await this.addTOCart()
+          this.loginSuccessProcess()
+        } catch (e) {
+          this.$toast.error(this.$t('acc_error'))
+        }
+
+      }
     },
     created() {
+      let savepass = this.$cookies.get('savepass')
+      let account = this.$cookies.get('account')
+      let password = this.$cookies.get('password')
+      try {
+        savepass = JSON.parse(savepass)
+      } catch (e) {
+      }
+      if (savepass) {
+        this.savepass = savepass
+        this.account = account
+        this.password = password
+      }
     },
     mounted() {
     }
