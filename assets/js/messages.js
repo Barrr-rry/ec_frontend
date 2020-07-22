@@ -1935,15 +1935,15 @@ const custom_message = {
     tw: '配送與換貨說明'
   },
   len: {
-    en: '未翻譯',
+    en: 'Height',
     tw: '身高'
   },
   wei: {
-    en: '未翻譯',
+    en: 'Weight',
     tw: '體重'
   },
   bir: {
-    en: '未翻譯',
+    en: 'Birthday',
     tw: '生日'
   },
   mr: {
@@ -1953,6 +1953,42 @@ const custom_message = {
   mrs: {
     en: 'Mrs.',
     tw: '小姐'
+  },
+  Country: {
+    en: 'Country',
+    tw: '國家：'
+  },
+  First_name: {
+    en: 'First name*',
+    tw: '名稱*'
+  },
+  Last_name: {
+    en: 'Last name*',
+    tw: '姓氏*'
+  },
+  Addresss: {
+    en: 'Address*',
+    tw: '地址*'
+  },
+  Apartment_Suite_Building: {
+    en: 'Apartment /Suite /  Building( Optional )',
+    tw: '公寓/套房/建築物（選填）'
+  },
+  Company_name: {
+    en: 'Company name( Optional )',
+    tw: '公司名稱（選填）'
+  },
+  City: {
+    en: 'City*',
+    tw: '城市*'
+  },
+  Postal_code: {
+    en: 'Postal code*',
+    tw: '郵遞區號*'
+  },
+  Phone_number: {
+    en: 'Phone number*',
+    tw: '聯絡電話*'
   },
 
 }

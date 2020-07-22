@@ -147,7 +147,7 @@
               <div v-if="freeshipping_target&&!freeshipping_target.cash_on_delivery&&location===2">
                 <div class="form-group">
                   <CInput
-                    title="Country"
+                    :title="$t('Country')"
                     placeholder=""
                     :required="false"
                     name="country"
@@ -190,7 +190,7 @@
                 <div class="row">
                   <div class="form-group col-6">
                     <CInput
-                      placeholder="First name*"
+                      :placeholder="$t('First_name')"
                       :required="true"
                       name="first_name"
                       :input_has_bg="true"
@@ -199,7 +199,7 @@
                   </div>
                   <div class="form-group col-6">
                     <CInput
-                      placeholder="Last name*"
+                      :placeholder="$t('Last_name')"
                       :required="true"
                       name="last_name"
                       :input_has_bg="true"
@@ -210,7 +210,7 @@
                 <!--地址:Address-->
                 <div class="form-group">
                   <CInput
-                    placeholder="Address*"
+                    :placeholder="$t('Addresss')"
                     :required="true"
                     name="shipping_address"
                     :input_has_bg="true"
@@ -219,7 +219,7 @@
                 <!--大樓名字-->
                 <div class="form-group">
                   <CInput
-                    placeholder="Apartment /Suite /  Building( Optional )"
+                    :placeholder="$t('Apartment_Suite_Building')"
                     :required="false"
                     name="building"
                     :input_has_bg="true"
@@ -228,7 +228,7 @@
                 <!--公司名字-->
                 <div class="form-group">
                   <CInput
-                    placeholder="Company name( Optional )"
+                    :placeholder="$t('Company_name')"
                     :required="false"
                     name="company_name"
                     :input_has_bg="true"
@@ -238,7 +238,7 @@
                 <div class="row">
                   <div class="form-group col-6">
                     <CInput
-                      placeholder="City*"
+                      :placeholder="$t('City')"
                       :required="true"
                       name="city"
                       :input_has_bg="true"
@@ -246,7 +246,7 @@
                   </div>
                   <div class="form-group col-6">
                     <CInput
-                      placeholder="Postal code*"
+                      :placeholder="$t('Postal_code')"
                       :required="true"
                       name="postal_code"
                       :input_has_bg="true"
@@ -257,7 +257,7 @@
                 <!--電話-->
                 <div class="form-group">
                   <CInput
-                    placeholder="Phone number*"
+                    :placeholder="$t('Phone_number')"
                     :required="true"
                     name="phone"
                     :input_has_bg="true"
@@ -269,7 +269,7 @@
                   <div class="row">
                     <div class="col-6">
                       <CInput
-                        placeholder="Height"
+                        :placeholder="$t('len')"
                         :required="false"
                         name="phone"
                         :input_has_bg="true"
@@ -278,7 +278,7 @@
                     </div>
                     <div class="col-6">
                       <CInput
-                        placeholder="Weight"
+                        :placeholder="$t('wei')"
                         :required="false"
                         name="phone"
                         :input_has_bg="true"
@@ -290,7 +290,7 @@
                 <div class="form-group"
                      v-if="selected_memberstores.length!==0||!freeshipping_target.use_ecpay_delivery">
                   <CInput
-                    placeholder="Birthday"
+                    :placeholder="$t('bir')"
                     :required="false"
                     name="phone"
                     :input_has_bg="true"
