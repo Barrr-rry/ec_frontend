@@ -30,7 +30,7 @@
                       ></span>
                       <ul class="sub-menu">
                         <li>
-                          <nuxt-link to="products">
+                          <nuxt-link to="/products">
                             全部商品
                           </nuxt-link>
                         </li>
@@ -280,7 +280,7 @@
                     <ul class="sub-menu shop">
                       <div class="nav-column">
                         <li>
-                          <nuxt-link to="products">
+                          <nuxt-link to="/products">
                             全部商品
                           </nuxt-link>
                         </li>
