@@ -43,11 +43,12 @@
         <td class="product-name">
           <div class="to-flex-col align-items-center">
             <nuxt-link to="" class="img-wrapper normal-a hover-primary" :to="`/products/${el.product}`">
-              {{el.product_detail.name}}
+              {{get_lng_name(el.product_detail)}}
             </nuxt-link>
           </div>
         </td>
-        <td class="product-price">${{currencyChange(el.product_detail.price)|commaFormat}}</td>
+        <!--        <td class="product-price">${{currencyChange(el.product_detail.price)|commaFormat}}</td>-->
+        <td class="product-price">{{get_price_range(el.product_detail.specifications_detail)}}</td>
         <td class="product-quantity">
           {{el.join_at}}
         </td>
@@ -69,9 +70,11 @@
   import {mapState} from 'vuex'
   import mixinCategory from "@/mixins/mixinCategory"
   import WishlistModal from "@/components/WishlistModal"
+  import mixinPrice from "@/mixins/mixinPrice"
+  import mixinName from "@/mixins/mixinName"
 
   export default {
-    mixins: [mixinCategory],
+    mixins: [mixinCategory, mixinPrice, mixinName],
     name: 'WishlistTable',
     components: {
       WishlistModal
