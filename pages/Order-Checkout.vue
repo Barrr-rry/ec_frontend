@@ -106,8 +106,7 @@
               <div v-if="freeshipping_target&&!freeshipping_target.cash_on_delivery&&location==1">
                 <div class="form-group">
                   <CInput
-                    :title="$t('shipping_code')"
-                    placeholder=""
+                    :placeholder="$t('shipping_code')"
                     :required="true"
                     name="shipping_area"
                     :input_has_bg="true"
@@ -115,8 +114,7 @@
                 </div>
                 <div class="form-group">
                   <CInput
-                    :title="$t('address')"
-                    placeholder=""
+                    :placeholder="$t('address')"
                     :required="true"
                     name="shipping_address"
                     :input_has_bg="true"
@@ -124,9 +122,8 @@
                 </div>
                 <div class="form-group">
                   <CInput
-                    :title="$t('shipping_name')"
+                    :placeholder="$t('shipping_name')"
                     :required="true"
-                    placeholder=""
                     name="shipping_name"
                     :input_has_bg="true"
                     :validators="[recieveName]"
@@ -134,9 +131,8 @@
                 </div>
                 <div class="form-group">
                   <CInput
-                    :title="$t('shipping_phonee')"
+                    :placeholder="$t('shipping_phonee')"
                     :required="true"
-                    placeholder=""
                     name="phone"
                     :input_has_bg="true"
                     :validators="[checkPhone]"
@@ -161,7 +157,8 @@
                     :input_has_bg="true"
                   >
                     <select
-                      v-model="country"
+                      v-model="country "
+                      class="custom-select mt-10px"
                     >
                       <option :value="el"
                               v-for="el of country_list"
@@ -175,9 +172,8 @@
                 <div class="row">
                   <div class="form-group col-6">
                     <CInput
-                      :title="$t('First_name')"
+                      :placeholder="$t('First_name')"
                       :required="true"
-                      placeholder=""
                       name="first_name"
                       :input_has_bg="true"
                       :validators="[recieveName]"
@@ -185,9 +181,8 @@
                   </div>
                   <div class="form-group col-6">
                     <CInput
-                      :title="$t('Last_name')"
+                      :placeholder="$t('Last_name')"
                       :required="true"
-                      placeholder=""
                       name="last_name"
                       :input_has_bg="true"
                       :validators="[recieveName]"
@@ -197,9 +192,8 @@
                 <!--地址:Address-->
                 <div class="form-group">
                   <CInput
-                    :title="$t('address_label')"
+                    :placeholder="$t('address_label')"
                     :required="true"
-                    placeholder=""
                     name="shipping_address"
                     :input_has_bg="true"
                   />
@@ -207,9 +201,8 @@
                 <!--大樓名字-->
                 <div class="form-group">
                   <CInput
-                    :title="$t('Apartment_Suite_Building')"
+                    :placeholder="$t('Apartment_Suite_Building')"
                     :required="false"
-                    placeholder=""
                     name="building"
                     :input_has_bg="true"
                   />
@@ -217,9 +210,8 @@
                 <!--公司名字-->
                 <div class="form-group">
                   <CInput
-                    :title="$t('Company_name')"
+                    :placeholder="$t('Company_name')"
                     :required="false"
-                    placeholder=""
                     name="company_name"
                     :input_has_bg="true"
                   />
@@ -228,18 +220,16 @@
                 <div class="row">
                   <div class="form-group col-6">
                     <CInput
-                      :title="$t('City')"
+                      :placeholder="$t('City')"
                       :required="true"
-                      placeholder=""
                       name="city"
                       :input_has_bg="true"
                     />
                   </div>
                   <div class="form-group col-6">
                     <CInput
-                      :title="$t('Postal_code')"
+                      :placeholder="$t('Postal_code')"
                       :required="true"
-                      placeholder=""
                       name="postal_code"
                       :input_has_bg="true"
                     />
@@ -249,9 +239,8 @@
                 <!--電話-->
                 <div class="form-group">
                   <CInput
-                    :title="$t('Phone_number')"
+                    :placeholder="$t('Phone_number')"
                     :required="true"
-                    placeholder=""
                     name="phone"
                     :input_has_bg="true"
                     :validators="[checkPhone]"
@@ -276,18 +265,16 @@
                 </button>
                 <div class="form-group" v-if="!freeshipping_target.use_ecpay_delivery">
                   <CInput
-                    title="分店名稱"
+                    :placeholder="$t('store_namee')"
                     :required="true"
-                    placeholder=""
                     name="store_name"
                     :input_has_bg="true"
                   />
                 </div>
                 <div class="form-group" v-if="!freeshipping_target.use_ecpay_delivery">
                   <CInput
-                    title="分店店號"
+                    :placeholder="$t('store_id')"
                     :required="true"
-                    placeholder=""
                     name="store_id"
                     :input_has_bg="true"
                   />
@@ -295,9 +282,8 @@
                 <div class="form-group"
                      v-if="selected_memberstores.length!==0||!freeshipping_target.use_ecpay_delivery">
                   <CInput
-                    :title="$t('shipping_name')"
+                    :placeholder="$t('shipping_name')"
                     :required="true"
-                    placeholder=""
                     name="shipping_name"
                     :input_has_bg="true"
                     :validators="[recieveName]"
@@ -306,9 +292,8 @@
                 <div class="form-group"
                      v-if="selected_memberstores.length!==0||!freeshipping_target.use_ecpay_delivery">
                   <CInput
-                    :title="$t('shipping_phonee')"
+                    :placeholder="$t('shipping_phonee')"
                     :required="true"
-                    placeholder=""
                     name="phone"
                     :input_has_bg="true"
                     :validators="[checkPhone]"

@@ -12,46 +12,47 @@
               ref="form"
             >
               <CInput
-                :title="$t('acc_e')"
+                :placeholder="$t('acc_e')"
                 :required="true"
-                :placeholder="$t('input_email')"
                 name="account"
                 :validators="[validateEmail]"
+                class="mb-3"
               />
               <CInput
-                :title="$t('password')"
+                :placeholder="$t('password')"
                 :required="true"
                 type="password"
-                :placeholder="$t('new_pass')"
                 :validators="[validatePassword]"
                 name="password"
+                class="mb-3"
               />
               <CInput
-                :title="$t('check_Opassword')"
+                :placeholder="$t('check_Opassword')"
                 :required="true"
                 type="password"
-                :placeholder="$t('pass_aga')"
                 :validators="[validateConfirmPassword]"
                 name="password_confirm"
+                class="mb-3"
               />
               <CInput
-                :title="$t('member_name')"
+                :placeholder="$t('member_name')"
                 :required="true"
-                :placeholder="$t('real_name')"
                 name="name"
+                class="mb-3"
               />
               <CInput
-                :title="$t('cellphone')"
+                :placeholder="$t('cellphone')"
                 :required="true"
-                :placeholder="$t('input_cellp')"
                 name="cellphone"
                 :validators="[validateCellPhone, checkPhone]"
+                class="mb-3"
               />
               <CInput
-                :title="$t('phone')"
+                :placeholder="$t('phone')"
                 name="phone"
                 ref="phone"
                 :validators="[validatePhone]"
+                class="mb-3"
               >
                 <div class="row">
                   <div class="col-3">
@@ -81,16 +82,16 @@
                 </div>
               </CInput>
               <CInput
-                title="LINE ID"
                 :placeholder="$t('input_line')"
                 name="line_id"
+                class="mb-3"
               />
               <CInput
-                :title="$t('verification_code')"
+                :placeholder="$t('verification_code')"
                 :required="true"
-                :placeholder="$t('ver')"
                 name="code"
                 :validators="[validateCode]"
+                class="mb-3"
               />
               <div class="d-flex align-items-center">
                 <Identify :identifyCode="code" class="pointer" @click="reDraw" ref="identify"></Identify>

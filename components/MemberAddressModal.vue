@@ -30,10 +30,8 @@
       <div v-if="location===1">
         <div class="d-flex mb-20px">
           <div class="d-flex flex-grow-1 align-content-center">
-            <div class="col-5 col-sm-4 p0 d-flex align-items-center">
-              {{$t('shipping_name')}}：
-            </div>
             <CInput
+              :placeholder="$t('shipping_name')"
               class="flex-grow-1"
               :required="true"
               name="shipping_name"
@@ -45,10 +43,9 @@
 
         <div class="d-flex mb-20px">
           <div class="d-flex flex-grow-1 align-content-center">
-            <div class="col-5 col-sm-4 p0 d-flex align-items-center">
-              {{$t('shipping_phone')}}：
-            </div>
             <CInput
+              :placeholder="$t('shipping_phone')"
+
               class="flex-grow-1"
               :required="true"
               name="phone"
@@ -61,10 +58,9 @@
 
         <div class="d-flex mb-20px">
           <div class="d-flex flex-grow-1 align-content-center">
-            <div class="col-5 col-sm-4 p0 d-flex align-items-center">
-              {{$t('shipping_code')}}：
-            </div>
             <CInput
+              :placeholder="$t('shipping_phone')"
+
               class="flex-grow-1"
               :required="true"
               name="shipping_area"
@@ -75,10 +71,9 @@
 
         <div class="d-flex mb-20px">
           <div class="d-flex flex-grow-1 align-content-center">
-            <div class="col-5 col-sm-4 p0 d-flex align-items-center">
-              {{$t('address')}}：
-            </div>
             <CInput
+              :placeholder="$t('shipping_phone')"
+
               class="flex-grow-1"
               :required="true"
               name="shipping_address"
@@ -103,6 +98,7 @@
             >
               <select
                 v-model="country"
+                class="custom-select mt-10px"
               >
                 <option :value="el"
                         v-for="el of country_list"
@@ -118,19 +114,17 @@
         <div class="d-flex mb-20px">
           <div class="d-flex flex-grow-1 align-content-center row">
             <div class="col-6 d-flex">
-              <div class="d-flex align-items-center">First name* ：</div>
               <CInput
                 :required="true"
-                placeholder=""
+                :placeholder="$t('First_name')"
                 name="first_name"
                 :validators="[recieveName]"
               />
             </div>
             <div class="col-6 d-flex">
-              <div class="d-flex align-items-center">Last name* ：</div>
               <CInput
                 :required="true"
-                placeholder=""
+                :placeholder="$t('Last_name')"
                 name="last_name"
                 :validators="[recieveName]"
               />
@@ -141,12 +135,10 @@
         <!--地址:Address-->
         <div class="d-flex mb-20px">
           <div class="d-flex flex-grow-1 align-content-center">
-            <div class="col-5 col-sm-4 p0 d-flex align-items-center">
-              Address*：
-            </div>
             <CInput
               class="flex-grow-1"
               :required="true"
+              :placeholder="$t('addresss')"
               name="shipping_address"
               error_class=""
             />
@@ -156,12 +148,10 @@
         <!--大樓名字-->
         <div class="d-flex mb-20px">
           <div class="d-flex flex-grow-1 align-content-center">
-            <div class="col-5 col-sm-4 p0 d-flex align-items-center">
-              Apartment /Suite / Building( Optional )：
-            </div>
             <CInput
               class="flex-grow-1"
               :required="false"
+              :placeholder="$t('Apartment_Suite_Building')"
               name="building"
               error_class=""
             />
@@ -171,12 +161,10 @@
         <!--公司名字-->
         <div class="d-flex mb-20px">
           <div class="d-flex flex-grow-1 align-content-center">
-            <div class="col-5 col-sm-4 p0 d-flex align-items-center">
-              Company name( Optional )：
-            </div>
             <CInput
               class="flex-grow-1"
               :required="false"
+              :placeholder="$t('Company_name')"
               name="company_name"
               error_class=""
             />
@@ -187,19 +175,17 @@
         <div class="d-flex mb-20px">
           <div class="d-flex flex-grow-1 align-content-center row">
             <div class="col-6 d-flex">
-              <div class="d-flex align-items-center">City* ：</div>
               <CInput
                 :required="true"
-                placeholder=""
+                :placeholder="$t('City')"
                 name="city"
                 :validators="[recieveName]"
               />
             </div>
             <div class="col-6 d-flex">
-              <div class="d-flex align-items-center">Postal* ：</div>
               <CInput
                 :required="true"
-                placeholder=""
+                :placeholder="$t('Postal_code')"
                 name="postal_code"
                 :validators="[recieveName]"
               />
@@ -210,13 +196,11 @@
         <!--電話-->
         <div class="d-flex mb-20px">
           <div class="d-flex flex-grow-1 align-content-center">
-            <div class="col-5 col-sm-4 p0 d-flex align-items-center">
-              Phone number* ：
-            </div>
             <CInput
               class="flex-grow-1"
               :required="true"
               name="phone"
+              :placeholder="$t('Phone_number')"
               error_class=""
               :validators="[checkPhone]"
             />

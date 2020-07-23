@@ -6,64 +6,52 @@
     >
       <div class="d-flex mb-20px">
         <div class="d-flex flex-grow-1 align-content-center">
-          <div class="col-5 col-sm-3 p0 d-flex align-items-center">
-            {{$t('og_password')}}：
-          </div>
           <CInput
-            class="flex-grow-1"
+            :placeholder="$t('og_password')"
+            class="flex-grow-1 mb-3"
             :required="true"
             type="password"
             name="password"
             error_class=""
-            :placeholder="$t('old_pass')"
           />
         </div>
       </div>
 
       <div class="d-flex mb-20px">
         <div class="d-flex flex-grow-1 align-content-center">
-          <div class="col-5 col-sm-3 p0 d-flex align-items-center">
-            {{$t('change_password')}}：
-          </div>
           <CInput
-            class="flex-grow-1"
+            :placeholder="$t('change_password')"
+            class="flex-grow-1 mb-3"
             :required="true"
             type="password"
             name="new_password"
             error_class=""
             :validators="[validatePassword]"
-            :placeholder="$t('new_pass')"
           />
         </div>
       </div>
 
       <div class="d-flex mb-20px">
         <div class="d-flex flex-grow-1 align-content-center">
-          <div class="col-5 col-sm-3 p0 d-flex align-items-center">
-            {{$t('check_password')}}：
-          </div>
           <CInput
-            class="flex-grow-1"
+            :placeholder="$t('check_password')"
+            class="flex-grow-1 mb-3"
             :required="true"
             type="password"
             name="password_confirm"
             error_class=""
             :validators="[validateConfirmPassword]"
-            :placeholder="$t('new_pass_again')"
           />
         </div>
       </div>
 
       <div class="d-flex mb-20px">
         <div class="d-flex flex-grow-1 align-content-center">
-          <div class="col-5 col-sm-3 p0 d-flex align-items-center">
-            {{$t('verification_code')}}：
-          </div>
           <CInput
-            class="flex-grow-1"
+            :placeholder="$t('verification_code')"
+            class="flex-grow-1 mb-3"
             :required="true"
             name="code"
-            :placeholder="$t('ver')"
             :validators="[validateCode]"
           />
         </div>

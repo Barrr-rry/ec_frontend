@@ -12,19 +12,19 @@
               ref="form"
             >
               <CInput
-                :title="$t('acc_e')"
+                :placeholder="$t('acc_e')"
                 :required="true"
-                :placeholder="$t('input_email')"
                 name="account"
                 v-model="account"
+                class="mb-3"
               />
               <CInput
-                :title="$t('password')"
+                :placeholder="$t('password')"
                 :required="true"
                 type="password"
-                :placeholder="$t('new_pass')"
                 name="password"
                 v-model="password"
+                class="mb-3"
               />
               <div class="account-method">
                 <div class="account-save input-radio-display">

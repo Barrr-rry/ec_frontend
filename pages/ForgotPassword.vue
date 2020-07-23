@@ -12,18 +12,20 @@
               ref="form"
             >
               <CInput
-                :title="$t('acc')+`( Email )`"
+                :placeholder="$t('acc')+`( Email )`"
                 :required="true"
-                :placeholder="$t('input_email')"
                 name="account"
                 :validators="[validateEmail]"
+                class="mb-3"
+
               />
               <CInput
-                :title="$t('verification_code')"
+                :placeholder="$t('verification_code')"
                 :required="true"
-                :placeholder="$t('ver')"
                 name="code"
                 :validators="[validateCode]"
+                class="mb-3"
+
               />
               <div class="account-method">
                 <div class="d-flex align-items-center">

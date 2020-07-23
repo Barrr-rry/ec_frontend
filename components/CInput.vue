@@ -2,13 +2,22 @@
   <div>
     <label v-if="title">{{computed_title}}</label>
     <slot>
-      <input
-        v-on="$listeners"
-        v-bind="$attrs"
-        :class="[has_error?'mb-0px':'',input_has_bg?'no-round-input-bg':'no-round-input']"
-        :type="type"
-        v-model="input"
-      />
+<!--      <input-->
+<!--        v-on="$listeners"-->
+<!--        v-bind="$attrs"-->
+<!--        :class="[has_error?'mb-0px':'',input_has_bg?'no-round-input-bg':'no-round-input']"-->
+<!--        :type="type"-->
+<!--        v-model="input"-->
+<!--      />-->
+      <div class="styled-input">
+        <input v-on="$listeners"
+               :class="[has_error?'mb-0px':'',input_has_bg?'no-round-input-bg':'no-round-input']"
+               :type="type"
+               v-model="input" required>
+        <label v-if="title">{{computed_title}}</label>
+        <label v-else>{{ $attrs.placeholder }}</label>
+        <span></span>
+      </div>
     </slot>
     <div :class="error_class" style="color: red"
          v-if="has_error"
