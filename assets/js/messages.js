@@ -786,21 +786,37 @@ const custom_message = {
     en: 'Loyalty reward',
     tw: '忠誠獎勵'
   },
-  loyalty_reward_1: {
-    en: 'Earn one reward point for every NT$30 spent via our website.',
-    tw: '於本網站每消費 30 元（台幣）可獲得1點回饋金點數。'
+  loyalty_reward_1_1: {
+    en: 'Earn ',
+    tw: '於本網站每消費 100 元（台幣）可獲得'
   },
-  loyalty_reward_2: {
-    en: 'Reward points earned will be credited to your account 21 days after completion of the purchase, i.e. without cancellation or refund request.',
-    tw: '回饋金點數將於消費 21 日後，訂單成功交易完成且無退款或取消始撥入回饋金帳戶。'
+  loyalty_reward_1_2: {
+    en: ' reward point for every NT$100 spent via our website.',
+    tw: '點回饋金點數。'
+  },
+  loyalty_reward_2_1: {
+    en: 'Reward points earned will be credited to your account ',
+    tw: '回饋金點數將於消費 '
+  },
+  loyalty_reward_2_2: {
+    en: ' days after completion of the purchase, i.e. without cancellation or refund request.',
+    tw: ' 日後，訂單成功交易完成且無退款或取消始撥入回饋金帳戶。'
   },
   loyalty_reward_3: {
     en: 'Each reward point is equivalent to NT$ 1.',
     tw: '回饋金 1 點可折抵消費 NT$1元'
   },
-  loyalty_reward_4: {
-    en: 'Reward points are valid for one year. Its validity will be automatically extended for another year with your next purchase within that timeline.',
-    tw: '回饋金點數有效期限為 1 年，如期間有消費可自動延長使用期限 1 年並且累積回饋金。'
+  loyalty_reward_4_1: {
+    en: 'Reward points are valid for one ',
+    tw: '回饋金點數有效期限為 '
+  },
+  loyalty_reward_4_2: {
+    en: ' day. Its validity will be automatically extended for ',
+    tw: ' 天，如期間有消費可自動延長使用期限 '
+  },
+  loyalty_reward_4_3: {
+    en: ' day with your next purchase within that timeline.',
+    tw: ' 天並且累積回饋金。'
   },
   loyalty_reward_5: {
     en: "Point validity can also be extended by earning reward points through participation in activities organized by HaveFun Men's Underwear.",

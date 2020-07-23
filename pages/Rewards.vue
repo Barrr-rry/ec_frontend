@@ -7,10 +7,10 @@
         <br/>
         <div class="delivery_block">
           <ol class="">
-            <li>{{$t('loyalty_reward_1')}}</li>
-            <li>{{$t('loyalty_reward_2')}}</li>
+            <li>{{$t('loyalty_reward_1_1')}}{{reward.discount}}{{$t('loyalty_reward_1_2')}}</li>
+            <li>{{$t('loyalty_reward_2_1')}}{{reward.start_day}}{{$t('loyalty_reward_2_2')}}</li>
             <li>{{$t('loyalty_reward_3')}}</li>
-            <li>{{$t('loyalty_reward_4')}}</li>
+            <li>{{$t('loyalty_reward_4_1')}}{{reward.still_day}}{{$t('loyalty_reward_4_2')}}{{reward.still_day}}{{$t('loyalty_reward_4_3')}}</li>
             <li>{{$t('loyalty_reward_5')}}</li>
             <li>{{$t('loyalty_reward_6')}}</li>
             <li>{{$t('loyalty_reward_7')}}</li>
