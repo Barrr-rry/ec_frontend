@@ -77,6 +77,6 @@
     padding-left: 10px;
     padding-right: 10px;
     line-height: 26px;
-    color: black;
+    color: #404040;
   }
 </style>
