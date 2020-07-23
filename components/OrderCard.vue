@@ -112,7 +112,7 @@
     },
     computed: {
       cancel_status() {
-        return this.order.pay_status === 0 && this.order.pay_type === 1 && this.order.simple_status_display !== '已取消'
+        return this.order.pay_status === 0 && this.order.simple_status_display !== '已取消'
       },
       target_reward() {
         if (this.order.rewrad.length && this.order.rewrad[0].point >= 0) {
