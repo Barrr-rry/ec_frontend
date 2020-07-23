@@ -274,6 +274,18 @@
       return {
         filter,
         current,
+        title: 'HaveFun Men\'s Underwear | 男性內褲'
+      }
+    },
+    head() {
+      return {
+        title: this.title,
+        meta: [
+          {
+            property: "og:title",
+            content: this.title
+          }
+        ]
       }
     },
     asyncData(ctx) {
@@ -314,11 +326,6 @@
       let filter = {...filter_default}
       let obj = getFilterParams(filter, ctx.query)
       return fetchReturn(ctx, [ctx.store.dispatch('product/getList', obj)])
-    },
-    head() {
-      return {
-        title: this.title
-      }
     },
     methods: {
       changeRouter(val, key) {

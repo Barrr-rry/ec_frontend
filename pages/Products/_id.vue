@@ -296,7 +296,13 @@
     },
     head() {
       return {
-        title: this.title
+        title: this.title,
+        meta: [
+          {
+            property: "og:title",
+            content: this.title
+          }
+        ]
       }
     },
     asyncData(ctx) {
