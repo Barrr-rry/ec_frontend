@@ -33,7 +33,7 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: 'EZGO',
+    title: 'EC',
     meta: [
       {charset: 'utf-8'},
       {

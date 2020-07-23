@@ -497,7 +497,7 @@
         this.$router.go()
       },
       share(social) {
-        const webTitle = `EZGO`,
+        const webTitle = `EC`,
           webUrl = location.href
         window.open('https://www.addtoany.com/add_to/' + social + '?linkurl=' + webUrl + '&amp;linkname=' + encodeURI(webTitle))
       },

@@ -65,7 +65,7 @@
             <p
               class="left col-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-start l-footer__footer"
             >
-              <span class="color1">© EZGO {{$t('company_name')}}</span>
+              <span class="color1">© EC {{$t('company_name')}}</span>
             </p>
             <div
               class="right col-12 col-md-5 d-flex justify-content-center justify-content-md-end"
@@ -90,7 +90,7 @@ export default {
   },
   methods: {
     share(social) {
-      const webTitle = `EZGO`,
+      const webTitle = `EC`,
       webUrl = location.href
       window.open('https://www.addtoany.com/add_to/' + social + '?linkurl=' + webUrl + '&amp;linkname=' + encodeURI(webTitle))
     },

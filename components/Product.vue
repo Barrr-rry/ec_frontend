@@ -148,7 +148,7 @@ export default {
   },
   mounted() {
     let url = `${location.origin}/products/${this.product.id}`
-    this.message = `快來看看『${this.product.name}』，價格超實惠！快來汴利購搶購吧！${url}`
+    this.message = `快來看看『${this.product.name}』，價格超實惠！快來電商系統搶購吧！${url}`
     this.$refs.product.addEventListener('animationend', function() {
       if (process.client) {
         $('div.product.fadeInUp').removeClass('fadeInUp')

@@ -155,7 +155,7 @@ const custom_message = {
     en: '未翻譯',
     tw: '為簡化您取得適合商品的流程，我們沒有提供換貨服務，僅提供「 退貨處理\n' +
       '            」，取貨後如有不適合的商品，請於收到商品 7 天內，來信客服\n' +
-      '            ezgo@gmail.com 辦理退貨申請。'
+      '            ec@gmail.com 辦理退貨申請。'
   },
   delivery_instructions_29: {
     en: '未翻譯',
@@ -396,7 +396,7 @@ const custom_message = {
   },
   privacy_statement_1: {
     en: '未翻譯',
-    tw: '非常歡迎您光臨「 EZGO（ 以下簡稱本網站\n' +
+    tw: '非常歡迎您光臨「 EC（ 以下簡稱本網站\n' +
       '          ），為了讓您能夠安心使用本網站的各項服務與資訊，特此向您說明本網站的隱私權保護政策，以保障您的權益，請您詳閱下列內容：'
   },
   privacy_statement_2: {
@@ -508,11 +508,11 @@ const custom_message = {
   },
   company_name: {
     en: '',
-    tw: '汴利購'
+    tw: '電商系統'
   },
   footer_author: {
-    en: 'Copyright © 2019 EZGO - All Rights Reserved. Power By CONQUER',
-    tw: 'Copyright © 2019 汴利購 EZGO - All Rights Reserved. Power By CONQUER'
+    en: 'Copyright © 2019 EC - All Rights Reserved. Power By CONQUER',
+    tw: 'Copyright © 2019 電商系統 EC - All Rights Reserved. Power By CONQUER'
   },
   ntdoller: {
     en: '未翻譯',
@@ -613,7 +613,7 @@ const custom_message = {
   loyalty_reward_2: {
     en: '未翻譯',
     tw: '忠誠獎勵計劃是一個讓顧客可以透過訂單獲得獎勵金的機制，您可以透過購買我們的產品獲得獎勵金。您的獎勵金可用於購買\n' +
-      '            EZGO 網站上的所有產品。'
+      '            EC 網站上的所有產品。'
   },
   loyalty_reward_3: {
     en: '未翻譯',
@@ -1155,7 +1155,7 @@ const custom_message = {
   },
   abuot_us_1: {
     en: '未翻譯',
-    tw: 'EZGO 已經營數年，是值得您信賴的保健食品代購品牌，在全台灣超過\n' +
+    tw: 'EC 已經營數年，是值得您信賴的保健食品代購品牌，在全台灣超過\n' +
       '                300 位會員推薦。\n' +
       '                我們代購的範圍包含不同年齡層的營養補充產品，更以美國認證的保健食品為首選，功效涵蓋調整體質、調節血脂、調節生理機能、眼睛保護、關節保養、口腔清潔衛生等各種營養保健食品。'
   },

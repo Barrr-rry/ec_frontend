@@ -293,7 +293,7 @@
         return parseFloat(val * this.$store.state.price.item[this.$store.state.currency].toFixed(2))
       },
       share(social) {
-        const webTitle = `${this.product.name} | EZGO`,
+        const webTitle = `${this.product.name} | EC`,
           webUrl = location.href
         let shareUrl = (social === 'line') ? `快來看看${this.product.name}：${webUrl}?openExternalBrowser=1` : webUrl
         window.open('https://www.addtoany.com/add_to/' + social + '?linkurl=' + shareUrl + '&amp;linkname=' + encodeURI(webTitle))
