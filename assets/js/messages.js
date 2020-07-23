@@ -564,7 +564,7 @@ const custom_message = {
   },
   privacy_statement_1: {
     en: '未翻譯',
-    tw: '非常歡迎您光臨「 EZGO（ 以下簡稱本網站\n' +
+    tw: '非常歡迎您光臨「 HaveFun Men’s Underwear（ 以下簡稱本網站\n' +
       '          ），為了讓您能夠安心使用本網站的各項服務與資訊，特此向您說明本網站的隱私權保護政策，以保障您的權益，請您詳閱下列內容：'
   },
   privacy_statement_2: {
@@ -676,11 +676,11 @@ const custom_message = {
   },
   company_name: {
     en: '',
-    tw: '汴利購'
+    tw: 'HaveFun Men’s Underwear'
   },
   footer_author: {
-    en: 'Copyright © 2019 EZGO - All Rights Reserved. Power By CONQUER',
-    tw: 'Copyright © 2019 汴利購 EZGO - All Rights Reserved. Power By CONQUER'
+    en: 'Copyright © 2019 HaveFun Men’s Underwear - All Rights Reserved. Power By CONQUER',
+    tw: 'Copyright © 2019 HaveFun Men’s Underwear - All Rights Reserved. Power By CONQUER'
   },
   ntdoller: {
     en: '未翻譯',

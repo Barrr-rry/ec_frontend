@@ -113,7 +113,7 @@
                 </div>
 
                 <div class="mobile-social">
-                  <a href="https://www.facebook.com/%E6%B1%B4%E5%88%A9%E8%B3%BC-Ezgo-107385547368839/"
+                  <a href="https://www.facebook.com/HaveFunUnderwear/"
                      target="_blank"><i class="fab fa-facebook-f"> </i></a>
                   <a href="https://line.me/ti/p/1qvbcczVSW" target="_blank"><i class="fab fa-line"> </i></a>
                   <a href=""><i class="fab fa-twitter" @click="share('twitter')"></i></a>
@@ -477,7 +477,7 @@
         this.$router.go()
       },
       share(social) {
-        const webTitle = `EZGO`,
+        const webTitle = `HaveFun Men’s Underwear`,
           webUrl = location.href
         window.open('https://www.addtoany.com/add_to/' + social + '?linkurl=' + webUrl + '&amp;linkname=' + encodeURI(webTitle))
       },

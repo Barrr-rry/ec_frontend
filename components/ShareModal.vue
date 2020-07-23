@@ -31,7 +31,7 @@
       },
       share(social) {
         // 透墮第三方網站 做share 功能
-        const webTitle = `${this.product_name} | EZGO`,
+        const webTitle = `${this.product_name} | HaveFun Men’s Underwear`,
           webUrl = location.href
         let shareUrl = (social === 'line') ? `快來看看${this.product_name}：${webUrl}?openExternalBrowser=1` : webUrl
         window.open('https://www.addtoany.com/add_to/' + social + '?linkurl=' + shareUrl + '&amp;linkname=' + encodeURI(webTitle))
