@@ -29,7 +29,7 @@ export default {
         }
       }
       if (min_price === max_price) {
-        return this.commaFormat(this.currencyChange(min_price))
+        return '$'+this.commaFormat(this.currencyChange(min_price))
       } else {
         let min_str = this.commaFormat(this.currencyChange(min_price))
         let max_str = this.commaFormat(this.currencyChange(max_price))
