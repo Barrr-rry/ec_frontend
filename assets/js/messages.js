@@ -835,7 +835,7 @@ const custom_message = {
   },
   shipping_phone: {
     en: '未翻譯',
-    tw: '聯絡電話'
+    tw: '手機號碼'
   },
   shipping_phonee: {
     en: '未翻譯',
@@ -843,7 +843,7 @@ const custom_message = {
   },
   shipping_phone_2: {
     en: '未翻譯',
-    tw: '聯絡電話'
+    tw: '手機號碼'
   },
   shipping_address: {
     en: '未翻譯',
@@ -1651,7 +1651,7 @@ const custom_message = {
   },
   Phone_number: {
     en: 'Phone number*',
-    tw: '聯絡電話*'
+    tw: '手機號碼*'
   },
   store_namee: {
     en: '未翻譯',
