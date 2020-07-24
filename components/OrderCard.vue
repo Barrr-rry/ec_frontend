@@ -46,7 +46,7 @@
           <div class="mb-20px">{{$t('total')}} : ${{order.total_price|commaFormat}}</div>
           <div class="mb-20px">{{$t('pay_method')}} : {{order.pay_type?'貨到付款':'線上付款'}}</div>
           <div class="mb-20px">{{$t('pay_status')}} : {{order_status}}</div>
-          <button class="no-round-btn" v-if="!(order.pay_status || order.pay_type)" @click="repay">{{$t('pay_again')}}
+          <button class="no-round-btn" v-if="!(order.pay_status || order.pay_type || order.shipping_status===400)" @click="repay">{{$t('pay_again')}}
           </button>
         </div>
 
@@ -77,23 +77,31 @@
           </div>
         </card-border>
         <div class="d-flex mt-10px justify-content-end" v-if="cancel_status">
-          <button class="no-round-btn" @click="cancelOrder">{{$t('canncel_order')}}</button>
+          <button class="no-round-btn" @click="order_del_modal = true">{{$t('canncel_order')}}</button>
         </div>
       </div>
       <div v-html="html"></div>
     </div>
+    <modal v-model="order_del_modal" title="您確定要取消本訂單?" @ok="ok">
+      <CForm
+        @submit="submit"
+        ref="form"
+      >
+      </CForm>
+    </modal>
   </div>
 </template>
 
 <script>
   import CardBorder from '@/components/CardBorder'
   import mixinCategory from "@/mixins/mixinCategory"
-
+  import CForm from "@/components/CForm"
   export default {
     mixins: [mixinCategory],
     name: 'OrderCard',
     components: {
-      CardBorder
+      CardBorder,
+      CForm,
     },
     props: {
       status: {
@@ -107,7 +115,8 @@
     },
     data() {
       return {
-        html: null
+        html: null,
+        order_del_modal: false
       }
     },
     computed: {
@@ -141,6 +150,17 @@
       }
     },
     methods: {
+      ok() {
+        this.$refs.form.submit()
+      },
+      submit() {
+        this.$api.order.putData(this.order.id, {
+          shipping_status: 400
+        }).then(() => {
+          this.$toast.success('已取消訂單')
+          this.$router.go()
+        })
+      },
       cancelOrder() {
         this.$api.order.putData(this.order.id, {
           shipping_status: 400
