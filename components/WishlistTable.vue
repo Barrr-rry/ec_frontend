@@ -54,7 +54,7 @@
         </td>
         <td class="product-clear">
           <div class="d-flex align-items-center justify-content-around">
-            <button @click="readyToCart(el)" class="no-round-btn">
+            <button @click.prevent="toCartModal(el)" class="no-round-btn">
               <i class="icon_shoppingcart_b2w"></i>
             </button>
             <button class="no-round-btn" @click="close(el.id)"><i class="icon_close"></i></button>
@@ -67,7 +67,7 @@
 </template>
 
 <script>
-  import {mapState} from 'vuex'
+  import {mapMutations, mapState} from 'vuex'
   import mixinCategory from "@/mixins/mixinCategory"
   import WishlistModal from "@/components/WishlistModal"
   import mixinPrice from "@/mixins/mixinPrice"
@@ -93,6 +93,7 @@
       }
     },
     methods: {
+      ...mapMutations('wishmodal', ['initWishModal', 'resetWishModal']),
       currencyChange(val) {
         let ret = val * this.$store.state.price.item[this.$store.state.currency]
         return parseFloat(ret.toFixed(2))
@@ -109,6 +110,9 @@
           this.$store.dispatch('cart/getTotal')
         })
 
+      },
+      toCartModal(el) {
+        this.initWishModal(el.product_detail)
       },
       close(id) {
         this.$api.memberwish.deleteData(id).then(() => {

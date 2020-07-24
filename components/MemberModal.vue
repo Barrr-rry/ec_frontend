@@ -110,6 +110,9 @@
     data() {
       return {
         update_fields: ['name', 'account', 'cellphone', 'phone', 'line_id'],
+        area: null,
+        local: null,
+        ext: null,
       }
     },
     watch: {

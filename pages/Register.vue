@@ -47,6 +47,34 @@
                 :validators="[validateCellPhone, checkPhone]"
                 class="mb-3"
               />
+              <div class="d-flex mb-20px">
+                <div class="d-flex flex-grow-1 align-content-center row">
+                  <div class="col-4 d-flex">
+                    <CInput
+                      :required="false"
+                      :placeholder="$t('phone_code')"
+                      name="area"
+                      v-model="area"
+                    />
+                  </div>
+                  <div class="col-4 d-flex">
+                    <CInput
+                      :required="false"
+                      :placeholder="$t('phone')"
+                      name="local"
+                      v-model="local"
+                    />
+                  </div>
+                  <div class="col-4 d-flex">
+                    <CInput
+                      :required="false"
+                      :placeholder="$t('phone_a')"
+                      name="ext"
+                      v-model="ext"
+                    />
+                  </div>
+                </div>
+              </div>
               <CInput
                 :placeholder="$t('input_line')"
                 name="line_id"
