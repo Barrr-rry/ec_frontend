@@ -15,8 +15,8 @@
                 <div class="col-12 col-md-5 col-xl-6">
                   <div class="slider-text d-flex flex-column align-items-center align-items-md-start">
                     <h5 data-animation="fadeInUp" data-delay=".2s">{{get_content(banner,'subtitle')}}</h5>
-                    <h1 data-animation="fadeInUp" data-delay=".3s">{{get_content(banner,'title')}}</h1>
-                    <h3 data-animation="fadeInUp" data-delay=".4s">{{get_content(banner,'description')}}</h3><a
+                    <h1 style="margin-right: 20px; margin-left: 20px;" data-animation="fadeInUp" data-delay=".3s">{{get_content(banner,'title')}}</h1>
+                    <h3 style="margin-right: 20px; margin-left: 20px;" data-animation="fadeInUp" data-delay=".4s">{{get_content(banner,'description')}}</h3><a
                     class="normal-btn"
                     :href="banner.link"
                     data-animation="fadeInUp"
