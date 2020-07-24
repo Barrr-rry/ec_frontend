@@ -811,35 +811,35 @@ const custom_message = {
   },
   member_name: {
     en: '未翻譯',
-    tw: '會員姓名'
+    tw: '會員姓名*'
   },
   email: {
     en: '未翻譯',
-    tw: '電子郵件'
+    tw: '電子郵件*'
   },
   cellphone: {
     en: '未翻譯',
-    tw: '手機'
+    tw: '手機*'
   },
   cell＿phone: {
     en: '未翻譯',
-    tw: '手 機'
+    tw: '手 機*'
   },
   password: {
     en: '未翻譯',
-    tw: '密碼'
+    tw: '密碼*'
   },
   shipping_name: {
     en: '未翻譯',
-    tw: '收貨人姓名'
+    tw: '收貨人姓名*'
   },
   shipping_phone: {
     en: '未翻譯',
-    tw: '手機號碼'
+    tw: '手機號碼*'
   },
   shipping_phonee: {
     en: '未翻譯',
-    tw: '收貨人電話'
+    tw: '收貨人電話*'
   },
   shipping_phone_2: {
     en: '未翻譯',
@@ -1111,7 +1111,7 @@ const custom_message = {
   },
   shipping_code: {
     en: '未翻譯',
-    tw: '郵遞區號'
+    tw: '郵遞區號*'
   },
   cancel: {
     en: '未翻譯',
@@ -1131,19 +1131,19 @@ const custom_message = {
   },
   og_password: {
     en: '未翻譯',
-    tw: '舊密碼'
+    tw: '舊密碼*'
   },
   change_password: {
     en: '未翻譯',
-    tw: '新密碼'
+    tw: '新密碼*'
   },
   check_password: {
     en: '未翻譯',
-    tw: '確認新密碼'
+    tw: '確認新密碼*'
   },
   check_Opassword: {
     en: '未翻譯',
-    tw: '確認密碼'
+    tw: '確認密碼*'
   },
   product_count: {
     en: '未翻譯',
@@ -1351,7 +1351,7 @@ const custom_message = {
   },
   cell_phone: {
     en: '未翻譯',
-    tw: '手 機'
+    tw: '手 機*'
   },
   nttdoller: {
     en: '未翻譯',
@@ -1359,7 +1359,7 @@ const custom_message = {
   },
   address: {
     en: '未翻譯',
-    tw: '宅配地址'
+    tw: '宅配地址*'
   },
   cant_see: {
     en: '未翻譯',
@@ -1387,7 +1387,7 @@ const custom_message = {
   },
   verification_code: {
     en: '未翻譯',
-    tw: '驗證碼'
+    tw: '驗證碼*'
   },
   no_verification: {
     en: '未翻譯',
@@ -1543,7 +1543,7 @@ const custom_message = {
   },
   acc_e: {
     en: '未翻譯',
-    tw: '帳號 ( Email )'
+    tw: '帳號 ( Email )*'
   },
   acc_error: {
     en: '未翻譯',
@@ -1623,7 +1623,7 @@ const custom_message = {
   },
   Country: {
     en: 'Country',
-    tw: '國家：'
+    tw: '國家'
   },
   First_name: {
     en: 'First name*',
@@ -1662,8 +1662,12 @@ const custom_message = {
     tw: '分店店號'
   },
   addresss: {
-    en: 'Address',
-    tw: '地址'
+    en: 'Address*',
+    tw: '地址*'
+  },
+  Region: {
+    en: 'Region*',
+    tw: '地區*'
   },
 
 

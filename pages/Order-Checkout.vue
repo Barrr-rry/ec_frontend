@@ -150,7 +150,6 @@
               <div v-if="freeshipping_target&&!freeshipping_target.cash_on_delivery&&location===2">
                 <div class="form-group">
                   <CInput
-                    :title="$t('Country')"
                     placeholder=""
                     :required="false"
                     name="country"
@@ -338,12 +337,16 @@
 
               <div class="form-group">
                 <CInput
-                  :title="$t('ororder_remark')"
                   placeholder=""
                   :input_has_bg="true"
                 >
-                  <textarea class="textarea-form-bg" name="" cols="30" rows="7" v-model="order_remark"
-                  ></textarea>
+                  <div class="styled-input">
+                    <textarea class="textarea-form-bg" name="" cols="30" rows="7" v-model="order_remark"
+                    >
+                    </textarea>
+                    <label>{{$t('ororder_remark')}}</label>
+                    <span></span>
+                  </div>
                 </CInput>
               </div>
 

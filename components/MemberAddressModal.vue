@@ -1,5 +1,5 @@
 <template>
-  <modal v-model="input" :title="item?$t('edit_address'):$t('create_address')" @ok="ok" width="800">
+  <modal v-model="input" :title="item?$t('edit_address'):$t('create_address')" @ok="ok" width="500">
     <CForm
       @submit="submit"
       ref="form"
@@ -59,7 +59,7 @@
         <div class="d-flex mb-20px">
           <div class="d-flex flex-grow-1 align-content-center">
             <CInput
-              :placeholder="$t('shipping_phone')"
+              :placeholder="$t('shipping_code')"
 
               class="flex-grow-1"
               :required="true"
@@ -72,7 +72,7 @@
         <div class="d-flex mb-20px">
           <div class="d-flex flex-grow-1 align-content-center">
             <CInput
-              :placeholder="$t('shipping_phone')"
+              :placeholder="$t('address')"
 
               class="flex-grow-1"
               :required="true"

@@ -13,7 +13,7 @@
         <input v-on="$listeners"
                :class="[has_error?'mb-0px':'',input_has_bg?'no-round-input-bg':'no-round-input']"
                :type="type"
-               v-model="input" required>
+               v-model="input" required="false">
         <label v-if="title">{{computed_title}}</label>
         <label v-else>{{ $attrs.placeholder }}</label>
         <span></span>

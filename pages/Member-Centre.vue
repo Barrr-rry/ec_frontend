@@ -260,42 +260,52 @@
                         <div
                           class="mb-20px d-flex justify-content-between align-items-center"
                         >
-                          <div>Region : Oversea</div>
+                          <div>{{$t('Region')}} : Oversea</div>
                         </div>
                         <div
                           class="mb-20px d-flex justify-content-between align-items-center"
                         >
-                          <div>Country : {{el.country}}</div>
+                          <div>{{$t('Country')}} : {{el.country}}</div>
                         </div>
                         <div
                           class="mb-20px d-flex justify-content-between align-items-center"
                         >
-                          <div>First name : {{el.first_name}}</div>
+                          <div>{{$t('First_name')}} : {{el.first_name}}</div>
                         </div>
                         <div
                           class="mb-20px d-flex justify-content-between align-items-center"
                         >
-                          <div>Last name : {{el.last_name}}</div>
+                          <div>{{$t('Last_name')}} : {{el.last_name}}</div>
                         </div>
                         <div
                           class="mb-20px d-flex justify-content-between align-items-center"
                         >
-                          <div>Address : {{el.shipping_address}}</div>
+                          <div>{{$t('address_label')}} : {{el.shipping_address}}</div>
                         </div>
                         <div
                           class="mb-20px d-flex justify-content-between align-items-center"
                         >
-                          <div>City : {{el.city}}</div>
+                          <div>{{$t('Apartment_Suite_Building')}} : {{el.building}}</div>
                         </div>
                         <div
                           class="mb-20px d-flex justify-content-between align-items-center"
                         >
-                          <div>Postal code : {{el.postal_code}}</div>
+                          <div>{{$t('Company_name')}} : {{el.company_name}}</div>
                         </div>
                         <div
                           class="mb-20px d-flex justify-content-between align-items-center"
                         >
-                          <div>Phone number : {{el.phone}}</div>
+                          <div>{{$t('City')}} : {{el.city}}</div>
+                        </div>
+                        <div
+                          class="mb-20px d-flex justify-content-between align-items-center"
+                        >
+                          <div>{{$t('Postal_code')}} : {{el.postal_code}}</div>
+                        </div>
+                        <div
+                          class="mb-20px d-flex justify-content-between align-items-center"
+                        >
+                          <div>{{$t('Phone_number')}} : {{el.phone}}</div>
                         </div>
 
                       </div>

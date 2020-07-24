@@ -48,40 +48,6 @@
                 class="mb-3"
               />
               <CInput
-                :placeholder="$t('phone')"
-                name="phone"
-                ref="phone"
-                :validators="[validatePhone]"
-                class="mb-3"
-              >
-                <div class="row">
-                  <div class="col-3">
-                    <input
-                      class="no-round-input"
-                      type="text"
-                      :placeholder="$t('phone_code')"
-                      v-model="phone.area"
-                    />
-                  </div>
-                  <div class="col-6 p0">
-                    <input
-                      class="no-round-input"
-                      type="text"
-                      :placeholder="$t('phone')"
-                      v-model="phone.local"
-                    />
-                  </div>
-                  <div class="col-3">
-                    <input
-                      class="no-round-input"
-                      type="text"
-                      :placeholder="$t('phone_a')"
-                      v-model="phone.ext"
-                    />
-                  </div>
-                </div>
-              </CInput>
-              <CInput
                 :placeholder="$t('input_line')"
                 name="line_id"
                 class="mb-3"
@@ -163,10 +129,7 @@
 
       },
       submit(val) {
-        let phone = val.phone
-        if (phone) {
-          val.phone = `${phone.area}-${phone.local}#${phone.ext}`
-        }
+        val.phone = `${val.area}-${val.local}#${val.ext}`
         this.loading = true
         this.$api.member.register(val).then(() => {
           this.$router.push('/register-success')
