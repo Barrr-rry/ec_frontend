@@ -203,7 +203,6 @@
                     :placeholder="$t('Apartment_Suite_Building')"
                     :required="false"
                     name="building"
-                    :input_has_bg="true"
                   />
                 </div>
                 <!--公司名字-->
@@ -212,7 +211,6 @@
                     :placeholder="$t('Company_name')"
                     :required="false"
                     name="company_name"
-                    :input_has_bg="true"
                   />
                 </div>
                 <!--城市/郵遞區號: City/Postal Code-->
