@@ -1433,9 +1433,13 @@ const custom_message = {
     en: 'Members can view their purchase records and reward points on their accounts.',
     tw: '註冊會員之後，您可使用會員專屬頁面，包含筆筆消費皆有回饋累積在您的帳戶！'
   },
-  register_terms_1_2: {
-    en: 'One point is rewarded for every NT$30 spent. Reward points can be redeemed for the next purchase (1 reward point = NT$ 1). ',
-    tw: '每 30 元（台幣） 消費即可累積 1 點回饋金點數，可在下次消費折抵。（ 1 點 = NT$ 1 ) '
+  register_terms_1_2_1: {
+    en: ' point is rewarded for every NT$30 spent. Reward points can be redeemed for the next purchase (1 reward point = NT$ 1). ',
+    tw: '每 100 元（台幣） 消費即可累積 '
+  },
+  register_terms_1_2_2: {
+    en: '',
+    tw: ' 點回饋金點數，可在下次消費折抵。（ 1 點 = NT$ 1 ) '
   },
   register_terms_1_3: {
     en: 'Sign up for free with just your e-mail and the password!',
