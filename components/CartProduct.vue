@@ -1,100 +1,102 @@
 <template>
-  <tr>
-    <td colspan="7" style="padding:0;">
-      <div style="position: relative;">
-        <div class="cart-product-tr-fill d-flex justify-content-center align-items-center"
-            v-if="!item.product.status">
-          <h2 class="fill-width text-align-center white-color">下架</h2>
+  <no-ssr>
+    <tr>
+      <td colspan="7" style="padding:0;">
+        <div style="position: relative;">
+          <div class="cart-product-tr-fill d-flex justify-content-center align-items-center"
+               v-if="!item.product.status">
+            <h2 class="fill-width text-align-center white-color">下架</h2>
+          </div>
+          <div class="cart-product-tr-fill d-flex justify-content-center align-items-center"
+               v-else-if="item.product.status && sold_out_status">
+            <h2 class="fill-width text-align-center white-color">SOLD OUT</h2>
+          </div>
+    <tr>
+      <td class="product-iamge min-w180">
+        <div class="img-wrapper">
+          <nuxt-link to="" class="img-wrapper" :to="`/products/${item.product.id}`">
+            <img
+              :src="imageLink(image(item.product.productimages))"
+              alt="product image"
+            />
+          </nuxt-link>
         </div>
-        <div class="cart-product-tr-fill d-flex justify-content-center align-items-center"
-            v-else-if="item.product.status && sold_out_status">
-          <h2 class="fill-width text-align-center white-color">SOLD OUT</h2>
+      </td>
+      <td class="product-name min-w210">
+        <div class="to-flex-col align-items-center">
+          <nuxt-link :to="`/products/${item.product.id}`" class="normal-a">{{item.product.name}}</nuxt-link>
         </div>
-        <tr>
-          <td class="product-iamge min-w180">
-            <div class="img-wrapper">
-              <nuxt-link to="" class="img-wrapper" :to="`/products/${item.product.id}`">
-                <img
-                  :src="imageLink(image(item.product.productimages))"
-                  alt="product image"
-                />
-              </nuxt-link>
-            </div>
-          </td>
-          <td class="product-name min-w210">
-            <div class="to-flex-col align-items-center">
-              <nuxt-link :to="`/products/${item.product.id}`" class="normal-a">{{item.product.name}}</nuxt-link>
-            </div>
-          </td>
-          <td class="product-name min-w210">
-            <div class="align-items-center justify-content-center d-flex pointer" @click="goCartModal">
-              <span>{{spec_level1_and_level2}}</span>
-              <svg class="bi bi-pencil ml-10px" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
-                  style="color: #B1B1B1"
-              >
-                <path fill-rule="evenodd"
-                      d="M11.293 1.293a1 1 0 0 1 1.414 0l2 2a1 1 0 0 1 0 1.414l-9 9a1 1 0 0 1-.39.242l-3 1a1 1 0 0 1-1.266-1.265l1-3a1 1 0 0 1 .242-.391l9-9zM12 2l2 2-9 9-3 1 1-3 9-9z"/>
-                <path fill-rule="evenodd"
-                      d="M12.146 6.354l-2.5-2.5.708-.708 2.5 2.5-.707.708zM3 10v.5a.5.5 0 0 0 .5.5H4v.5a.5.5 0 0 0 .5.5H5v.5a.5.5 0 0 0 .5.5H6v-1.5a.5.5 0 0 0-.5-.5H5v-.5a.5.5 0 0 0-.5-.5H3z"/>
-              </svg>
-              <!--現在說公版不要有weight 怕之後又要有先註解就好-->
-              <!--        <span class="pl-5px"-->
-              <!--              v-if="configsetting.weight"-->
-              <!--        >{{item.specification_detail.weight}} {{$t('kg')}}</span>-->
-            </div>
-          </td>
-          <td class="product-price min-w150"
-              v-if="$store.state.currency==='tw'"
+      </td>
+      <td class="product-name min-w210">
+        <div class="align-items-center justify-content-center d-flex pointer" @click="goCartModal">
+          <span>{{spec_level1_and_level2}}</span>
+          <svg class="bi bi-pencil ml-10px" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+               xmlns="http://www.w3.org/2000/svg"
+               style="color: #B1B1B1"
           >
-            <span class="price">${{item.specification_detail.price|commaFormat}}</span>
-            <div class="sale-msg red-color" v-if="cart_status===2">未符合折扣</div>
-            <div class="sale-msg gray-text" v-if="cart_status===3">已享受折扣</div>
-            <div class="activity" v-if="item.product &&item.product.activity">
-              <div class="activity-box">{{item.product.activity_detail.ch_name}}
-              </div>
-            </div>
-          </td>
-          <td class="product-price min-w150"
-              v-else
-          >${{currencyChange(item.specification_detail.price)|commaFormat}}
-            (NT${{item.specification_detail.price|commaFormat}})
-          </td>
-          <td class="product-quantity min-w150">
-            <div class="row align-items-center">
-              <div class="col-12 mb-10px">
-                <counter v-model="quantity"
-                        :class="[stock_display_text==='缺貨'?'red-color':'']"
-                        :max="max_quantity"
-                ></counter>
-              </div>
-              <div class="col-12 d-flex justify-content-start" style="margin-left: 12px; font-size:14px;"
-                  :class="[stock_display_text==='缺貨'?'red-color':'gray-text2']"
-              >
-                {{stock_display_text}}
-              </div>
-            </div>
-          </td>
-          <td class="product-total min-w150"
-              v-if="$store.state.currency==='tw'"
-          >${{currencyChange(item.specification_detail.price*quantity)|commaFormat}}
-          </td>
-          <td class="product-total"
-              v-else
-          >${{currencyChange(item.specification_detail.price*quantity)|commaFormat}}
-            (NT${{item.specification_detail.price*quantity|commaFormat}})
-          </td>
-          <td class="product-clear">
-            <button class="no-round-btn" @click="cartRemove(item.id)"
-                    style="z-index: 20;position: relative"
-            >
-              <i class="icon_close"></i>
-            </button>
-          </td>
-        </tr>
-      </div>
+            <path fill-rule="evenodd"
+                  d="M11.293 1.293a1 1 0 0 1 1.414 0l2 2a1 1 0 0 1 0 1.414l-9 9a1 1 0 0 1-.39.242l-3 1a1 1 0 0 1-1.266-1.265l1-3a1 1 0 0 1 .242-.391l9-9zM12 2l2 2-9 9-3 1 1-3 9-9z"/>
+            <path fill-rule="evenodd"
+                  d="M12.146 6.354l-2.5-2.5.708-.708 2.5 2.5-.707.708zM3 10v.5a.5.5 0 0 0 .5.5H4v.5a.5.5 0 0 0 .5.5H5v.5a.5.5 0 0 0 .5.5H6v-1.5a.5.5 0 0 0-.5-.5H5v-.5a.5.5 0 0 0-.5-.5H3z"/>
+          </svg>
+          <!--現在說公版不要有weight 怕之後又要有先註解就好-->
+          <!--        <span class="pl-5px"-->
+          <!--              v-if="configsetting.weight"-->
+          <!--        >{{item.specification_detail.weight}} {{$t('kg')}}</span>-->
+        </div>
+      </td>
+      <td class="product-price min-w150"
+          v-if="$store.state.currency==='tw'"
+      >
+        <span class="price">${{item.specification_detail.price|commaFormat}}</span>
+        <div class="sale-msg red-color" v-if="cart_status===2">未符合折扣</div>
+        <div class="sale-msg gray-text" v-if="cart_status===3">已享受折扣</div>
+        <div class="activity" v-if="item.product &&item.product.activity">
+          <div class="activity-box">{{item.product.activity_detail.ch_name}}
+          </div>
+        </div>
+      </td>
+      <td class="product-price min-w150"
+          v-else
+      >${{currencyChange(item.specification_detail.price)|commaFormat}}
+        (NT${{item.specification_detail.price|commaFormat}})
+      </td>
+      <td class="product-quantity min-w150">
+        <div class="row align-items-center">
+          <div class="col-12 mb-10px">
+            <counter v-model="quantity"
+                     :class="[stock_display_text==='缺貨'?'red-color':'']"
+                     :max="max_quantity"
+            ></counter>
+          </div>
+          <div class="col-12 d-flex justify-content-start" style="margin-left: 12px; font-size:14px;"
+               :class="[stock_display_text==='缺貨'?'red-color':'gray-text2']"
+          >
+            {{stock_display_text}}
+          </div>
+        </div>
+      </td>
+      <td class="product-total min-w150"
+          v-if="$store.state.currency==='tw'"
+      >${{currencyChange(item.specification_detail.price*quantity)|commaFormat}}
+      </td>
+      <td class="product-total"
+          v-else
+      >${{currencyChange(item.specification_detail.price*quantity)|commaFormat}}
+        (NT${{item.specification_detail.price*quantity|commaFormat}})
+      </td>
+      <td class="product-clear">
+        <button class="no-round-btn" @click="cartRemove(item.id)"
+                style="z-index: 20;position: relative"
+        >
+          <i class="icon_close"></i>
+        </button>
+      </td>
+    </tr>
+    </div>
     </td>
-  </tr>
+    </tr>
+  </no-ssr>
 </template>
 
 <script>
