@@ -1425,6 +1425,10 @@ const custom_message = {
     en: '未翻譯',
     tw: '註冊'
   },
+  register_checkout: {
+    en: '未翻譯',
+    tw: '註冊並結帳'
+  },
   register_terms: {
     en: '未翻譯',
     tw: '會員條款'

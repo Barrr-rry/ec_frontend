@@ -353,7 +353,7 @@
             </div>
             <div class="shop-box--btn" style="text-align: center;">
               <nuxt-link to="/register">
-                <button class="no-round-btn" style="min-width: 200px;">{{$t('register')}}</button>
+                <button class="no-round-btn" style="min-width: 200px;">{{$t('register_checkout')}}</button>
               </nuxt-link>
             </div>
           </div>
