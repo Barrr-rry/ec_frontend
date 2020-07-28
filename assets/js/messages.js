@@ -997,6 +997,18 @@ const custom_message = {
     en: '未翻譯',
     tw: '此張優惠券名額已滿'
   },
+  to: {
+    en: '未翻譯',
+    tw: '於'
+  },
+  use_coupon_code: {
+    en: '未翻譯',
+    tw: '本次使用折價券'
+  },
+  overr: {
+    en: '未翻譯',
+    tw: '過期'
+  },
   used_reward: {
     en: '未翻譯',
     tw: '忠誠獎勵折抵'
