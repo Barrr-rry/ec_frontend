@@ -312,6 +312,7 @@
       return {
         filter,
         current,
+        in_grid: true,
       }
     },
     asyncData(ctx) {
@@ -374,6 +375,7 @@
         } else {
           $('.shop-products_bottom .product').removeClass('grid-view zoomIn').addClass('list-view animated fadeInUp')
           $('.shop-products_bottom--fullwidth .product').removeClass('grid-view zoomIn').addClass('full-list-view animated fadeInUp')
+          $('.no-gutters-sm .col-6.col-md-4').removeClass('col-6 col-md-4').addClass('col-12')
         }
         // for no product layout
         if (!this.products.length) {
