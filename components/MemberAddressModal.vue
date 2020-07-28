@@ -179,7 +179,6 @@
                 :required="true"
                 :placeholder="$t('City')"
                 name="city"
-                :validators="[recieveName]"
               />
             </div>
             <div class="col-6 d-flex">
@@ -187,7 +186,6 @@
                 :required="true"
                 :placeholder="$t('Postal_code')"
                 name="postal_code"
-                :validators="[recieveName]"
               />
             </div>
           </div>
