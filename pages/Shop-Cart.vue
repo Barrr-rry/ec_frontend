@@ -290,57 +290,70 @@
     </div>
 
     <!-- 會員未登入顯示的區塊 -->
-    <div class="shop-bottombox" v-if="!has_token">
+    <div class="shop-bottombox mt-5" v-if="!has_token">
       <div class="container">
         <div class="shop-boxes">
           <div class="shop-box">
             <div class="shop-main">
-              <h3 class="shop-box--title">會員登入</h3>
+              <h3 class="shop-box--title">{{$t('member')}}{{$t('login')}}</h3>
               <div class="shop-box--form">
-                <div class="shop-box--form-row">
-                  <label for="" class="title">帳號（ Email ）*</label>
-                  <input type="text" placeholder="請輸入您的電子郵件"
-                         v-model="account"
-                  >
-                </div>
-                <div class="shop-box--form-row">
-                  <label for="" class="title">密碼*</label>
-                  <input type="password" placeholder="請輸入 6 ~ 12 個字的密碼（ 需包含數字與英文 ）"
-                         v-model="password"
-                  >
-                </div>
-                <div class="shop-box--form-row">
-                  <div class="row">
-                    <div class="col-12 col-md-6">
-                      <label for="keep-infor" class="label-checbox">
-                        <input type="checkbox" name="" id="keep-infor" v-model="savepass">
-                        <i class="checkbox-icon"></i>
-                        <span>記住帳號密碼</span>
-                      </label>
-                    </div>
-                    <div class="col-12 col-md-6" style="text-align: right">
-                      <nuxt-link to="/forgotpassword" class="forgot-password">忘記密碼</nuxt-link>
+                <CForm
+                  @submit="submit"
+                  ref="form"
+                >
+                  <CInput
+                    :title="$t('acc_e')"
+                    :required="true"
+                    :placeholder="$t('input_email')"
+                    name="account"
+                    v-model="account"
+                    class="mb-20px"
+                  />
+                  <CInput
+                    :title="$t('password')"
+                    :required="true"
+                    type="password"
+                    :placeholder="$t('new_pass')"
+                    name="password"
+                    v-model="password"
+                    class="mb-20px"
+                  />
+                  <div class="shop-box--form-row">
+                    <div class="row">
+                      <div class="col-12 col-md-6">
+                        <label for="keep-infor" class="label-checbox">
+                          <input type="checkbox" name="" id="keep-infor" v-model="savepass">
+                          <i class="checkbox-icon"></i>
+                          <span>{{$t('keep_login')}}</span>
+                        </label>
+                      </div>
+                      <div class="col-12 col-md-6" style="text-align: right">
+                        <nuxt-link to="/forgotpassword" class="forgot-password">{{$t('forget_password')}}</nuxt-link>
+                      </div>
                     </div>
                   </div>
-                </div>
+                  <div class="account-function">
+                    <button class="no-round-btn">{{$t('login')}}
+                    </button
+                    >
+                  </div>
+                </CForm>
+
               </div>
-            </div>
-            <div class="shop-box--btn" style="text-align: center;">
-              <button class="no-round-btn" style="min-width: 200px;" @click="submit">登入</button>
             </div>
           </div>
           <div class="shop-box">
             <div class="shop-main">
-              <h3 class="shop-box--title">註冊會員</h3>
+              <h3 class="shop-box--title">{{$t('register')}}{{$t('member')}}</h3>
               <div class="shop-box--msg">
-                <p>註冊會員之後，您可使用會員專屬頁面，包含筆筆消費皆有回饋累積在您的帳戶！</p>
-                <p>每 30 元（台幣） 消費即可累積 1 點回饋金點數，可在下次消費折抵。（ 1 點 = NT$ 1 )</p>
-                <p style="color: #dc5555;">您只需要使用 E-mail 和密碼即可免費註冊！</p>
+                <p>{{$t('register_terms_1_1')}}</p>
+                <p>{{$t('register_terms_1_2_1')}}{{reward_2.discount}}{{$t('register_terms_1_2_2')}}</p>
+                <p style="color: #dc5555;">{{$t('register_terms_1_3')}}</p>
               </div>
             </div>
             <div class="shop-box--btn" style="text-align: center;">
               <nuxt-link to="/register">
-                <button class="no-round-btn" style="min-width: 200px;">註冊並結帳</button>
+                <button class="no-round-btn" style="min-width: 200px;">{{$t('register_checkout')}}</button>
               </nuxt-link>
             </div>
           </div>
@@ -362,6 +375,8 @@
   import CartSpecificationModal from "@/components/CartSpecificationModal"
   import {createVm} from "@/assets/js/cartVm"
   import {couponMixin, RewardMixin} from "@/mixins/shopCartMixin"
+  import CInput from "@/components/CInput"
+  import CForm from "@/components/CForm"
 
 
   export default {
@@ -370,7 +385,9 @@
     components: {
       CartProduct,
       ValidateModal,
-      CartSpecificationModal
+      CartSpecificationModal,
+      CInput,
+      CForm,
     },
     fetch(ctx) {
       let $cookies = ctx.app.$cookies
@@ -378,7 +395,8 @@
         ctx.store.dispatch('cart/getList', {cart: JSON.stringify($cookies.get('cart'))}),
         ctx.store.dispatch('rewardrecord/getList'),
         ctx.store.dispatch('freeshipping/getList'),
-        ctx.store.dispatch('member/info')
+        ctx.store.dispatch('member/info'),
+        ctx.store.dispatch('reward/getList')
       ])
     },
     data() {
@@ -420,6 +438,9 @@
       }),
       ...mapState('member', {
         info: state => state.item
+      }),
+      ...mapState('reward', {
+        reward_2: (state) => state.items
       }),
     },
     watch: {},

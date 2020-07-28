@@ -1,49 +1,69 @@
 <template>
-  <div>
-    <breadcrumb :end="$t('login')"></breadcrumb>
-    <!-- End breadcrumb-->
-    <div class="account">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 col-md-6 mx-auto">
-            <h1 class="title">{{$t('member')}}{{$t('login')}}</h1>
-            <CForm
-              @submit="submit"
-              ref="form"
-            >
-              <CInput
-                :title="$t('acc_e')"
-                :required="true"
-                :placeholder="$t('input_email')"
-                name="account"
-                v-model="account"
-                class="mb-20px"
-              />
-              <CInput
-                :title="$t('password')"
-                :required="true"
-                type="password"
-                :placeholder="$t('new_pass')"
-                name="password"
-                v-model="password"
-                class="mb-20px"
-              />
-              <div class="account-method">
-                <div class="account-save input-radio-display">
-                  <input id="savepass" type="checkbox" v-model="savepass"/>
-                  <label for="savepass">{{$t('keep_login')}}</label>
+  <div class="shop-bottombox mt-5">
+    <div class="container">
+      <div class="shop-boxes">
+        <div class="shop-box">
+          <div class="shop-main">
+            <h3 class="shop-box--title">{{$t('member')}}{{$t('login')}}</h3>
+            <div class="shop-box--form">
+              <CForm
+                @submit="submit"
+                ref="form"
+              >
+                <CInput
+                  :title="$t('acc_e')"
+                  :required="true"
+                  :placeholder="$t('input_email')"
+                  name="account"
+                  v-model="account"
+                  class="mb-20px"
+                />
+                <CInput
+                  :title="$t('password')"
+                  :required="true"
+                  type="password"
+                  :placeholder="$t('new_pass')"
+                  name="password"
+                  v-model="password"
+                  class="mb-20px"
+                />
+                <div class="shop-box--form-row">
+                  <div class="row">
+                    <div class="col-12 col-md-6">
+                      <label for="keep-infor" class="label-checbox">
+                        <input type="checkbox" name="" id="keep-infor" v-model="savepass">
+                        <i class="checkbox-icon"></i>
+                        <span>{{$t('keep_login')}}</span>
+                      </label>
+                    </div>
+                    <div class="col-12 col-md-6" style="text-align: right">
+                      <nuxt-link to="/forgotpassword" class="forgot-password">{{$t('forget_password')}}</nuxt-link>
+                    </div>
+                  </div>
                 </div>
-                <div class="account-forgot">
-                  <nuxt-link to="/forgotpassword">{{$t('forget_password')}}</nuxt-link>
+                <div class="account-function">
+                  <button class="no-round-btn">{{$t('login')}}
+                  </button
+                  >
                 </div>
-              </div>
-              <div class="account-function">
-                <button class="no-round-btn">{{$t('login')}}
-                </button
-                >
-                <nuxt-link class="create-account" to="/register">{{$t('to_register')}}</nuxt-link>
-              </div>
-            </CForm>
+              </CForm>
+
+            </div>
+          </div>
+        </div>
+        <div class="shop-box">
+          <div class="shop-main">
+            <h3 class="shop-box--title">{{$t('register')}}{{$t('member')}}</h3>
+            <div class="shop-box--msg">
+              <p>{{$t('register_terms_1_1')}}</p>
+              <p>{{$t('register_terms_1_2_1')}}{{reward.discount}}{{$t('register_terms_1_2_2')}}</p>
+              <p style="color: #dc5555;">{{$t('register_terms_1_3')}}</p>
+            </div>
+          </div>
+          <div class="shop-box--btn" style="text-align: center;">
+            <nuxt-link to="/register">
+              <button class="no-round-btn" style="min-width: 200px;">{{$t('register')}}</button>
+            </nuxt-link>
           </div>
         </div>
       </div>
@@ -58,6 +78,7 @@
   import validator from "@/mixins/validator"
   import mixinDefaultInit from "@/mixins/mixinDefaultInit"
   import {getCookieCart} from "@/assets/js/localCart"
+  import {mapState} from "vuex";
 
   export default {
     name: 'Login',
@@ -67,7 +88,12 @@
       CForm,
     },
     fetch(ctx) {
-      return fetchReturn(ctx, [ctx.store.dispatch('banner/getList')])
+      return fetchReturn(ctx, [ctx.store.dispatch('banner/getList'), ctx.store.dispatch('reward/getList')])
+    },
+    computed: {
+      ...mapState('reward', {
+        reward: (state) => state.items
+      }),
     },
     data() {
       return {
@@ -123,6 +149,7 @@
       },
       async submit(val) {
         try {
+          debugger
           let res = await this.$api.member.login(val)
           this.setLoginVariable(res.data.token)
           await this.addTOCart()
