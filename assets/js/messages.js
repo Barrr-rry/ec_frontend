@@ -1959,16 +1959,16 @@ const custom_message = {
     tw: '配送與換貨說明'
   },
   len: {
-    en: 'Height',
-    tw: '身高'
+    en: 'Height( Optional )',
+    tw: '身高（選填）'
   },
   wei: {
-    en: 'Weight',
-    tw: '體重'
+    en: 'Weight( Optional )',
+    tw: '體重（選填）'
   },
   bir: {
-    en: 'Birthday',
-    tw: '生日'
+    en: 'Birthday( Optional )',
+    tw: '生日（選填）'
   },
   mr: {
     en: 'Mr.',
@@ -2021,6 +2021,10 @@ const custom_message = {
   to_c: {
     en: '未翻譯',
     tw: '運送國籍'
+  },
+  Region: {
+    en: 'Region',
+    tw: '地區'
   },
 
 }

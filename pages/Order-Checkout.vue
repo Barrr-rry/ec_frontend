@@ -295,7 +295,6 @@
                     type="date"
                     :placeholder="$t('bir')"
                     :typeable="true"
-                    required
                   ></datepicker>
                 </div>
                 <!--儲存常用地址-->
@@ -446,7 +445,6 @@
                     type="date"
                     :placeholder="$t('bir')"
                     :typeable="true"
-                    required
                   ></datepicker>
                 </div>
               </div>
