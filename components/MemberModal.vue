@@ -161,7 +161,7 @@
           phone = `${this.local}#${this.ext}`
         }
         else {
-          phone =''
+          phone = `${this.local}`
         }
         data.phone = phone
         this.$api.member.self_update(data).then((res) => {

@@ -157,7 +157,19 @@
 
       },
       submit(val) {
-        val.phone = `${val.area}-${val.local}#${val.ext}`
+        val.phone = ''
+        if(val.local && val.area && val.ext){
+          val.phone = `${val.area}-${val.local}#${val.ext}`
+        }
+        else if(val.local && val.area){
+          val.phone = `${val.area}-${val.local}`
+        }
+        else if(val.ext && val.local){
+          val.phone = `${val.local}#${val.ext}`
+        }
+        else {
+          val.phone = `${val.local}`
+        }
         this.loading = true
         this.$api.member.register(val).then(() => {
           this.$router.push('/register-success')
