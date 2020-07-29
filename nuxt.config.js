@@ -93,6 +93,7 @@ export default {
     script: [
       // todo cehck 外部 js
       // todo check i18n
+      {src: '/js/checkBrowser.js'},
       {
         src: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'
       },
