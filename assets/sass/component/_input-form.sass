@@ -86,8 +86,11 @@
                 @extend %label-movement
         
         
-        &:valid ~ label
+        &:required:valid ~ label
             @extend %label-movement
+        &:not(:required):not(:placeholder-shown) ~ label
+            @extend %label-movement
+
     
 
     input
