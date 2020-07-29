@@ -1959,16 +1959,16 @@ const custom_message = {
     tw: '配送與換貨說明'
   },
   len: {
-    en: 'Height( Optional )',
-    tw: '身高（選填）'
+    en: 'Height*',
+    tw: '身高*'
   },
   wei: {
-    en: 'Weight( Optional )',
-    tw: '體重（選填）'
+    en: 'Weight*',
+    tw: '體重*'
   },
   bir: {
-    en: 'Birthday( Optional )',
-    tw: '生日（選填）'
+    en: 'Birthday*',
+    tw: '生日*'
   },
   mr: {
     en: 'Mr.',

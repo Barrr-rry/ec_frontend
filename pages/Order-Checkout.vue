@@ -270,7 +270,7 @@
                     <div class="col-6">
                       <CInput
                         :placeholder="$t('len')"
-                        :required="false"
+                        :required="true"
                         name="height"
                         :input_has_bg="true"
                         suffix="cm"
@@ -279,7 +279,7 @@
                     <div class="col-6">
                       <CInput
                         :placeholder="$t('wei')"
-                        :required="false"
+                        :required="true"
                         name="weight"
                         :input_has_bg="true"
                         suffix="kg"
@@ -295,6 +295,7 @@
                     type="date"
                     :placeholder="$t('bir')"
                     :typeable="true"
+                    :required="true"
                   ></datepicker>
                 </div>
                 <!--儲存常用地址-->
@@ -420,7 +421,7 @@
                     <div class="col-6">
                       <CInput
                         :placeholder="$t('len')"
-                        :required="false"
+                        :required="true"
                         name="height"
                         :input_has_bg="true"
                         suffix="cm"
@@ -430,7 +431,7 @@
                     <div class="col-6">
                       <CInput
                         :placeholder="$t('wei')"
-                        :required="false"
+                        :required="true"
                         name="weight"
                         :input_has_bg="true"
                         suffix="kg"
@@ -445,6 +446,7 @@
                     type="date"
                     :placeholder="$t('bir')"
                     :typeable="true"
+                    :required="true"
                   ></datepicker>
                 </div>
               </div>
