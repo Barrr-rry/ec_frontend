@@ -43,7 +43,7 @@
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <div class="product-table mb-40px">
+            <div class="product-table">
               <table class="table table-responsive">
                 <colgroup>
                   <col span="1" style="width: 15%"/>
@@ -55,27 +55,31 @@
                 </colgroup>
                 <thead>
                 <tr>
-                  <th class="product-iamge min-180" scope="col">{{$t('product_iamge')}}</th>
+                  <th></th>
+                  <th class="product-iamge" scope="col">{{$t('product_iamge')}}</th>
                   <th
-                    class="product-name min-w210"
+                    class="product-name"
                     scope="col"
+                    style="min-width: 150px;"
                   >
                     {{$t('name_specification')}}
                   </th>
                   <th
-                    class="product-name min-w210"
+                    class="product-name"
                     scope="col"
+                    style="min-width: 150px;"
                   >
-                    {{$t('size')}}
+                    {{$t('specification')}}
                   </th>
-                  <th class="product-price min-w150" scope="col">{{$t('price')}}</th>
+                  <th class="product-price" scope="col">{{$t('price')}}</th>
                   <th
-                    class="product-quantity min-w150"
+                    class="product-quantity"
                     scope="col"
+                    style="min-width: 250px"
                   >
                     {{$t('count')}}
                   </th>
-                  <th class="product-total min-w150" scope="col">{{$t('little_total')}}</th>
+                  <th class="product-total" scope="col">{{$t('little_total')}}</th>
                   <th class="product-clear" scope="col"></th>
                 </tr>
                 </thead>
@@ -97,38 +101,36 @@
               <input
                 class="no-round-input coupon-input"
                 type="text"
-                :placeholder="$t('use_coupon_code')"
+                :placeholder="$t('coupon_code')"
                 v-model="coupon"
-                style="width: 312px"
+                style="width: 200px"
               />
-              <button class="no-round-btn" @click="changeCoupon" style="width: 230px">{{$t('use_coupon')}}</button>
+              <button class="no-round-btn" @click="changeCoupon">{{$t('use_coupon')}}</button>
             </div>
-            <div class="primary-color coupon-msg-sm mt-10px">{{this.coupon_message}}</div>
+            <div style="color: red">{{this.coupon_message}}</div>
             <div class="coupon mt-20px">
               <input
                 class="no-round-input coupon-input"
                 type="number"
                 :placeholder="$t('used_coupon')"
                 v-model="reward_discount_temp"
-                style="width: 312px"
+                style="width: 200px"
                 :disabled="!info_reward_total"
               />
-              <button class="no-round-btn" style="width: 230px"
+              <button class="no-round-btn"
                       @click="useReward"
                       :disabled="reward_discount_temp>info.rewards || !info_reward_total">{{$t('use_reward')}}
               </button>
               <div style="color: red" v-if="info.rewards<reward_discount_temp">{{$t('use_reward_now')}}</div>
             </div>
-            <div class="red-color coupon-msg-sm mt-10px"
+            <div class="coupon-msg"
                  v-if="$store.state.currency==='tw'"
-                 v-show="info_reward_total>0"
+                 v-show="info.member_number"
             >
               {{$t('have_now')}} <span class="primary-color">{{info_reward_total}}</span>
               {{$t('point_reward')}}
-              <a v-if="info.reward&&info.reward[0]">
-                {{$t('to')}}{{info.reward[0].end_date}}{{$t('overr')}}
-              </a>
             </div>
+
             <div class="coupon-msg"
                  v-else
                  v-show="info.member_number"
@@ -142,46 +144,44 @@
         <div class="row justify-content-end">
           <div class="col-12 col-md-6 col-lg-4">
             <div class="cart-total_block">
-              <h2 class="mb-20px">{{$t('price_detail')}}</h2>
-              <table class="table mb-20px">
+              <h2>{{$t('price_detail')}}</h2>
+              <table class="table">
                 <colgroup>
                   <col span="1" style="width: 50%"/>
                   <col span="1" style="width: 50%"/>
                 </colgroup>
                 <tbody>
                 <tr>
+                  <th>{{$t('total_weight')}}</th>
+                  <td>{{cartVm.weight}} kg</td>
+                </tr>
+                <tr>
                   <th>{{$t('order_total')}}</th>
-                  <td style="text-align: right"
-                      v-if="$store.state.currency==='tw'"
+                  <td
+                    v-if="$store.state.currency==='tw'"
                   >${{cartVm.product_total|commaFormat}}
                   </td>
-                  <td style="text-align: right"
-                      v-else
+                  <td
+                    v-else
                   >${{currencyChange(cartVm.product_total)|commaFormat}} (NT${{cartVm.product_total|commaFormat}})
                   </td>
                 </tr>
                 <!--活動折抵-->
                 <tr v-for="el in cartVm.in_activity_obj" :key="el.activity_id">
-                  <td colspan="2">
-                    <div class="mb-20px"><span style="color: #0b1d37;">組合優惠折抵</span></div>
-                    <div class="d-flex align-items-center">
-                      <div style="flex: 50%"><p>{{el.activity_detail.ch_name}}</p></div>
-                      <div style="flex: 50%; text-align: right">
-                        <p class="primary-color"
-                           v-if="$store.state.currency==='tw'"
-                        >-${{cartVm.activitySave(el)|commaFormat}}</p>
-                        <p class="primary-color"
-                           v-else
-                        >-${{currencyChange(cartVm.activitySave(el))|commaFormat}}
-                          (-$NT{{cartVm.activitySave(el)|commaFormat}})</p>
-                      </div>
-                    </div>
+                  <th>{{el.activity_detail.ch_name}}</th>
+                  <td>
+                    <p class="primary-color"
+                       v-if="$store.state.currency==='tw'"
+                    >-${{cartVm.activitySave(el)|commaFormat}}</p>
+                    <p class="primary-color"
+                       v-else
+                    >-${{currencyChange(cartVm.activitySave(el))|commaFormat}} (-$NT{{cartVm.activitySave(el)|commaFormat}})</p>
                   </td>
                 </tr>
 
                 <tr v-if="coupon_instance&&coupon_instance.status&&coupon_instance.role<=cartVm.product_total">
                   <th>{{$t('coupon_used')}}</th>
-                  <td style="text-align: right">
+                  <td>
                     <p class="primary-color"
                        v-if="$store.state.currency==='tw'"
                     >-${{coupon_discount|commaFormat}}</p>
@@ -192,7 +192,7 @@
                 </tr>
                 <tr v-if="reward_discount">
                   <th>{{$t('reward_used')}}</th>
-                  <td style="text-align: right">
+                  <td>
                     <p class="primary-color"
                        v-if="$store.state.currency==='tw'"
                     >-${{reward_discount|commaFormat}}</p>
@@ -203,12 +203,12 @@
                 </tr>
                 <tr>
                   <th>{{$t('total')}}</th>
-                  <td style="text-align: right"
-                      v-if="$store.state.currency==='tw'"
+                  <td
+                    v-if="$store.state.currency==='tw'"
                   >${{cartVm.total_count|commaFormat}}
                   </td>
-                  <td style="text-align: right"
-                      v-else
+                  <td
+                    v-else
                   >${{currencyChange(cartVm.total_count) |commaFormat}} ($NT{{cartVm.total_count|commaFormat}})
                   </td>
                 </tr>
@@ -216,12 +216,15 @@
               </table>
               <div class="checkout-method">
                 <button
-                  class="no-round-btn"
+                  class="normal-btn"
                   @click="checkOrder"
                 >
-                  {{$t('next')}}
+                  {{$t('next_write')}}
                 </button>
                 <div style="color: red">{{weight_message}}</div>
+              </div>
+              <div class="text-align-center mt-30px">
+                {{$t('pay_get')}} <span class="primary-color">{{reward}}</span> {{$t('point_reward')}}
               </div>
             </div>
           </div>
@@ -288,85 +291,8 @@
         </div>
       </div>
     </div>
-
-    <!-- 會員未登入顯示的區塊 -->
-    <div class="shop-bottombox mt-5" v-if="!has_token">
-      <div class="container">
-        <div class="shop-boxes">
-          <div class="shop-box">
-            <div class="shop-main">
-              <h3 class="shop-box--title">{{$t('member')}}{{$t('login')}}</h3>
-              <div class="shop-box--form">
-                <CForm
-                  @submit="submit"
-                  ref="form"
-                >
-                  <CInput
-                    :title="$t('acc_e')"
-                    :required="true"
-                    :placeholder="$t('input_email')"
-                    name="account"
-                    v-model="account"
-                    class="mb-20px"
-                  />
-                  <CInput
-                    :title="$t('password')"
-                    :required="true"
-                    type="password"
-                    :placeholder="$t('new_pass')"
-                    name="password"
-                    v-model="password"
-                    class="mb-20px"
-                  />
-                  <div class="shop-box--form-row">
-                    <div class="row">
-                      <div class="col-12 col-md-6">
-                        <label for="keep-infor" class="label-checbox">
-                          <input type="checkbox" name="" id="keep-infor" v-model="savepass">
-                          <i class="checkbox-icon"></i>
-                          <span>{{$t('keep_login')}}</span>
-                        </label>
-                      </div>
-                      <div class="col-12 col-md-6" style="text-align: right">
-                        <nuxt-link to="/forgotpassword" class="forgot-password">{{$t('forget_password')}}</nuxt-link>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="account-function">
-                    <button class="no-round-btn">{{$t('login')}}
-                    </button
-                    >
-                  </div>
-                </CForm>
-
-              </div>
-            </div>
-          </div>
-          <div class="shop-box">
-            <div class="shop-main">
-              <h3 class="shop-box--title">{{$t('register')}}{{$t('member')}}</h3>
-              <div class="shop-box--msg">
-                <p>{{$t('register_terms_1_1')}}</p>
-                <p>{{$t('register_terms_1_2_1')}}{{reward_2.discount}}{{$t('register_terms_1_2_2')}}</p>
-                <p style="color: #dc5555;">{{$t('register_terms_1_3')}}</p>
-              </div>
-            </div>
-            <div class="shop-box--btn" style="text-align: center;">
-              <nuxt-link to="/register">
-                <button class="no-round-btn" style="min-width: 200px;">{{$t('register_checkout')}}</button>
-              </nuxt-link>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <ValidateModal v-model="no_validate_modal"></ValidateModal>
     <CartSpecificationModal></CartSpecificationModal>
-
-
-
-
-
   </div>
 </template>
 
@@ -380,8 +306,6 @@
   import CartSpecificationModal from "@/components/CartSpecificationModal"
   import {createVm} from "@/assets/js/cartVm"
   import {couponMixin, RewardMixin} from "@/mixins/shopCartMixin"
-  import CInput from "@/components/CInput"
-  import CForm from "@/components/CForm"
 
 
   export default {
@@ -390,9 +314,7 @@
     components: {
       CartProduct,
       ValidateModal,
-      CartSpecificationModal,
-      CInput,
-      CForm,
+      CartSpecificationModal
     },
     fetch(ctx) {
       let $cookies = ctx.app.$cookies
@@ -400,19 +322,13 @@
         ctx.store.dispatch('cart/getList', {cart: JSON.stringify($cookies.get('cart'))}),
         ctx.store.dispatch('rewardrecord/getList'),
         ctx.store.dispatch('freeshipping/getList'),
-        ctx.store.dispatch('member/info'),
-        ctx.store.dispatch('reward/getList')
+        ctx.store.dispatch('member/info')
       ])
     },
     data() {
       let cartVm = createVm(this)
 
       return {
-        // login parameter
-        savepass: false,
-        account: null,
-        password: null,
-
         cartVm,
         cart: {},
         timout_instance: null,
@@ -444,9 +360,6 @@
       ...mapState('member', {
         info: state => state.item
       }),
-      ...mapState('reward', {
-        reward_2: (state) => state.items
-      }),
     },
     watch: {},
     methods: {
@@ -474,8 +387,13 @@
         return false
       },
       checkOrder() {
+        // 判斷如果缺貨就不做後面的事
+        if (this.any_out_of_stock()) {
+          this.$toast.warning('商品缺貨請確認')
+          return
+        }
         // 判斷如果下架就不做後面的事
-        if (this.any_off_product() || this.any_out_of_stock()) {
+        if (this.any_off_product()) {
           this.$toast.warning('您的購物車有下架商品，請點擊「X」按鈕，刪除後再進行購買！')
           return
         }
@@ -507,81 +425,8 @@
           this.apiRemove(id)
         }
       },
-
-      // login methods
-      loginSuccessProcess() {
-        if (/^http/.test(this.$store.state.previous_url)) {
-          this.$router.push('/')
-          return
-        }
-        let other_urls = ['register', 'forgotpassword', 'password', 'login']
-        for (let url_part of other_urls) {
-          if (this.$store.state.previous_url.includes(url_part)) {
-            this.$router.push('/')
-            return
-          }
-        }
-        this.$router.push(this.$store.state.previous_url)
-      },
-      setLoginVariable(token) {
-        // change cookie & store
-        this.$store.commit('setToken', token)
-        this.$store.commit('membertoken/changeValue', {key: 'has_token', value: true})
-        this.$cookies.set('savepass', this.savepass)
-        if (this.savepass) {
-          this.$cookies.set('account', this.account)
-          this.$cookies.set('password', this.password)
-        } else {
-          this.$cookies.set('account', null)
-          this.$cookies.set('password', null)
-        }
-      },
-      async addTOCart() {
-        /**
-         * 確認原本購物車有沒有資料 如果有的話就不要新增
-         * */
-        await this.$store.dispatch('cart/getCount')
-        if (this.$store.state.cart.count) {
-          return
-        }
-        let cart = getCookieCart()
-        let promist_list = []
-        for (let values of cart) {
-          promist_list.push(this.$api.cart.postData(values))
-        }
-        await Promise.all(promist_list)
-        this.$cookies.set('cart', [])
-
-      },
-      async submit() {
-        let val = {
-          account: this.account,
-          password: this.password
-        }
-        try {
-          let res = await this.$api.member.login(val)
-          this.setLoginVariable(res.data.token)
-          await this.addTOCart()
-          this.loginSuccessProcess()
-        } catch (e) {
-          this.$toast.error(this.$t('acc_error'))
-        }
-
-      }
     },
     created() {
-      let savepass = this.$cookies.get('savepass')
-      let account = this.$cookies.get('account')
-      let password = this.$cookies.get('password')
-      try {
-        savepass = JSON.parse(savepass)
-      } catch (e) {
-      }
-      if (savepass) {
-        this.savepass = savepass
-        this.account = account
-        this.password = password
-      }
     },
     mounted() {
     }
