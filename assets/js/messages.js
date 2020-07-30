@@ -1681,7 +1681,7 @@ const custom_message = {
     en: 'Region*',
     tw: '地區*'
   },
-  SOLD＿OUT: {
+  SOLD_OUT: {
     en: 'SOLD OUT',
     tw: '售 完'
   },

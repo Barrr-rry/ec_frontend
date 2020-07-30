@@ -84,7 +84,7 @@
         </button>
       </td>
       <h2 v-if="!item.product.status" class=" primary-color cart-product-tr-fill d-flex justify-content-center align-items-center">{{$t('aaaaa')}}</h2>
-      <h2 v-else-if="item.product.status && sold_out_status" class=" primary-color cart-product-tr-fill d-flex justify-content-center align-items-center">{{$t('SOLD＿OUT')}}</h2>
+      <h2 v-else-if="item.product.status && sold_out_status" class=" primary-color cart-product-tr-fill d-flex justify-content-center align-items-center">{{$t('SOLD_OUT')}}</h2>
     </tr>
   </no-ssr>
 </template>
