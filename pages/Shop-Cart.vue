@@ -43,7 +43,7 @@
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <div class="product-table">
+            <div class="product-table mb-40px">
               <table class="table table-responsive">
                 <colgroup>
                   <col span="1" style="width: 15%"/>
@@ -55,31 +55,27 @@
                 </colgroup>
                 <thead>
                 <tr>
-                  <th></th>
-                  <th class="product-iamge" scope="col">{{$t('product_iamge')}}</th>
+                  <th class="product-iamge min-180" scope="col">{{$t('product_iamge')}}</th>
                   <th
-                    class="product-name"
+                    class="product-name min-w210"
                     scope="col"
-                    style="min-width: 150px;"
                   >
                     {{$t('name_specification')}}
                   </th>
                   <th
-                    class="product-name"
+                    class="product-name min-w210"
                     scope="col"
-                    style="min-width: 150px;"
                   >
                     {{$t('specification')}}
                   </th>
-                  <th class="product-price" scope="col">{{$t('price')}}</th>
+                  <th class="product-price min-w150" scope="col">{{$t('price')}}</th>
                   <th
-                    class="product-quantity"
+                    class="product-quantity min-w150"
                     scope="col"
-                    style="min-width: 250px"
                   >
                     {{$t('count')}}
                   </th>
-                  <th class="product-total" scope="col">{{$t('little_total')}}</th>
+                  <th class="product-total min-w150" scope="col">{{$t('little_total')}}</th>
                   <th class="product-clear" scope="col"></th>
                 </tr>
                 </thead>
