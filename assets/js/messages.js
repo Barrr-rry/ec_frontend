@@ -2026,6 +2026,14 @@ const custom_message = {
     en: 'Region',
     tw: '地區'
   },
+  SOLD＿OUT: {
+    en: 'SOLD OUT',
+    tw: '售 完'
+  },
+  aaaaa: {
+    en: '未翻譯',
+    tw: '下 架'
+  },
 
 }
 for (const key in custom_message) {
