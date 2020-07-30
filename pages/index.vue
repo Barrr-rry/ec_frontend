@@ -55,13 +55,13 @@
       </div>
     </div>
     <!-- End slider-->
-    <div class="feature-products mt-40px-sm mt-40px-md mt-30px">
-      <div class="container">
+    <div class="feature-products mt-40px-sm mt-40px-md mt-30px shop-grid-list">
+      <div class="container shop-products">
         <div class="row">
           <div class="col-12">
             <div class="row">
               <div class="col-6 col-md-4 col-lg-3"
-                   v-for="product of data.new_products"
+                   v-for="product of products"
                    :key="product.id"
               >
                 <v-product
@@ -71,6 +71,11 @@
             </div>
           </div>
         </div>
+        <pagination
+          v-if="products.length"
+          v-model="current"
+          :total="page_count"
+        ></pagination>
       </div>
     </div>
   </div>
@@ -83,7 +88,12 @@
   import {mapState} from 'vuex'
   import mixinCategory from "@/mixins/mixinCategory"
   import mixinDefaultInit from "@/mixins/mixinDefaultInit"
+  import Pagination from "@/components/Pagination"
 
+  let filter_default = {
+    limit: 28,
+    offset: 0,
+  }
 
   export default {
     mixins: [mixinCategory, mixinDefaultInit],
@@ -91,26 +101,33 @@
     components: {
       Slider,
       VProduct,
-    },
-    async asyncData({app}) {
-      const {data} = await app.$api.product.index_page()
-      return {
-        data
-      }
+      Pagination,
     },
     fetch(ctx) {
-      return fetchReturn(ctx, [ctx.store.dispatch('banner/getList')])
+      return fetchReturn(ctx, [
+        ctx.store.dispatch('banner/getList'),
+        ctx.store.dispatch('product/getList', filter_default),
+      ])
     },
     data() {
       return {
         init_slideup: false,
         search_input: '',
+        current: 1,
+        product_filter: filter_default,
       }
     },
     computed: {
       ...mapState('tag', {
         tags: (state) => state.items
       }),
+      ...mapState('product', {
+        products: state => state.items.results,
+        page_info: state => state.items
+      }),
+      page_count() {
+        return Math.ceil(this.page_info.count / this.product_filter.limit)
+      },
       tab_keys() {
         let keys = []
 
@@ -152,13 +169,26 @@
         }
       })
     },
+    watch: {
+      current(val) {
+        let limit = this.product_filter.limit
+        let offset = (val - 1) * limit
+        this.product_filter.offset = offset
+        this.initData()
+
+      }
+    },
     methods: {
       search() {
         this.$router.push(`/products?k=${this.search_input.trim()}`)
       },
       nextSlick() {
         $('.slick-next').trigger('click')
-      }
+      },
+      initData() {
+        this.$store.dispatch('product/getList', this.product_filter).then(() => {
+        })
+      },
     },
     mounted() {
       setInterval(this.nextSlick, 3000)
