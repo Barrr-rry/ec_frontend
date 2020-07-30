@@ -2026,6 +2026,19 @@ const custom_message = {
     en: 'Off shelf',
     tw: '下 架'
   },
+  buy_give: {
+    en: 'Buy three get one free',
+    tw: '全館買三送一'
+  },
+  reward_dl: {
+    en: 'The reward points will be',
+    tw: '回饋點數將於'
+  },
+  dl: {
+    en: 'maturity',
+    tw: '到期'
+  },
+
 
 }
 for (const key in custom_message) {

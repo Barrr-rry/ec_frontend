@@ -74,11 +74,11 @@
                               <span class="point-group--block">
                                 {{myself.record_info.record.total_point}}
                               </span>
-                              點
+                              {{$t('point')}}
                             </div>
                           </div>
                         </div>
-                        <div class="col-12 col-md-6"><span v-if="myself.record_info.record.year" style="font-size:14px;">回饋點數將於 {{myself.record_info.record.year}} 年 {{myself.record_info.record.month}} 月 {{myself.record_info.record.day}} 日 到期</span></div>
+                        <div class="col-12 col-md-6"><span v-if="myself.record_info.record.year" style="font-size:14px;">{{$t('reward_dl')}} {{myself.record_info.record.year}} {{$t('year')}} {{myself.record_info.record.month}} {{$t('mounth')}} {{myself.record_info.record.day}} {{$t('day')}} {{$t('dl')}}</span></div>
                       </div>
                     </div>
                     <div class="mb-15px">
@@ -94,7 +94,7 @@
                             <div class="point-group--info">
                               <span class="point-group--block primary-color">
                                 {{myself.record_info.record_temp.total_point}}
-                              </span>點
+                              </span>{{$t('point')}}
                             </div>
                           </div>
                         </div>

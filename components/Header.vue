@@ -2,7 +2,7 @@
   <header v-if="computed_brands.length&&categories.length">
   <div id="mobile-menu">
       <div class="mobile-menu--msg">
-        All prices are in TWD. 全館買三送一
+        All prices are in TWD. {{$t('buy_give')}}
       </div>
       <div class="mobile-menu--tools">
       <div class="container">
@@ -155,7 +155,7 @@
             <div
               class="header-left d-flex flex-md-row align-items-center fill-height"
             >
-              All prices are in TWD. 全館買三送一
+              All prices are in TWD. {{$t('buy_give')}}
             </div>
           </div>
           <div class="col-12 col-md-7">
