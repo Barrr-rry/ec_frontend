@@ -1,5 +1,5 @@
 <template>
-  <div class="slider">
+  <div class="slider mt-0px">
     <div class="full-fluid">
       <div class="slider_wrapper">
         <div class="slider-block pointer"
