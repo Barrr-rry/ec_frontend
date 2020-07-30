@@ -240,7 +240,7 @@
                     :required="true"
                     name="phone"
                     :input_has_bg="true"
-                    :validators="[checkPhone]"
+                    :validators="[]"
                   />
                 </div>
                 <!--儲存常用地址-->
@@ -672,6 +672,7 @@
         if (val === 2) {
           this.pay_type = 0
         }
+        this.freeshipping_id = this.in_weight_and_location_freeshippings[0].id
       },
       delivery_ok(val) {
         if (!val && this.pay_type === 1) {

@@ -200,7 +200,6 @@
               name="phone"
               :placeholder="$t('Phone_number')"
               error_class=""
-              :validators="[checkPhone]"
             />
           </div>
         </div>
