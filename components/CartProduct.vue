@@ -2,11 +2,11 @@
   <tr style="transform: scale(1)">
     <td class="cart-product-tr-fill d-flex justify-content-center align-items-center"
         v-if="!item.product.status">
-      <h2 class="fill-width text-align-center primary-color">下架</h2>
+      <h2 class="fill-width text-align-center primary-color">{{$t('aaaaa')}}</h2>
     </td>
     <td class="cart-product-tr-fill d-flex justify-content-center align-items-center"
         v-else-if="item.product.status && sold_out_status">
-      <h2 class="fill-width text-align-center primary-color">SOLD OUT</h2>
+      <h2 class="fill-width text-align-center primary-color">{{$t('SOLD＿OUT')}}</h2>
     </td>
     <td v-else></td>
     <td class="product-iamge">
