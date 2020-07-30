@@ -12,12 +12,14 @@
           <div class="slider-content">
             <div class="container pl-0px pr-0">
               <div class="row align-items-center justify-content-center">
-                <div class="col-12 col-md-5 col-xl-6">
+                <div class="col-12" style="margin-top: 200px">
                   <div class="slider-text d-flex flex-column align-items-center align-items-md-start">
                     <h5 data-animation="fadeInUp" data-delay=".2s">{{get_content(banner,'subtitle')}}</h5>
-                    <h1 style="margin-right: 20px; margin-left: 20px; text-align: center" data-animation="fadeInUp" data-delay=".3s">{{get_content(banner,'title')}}</h1>
-                    <h3 style="margin-right: 20px; margin-left: 20px; text-align: center" data-animation="fadeInUp" data-delay=".4s">{{get_content(banner,'description')}}</h3><a
-                    class="normal-btn"
+                    <h1 style="margin-right: 20px; margin-left: 20px; text-align: center" data-animation="fadeInUp"
+                        data-delay=".3s">{{get_content(banner,'title')}}</h1>
+                    <h3 style="margin-right: 20px; margin-left: 20px; text-align: center" data-animation="fadeInUp"
+                        data-delay=".4s">{{get_content(banner,'description')}}</h3><a
+                    class="normal-btn custom-btn"
                     :href="banner.link"
                     data-animation="fadeInUp"
                     v-if="get_content(banner,'button')"
@@ -144,3 +146,14 @@
     }
   }
 </script>
+<style lang="sass">
+  .custom-btn
+    background-color: #0b1d37
+    color: #fff
+    border: 2px solid #0b1d37
+    &:hover
+      color: #fff
+      background-color: transparent
+      border: 2px solid #0b1d37
+
+</style>
