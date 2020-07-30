@@ -222,7 +222,6 @@
               :required="true"
               name="phone"
               error_class=""
-              :validators="[checkPhone]"
               :placeholder="$t('Phone_number')"
             />
           </div>

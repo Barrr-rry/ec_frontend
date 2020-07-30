@@ -149,7 +149,6 @@
       },
       async submit(val) {
         try {
-          debugger
           let res = await this.$api.member.login(val)
           this.setLoginVariable(res.data.token)
           await this.addTOCart()
