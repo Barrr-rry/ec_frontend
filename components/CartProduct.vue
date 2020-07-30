@@ -5,11 +5,11 @@
         <div style="position: relative;">
           <div class="cart-product-tr-fill d-flex justify-content-center align-items-center"
                v-if="!item.product.status">
-            <h2 class="fill-width text-align-center white-color">下架</h2>
+            <h2 class="fill-width text-align-center white-color">{{$t('aaaaa')}}</h2>
           </div>
           <div class="cart-product-tr-fill d-flex justify-content-center align-items-center"
                v-else-if="item.product.status && sold_out_status">
-            <h2 class="fill-width text-align-center white-color">SOLD OUT</h2>
+            <h2 class="fill-width text-align-center white-color">{{$t('SOLD＿OUT')}}</h2>
           </div>
     <tr>
       <td class="product-iamge min-w180">
