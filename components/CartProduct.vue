@@ -9,7 +9,7 @@
           </div>
           <div class="cart-product-tr-fill d-flex justify-content-center align-items-center"
                v-else-if="item.product.status && sold_out_status">
-            <h2 class="fill-width text-align-center white-color">{{$t('SOLD＿OUT')}}</h2>
+            <h2 class="fill-width text-align-center white-color">{{$t('SOLD_OUT')}}</h2>
           </div>
     <tr>
       <td class="product-iamge min-w180">
