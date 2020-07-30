@@ -1,24 +1,24 @@
-.normal-btn 
+.normal-btn
 	@include button($primary-color,$white,13px,999px,2px,$primary-color,15px 30px,$trans,$primary-color,$primary-color)
-	&.pink 
+	&.pink
 		@include button($pink,$white,13px,999px,2px,$pink,15px 30px,$trans,$pink,$pink)
-	
-	&.coffee 
+
+	&.coffee
 		@include button($coffee,$white,13px,999px,2px,$coffee,15px 30px,$trans,$coffee,$coffee)
-	
-	&.black 
+
+	&.black
 		@include button($black,$white,13px,999px,2px,$black,15px 30px,$trans,$black,$black)
-	
-	&.outline 
+
+	&.outline
 		@include button($white,$primary-color,13px,999px,2px,$primary-color,15px 30px,$primary-color,$white,$primary-color)
-  &.outline:hover .shop-cart-icon 
+  &.outline:hover .shop-cart-icon
     background-image: url("../images/webs/shoppingcart_w_18x18.svg")
     width: 18px
     height: 18px
     background-repeat: no-repeat
     background-position: center
     background-size: cover
-  .shop-cart-icon 
+  .shop-cart-icon
     background-image: url("../images/webs/shoppingcart_g_18x18.svg")
     width: 18px
     height: 18px
@@ -31,27 +31,35 @@
 a.normal-btn
   height: 52px
   padding: 10px 30px
-  line-height: 28px	
+  line-height: 28px
 
-.no-round-btn 
+.no-round-btn
 	@include button($primary-color,$white,14px,0,2px,$primary-color,15px 30px,$trans,$primary-color,$primary-color)
-	&.black 
+	&.black
 		@include button($black,$white,14px,0,2px,$black,15px 30px,$trans,$black,$black)
-	
-	&.pink 
+
+	&.pink
 		@include button($pink,$white,14px,0,2px,$pink,15px 30px,$trans,$pink,$pink)
-	
-	&.coffee 
+
+	&.coffee
 		@include button($coffee,$white,14px,0,2px,$coffee,15px 30px,$trans,$coffee,$coffee)
-	
-	&.smooth 
+
+	&.smooth
 		@include button($subcolor-7,$title,14px,0,2px,$subcolor-7,15px 30px,$primary-color,$white,$primary-color)
-	
-	&.black 
+
+	&.black
 		@include button($black,$white,13px,0px,2px,$black,15px 30px,$trans,$black,$black)
-  
-     
-.increase-icon 
+
+
+select.custom-select
+  width: 100%
+  height: 50px
+  border: 1px solid #d8d8d8
+  border-radius: 0
+  appearance: none
+  color: black
+
+.increase-icon
   background-image: url("../images/webs/plus.svg")
   width: 18px
   height: 18px
@@ -64,7 +72,7 @@ a.normal-btn
   top: 50%
   left: 50%
   transform: translateX(-50%) translateY(-50%)
-.edit-icon 
+.edit-icon
   background-image: url("../images/webs/edit_small.svg")
   width: 18px
   height: 18px
@@ -77,8 +85,8 @@ a.normal-btn
   top: 50%
   left: 50%
   transform: translateX(-50%) translateY(-50%)
-.no-round-btn:hover 
-  .icon_shoppingcart_b2w 
+.no-round-btn:hover
+  .icon_shoppingcart_b2w
     display: flex
     background-image: url("../images/webs/shoppingcart_w_18x18.svg")
     width: 100%
@@ -86,7 +94,7 @@ a.normal-btn
     background-repeat: no-repeat
     background-position: center
     background-size: 14px
-.icon_shoppingcart_b2w 
+.icon_shoppingcart_b2w
   display: inline-block
   background-image: url("../images/webs/shoppingcart_18x18.svg")
   width: 100%
@@ -94,25 +102,25 @@ a.normal-btn
   background-repeat: no-repeat
   background-position: center
   background-size: 14px
-.slider-btn 
+.slider-btn
 	@include button($primary-color,$white,14px,999px,2px,$primary-color,10px,$trans,$primary-color,$primary-color)
 
-.round-icon-btn 
+.round-icon-btn
 	@include button($subcolor-7,$title,14px,999px,0px,$white,0,$primary-color,$white,$white)
-	&.pink 
+	&.pink
 		@include button($subcolor-7,$title,14px,999px,0px,$white,0,$pink,$white,$white)
-	
-	&.coffee 
-		@include button($subcolor-7,$title,14px,999px,0px,$white,0,$coffee,$white,$white)
-	
 
-.button-borderless 
+	&.coffee
+		@include button($subcolor-7,$title,14px,999px,0px,$white,0,$coffee,$white,$white)
+
+
+.button-borderless
 	@include button($trans,$title,18px,999px,0px,$trans,0,$trans,$primary-color,$trans)
 
-.tag-btn 
+.tag-btn
 	@include button($subcolor-7,$regular,16px,2px,1px,$line,10px,$trans,$title,$regular)
 	text-transform: none
-	
+
 
 button.close
   background-color: #fff
@@ -125,7 +133,7 @@ button.close
   -o-border-radius: 0
   padding: 0
   text-transform: uppercase
-  
+
   border: 1px solid #ebebeb
   -webkit-transition: 0.3s ease
   -moz-transition: 0.3s ease
@@ -136,7 +144,7 @@ button.close
   height: 30px
   width: 30px
   position: relative
-  
+
   &:hover
     background-color: #88c74a
     color: #fff
@@ -162,9 +170,9 @@ button.special-coupon
 
   +max-width(576px)
     font-size: 16px !important
-button:hover .edit-icon 
+button:hover .edit-icon
   background-image: url("../images/webs/edit_small_w.svg")
-button:hover .increase-icon 
+button:hover .increase-icon
   background-image: url("../images/webs/plus_w.svg")
-button:focus 
+button:focus
   outline: 0
