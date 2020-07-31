@@ -1,151 +1,151 @@
 <template>
   <header v-if="computed_brands.length&&categories.length">
-  <div id="mobile-menu">
+    <div id="mobile-menu">
       <div class="mobile-menu--msg">
-        All prices are in TWD. {{$t('buy_give')}}
+        All prices are in TWD. {{homeactivity.ch_name}}
       </div>
       <div class="mobile-menu--tools">
-      <div class="container">
-        <div class="row">
-          <div class="col-3">
-            <div class="mobile-menu_block d-flex align-items-center">
-              <a class="mobile-menu--control" href="#"
-              ><i class="fas fa-bars"></i
-              ></a>
-              <div id="ogami-mobile-menu">
-                <button id="mobile-menu--closebtn" class="no-round-btn">
-                  {{$t('close_menu')}}
-                </button>
-                <div class="mobile-menu_items">
-                  <ul class="mb-0 d-flex flex-column">
-                    <li class="toggleable"
-                        v-for="cata of categories.slice().reverse()"
-                        :key="cata.id"
-                    >
-                      <nuxt-link :to="`/products?c=${cata.id}`" class="menu-item">
-                        {{ cata.name }}
-                      </nuxt-link>
-                      <span class="sub-menu--expander"
-                      ><i class="icon_plus"></i
-                      ></span>
-                      <ul class="sub-menu">
-                        <li>
-                          <nuxt-link to="/products">
-                            全部商品
-                          </nuxt-link>
-                        </li>
-                        <li v-for="sub of cata.sub_categories.slice().reverse()" :key="sub.id">
-                          <nuxt-link :to="getSubLink(sub)">{{
-                            sub.name
-                            }}
-                          </nuxt-link>
-                        </li>
-                      </ul>
-                    </li>
-
-                    <li class="toggleable"
-                    >
-                      <a href="#" class="menu-item" disabled>
-                        {{$t('member_center')}}
-                      </a>
-                      <span class="sub-menu--expander"
-                      ><i class="icon_plus"></i
-                      ></span>
-                      <ul class="sub-menu">
-                        <li>
-                          <nuxt-link to="/member-centre">
-                            {{$t('account_detail')}}
-                          </nuxt-link>
-                        </li>
-                        <li>
-                          <nuxt-link to="/wishlist">
-                            {{$t('my_favourite')}}
-                          </nuxt-link>
-                        </li>
-                        <li>
-                          <nuxt-link to="/ordertracking">
-                            {{$t('order_record')}}
-                          </nuxt-link>
-                        </li>
-                      </ul>
-                    </li>
-
-
-                    <li class="toggleable">
-                      <nuxt-link class="menu-item" to="/about-us"
-                      >{{$t('about_us')}}
-                      </nuxt-link
+        <div class="container">
+          <div class="row">
+            <div class="col-3">
+              <div class="mobile-menu_block d-flex align-items-center">
+                <a class="mobile-menu--control" href="#"
+                ><i class="fas fa-bars"></i
+                ></a>
+                <div id="ogami-mobile-menu">
+                  <button id="mobile-menu--closebtn" class="no-round-btn">
+                    {{$t('close_menu')}}
+                  </button>
+                  <div class="mobile-menu_items">
+                    <ul class="mb-0 d-flex flex-column">
+                      <li class="toggleable"
+                          v-for="cata of categories.slice().reverse()"
+                          :key="cata.id"
                       >
-                      <span class="sub-menu--expander"></span>
-                    </li>
-                  </ul>
-                </div>
-                <div class="mobile-login">
-                  <nuxt-link to="/login" v-if="!has_token">{{$t('login')}}</nuxt-link>
-                  <a href="#" @click="logout" v-else>{{$t('logout')}}</a>
-                </div>
+                        <nuxt-link :to="`/products?c=${cata.id}`" class="menu-item">
+                          {{ cata.name }}
+                        </nuxt-link>
+                        <span class="sub-menu--expander"
+                        ><i class="icon_plus"></i
+                        ></span>
+                        <ul class="sub-menu">
+                          <li>
+                            <nuxt-link to="/products">
+                              全部商品
+                            </nuxt-link>
+                          </li>
+                          <li v-for="sub of cata.sub_categories.slice().reverse()" :key="sub.id">
+                            <nuxt-link :to="getSubLink(sub)">{{
+                              sub.name
+                              }}
+                            </nuxt-link>
+                          </li>
+                        </ul>
+                      </li>
 
-                <div class="mobile-menu_items">
-                  <ul class="mb-0 d-flex flex-column">
-                    <li class="toggleable">
-                      <a class="menu-item" href="#" disabled>{{display_lang}}</a
-                      ><span class="sub-menu--expander"
-                    ><i class="icon_plus"></i
-                    ></span>
+                      <li class="toggleable"
+                      >
+                        <a href="#" class="menu-item" disabled>
+                          {{$t('member_center')}}
+                        </a>
+                        <span class="sub-menu--expander"
+                        ><i class="icon_plus"></i
+                        ></span>
+                        <ul class="sub-menu">
+                          <li>
+                            <nuxt-link to="/member-centre">
+                              {{$t('account_detail')}}
+                            </nuxt-link>
+                          </li>
+                          <li>
+                            <nuxt-link to="/wishlist">
+                              {{$t('my_favourite')}}
+                            </nuxt-link>
+                          </li>
+                          <li>
+                            <nuxt-link to="/ordertracking">
+                              {{$t('order_record')}}
+                            </nuxt-link>
+                          </li>
+                        </ul>
+                      </li>
 
-                      <!--                      <ul class="sub-menu">-->
-                      <!--                        <li @click="change_locale('tw')"><a href="#">{{$t('Chinese')}}</a></li>-->
-                      <!--                        <li @click="change_locale('en')"><a href="#">English</a></li>-->
-                      <!--                      </ul>-->
-                    </li>
-                    <li class="toggleable">
-                      <a class="menu-item" href="# " disabled>{{$t('currency')}}</a
-                      ><span class="sub-menu--expander"
-                    ><i class="icon_plus"></i
-                    ></span>
 
-                      <ul class="sub-menu">
-                        <li @click="change_currency('tw')"><a href="#">{{$t('ntdoller')}} NTD</a></li>
-                        <li @click="change_currency('en')"><a href="#">{{$t('usdoller')}} USD</a></li>
-                      </ul>
-                    </li>
-                  </ul>
+                      <li class="toggleable">
+                        <nuxt-link class="menu-item" to="/about-us"
+                        >{{$t('about_us')}}
+                        </nuxt-link
+                        >
+                        <span class="sub-menu--expander"></span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="mobile-login">
+                    <nuxt-link to="/login" v-if="!has_token">{{$t('login')}}</nuxt-link>
+                    <a href="#" @click="logout" v-else>{{$t('logout')}}</a>
+                  </div>
+
+                  <div class="mobile-menu_items">
+                    <ul class="mb-0 d-flex flex-column">
+                      <li class="toggleable">
+                        <a class="menu-item" href="#" disabled>{{display_lang}}</a
+                        ><span class="sub-menu--expander"
+                      ><i class="icon_plus"></i
+                      ></span>
+
+                        <!--                      <ul class="sub-menu">-->
+                        <!--                        <li @click="change_locale('tw')"><a href="#">{{$t('Chinese')}}</a></li>-->
+                        <!--                        <li @click="change_locale('en')"><a href="#">English</a></li>-->
+                        <!--                      </ul>-->
+                      </li>
+                      <li class="toggleable">
+                        <a class="menu-item" href="# " disabled>{{$t('currency')}}</a
+                        ><span class="sub-menu--expander"
+                      ><i class="icon_plus"></i
+                      ></span>
+
+                        <ul class="sub-menu">
+                          <li @click="change_currency('tw')"><a href="#">{{$t('ntdoller')}} NTD</a></li>
+                          <li @click="change_currency('en')"><a href="#">{{$t('usdoller')}} USD</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="mobile-social">
+                    <a href="https://www.facebook.com/HaveFunUnderwear/"
+                       target="_blank"><i class="fab fa-facebook-f"> </i></a>
+                    <a href="https://line.me/ti/p/1qvbcczVSW" target="_blank"><i class="fab fa-line"> </i></a>
+                    <a href=""><i class="fab fa-twitter" @click="share('twitter')"></i></a>
+                  </div>
                 </div>
-
-                <div class="mobile-social">
-                  <a href="https://www.facebook.com/HaveFunUnderwear/"
-                     target="_blank"><i class="fab fa-facebook-f"> </i></a>
-                  <a href="https://line.me/ti/p/1qvbcczVSW" target="_blank"><i class="fab fa-line"> </i></a>
-                  <a href=""><i class="fab fa-twitter" @click="share('twitter')"></i></a>
-                </div>
+                <div class="ogamin-mobile-menu_bg"></div>
               </div>
-              <div class="ogamin-mobile-menu_bg"></div>
             </div>
-          </div>
-          <!--<div class="col-6">
-            <div
-              class="mobile-menu_logo text-center d-flex justify-content-center align-items-center"
-            >
-              <a href="/"></a>
-              <nuxt-link to="/"
-              ><img src="" alt=""
-              /></nuxt-link>
-            </div>
-          </div>-->
-          <div class="col-9">
-            <div class="mobile-product_function d-flex align-items-center justify-content-end">
+            <!--<div class="col-6">
+              <div
+                class="mobile-menu_logo text-center d-flex justify-content-center align-items-center"
+              >
+                <a href="/"></a>
+                <nuxt-link to="/"
+                ><img src="" alt=""
+                /></nuxt-link>
+              </div>
+            </div>-->
+            <div class="col-9">
+              <div class="mobile-product_function d-flex align-items-center justify-content-end">
 
-              <nuxt-link class="function-icon pl-0px" to="/wishlist"><i class="icon-heart-heart"/></nuxt-link>
-              <nuxt-link class="function-icon shopping-cart-icon pl-0px ml-15px" to="/shop-cart">
-                <span class="badge badge-notify" v-if="count">{{count}}</span>
-              </nuxt-link>
-              <div class="login d-flex" v-if="!has_token">
-                <nuxt-link to="/login"><i class="fas fa-user"></i></nuxt-link>
+                <nuxt-link class="function-icon pl-0px" to="/wishlist"><i class="icon-heart-heart"/></nuxt-link>
+                <nuxt-link class="function-icon shopping-cart-icon pl-0px ml-15px" to="/shop-cart">
+                  <span class="badge badge-notify" v-if="count">{{count}}</span>
+                </nuxt-link>
+                <div class="login d-flex" v-if="!has_token">
+                  <nuxt-link to="/login"><i class="fas fa-user"></i></nuxt-link>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
       </div>
     </div>
     <div class="header-block d-flex align-items-center">
@@ -155,7 +155,7 @@
             <div
               class="header-left d-flex flex-md-row align-items-center fill-height"
             >
-              All prices are in TWD. {{$t('buy_give')}}
+              All prices are in TWD. {{homeactivity.ch_name}}
             </div>
           </div>
           <div class="col-12 col-md-7">
@@ -186,10 +186,10 @@
                   hover="/images/webs/fb-hover.svg"
                 />
                 -->
-<!--                <a href="https://www.facebook.com/%E6%B1%B4%E5%88%A9%E8%B3%BC-Ezgo-107385547368839/" target="_blank"><i-->
-<!--                  class="fab fa-facebook-f"> </i></a>-->
-<!--                <a href="https://line.me/ti/p/1qvbcczVSW" target="_blank"><i class="fab fa-line"> </i></a>-->
-<!--                <a href=""><i class="fab fa-twitter" @click="share('twitter')"></i></a>-->
+                <!--                <a href="https://www.facebook.com/%E6%B1%B4%E5%88%A9%E8%B3%BC-Ezgo-107385547368839/" target="_blank"><i-->
+                <!--                  class="fab fa-facebook-f"> </i></a>-->
+                <!--                <a href="https://line.me/ti/p/1qvbcczVSW" target="_blank"><i class="fab fa-line"> </i></a>-->
+                <!--                <a href=""><i class="fab fa-twitter" @click="share('twitter')"></i></a>-->
               </div>
               <div class="language">
                 <!--
@@ -266,106 +266,106 @@
                     <div class="d-flex nav-columns">
                       <div class="nav-column" v-for="sub of cata.sub_categories" :key="sub.id">
                         <h2>{{sub.name}}</h2>
-                        <li v-for="sub_sub of sub.sub_categories">
-                          <nuxt-link :to="getSubLink(sub_sub)">
-                            {{
-                            sub_sub.name
-                            }}
-                          </nuxt-link>
-                        </li>
-                      </div>
-                    </div>
-                  </template>
-                  <template v-else>
-                    <ul class="sub-menu shop">
-                      <div class="nav-column">
-                        <li>
-                          <nuxt-link to="/products">
-                            全部商品
-                          </nuxt-link>
-                        </li>
-                        <li v-for="sub of cata.sub_categories.slice().reverse()" :key="sub.id">
-                          <nuxt-link :to="getSubLink(sub)">{{
-                            sub.name
-                            }}
-                          </nuxt-link>
-                        </li>
-                      </div>
-                    </ul>
-                  </template>
+                <li v-for="sub_sub of sub.sub_categories">
+                  <nuxt-link :to="getSubLink(sub_sub)">
+                    {{
+                    sub_sub.name
+                    }}
+                  </nuxt-link>
                 </li>
-              </ul>
             </div>
           </div>
-          <div class="col-2">
-            <div
-              class="product-function d-flex align-items-center justify-content-end"
-            >
-              <!--              <div id="cart">-->
-              <!--                <nuxt-link class="function-icon" to="/shop-cart" v-if="count">-->
-              <!--                  <span>${{currencyChange(total)|commaFormat}}</span></nuxt-link-->
-              <!--                >-->
-              <!--              </div>-->
-            </div>
+</template>
+<template v-else>
+  <ul class="sub-menu shop">
+    <div class="nav-column">
+      <li>
+        <nuxt-link to="/products">
+          全部商品
+        </nuxt-link>
+      </li>
+      <li v-for="sub of cata.sub_categories.slice().reverse()" :key="sub.id">
+        <nuxt-link :to="getSubLink(sub)">{{
+          sub.name
+          }}
+        </nuxt-link>
+      </li>
+    </div>
+  </ul>
+</template>
+</li>
+</ul>
+</div>
+</div>
+<div class="col-2">
+  <div
+    class="product-function d-flex align-items-center justify-content-end"
+  >
+    <!--              <div id="cart">-->
+    <!--                <nuxt-link class="function-icon" to="/shop-cart" v-if="count">-->
+    <!--                  <span>${{currencyChange(total)|commaFormat}}</span></nuxt-link-->
+    <!--                >-->
+    <!--              </div>-->
+  </div>
+</div>
+</div>
+</div>
+</nav>
+<div class="navigation-clone"></div>
+
+<div class="mobile-menu-clone"></div>
+<div class="navigation-filter mt-40px" v-if="$route.name!=='index'">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-4 col-lg-4 col-xl-3 order-2 order-md-1">
+        <div class="department-menu_block">
+          <div
+            class="department-menu d-flex justify-content-between align-items-center white-color"
+          >
+            <i class="fas fa-bars"></i>{{$t('chose_buy')}}<span
+          ><i class="arrow_carrot-down"></i
+          ></span>
+          </div>
+          <div v-show="init_slideup" class="department-dropdown-menu">
+            <ul>
+              <li v-for="tag of tags"
+                  :id="tag.id"
+              >
+                <nuxt-link :to="`/products?t=${tag.id}`">{{tag.name}}</nuxt-link>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
-    </nav>
-    <div class="navigation-clone"></div>
-
-    <div class="mobile-menu-clone"></div>
-    <div class="navigation-filter mt-40px" v-if="$route.name!=='index'">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 col-md-4 col-lg-4 col-xl-3 order-2 order-md-1">
-            <div class="department-menu_block">
-              <div
-                class="department-menu d-flex justify-content-between align-items-center white-color"
-              >
-                <i class="fas fa-bars"></i>{{$t('chose_buy')}}<span
-              ><i class="arrow_carrot-down"></i
-              ></span>
-              </div>
-              <div v-show="init_slideup" class="department-dropdown-menu">
-                <ul>
-                  <li v-for="tag of tags"
-                      :id="tag.id"
-                  >
-                    <nuxt-link :to="`/products?t=${tag.id}`">{{tag.name}}</nuxt-link>
-                  </li>
-                </ul>
+      <div class="col-12 col-md-8 col-lg-8 col-xl-9 order-1 order-md-2">
+        <div class="website-search">
+          <div class="row no-gutters">
+            <div class="col-9 col-md-8 col-lg-9 col-xl-10">
+              <div class="search-input">
+                <input
+                  :placeholder="$t('please_input_brand_or_prodcut_name')"
+                  class="no-round-input no-border"
+                  type="text"
+                  v-model="search_input"
+                  @keyup.enter="search"
+                  :maxlength="40"
+                />
               </div>
             </div>
-          </div>
-          <div class="col-12 col-md-8 col-lg-8 col-xl-9 order-1 order-md-2">
-            <div class="website-search">
-              <div class="row no-gutters">
-                <div class="col-9 col-md-8 col-lg-9 col-xl-10">
-                  <div class="search-input">
-                    <input
-                      :placeholder="$t('please_input_brand_or_prodcut_name')"
-                      class="no-round-input no-border"
-                      type="text"
-                      v-model="search_input"
-                      @keyup.enter="search"
-                      :maxlength="40"
-                    />
-                  </div>
-                </div>
-                <div class="col-3 col-md-4 col-lg-3 col-xl-2">
-                  <button class="no-round-btn" style="height: 50px"
-                          @click="search"
-                  >
-                    {{$t('search')}}
-                  </button>
-                </div>
-              </div>
+            <div class="col-3 col-md-4 col-lg-3 col-xl-2">
+              <button class="no-round-btn" style="height: 50px"
+                      @click="search"
+              >
+                {{$t('search')}}
+              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </header>
+  </div>
+</div>
+</header>
 </template>
 
 <script>
@@ -392,6 +392,9 @@
       }),
       ...mapState('membertoken', {
         has_token: (state) => state.has_token
+      }),
+      ...mapState('homeactivity', {
+        homeactivity: (state) => state.items[0]
       }),
       ...mapState('category', {
         categories: (state) => state.items
@@ -461,7 +464,7 @@
             break
           }
         }
-        console.log(categories,status)
+        console.log(categories, status)
         return status
       },
       search() {
@@ -508,7 +511,7 @@
           alert('使用當前瀏覽器可能會不相容，為了更好的瀏覽體驗，推薦使用 Google 瀏覽器\n')
           window.location = "https://www.google.com.tw/chrome/"
         }
-        console.log('Explorer:'+getExplorer)
+        console.log('Explorer:' + getExplorer)
       }
       this.currency = this.$cookies.get('currency') || 'tw'
     }
