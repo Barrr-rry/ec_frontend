@@ -362,7 +362,7 @@
                     <tr v-for="cart of carts"
                         :id="cart.id"
                     >
-                      <th class="name">{{cart.product.name}} x {{cart.quantity}}</th>
+                      <th class="name">{{getText(cart.product,'name','en_name')}} x {{cart.quantity}}</th>
                       <td class="price black" style="border-top: 0"
                           v-if="$store.state.currency==='tw'"
                       >${{cart.specification_detail.price*cart.quantity|commaFormat}}
@@ -418,7 +418,7 @@
                     </tr>
                     <!--活動折抵-->
                     <tr v-for="el in in_activity_obj" :key="el.activity_id">
-                      <th>{{el.activity_detail.ch_name}}</th>
+                      <th>{{getText(el.activity_detail,'ch_name','en_name')}}</th>
                       <td>
                         <div class="primary-color text-right"
                              v-if="$store.state.currency==='tw'"
@@ -487,11 +487,13 @@
   import {mapState} from 'vuex'
   import OrderAddressModal from "@/components/OrderAddressModal"
   import mixinDefaultInit from "@/mixins/mixinDefaultInit"
+  import langMixin from "@/mixins/langMixin"
 
   const cookieparser = process.server ? require('cookieparser') : undefined
 
   export default {
     name: 'Order-Checkout',
+    mixins:[langMixin],
     components: {
       CInput,
       CForm,

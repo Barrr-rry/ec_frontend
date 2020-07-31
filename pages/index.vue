@@ -119,7 +119,7 @@
                   v-for="key of tab_keys"
                   :key="key"
                 >
-                  <a :href="`#tab-${key}`">{{tags_dict[key].name}}</a>
+                  <a :href="`#tab-${key}`">{{getText(tags_dict[key],'name', 'en_name')}}</a>
                 </li>
               </ul>
               <div id="tab-all">

@@ -10,7 +10,7 @@
         </li>
         <li>
           <nuxt-link v-for="item of centers" class="breadcrumb-link" :to="item.url" :key="item.name">{{
-            item.name
+            getText(item,'name','en_name')
             }}
           </nuxt-link>
         </li>
@@ -23,7 +23,10 @@
 </template>
 
 <script>
+  import langMixin from "@/mixins/langMixin"
+
   export default {
+    mixins: [langMixin],
     name: 'Breadcrumb',
     props: {
       first: {
