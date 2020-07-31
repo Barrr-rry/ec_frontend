@@ -13,14 +13,14 @@
       </div>
       <div class="product-info_block" style="border:none; padding-right:0; text-align: center;">
         <div class="activity mb-10px mt-10px">
-          <div class="activity-box" v-if="product && product.activity">{{product.activity_detail.ch_name}}</div>
+          <div class="activity-box" v-if="product && product.activity">{{getText(product.activity_detail)}}</div>
         </div>
 <!--        <h5 class="product-type" style="text-align: -webkit-center;">-->
 <!--          <span v-if="product.brand_en_name">{{product.brand_en_name}}</span>-->
 <!--          <span v-else><br></span>-->
 <!--        </h5>-->
         <span class="product-name ellipsis"
-              style="-webkit-line-clamp:2;display: -webkit-box;-webkit-box-orient: vertical;overflow: hidden;height: 48px; font-weight:bold;">{{product.name}}
+              style="-webkit-line-clamp:2;display: -webkit-box;-webkit-box-orient: vertical;overflow: hidden;height: 48px; font-weight:bold;">{{getText(product, 'name', 'en_name')}}
                 </span>
         <del v-if="fake_price">{{getProcessPrice(fake_price)}}</del>
         <b class="product-price red-color" style="text-align: -webkit-center;">{{getProcessPrice(price)}}
@@ -75,10 +75,11 @@
   import mixinToWish from "@/mixins/mixinToWish"
   import {mapMutations} from 'vuex'
   import mixinProduct from "@/mixins/mixinProduct"
+  import langMixin from "@/mixins/langMixin"
 
 
   export default {
-    mixins: [mixinCategory, mixinToWish, mixinProduct],
+    mixins: [mixinCategory, mixinToWish, mixinProduct, langMixin],
     name: "product",
     props: {
       product: {

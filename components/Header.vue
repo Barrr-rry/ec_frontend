@@ -2,7 +2,7 @@
   <header v-if="computed_brands.length&&categories.length">
     <div id="mobile-menu">
       <div class="mobile-menu--msg">
-        All prices are in TWD. {{homeactivity.ch_name}}
+        All prices are in TWD. {{getText(homeactivity)}}
       </div>
       <div class="mobile-menu--tools">
         <div class="container">
@@ -155,7 +155,7 @@
             <div
               class="header-left d-flex flex-md-row align-items-center fill-height"
             >
-              All prices are in TWD. {{homeactivity.ch_name}}
+              All prices are in TWD. {{getText(homeactivity)}}
             </div>
           </div>
           <div class="col-12 col-md-7">
@@ -260,16 +260,16 @@
                   class="toggleable"
                 >
                   <nuxt-link :to="`/products?c=${cata.id}`" class="menu-item">
-                    {{ cata.name }}
+                    {{ getText(cata,'name','en_name') }}
                   </nuxt-link>
                   <template v-if="checkMoreDeeper(cata.sub_categories)">
                     <div class="d-flex nav-columns">
                       <div class="nav-column" v-for="sub of cata.sub_categories" :key="sub.id">
-                        <h2>{{sub.name}}</h2>
+                        <h2>{{getText(sub,'name','en_name')}}}</h2>
                 <li v-for="sub_sub of sub.sub_categories">
                   <nuxt-link :to="getSubLink(sub_sub)">
                     {{
-                    sub_sub.name
+                    getText(sub_sub,'name','en_name')
                     }}
                   </nuxt-link>
                 </li>
@@ -372,9 +372,10 @@
   import {mapState} from 'vuex'
   import mixinCategory from '@/mixins/mixinCategory'
   import ImageHover from "@/components/ImageHover"
+  import langMixin from "@/mixins/langMixin"
 
   export default {
-    mixins: [mixinCategory],
+    mixins: [langMixin, mixinCategory],
     components: {
       ImageHover
     },

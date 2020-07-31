@@ -1,10 +1,12 @@
 import {initFunction, preload, loadFadeout} from "@/static/js/main"
 import Cookie from 'js-cookie'
+import langMixin from "@/mixins/langMixin"
 
 /**
  * 每一個頁面共用的資料
  * */
 export default {
+  mixins: [langMixin],
   data() {
     return {
       loading: false,
@@ -64,6 +66,7 @@ export default {
         display: 'none',
       })
     }
+
     $('.nuxt-link-active').on('click', () => {
       this.closeMenu()
     })

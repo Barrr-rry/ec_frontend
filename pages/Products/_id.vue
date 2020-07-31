@@ -50,7 +50,7 @@
                       </div>
                       <div class="quantity-select d-flex" style="margin-bottom: 10px">
                         <div style="padding-top: 4px">
-                          <label class="fz16px">{{product.level1_title}} :</label>
+                          <label class="fz16px">{{getText(product,'level1_title','level1_en_title')}} :</label>
                         </div>
                         <div>
                           <VSelectButton
@@ -59,7 +59,7 @@
                             :option="el.id"
                             v-model="choose_level1"
                             :disabled="isSelectDisabled(el)"
-                          >{{el.name}}
+                          >{{getText(el,'name','en_name')}}
                           </VSelectButton>
                         </div>
                       </div>
@@ -67,7 +67,7 @@
                            v-if="has_spec_level2"
                       >
                         <div style="padding-top: 4px">
-                          <label class="fz16px">{{product.level2_title}} :</label>
+                          <label class="fz16px">{{getText(product,'level2_title','level2_en_title')}} :</label>
                         </div>
                         <div>
                           <VSelectButton
@@ -76,7 +76,7 @@
                             :option="el.id"
                             v-model="choose_level2"
                             :disabled="isSelectDisabled(el)"
-                          >{{el.name}}
+                          >{{getText(el,'name','en_name')}}
                           </VSelectButton>
                         </div>
                       </div>
@@ -236,10 +236,11 @@
   import {addTOCart} from '@/assets/js/localCart'
   import mixinProduct from "@/mixins/mixinProduct"
   import VSelectButton from "@/components/VSelectButton"
+  import langMixin from "@/mixins/langMixin"
   import axios from 'axios'
 
   export default {
-    mixins: [mixinCategory, mixinDefaultInit, mixinToWish, mixinProduct],
+    mixins: [mixinCategory, mixinDefaultInit, mixinToWish, mixinProduct, langMixin],
     components: {
       Counter,
       VSelectButton
@@ -309,7 +310,7 @@
       return axios.get(`${ctx.env.VUE_APP_API_URL}product/${ctx.params.id}/`)
         .then((res) => {
           return {
-            title: res.data.name+' | HaveFun Men\'s Underwear'
+            title: res.data.name + ' | HaveFun Men\'s Underwear'
           }
         }).catch((err) => {
           console.log(err)
