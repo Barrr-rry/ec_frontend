@@ -13,7 +13,7 @@
       </div>
       <div class="product-info_block" style="border:none; padding-right:0; text-align: center;">
         <div class="activity mb-10px mt-10px">
-          <div class="activity-box" v-if="product && product.activity">{{getText(product.activity_detail)}}</div>
+          <div class="activity-box" v-if="product && product.activity">{{getText(product.activity_detail,'ch_name','en_name')}}</div>
         </div>
 <!--        <h5 class="product-type" style="text-align: -webkit-center;">-->
 <!--          <span v-if="product.brand_en_name">{{product.brand_en_name}}</span>-->
