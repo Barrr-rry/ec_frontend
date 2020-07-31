@@ -111,15 +111,15 @@
                   class="toggleable"
                 >
                   <nuxt-link :to="`/categories/${cata.id}`" class="menu-item">
-                    {{ cata.name }}
+                    {{ getText(cata,'name','en_name') }}
                   </nuxt-link>
                   <template v-if="checkMoreDeeper(cata.sub_categories)">
                     <ul class="sub-menu shop d-flex" style="min-width: 1100px">
                       <div class="nav-column" v-for="sub of cata.sub_categories" :key="sub.id">
-                        <h2>{{sub.name}}</h2>
+                        <h2>{{getText(sub,'name','en_name')}}</h2>
                         <li v-for="sub_sub of sub.sub_categories">
                           <nuxt-link :to="getSubLink(sub_sub)">{{
-                            sub_sub.name
+                            getText(sub_sub,'name','en_name')
                             }}
                           </nuxt-link>
                         </li>
@@ -131,7 +131,7 @@
                       <div class="nav-column">
                         <li v-for="sub of cata.sub_categories" :key="sub.id">
                           <nuxt-link :to="getSubLink(sub)">{{
-                            sub.name
+                            getText(sub,'name','en_name')
                             }}
                           </nuxt-link>
                         </li>
@@ -214,7 +214,7 @@
                         :key="cata.id"
                     >
                       <nuxt-link :to="`/categories/${cata.id}`" class="menu-item">
-                        {{ cata.name }}
+                        {{ getText(cata,'name','en_name') }}
                       </nuxt-link>
                       <span class="sub-menu--expander"
                       ><i class="icon_plus"></i
@@ -222,7 +222,7 @@
                       <ul class="sub-menu">
                         <li v-for="sub of cata.sub_categories" :key="sub.id">
                           <nuxt-link :to="getSubLink(sub)">{{
-                            sub.name
+                            getText(sub,'name','en_name')
                             }}
                           </nuxt-link>
                         </li>
@@ -356,7 +356,7 @@
                   <li v-for="tag of tags"
                       :id="tag.id"
                   >
-                    <nuxt-link :to="`/products?t=${tag.id}`">{{tag.name}}</nuxt-link>
+                    <nuxt-link :to="`/products?t=${tag.id}`">{{getText(tag,'name','en_name')}}</nuxt-link>
                   </li>
                 </ul>
               </div>
@@ -396,9 +396,10 @@
 <script>
   import {mapState} from 'vuex'
   import mixinCategory from '@/mixins/mixinCategory'
+  import langMixin from "@/mixins/langMixin"
 
   export default {
-    mixins: [mixinCategory],
+    mixins: [mixinCategory, langMixin],
     data() {
       return {
         init_slideup: false,

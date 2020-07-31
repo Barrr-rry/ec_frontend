@@ -22,7 +22,7 @@
                     >
                       <nuxt-link class="department-link"
                                  :to="getSubLink(el)"
-                      >{{el.name}}
+                      >{{getText(el,'name','en_name')}}
                       </nuxt-link
                       >
                     </li>
@@ -72,14 +72,15 @@
                 <div class="col-12 col-lg-6">
                   <div class="shop-detail_info">
                     <h5 class="product-type color-type">{{product.brand_en_name}}</h5>
-                    <h2 class="product-name">{{product.cn_name}}</h2>
+                    <h2 class="product-name">{{getText(product,'cn_name','en_name')}}</h2>
                     <p class="product-describe">
-                      {{product.sub_title}}
+                      {{getText(product,'cn_sub_title','en_sub_title')}}
                     </p>
                     <p class="delivery-status fz16px">{{$t('over')}} {{lowest_freeshipping}}
                       {{$t('free_shipping_3000')}}</p>
                     <div class="activity">
-                      <div class="activity-box" v-if="product &&product.activity">{{product.activity_detail.ch_name}}
+                      <div class="activity-box" v-if="product &&product.activity">
+                        {{getText(product.activity_detail,'ch_name','en_name')}}
                       </div>
                     </div>
                     <div class="price-rate">
@@ -91,7 +92,7 @@
                     </div>
                     <div class="quantity-select d-flex" style="margin-bottom: 10px">
                       <div style="padding-top: 4px">
-                        <label class="fz16px">{{product.level1_title}} :</label>
+                        <label class="fz16px">{{getText(product,'level1_title','level1_en_title')}} :</label>
                       </div>
                       <div>
                         <VSelectButton
@@ -100,7 +101,7 @@
                           :option="el.id"
                           v-model="choose_level1"
                           :disabled="isSelectDisabled(el)"
-                        >{{el.cn_name}}
+                        >{{getText(el,'name','en_name')}}
                         </VSelectButton>
                       </div>
                     </div>
@@ -108,7 +109,7 @@
                          v-if="has_spec_level2"
                     >
                       <div style="padding-top: 4px">
-                        <label class="fz16px">{{product.level2_title}} :</label>
+                        <label class="fz16px">{{getText(product,'level2_title','level2_en_title')}} :</label>
                       </div>
                       <div>
                         <VSelectButton
@@ -117,7 +118,7 @@
                           :option="el.id"
                           v-model="choose_level2"
                           :disabled="isSelectDisabled(el)"
-                        >{{el.cn_name}}
+                        >{{getText(el,'name','en_name')}}
                         </VSelectButton>
                       </div>
                     </div>

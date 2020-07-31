@@ -4,7 +4,7 @@
       <i
         v-if="tag_detail"
         :class="tag_detail.tag_image_image_url"><i
-        :class="tag_detail.tag_image_image_url.split('-')[0]+'-name'">{{tag_detail.name}}</i></i>
+        :class="tag_detail.tag_image_image_url.split('-')[0]+'-name'">{{getText(tag_detail,'name','en_name')}}</i></i>
       <input ref="copy_data" type="hidden" :value="message">
       <div class="product-img_block">
         <span class="product-img"
@@ -14,14 +14,16 @@
       </div>
       <div class="product-info_block">
         <div class="activity">
-          <div class="activity-box" v-if="product &&product.activity">{{product.activity_detail.ch_name}}</div>
+          <div class="activity-box" v-if="product &&product.activity">
+            {{getText(product.activity_detail,'ch_name','en_name')}}
+          </div>
         </div>
         <h5 class="product-type" style="text-align: -webkit-center;">
           <span v-if="product.brand_en_name">{{product.brand_en_name}}</span>
           <span v-else><br></span>
         </h5>
         <span class="product-name ellipsis"
-              style="-webkit-line-clamp:2;display: -webkit-box;-webkit-box-orient: vertical;overflow: hidden;height: 48px; font-weight:bold;">{{product.cn_name}}
+              style="-webkit-line-clamp:2;display: -webkit-box;-webkit-box-orient: vertical;overflow: hidden;height: 48px; font-weight:bold;">{{getText(product,'cn_name','en_name')}}
                 </span>
         <h3 class="product-price" style="text-align: -webkit-center;">{{getProcessPrice(price)}}
           <del v-if="fake_price">{{getProcessPrice(fake_price)}}</del>
@@ -72,10 +74,11 @@
   import mixinToWish from "@/mixins/mixinToWish"
   import {mapMutations} from 'vuex'
   import mixinProduct from "@/mixins/mixinProduct"
+  import langMixin from "@/mixins/langMixin"
 
 
   export default {
-    mixins: [mixinCategory, mixinToWish, mixinProduct],
+    mixins: [mixinCategory, mixinToWish, mixinProduct, langMixin],
     name: "product",
     props: {
       product: {

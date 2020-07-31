@@ -1,6 +1,6 @@
 <template>
   <div>
-    <breadcrumb :end="item.name"></breadcrumb>
+    <breadcrumb :end="getText(item,'name','en_name')"></breadcrumb>
     <!-- End breadcrumb-->
     <div class="shop-layout">
       <div class="container">
@@ -22,7 +22,7 @@
                       <nuxt-link
                         :to="getSubLink(cata)"
                         class="department-link"
-                      >{{ cata.name }}
+                      >{{ getText(cata,'name','en_name') }}
                       </nuxt-link
                       >
                     </li>
@@ -38,7 +38,7 @@
                 <div class="shop-products_top mini-tab-title underline">
                   <div class="row align-items-center">
                     <div class="col-6 col-xl-4">
-                      <h2 class="title ellipsis">{{ item.name }}</h2>
+                      <h2 class="title ellipsis">{{ getText(item,'name','en_name') }}</h2>
                     </div>
                     <div class="col-6 text-right">
                       <div id="show-filter-sidebar">
@@ -55,7 +55,7 @@
                     <function-box
                       v-for="cata of item.sub_categories"
                       :key="cata.id"
-                      :title="cata.name"
+                      :title="getText(cata,'name','en_name')"
                       :item="cata"
                       :src="imageLink(cata.image_url)"
                     ></function-box>
@@ -76,9 +76,10 @@
   import mixinCategory from '@/mixins/mixinCategory'
   import {fetchReturn} from "@/mixins/fetch/headerFetch"
   import mixinDefaultInit from "@/mixins/mixinDefaultInit"
+  import langMixin from "@/mixins/langMixin"
 
   export default {
-    mixins: [mixinCategory, mixinDefaultInit],
+    mixins: [mixinCategory, mixinDefaultInit, langMixin],
     components: {
       FunctionBox
     },
