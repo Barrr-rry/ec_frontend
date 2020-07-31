@@ -23,7 +23,7 @@
                           :key="cata.id"
                       >
                         <nuxt-link :to="`/products?c=${cata.id}`" class="menu-item">
-                          {{ cata.name }}
+                          {{ getText(cata,'name','en_name') }}
                         </nuxt-link>
                         <span class="sub-menu--expander"
                         ><i class="icon_plus"></i
@@ -36,7 +36,7 @@
                           </li>
                           <li v-for="sub of cata.sub_categories.slice().reverse()" :key="sub.id">
                             <nuxt-link :to="getSubLink(sub)">{{
-                              sub.name
+                              getText(sub,'name','en_name')
                               }}
                             </nuxt-link>
                           </li>
@@ -286,7 +286,7 @@
       </li>
       <li v-for="sub of cata.sub_categories.slice().reverse()" :key="sub.id">
         <nuxt-link :to="getSubLink(sub)">{{
-          sub.name
+          getText(sub,'name','en_name')
           }}
         </nuxt-link>
       </li>
@@ -331,7 +331,7 @@
               <li v-for="tag of tags"
                   :id="tag.id"
               >
-                <nuxt-link :to="`/products?t=${tag.id}`">{{tag.name}}</nuxt-link>
+                <nuxt-link :to="`/products?t=${tag.id}`">{{getText(tag,'name','en_name')}}</nuxt-link>
               </li>
             </ul>
           </div>

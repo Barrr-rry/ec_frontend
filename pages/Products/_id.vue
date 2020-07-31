@@ -1,7 +1,7 @@
 <template>
   <div>
     <breadcrumb :centers="product_parents"
-                :end="product.name"></breadcrumb>
+                :end="getText(product,'name','en_name')"></breadcrumb>
     <!-- End breadcrumb-->
     <div class="shop-layout">
       <div class="container">
@@ -34,11 +34,11 @@
                 <div class="col-12 col-lg-6">
                   <div class="shop-detail_info flex-order">
                     <div class="flex-order--item order-mob-2">
-                      <h2 class="product-name mb-20px">{{product.name}}</h2>
+                      <h2 class="product-name mb-20px">{{getText(product,'name','en_name')}}</h2>
                       <p class="delivery-status fz16px">{{$t('over')}} {{lowest_freeshipping}}
                         {{$t('free_shipping_3000')}}</p>
                       <div class="activity mb-20px">
-                        <div class="activity-box" v-if="product.activity != null">{{product.activity_detail.ch_name}}
+                        <div class="activity-box" v-if="product.activity != null">{{getText(product.activity_detail,'ch_name','en_name')}}
                         </div>
                       </div>
                       <div class="price-rate">
