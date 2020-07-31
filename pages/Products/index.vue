@@ -170,6 +170,7 @@
         return type_name[this.type]
       },
       tip_text() {
+        let lang = this.$store.lang
         let ret = ''
         if (this.type === 'keywords') {
           ret = this.$route.query.k
@@ -187,7 +188,10 @@
         if (this.type === 'tag') {
           for (let obj of this.tags) {
             if (parseInt(this.$route.query.t) === obj.id) {
-              ret = obj.name
+              let ch_name = obj.name
+              let en_name = obj.en_name
+              ret = lang === 'tw' ? ch_name : en_name
+              ret = ret || ch_name || en_name
               break
             }
           }
@@ -211,7 +215,10 @@
           for (let obj of this.categories) {
             let result = categorySearch(obj)
             if (result) {
-              ret = result.name
+              let ch_name = result.name
+              let en_name = result.en_name
+              ret = lang === 'tw' ? ch_name : en_name
+              ret = ret || ch_name || en_name
               break
             }
           }
@@ -296,7 +303,7 @@
       return axios.get(`${ctx.env.VUE_APP_API_URL}category/${ctx.query.c}/`)
         .then((res) => {
           return {
-            title: res.data.name+' | HaveFun Men\'s Underwear',
+            title: res.data.name + ' | HaveFun Men\'s Underwear',
             type,
             filter,
           }

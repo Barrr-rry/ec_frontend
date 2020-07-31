@@ -1,25 +1,25 @@
 <template>
   <modal v-model="input" title="規格" @ok="ok">
     <div class="quantity-select" style="margin-bottom: 10px">
-      <label class="fz16px">{{product.level1_title}} :</label>
+      <label class="fz16px">{{getText(product,'level1_title','level1_en_title')}} :</label>
       <VSelectButton
         v-for="el of spec_level1_list"
         :key="el.id"
         :option="el.id"
         v-model="choose_level1"
-      >{{el.name}}
+      >{{getText(el,'name', 'en_name')}}
       </VSelectButton>
     </div>
     <div class="quantity-select" style="margin-bottom: 10px"
          v-if="has_spec_level2"
     >
-      <label class="fz16px">{{product.level2_title}} :</label>
+      <label class="fz16px">{{getText(product,'level2_title','level2_en_title')}} :</label>
       <VSelectButton
         v-for="el of spec_level2_list"
         :key="el.id"
         :option="el.id"
         v-model="choose_level2"
-      >{{el.name}}
+      >{{getText(el,'name', 'en_name')}}
       </VSelectButton>
     </div>
   </modal>
@@ -30,9 +30,10 @@
   import {mapState, mapActions, mapMutations} from 'vuex'
   import mixinProduct from "@/mixins/mixinProduct"
   import VSelectButton from "@/components/VSelectButton"
+  import langMixin from "@/mixins/langMixin"
 
   export default {
-    mixins: [vModel, mixinProduct],
+    mixins: [vModel, mixinProduct, langMixin],
     components: {
       VSelectButton
     },

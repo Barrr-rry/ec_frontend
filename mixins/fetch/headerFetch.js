@@ -53,6 +53,7 @@ let fetchReturn = async (ctx, array = []) => {
     ctx.store.dispatch('category/getList'),
     ctx.store.dispatch('brand/getList'),
     ctx.store.dispatch('tag/getList'),
+    ctx.store.dispatch('homeactivity/getList'),
     ctx.store.dispatch('memberwish/getList'),
     ctx.store.dispatch('price/getList'),
     ...array
