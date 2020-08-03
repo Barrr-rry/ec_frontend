@@ -64,7 +64,7 @@
     name: 'Order-Fail',
     props: {},
     middleware: [
-      'hasToken'
+      'inMaintain', 'hasToken'
     ],
     fetch(ctx) {
       let ret = []

@@ -81,7 +81,7 @@
     name: 'Order-Complete',
     props: {},
     middleware: [
-      'hasToken'
+      'inMaintain', 'hasToken'
     ],
     fetch(ctx) {
       let order = ctx.query.order

@@ -110,7 +110,7 @@
       OrderCard
     },
     middleware: [
-      'hasToken'
+      'inMaintain', 'hasToken'
     ],
     fetch(ctx) {
       return fetchReturn(ctx, [ctx.store.dispatch('order/getList')])

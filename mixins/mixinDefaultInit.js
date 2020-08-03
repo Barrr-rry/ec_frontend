@@ -17,6 +17,9 @@ export default {
       title: 'HaveFun Men\'s Underwear | 男性內褲'
     }
   },
+  middleware: [
+      'inMaintain'
+    ],
   head() {
     return {
       title: this.title,
