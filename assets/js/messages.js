@@ -1897,6 +1897,14 @@ const custom_message = {
     en: 'Off shelf',
     tw: '下 架'
   },
+  maintenance: {
+    en: 'web site maintain',
+    tw: '網站維護中'
+  },
+  good: {
+    en: 'To provide you with a better shopping experience',
+    tw: '為了提供您更好的購物體驗'
+  },
 
 
 }
