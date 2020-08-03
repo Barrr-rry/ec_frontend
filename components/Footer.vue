@@ -14,8 +14,8 @@
                 /></nuxt-link> -->
               </div>
               <div class="footer-contact">
-                <a href="tel:0907306899" class="normal-a"><p>{{$t('phone')}}: 0907306899</p></a>
-                <a href="mailto:Ezgobuyusa@gmail.com" class="normal-a"><p>Email: Ezgobuyusa@gmail.com</p></a>
+                <a href="tel:07-2855820,915 " class="normal-a"><p>{{$t('phone')}}: 07-2855820 #915 </p></a>
+                <a href="mailto:service@conquers.co" class="normal-a"><p>Email: service@conquers.co</p></a>
               </div>
               <div class="footer-social">
                 <a class="" href=""><i class="fab fb" @click="share('facebook')"></i></a>

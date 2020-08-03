@@ -8,10 +8,10 @@
               class="header-left d-flex flex-md-row align-items-center fill-height"
             >
               <p class="d-flex align-items-center">
-                <a href="mailto:Ezgobuyusa@gmail.com" class="normal-a"><i class="fas fa-envelope"></i>Ezgobuyusa@gmail.com</a>
+                <a href="mailto:service@conquers.co" class="normal-a"><i class="fas fa-envelope"></i>service@conquers.co</a>
               </p>
               <p class="d-flex align-items-center">
-                <a href="tel:0907306899" class="normal-a"><i class="fas fa-phone"></i>0907306899</a>
+                <a href="tel:07-2855820,915 " class="normal-a"><i class="fas fa-phone"></i>07-2855820 #915 </a>
               </p>
             </div>
           </div>
