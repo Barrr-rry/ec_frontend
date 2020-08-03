@@ -14,6 +14,9 @@ export default {
       title: '電商系統 EC｜最值得信賴、價格實惠的保健食品代購品牌'
     }
   },
+  middleware: [
+      'inMaintain'
+    ],
   head() {
     return {
       title: this.title,

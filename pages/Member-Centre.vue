@@ -378,7 +378,7 @@
       ValidateModal
     },
     middleware: [
-      'hasToken'
+      'inMaintain', 'hasToken'
     ],
     fetch(ctx) {
       return fetchReturn(ctx, [
