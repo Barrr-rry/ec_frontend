@@ -1,6 +1,7 @@
 import Vue from 'vue'
 
-
+// init一個vue instacne
+// 因為component 之前要互相操作 使用store 太麻煩
 let createVm = (parent_vm) => {
   return new Vue({
     data() {
@@ -21,6 +22,7 @@ let createVm = (parent_vm) => {
           let el = this.in_activity_obj[key]
           activity += this.activitySave(el)
         }
+        // 計算金額方式
         let ret = this.product_total - activity - this.parent_vm.coupon_discount - this.parent_vm.reward_discount
         return ret > 0 ? ret : 0
       },
@@ -28,6 +30,7 @@ let createVm = (parent_vm) => {
     watch: {},
     methods: {
       remove(spec_id, cart_id) {
+        // 刪除該商品
         delete this.carts_obj[spec_id]
         if (this.parent_vm.has_token && cart_id) {
           this.apiRemove(cart_id)
@@ -35,6 +38,7 @@ let createVm = (parent_vm) => {
         this.initData()
       },
       apiRemove(id) {
+        // 連動api 刪除 並且更新資料到store
         this.parent_vm.$api.cart.deleteData(id).then(() => {
           let removed_items = this.parent_vm.items.filter(x => x.id !== id)
           this.parent_vm.$store.commit('cart/changeValue', {
@@ -44,6 +48,7 @@ let createVm = (parent_vm) => {
         })
       },
       getAllowMaxWeight() {
+        // 抓最大允許重量
         let max_wieght = 0
         for (let freeshipping of this.parent_vm.freeshippings) {
           if (freeshipping.weight > max_wieght) {
@@ -53,28 +58,35 @@ let createVm = (parent_vm) => {
         return max_wieght
       },
       getWight() {
+        // 計算目前所有的重量
         let ret = 0
         for (let key in this.carts_obj) {
           let el = this.carts_obj[key]
+          // 計算公式
           ret += el.quantity * el.specification_detail.weight
         }
+        // 四捨五入
         this.weight = Math.round(ret * 100) / 100
       },
       getTotal() {
+        // 取得所有的價錢
         let ret = 0
         for (let key in this.carts_obj) {
           let el = this.carts_obj[key]
           if (el.specification_detail.quantity > 0 && el.status) {
+            // 計算公式
             ret += el.quantity * el.specification_detail.price
           }
         }
         this.product_total = ret
       },
       trigger(key, value) {
+        // 資料有變動 就要觸發重新init data
         this.carts_obj[key] = value
         this.initData()
       },
       activitySave(el) {
+        // 活動折扣計算公式
         let count = el.count
         let ret = 0
         let price_list = [...el.price_list]
@@ -85,6 +97,7 @@ let createVm = (parent_vm) => {
         return ret
       },
       getActivity() {
+        // 取得現在有什麼活動
         let activity_obj = {}
         for (let key in this.carts_obj) {
           let el = this.carts_obj[key]

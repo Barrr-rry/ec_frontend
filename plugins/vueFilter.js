@@ -1,5 +1,5 @@
 import Vue from 'vue'
-
+// 將價錢做一個filter 加上逗號
 Vue.filter('commaFormat', function (value) {
   if (!value && value !== 0) {
     return ''

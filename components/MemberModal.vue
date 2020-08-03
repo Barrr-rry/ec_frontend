@@ -75,6 +75,7 @@
     },
     methods: {
       initFields() {
+        // 初始化資料 如果是update 可以更新form 裡面的資料
         if (!this.item) {
           return
         }
@@ -97,9 +98,11 @@
           }
         } catch (e) {
         }
+        // 更新form 的資料
         this.$refs.form.setFields(obj)
       },
       ok() {
+        // trigger submit
         this.$refs.form.submit()
       },
       submit(data) {

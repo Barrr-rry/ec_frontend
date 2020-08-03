@@ -217,11 +217,13 @@
     },
     watch: {
       quantity(newval, oldval) {
+        // 更新數量 就要trigger
         if (oldval) {
           this.updateCart()
         }
       },
       specification(newval, oldval) {
+        // 更新規格 就要trigger
         if (oldval) {
           this.updateCart(true)
         }
@@ -251,6 +253,7 @@
         })
       },
       apiCartUpdate(id, values, reload) {
+        // 更新cart 資料
         this.$api.cart.putData(id, values).then(() => {
           // process.client 是只有在client 端才有 用nuxt 需要增加這個if 判斷
           if (reload && process.client) {
@@ -259,6 +262,7 @@
         })
       },
       cartRemove(id) {
+        // 判斷有沒有登入
         if (!this.has_token) {
           // 如果單除要移除 cookie 裡面的要做許多事情
           let cart = cartRemove(this.item.product.id, this.specification_detail.id)
@@ -295,6 +299,7 @@
         this.updateCart(true)
       },
       updateCart(reload = false) {
+        // 要更新 購物車裡面的資訊
         let values = {
           quantity: this.quantity,
           specification_detail: this.specification_detail.id,

@@ -434,6 +434,7 @@
     watch: {
       '$route.query': {
         handler(query) {
+          // 更新search input
           if (query.k) {
             this.search_input = query.k
           } else {
@@ -446,10 +447,12 @@
     },
     methods: {
       currencyChange(val) {
+        // 計算價錢金額
         let ret = val * this.$store.state.price.item[this.$store.state.currency]
         return parseFloat(ret.toFixed(2))
       },
       logout() {
+        // 登出後要更新token為null 並且重新整理
         this.$api.member.logout().then(() => {
           this.$cookies.set('token', null)
           this.$store.commit('membertoken/changeValue', {key: 'has_token', value: false})
@@ -458,6 +461,7 @@
         })
       },
       checkMoreDeeper(categories) {
+        // 找尋深層的category
         let status = true
         for (let cata of categories) {
           if (!cata.sub_categories.length) {
@@ -469,18 +473,22 @@
         return status
       },
       search() {
+        // 更新頁面 實際抓頁面的search 是在product
         this.$router.push(`/products?k=${this.search_input.trim()}`)
       },
       change_locale(lang) {
+        // 更新lang 並且重新整理 因為語言已經事先init 好了
         this.$cookies.set('lang', lang)
         this.$router.go()
       },
       change_currency(currency) {
+        // 更新currency 並且重新整理 因為currency已經事先init 好了
         this.$cookies.set('currency', currency)
         this.currency = currency
         this.$router.go()
       },
       share(social) {
+        // 用第三方套件share fb, line ...etc
         const webTitle = `HaveFun Men’s Underwear`,
           webUrl = location.href
         window.open('https://www.addtoany.com/add_to/' + social + '?linkurl=' + webUrl + '&amp;linkname=' + encodeURI(webTitle))
@@ -488,6 +496,7 @@
     },
     created() {
       if (process.client) {
+        // todo 應該刪除掉 最後不是在這邊檢查瀏覽器
         var getExplorer = (function () {
           var explorer = window.navigator.userAgent,
             compare = function (s) {

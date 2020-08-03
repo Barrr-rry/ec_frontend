@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 import messages from "@/assets/js/messages"
-
+// 註冊i18n 並且把messages 註冊進去
 
 // let locale = localStorage.getItem('lang') || 'tw'
 Vue.use(VueI18n)

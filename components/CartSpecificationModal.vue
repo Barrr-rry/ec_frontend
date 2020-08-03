@@ -59,6 +59,7 @@
         this.input = val
       },
       input(val) {
+        // 更新規格
         if (!val) {
           this.resetCart()
           this.choose_level1 = null

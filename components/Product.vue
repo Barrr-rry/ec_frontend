@@ -112,10 +112,12 @@ export default {
   },
   methods: {
     currencyChange(val) {
+      // 根據currency 更改價錢
       let ret = val * this.$store.state.price.item[this.$store.state.currency]
       return parseFloat(ret.toFixed(2))
     },
     copy() {
+      // 複製
       this.$refs.copy_data.setAttribute('type', 'text') // 不是 hidden 才能複製
       this.$refs.copy_data.select()
 
@@ -133,6 +135,7 @@ export default {
       }
     },
     toCartModal() {
+      // 開啟modal
       this.product_id = this.product.id
       this.specifications_modal = this.product.specifications
       this.wishmodal = true

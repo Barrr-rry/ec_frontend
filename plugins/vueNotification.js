@@ -7,6 +7,7 @@ const options = {
   position: 'bottom-center'
 }
 
+// 註冊vue notify
 Vue.use(Toast, options)
 
 

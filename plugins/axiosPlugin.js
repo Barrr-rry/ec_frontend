@@ -43,6 +43,7 @@ export default function (context, inject) {
   // 自動增加token
   ax.interceptors.request.use((config) => {
     const token = app.$cookies.get('token')
+    // headers 設定token
     if (token) {
       config.headers.Authorization = `Token ${token}`
     } else {

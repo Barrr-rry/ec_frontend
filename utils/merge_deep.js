@@ -1,4 +1,7 @@
 function mergeDeep(...objects) {
+  /**
+   * 這個是為了把兩個obj 能做copy的動作而且是深層的copy
+   * */
   const isObject = (obj) => obj && typeof obj === 'object'
   return objects.reduce((prev, obj) => {
     Object.keys(obj).forEach((key) => {

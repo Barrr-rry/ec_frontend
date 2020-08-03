@@ -135,6 +135,7 @@
         }
       },
       order_status() {
+        // 根據order status 顯示相對應的文字
         if (this.order.pay_status) {
           return this.$t('pay_success')
         } else if (this.order.pay_type) {
@@ -146,6 +147,7 @@
         }
       },
       products() {
+        // 訂單的快照
         return JSON.parse(this.order.product_shot)
       }
     },
@@ -154,6 +156,7 @@
         this.$refs.form.submit()
       },
       submit() {
+        // 取消訂單 並且重新整理
         this.$api.order.putData(this.order.id, {
           shipping_status: 400
         }).then(() => {
@@ -162,6 +165,7 @@
         })
       },
       cancelOrder() {
+        // 取消訂單 並且重新整理
         this.$api.order.putData(this.order.id, {
           shipping_status: 400
         }).then(() => {
@@ -169,6 +173,7 @@
         })
       },
       getSpecName(specification_detail) {
+        // 組合規格的名字
         let spec1_name = specification_detail.spec1_name
         let spec2_name = specification_detail.spec2_name
         let ret = [spec1_name]
@@ -178,6 +183,8 @@
         return ret.join(" - ")
       },
       htmlToEcpay(res) {
+        // 取得html 並且更新他會有一個form post 並且觸發submit
+        // 這樣才可以觸發綠界金流
         this.html = res.data.html
         this.$nextTick(() => {
           if (document.getElementById("data_set")) {
@@ -190,12 +197,14 @@
           order_id: this.order.id,
           callback_url: location.origin + '/order-complete'
         }
+        // 重新付款
         this.$api.ecpay.repayment(data).then(res => {
           this.htmlToEcpay(res)
         })
       },
       image(productimages) {
         for (let img of productimages) {
+          // 只抓主畫面的圖片
           if (img.main_image) {
             return img.image_url
           }

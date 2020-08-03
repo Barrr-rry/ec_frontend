@@ -63,6 +63,7 @@
           let selection
           textArea.value = this.item.discount_code
           document.body.appendChild(textArea)
+          // ios copy 的寫法不一樣
           if (isOS()) {
             range = document.createRange()
             range.selectNodeContents(textArea)

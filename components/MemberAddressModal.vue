@@ -366,6 +366,7 @@
         })
       },
       update(data) {
+        // 更新address 並且重新要更新後的資料
         this.$api.memberaddress.putData(this.item.id, data).then(() => {
           this.$store.dispatch('member/info').then(() => {
             this.input = false

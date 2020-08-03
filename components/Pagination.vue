@@ -61,6 +61,7 @@
         return this.input
       },
       pages() {
+        // 計算總共有多少個頁面
         let input = this.page_input
         let ret = [input]
         let small_input = input - 1
