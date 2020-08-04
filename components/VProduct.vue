@@ -25,7 +25,7 @@
         <span class="product-name ellipsis"
               style="-webkit-line-clamp:2;display: -webkit-box;-webkit-box-orient: vertical;overflow: hidden;height: 48px; font-weight:bold;">{{getText(product,'cn_name','en_name')}}
                 </span>
-        <h3 class="product-price" style="text-align: -webkit-center;">{{getProcessPrice(price)}}
+        <h3 class="product-price" style="text-align: -webkit-center;">{{getProcessPrice(price)}}<br/>
           <del v-if="fake_price">{{getProcessPrice(fake_price)}}</del>
         </h3>
         <p class="product-describe">{{product.sub_title}}</p>
