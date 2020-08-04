@@ -12,15 +12,15 @@ const custom_message = {
     tw: '電話'
   },
   ordering_information: {
-    en: 'Order information',
+    en: 'Purchasing Information',
     tw: '訂購資訊'
   },
   delivery_instructions: {
-    en: 'Delivery and return policy',
+    en: 'Delivery, Return and Exchange policy',
     tw: '配送與退換貨政策'
   },
   instructions: {
-    en: 'Delivery note',
+    en: 'Delivery Guide',
     tw: '配送說明'
   },
   delivery_instruction_1: {
@@ -48,7 +48,7 @@ const custom_message = {
       '            65 元。若選擇貨運，不論運費多寡，消費者皆須自付離島運費。'
   },
   delivery_instructions_5: {
-    en: 'Delivery schedule description',
+    en: 'Shipping Service and Delivery times',
     tw: '配送時程說明'
   },
   delivery_instructions_6: {
@@ -64,7 +64,7 @@ const custom_message = {
       '            ），請特別留意物流公司的手機通知，以免延誤收貨時間。'
   },
   delivery_instructions_8: {
-    en: 'Shipping method and progress query',
+    en: 'Delivery Method and Tracking',
     tw: '運送方式及進度查詢'
   },
   delivery_instructions_9: {
@@ -81,7 +81,7 @@ const custom_message = {
     tw: '宅配：請至「 宅配貨件追蹤查詢系統 」查詢。'
   },
   delivery_instructions_12: {
-    en: 'Seven-day appreciation period',
+    en: '7 Day Returns',
     tw: '七天鑑賞期權利'
   },
   delivery_instructions_13: {
@@ -91,7 +91,7 @@ const custom_message = {
       '            ）之權益，鑑賞期間作為您評估是否購買該商品，並非提供您試用該商品，您可在鑑賞期間內要求退貨退款。'
   },
   delivery_instructions_14: {
-    en: 'Note on returns',
+    en: 'Return Conditions',
     tw: '退貨注意事項'
   },
   delivery_instructions_15: {
@@ -144,7 +144,7 @@ const custom_message = {
     tw: '※瑕疵損壞定義：收到商品時外觀嚴重破損、收到商品時內容物外漏、收到商品時商品已超過有效期限。'
   },
   delivery_instructions_27: {
-    en: 'Return and exchange process',
+    en: 'Return and Exchange Process',
     tw: '退換貨流程'
   },
   delivery_instructions_28: {
@@ -161,7 +161,7 @@ const custom_message = {
       '            請您妥善包裝，若寄回商品或包裝已損傷或缺漏，可能影響您退貨的權益 ）'
   },
   delivery_instructions_30: {
-    en: 'Refund',
+    en: 'Refund Process',
     tw: '辦理退款'
   },
   delivery_instructions_31: {
@@ -187,7 +187,7 @@ const custom_message = {
     tw: '因個人因素要求退貨者，需自行負擔運費。'
   },
   for_business: {
-    en: 'Business Cooperation',
+    en: 'Business Collaborations',
     tw: '商業合作'
   },
   for_business_txt1_1: {
@@ -211,7 +211,7 @@ const custom_message = {
     tw: "因內褲屬於貼身衣物，基於衛生考量，如需退換貨請注意，所有退換貨的商品需於七天鑑賞期內寄回，七天鑑賞期非試用期，為確保您的權益，必須保留HaveFun Men's Underwear安全膠針無剪斷無毀損、不下水、不剪標、不試穿、無異味。"
   },
   delivery_rule_0: {
-    en: 'Exchange:',
+    en: 'Exchange Instructions::',
     tw: '換貨：'
   },
   delivery_rule_0_1_0: {
@@ -227,7 +227,7 @@ const custom_message = {
     tw: '本公司會免費幫您寄送換貨商品過去，但您需先負責將商品寄回本公司且自行負擔寄回的運費。'
   },
   delivery_rule_1: {
-    en: 'Wrong product:',
+    en: 'Wrong Product Delivered:',
     tw: '寄錯商品：'
   },
   delivery_rule_1_1_0: {
@@ -235,7 +235,7 @@ const custom_message = {
     tw: '如收到商品錯誤，請於取件隔日開始算七日鑑賞期內，提供訂單編號及商品照片至Line客服私訊，客服會盡速為您處理。'
   },
   delivery_rule_2: {
-    en: 'Return:',
+    en: 'Return Instructions:',
     tw: '退貨：'
   },
   delivery_rule_2_1_0: {
@@ -251,7 +251,7 @@ const custom_message = {
     tw: '訂購須知與公司條款'
   },
   company_terms_1: {
-    en: 'order process',
+    en: 'Purchasing Procedures: ',
     tw: '訂購流程'
   },
   company_terms_0: {
@@ -325,64 +325,64 @@ const custom_message = {
     tw: '( 適合不方便在家收貨或無信用卡的客戶 )'
   },
   company_terms_12: {
-    en: 'payment instructions',
+    en: 'How to pay: ',
     tw: '付款說明'
   },
   common_problem: {
-    en: 'common problem',
+    en: 'FAQs',
     tw: '常見問題'
   },
   common_problem_0: {
-    en: 'Where is the product source?',
+    en: 'Where do EC’s products come from?',
     tw: '產品來源是哪裡？'
   },
   common_problem_1: {
-    en: 'All our products come from American companies.',
+    en: 'All our products are made in the U.S.A.',
     tw: '我們商品一律來自美國公司。'
   },
   common_problem_2: {
-    en: 'Is the shelf life of the product I can receive up to date?',
+    en: 'Will I receive products with the latest manufacturing date?',
     tw: '我可以收到產品的保存期限是最新嗎？'
   },
   common_problem_3: {
-    en: 'Please rest assured that our products have the latest shelf life, and you can also make an inquiry before placing an order!',
+    en: 'You may rest assure that our products have the latest shelf life, and you can also make an inquiry before placing an order!',
     tw: '請放心，我們的商品都是最新的保存期限，也可以下單前先做詢問喔！'
   },
   common_problem_4: {
-    en: 'Are the product images and content exactly the same as the actual product?',
+    en: 'Do items look like the pictures?',
     tw: '商品圖片與內容是否與實品一模一樣？'
   },
   common_problem_5: {
-    en: 'Yes!',
+    en: 'Exactly!',
     tw: '是的！'
   },
   common_problem_6: {
-    en: 'The product is out of stock, when will it be restocked?',
+    en: 'If the product is out of stock, when do items restock?',
     tw: '商品缺貨了，什麼時候才會再進貨呢？'
   },
   common_problem_7: {
-    en: 'If it is a pre-order product, it takes 7-14 working days to arrive in Taiwan one after another!',
+    en: 'If it is a pre-order product, it takes 7-14 working days to arrive in Taiwan!',
     tw: '如果是預購商品需要 7 - 14 個工作天才會陸續抵台喔！'
   },
   common_problem_8: {
-    en: 'How long will it take to receive the goods?',
+    en: 'How long will it take to receive the goods we ordered?',
     tw: '要多久才能收貨？'
   },
   common_problem_9: {
-    en: 'We will ship the stock part within 1-2 days, and it will take about 2-4 days to get to you! If you need it urgently, please note and let us know, and we will handle it for you as quickly as possible.',
+    en: 'If the goods are in stock ,we will deliver your product within 1-2 days. Your order will be delivered within 2-4 business days. ! If you need it urgently, please let us know, and we will send the products to you as soon as possible.',
     tw: '現貨部分我們 1 - 2 天內會出貨，到你手上大約需要 2 - 4\n' +
       '              天的時間喔！如果急需，請備註告訴我們，我們會以最快速度幫你處理。'
   },
   common_problem_10: {
-    en: 'What should I do if there is damage after receiving the goods?',
+    en: 'What should I do if I receive damaged goods ?',
     tw: '收到貨品後發現有破損，該如何處理？'
   },
   common_problem_11: {
-    en: 'Please contact us as soon as possible, we will help you deal with the return and exchange related issues as soon as possible.',
+    en: 'Please contact us as soon as possible, we will help you deal with the return and exchange.',
     tw: '請儘速與我們聯繫，我們盡快幫你處理退換相關問題。'
   },
   common_problem_12: {
-    en: 'Can I cancel the order?',
+    en: 'Is it okay if I cancel the order?',
     tw: '可以取消訂單嗎？'
   },
   common_problem_13: {
@@ -390,64 +390,64 @@ const custom_message = {
     tw: '訂單如果已出貨是無法做取消的喔!'
   },
   common_problem_14: {
-    en: 'When the ordered product is out of stock?',
+    en: 'What could I do if the product is out of stock?',
     tw: '訂購的商品出現缺貨時？'
   },
   common_problem_15: {
-    en: 'Please contact us to confirm whether it is completely out of stock or need waiting time.',
+    en: 'Please contact us to confirm whether or not it is completely out of stock as it takes time for us to restock.',
     tw: '請聯繫我們做確認是否完全無庫存或需等待時間。'
   },
   common_problem_16: {
-    en: 'Can I purchase products other than those on your website?',
+    en: 'Is Cross Border Online Buying Service available in your company?',
     tw: '請問我可以代購其他你們網頁上以外的商品嗎？'
   },
   common_problem_17: {
-    en: 'Yes, as long as it is a legitimate website in the United States, we can help with purchasing.',
+    en: 'Yes, it is a pleasure for us to purchase the items you want, so long as the products are from a legitimate website in the United States.',
     tw: '可以，只要是美國的合法網站，我們都可以幫忙代購的。'
   },
   common_problem_18: {
-    en: 'How do I see the shelf life of the goods?',
+    en: 'Where could I check the shelf life of the products we buy?',
     tw: '請問我怎麼看商品的保存期限？'
   },
   common_problem_19: {
-    en: 'Most of the shelf life is next to the product catalog (for example, the number 11/25 refers to November 2025).',
+    en: 'The Shelf life is shown next to the Product Catalog (for example,11/25 means  November 2025).',
     tw: '大部分的保存期限都是在商品型錄旁邊（ 如數字是 11/25 指的是 11 月\n' +
       '              2025 年）。'
   },
   canncel_order: {
-    en: 'cancel order',
+    en: 'Cancellation',
     tw: '取消訂單'
   },
   member_center: {
-    en: 'Member Centre',
+    en: 'Member Center',
     tw: '會員中心'
   },
   back_member_center: {
-    en: 'Return to member center',
+    en: 'Back to Member Center',
     tw: '返回會員中心'
   },
   my_account: {
-    en: 'my account',
+    en: 'My Account',
     tw: '我的帳戶'
   },
   order_record: {
-    en: 'Order Tracking',
+    en: 'Tracking',
     tw: '訂單查詢'
   },
   my_favourite: {
-    en: 'my favourite',
+    en: 'My Wishlists',
     tw: '我的最愛'
   },
   common_address: {
-    en: 'Common Address',
+    en: 'Frequently Used Addresses',
     tw: '常用地址'
   },
   other_information: {
-    en: 'Other information',
+    en: 'Other Information',
     tw: '其他資訊'
   },
   privacy_statement: {
-    en: 'Privacy statement',
+    en: 'Privacy Statement',
     tw: '隱私權聲明'
   },
   privacy_statement_1: {
@@ -456,7 +456,7 @@ const custom_message = {
       '          ），為了讓您能夠安心使用本網站的各項服務與資訊，特此向您說明本網站的隱私權保護政策，以保障您的權益，請您詳閱下列內容：'
   },
   privacy_statement_2: {
-    en: '1. The scope of application of the privacy protection policy',
+    en: '1. The Application of the Privacy Protection Policy',
     tw: '一、隱私權保護政策的適用範圍'
   },
   privacy_statement_3: {
@@ -464,7 +464,7 @@ const custom_message = {
     tw: '隱私權保護政策內容，包括本網站如何處理在您使用網站服務時收集到的個人識別資料。隱私權保護政策不適用於本網站以外的相關連結網站，也不適用於非本網站所委託或參與管理的人員。'
   },
   privacy_statement_4: {
-    en: '2. Methods of collecting, processing and using personal data',
+    en: '2. Methods of Collecting, Processing and Using Personal Data',
     tw: '二、個人資料的蒐集、處理及利用方式'
   },
   privacy_statement_6: {
@@ -484,7 +484,7 @@ const custom_message = {
     tw: '為提供精確的服務，我們會將收集的問卷調查內容進行統計與分析，分析結果之統計數據或說明文字呈現，除供內部研究外，我們會視需要公佈統計數據及說明文字，但不涉及特定個人之資料。'
   },
   privacy_statement_10: {
-    en: '3. Data protection',
+    en: '3. Data Protection',
     tw: '三、資料之保護'
   },
   privacy_statement_11: {
@@ -496,7 +496,7 @@ const custom_message = {
     tw: '如因業務需要有必要委託其他單位提供服務時，本網站亦會嚴格要求其遵守保密義務，並且採取必要檢查程序以確定其將確實遵守。'
   },
   privacy_statement_13: {
-    en: '4. External links on the website',
+    en: '4. External Links',
     tw: '四、網站對外的相關連結'
   },
   privacy_statement_14: {
@@ -504,7 +504,7 @@ const custom_message = {
     tw: '本網站的網頁提供其他網站的網路連結，您也可經由本網站所提供的連結，點選進入其他網站。但該連結網站不適用本網站的隱私權保護政策，您必須參考該連結網站中的隱私權保護政策。'
   },
   privacy_statement_15: {
-    en: '5. Policy on sharing personal data with third parties',
+    en: '5. Policy for Sharing Personal Data with Third Parties',
     tw: '五、與第三人共用個人資料之政策'
   },
   privacy_statement_16: {
@@ -536,7 +536,7 @@ const custom_message = {
     tw: '當您在網站的行為，違反服務條款或可能損害或妨礙網站與其他使用者權益或導致任何人遭受損害時，經網站管理單位研析揭露您的個人資料是為了辨識、聯絡或採取法律行動所必要者。'
   },
   privacy_statement_23: {
-    en: 'Conducive to your rights.',
+    en: 'Benefits of Your Rights.',
     tw: '有利於您的權益。'
   },
   privacy_statement_24: {
@@ -555,7 +555,7 @@ const custom_message = {
       '            Cookie 的寫入，但可能會導至網站某些功能無法正常執行 。'
   },
   privacy_statement_27: {
-    en: '7. Amendment of privacy protection policy.',
+    en: '7. Amendment of Privacy Protection policy.',
     tw: '七、隱私權保護政策之修正。'
   },
   privacy_statement_28: {
@@ -587,11 +587,11 @@ const custom_message = {
     tw: '所有商品'
   },
   brand_category: {
-    en: 'Brand category',
+    en: 'Brand Category',
     tw: '品牌分類'
   },
   efficacy_classification: {
-    en: 'Function classification',
+    en: 'Functions classification',
     tw: '功效分類'
   },
   component_classification: {
@@ -607,23 +607,23 @@ const custom_message = {
     tw: '快速選購'
   },
   special_offer: {
-    en: 'Special offer',
+    en: 'Special Offer',
     tw: '特惠商品'
   },
   best_sale_goods: {
-    en: 'best sale goods',
+    en: 'Best Seller',
     tw: '暢銷商品'
   },
   new_listing: {
-    en: 'New product listing',
+    en: 'New Arrivals',
     tw: '新品上市'
   },
   constantly_praised: {
-    en: 'Constant praise',
+    en: 'RECOMMENDED',
     tw: '好評不斷'
   },
   please_input_brand_or_prodcut_name: {
-    en: 'Please input the brand or product name',
+    en: 'Search for items and brand...',
     tw: '請輸入品牌或是商品名稱'
   },
   search: {
@@ -631,7 +631,7 @@ const custom_message = {
     tw: '搜尋'
   },
   pd_name_fake: {
-    en: 'Healthy Fruit and Vegetable Nutrition Tablets',
+    en: 'Natural Fruit and Vegetable Nutrition Tablets',
     tw: '健康蔬果營養片'
   },
   bottle: {
@@ -639,11 +639,11 @@ const custom_message = {
     tw: '瓶'
   },
   shop_now: {
-    en: 'Shop now',
+    en: 'Purchase Now',
     tw: '立即選購'
   },
   free_shipping: {
-    en: 'Free shipping',
+    en: 'Shipping',
     tw: '運費'
   },
   size_chart: {
@@ -655,19 +655,19 @@ const custom_message = {
     tw: '尺寸'
   },
   coupon: {
-    en: 'coupon',
+    en: 'Coupon',
     tw: '優惠券'
   },
   coupon_code: {
-    en: 'coupon',
+    en: 'Coupon Code',
     tw: '優惠券碼'
   },
   loyalty_reward: {
-    en: 'Reward point system',
+    en: 'Reward Point System',
     tw: '回饋金點數制度'
   },
   loyalty_reward_m: {
-    en: 'Loyalty reward',
+    en: 'Loyalty Reward',
     tw: '忠誠獎勵'
   },
   loyalty_reward_1: {
@@ -702,31 +702,31 @@ const custom_message = {
     tw: '獎勵金何時過期？'
   },
   loyalty_reward_btn1: {
-    en: 'Register now',
+    en: 'Join Us Now',
     tw: '立即註冊會員'
   },
   loyalty_reward_btn2: {
-    en: 'View my loyalty reward',
+    en: 'View My Loyalty Reward',
     tw: '查看我的忠誠獎勵'
   },
   shi: {
-    en: 'Free shipping with a single amount of 3000 or more',
+    en: 'FREE Taiwan Home-Delivery Service with NT$ 3000 Purchase or more',
     tw: '單筆金額滿 3000 宅配免運'
   },
   free_shipping_fake_value: {
-    en: 'Free shipping on full amount',
+    en: 'Free Taiwan Shipping with NT$800',
     tw: '滿額享免運費'
   },
   coupon_fake_value: {
-    en: 'The strongest discount look here',
+    en: 'Super Discount!',
     tw: '最強優惠看這裡'
   },
   loyalty_reward_fake_value: {
-    en: 'Reward for every consumption!',
+    en: 'Rewards on Every Order!',
     tw: '筆筆消費皆有回饋！'
   },
   sale_goods: {
-    en: 'Sale items',
+    en: 'On Sale',
     tw: '特賣商品'
   },
   female_everyday: {
@@ -742,7 +742,7 @@ const custom_message = {
     tw: '全部'
   },
   login: {
-    en: 'Login',
+    en: 'Sign In',
     tw: '登入'
   },
   currency: {
@@ -750,35 +750,35 @@ const custom_message = {
     tw: '貨幣'
   },
   product_ordering_instructions: {
-    en: 'Product order description',
+    en: 'Order Description',
     tw: '商品訂購說明'
   },
   product_list: {
-    en: 'List of products',
+    en: 'List of Items',
     tw: '商品一覽'
   },
   logout: {
-    en: 'Logout',
+    en: 'Sign Out',
     tw: '登出'
   },
   price_filter: {
-    en: 'Price filter',
+    en: 'Price Filter',
     tw: '價格篩選'
   },
   price_filter_bottom: {
-    en: 'The price range',
+    en: 'The Price Range',
     tw: '價格區間'
   },
   filter: {
-    en: 'filter',
+    en: 'Filter',
     tw: '篩選'
   },
   filter_set: {
-    en: 'Filter settings',
+    en: 'Filter Settings',
     tw: '篩選設定'
   },
   specification: {
-    en: 'specification',
+    en: 'Specification',
     tw: '規格'
   },
   count: {
@@ -786,7 +786,7 @@ const custom_message = {
     tw: '數量'
   },
   have_products: {
-    en: 'In stock',
+    en: 'In Stock',
     tw: '有庫存'
   },
   kg: {
@@ -794,27 +794,27 @@ const custom_message = {
     tw: '公斤'
   },
   add_cart: {
-    en: 'add cart',
+    en: 'Add to Cart',
     tw: '加入購物車'
   },
   add_favourite: {
-    en: 'Add to favorites',
+    en: 'Add to Wishlists',
     tw: '加入我的最愛'
   },
   shere_products: {
-    en: 'Share this product',
+    en: 'Share This Item',
     tw: '分享此商品'
   },
   products_description: {
-    en: 'Product description',
+    en: 'Item Description',
     tw: '商品說明'
   },
   products_detail: {
-    en: 'Details',
+    en: 'Detail',
     tw: '詳細資訊'
   },
   products_specifition: {
-    en: 'Product specifications',
+    en: 'Item Specification',
     tw: '產品規格'
   },
   maker: {
@@ -830,43 +830,43 @@ const custom_message = {
     tw: '保存期限'
   },
   capacity: {
-    en: 'Product capacity',
+    en: 'Item capacity',
     tw: '產品容量'
   },
   weight: {
-    en: 'weight',
+    en: 'Weight',
     tw: '重量'
   },
   products_weight: {
-    en: 'product weight',
+    en: 'Product Weight',
     tw: '產品重量'
   },
   products_volume: {
-    en: 'Product volume',
+    en: 'Product Size',
     tw: '產品體積'
   },
   account_detail: {
-    en: 'my account',
+    en: 'My Account',
     tw: '我的帳戶'
   },
   reward_now: {
-    en: 'Current bonus',
+    en: 'Current Reward',
     tw: '目前獎勵金'
   },
   next_discount: {
-    en: 'Deductible in the next purchase',
+    en: 'Discount on Your Next Order',
     tw: '於下次消費可折抵'
   },
   doller: {
-    en: 'dollar',
+    en: 'Dollar',
     tw: '元'
   },
   reward_description: {
-    en: 'Reward points description',
+    en: 'Reward Points Description',
     tw: '回饋點數說明'
   },
   member_name: {
-    en: 'member name',
+    en: 'Member’s Name',
     tw: '會員姓名'
   },
   email: {
@@ -882,51 +882,51 @@ const custom_message = {
     tw: '手 機'
   },
   password: {
-    en: 'Passwrod',
+    en: 'Password',
     tw: '密碼'
   },
   shipping_name: {
-    en: 'Shipping name',
+    en: 'Consignee Name',
     tw: '收貨人姓名'
   },
   shipping_phone: {
-    en: 'Phone',
+    en: 'Phone Number',
     tw: '手機號碼'
   },
   shipping_phonee: {
-    en: 'Consignee phone',
+    en: 'Consignee Phone Number',
     tw: '收貨人電話'
   },
   shipping_phone_2: {
-    en: 'Phone',
+    en: 'Phone Number',
     tw: '手機號碼'
   },
   shipping_address: {
-    en: 'Shipping address',
+    en: 'Shipping Address',
     tw: '收貨地址'
   },
   default_memberaddress: {
-    en: 'Current preset address',
+    en: 'Current Address',
     tw: '當前預設地址'
   },
   set_default_memberaddress: {
-    en: 'Set as default address',
+    en: 'Set as Default Setting Address',
     tw: '設定為預設地址'
   },
   add_memberaddress: {
-    en: 'Add a common address',
+    en: 'Add a Frequently Used Address',
     tw: '新增一個常用地址'
   },
   member_function: {
-    en: 'Member function',
+    en: 'Member Function',
     tw: '會員功能'
   },
   no_wishlist: {
-    en: 'No collection information',
+    en: 'No Collection Information',
     tw: '沒有收藏資訊'
   },
   product_iamge: {
-    en: 'product photo',
+    en: 'Item Picture',
     tw: '產品照片'
   },
   name_specification: {
@@ -934,39 +934,39 @@ const custom_message = {
     tw: '品名'
   },
   price: {
-    en: 'unit price',
+    en: 'Unit Price',
     tw: '單價'
   },
   wish_date: {
-    en: 'Collection time',
+    en: 'The time you save as Wishlists',
     tw: '收藏時間'
   },
   function: {
-    en: 'Function operation',
+    en: 'Function Operation',
     tw: '功能操作'
   },
   order_number: {
-    en: 'Order number',
+    en: 'Order Number',
     tw: '訂單編號'
   },
   pay_success: {
-    en: 'Order paid',
+    en: 'Already Paid',
     tw: '訂單已付款'
   },
   pay_fail: {
-    en: 'Payment Fail',
+    en: 'Payment Failed',
     tw: '付款失敗'
   },
   order_date: {
-    en: 'Order date',
+    en: 'The Date of Order',
     tw: '訂單日期'
   },
   order_method: {
-    en: 'Delivery method',
+    en: 'Delivery Method',
     tw: '寄送方式'
   },
   order_total: {
-    en: 'Total amount of goods',
+    en: 'Subtotal',
     tw: '商品總金額'
   },
   shipping: {
@@ -978,19 +978,19 @@ const custom_message = {
     tw: '優惠券折抵'
   },
   reward_back: {
-    en: 'Loyalty rewards',
+    en: 'Loyalty Rewards',
     tw: '忠誠獎勵回饋'
   },
   pay_method: {
-    en: 'payment method',
+    en: 'Payment Method',
     tw: '付款方式'
   },
   total: {
-    en: 'Total',
+    en: 'Total Amount',
     tw: '總計'
   },
   set_password_title: {
-    en: 'Reset password',
+    en: 'Reset Password',
     tw: '重新設定密碼'
   },
   pay_again: {
@@ -998,19 +998,19 @@ const custom_message = {
     tw: '重新付款'
   },
   cart: {
-    en: 'shopping cart',
+    en: 'Shopping Cart',
     tw: '購 物 車'
   },
   cartt: {
-    en: 'shopping cart',
+    en: 'Shopping Cart',
     tw: '購物車'
   },
   write_data: {
-    en: 'Fill in the information',
+    en: 'Fill out information',
     tw: '填 寫 資 料'
   },
   order_final: {
-    en: 'Order result',
+    en: 'Order Confirmation',
     tw: '訂 單 結 果'
   },
   little_total: {
@@ -1022,79 +1022,79 @@ const custom_message = {
     tw: '使 用'
   },
   price_detail: {
-    en: 'Amount details',
+    en: 'Amount Details',
     tw: '金額明細'
   },
   total_weight: {
-    en: 'total weight',
+    en: 'total Weight',
     tw: '總重量'
   },
   used_coupon: {
-    en: 'Reward points for this use',
+    en: 'Reward Points for this Order',
     tw: '本次使用回饋點數'
   },
   no_coupon: {
-    en: 'No such coupon found',
+    en: 'This Coupon not found',
     tw: '查無此張優惠券'
   },
   cant_use_coupon: {
-    en: 'You have not reached the threshold of this coupon',
+    en: 'Discount not valid because purchase not enough',
     tw: '您尚未達到此張優惠券門檻'
   },
   coupon_over_date: {
-    en: 'This coupon has expired',
+    en: 'This Coupon is invalid',
     tw: '此張優惠券已過期'
   },
   coupon_member_over: {
-    en: 'This coupon has been used for the maximum number of times',
+    en: 'Unfortunately, we have to discontinue the cash coupon code since it has been overused.',
     tw: '此張優惠券使用次數已達上限'
   },
   coupon_all_over: {
-    en: 'This coupon is full',
+    en: 'This Coupon is unavailable now because we are overbooked.',
     tw: '此張優惠券名額已滿'
   },
   used_reward: {
-    en: 'Loyalty reward discount',
+    en: 'Loyalty Program Rewards',
     tw: '忠誠獎勵折抵'
   },
   next_write: {
-    en: 'Next step: fill in the information',
+    en: 'Next Step: Fill out Information',
     tw: '下一步 : 填寫資料'
   },
   write: {
-    en: 'Fill in the information',
+    en: 'Fill out Information',
     tw: '填寫資料'
   },
   ordre_get: {
-    en: 'This order will get',
+    en: 'With this purchasing order, you will get',
     tw: '本訂單將獲得'
   },
   pay_get: {
-    en: 'This consumption can be accumulated',
+    en: 'With this purchasing order, you will accumulate',
     tw: '本次消費可累積'
   },
   point_reward: {
-    en: ' reward points',
+    en: ' Reward Points',
     tw: '點回饋點數'
   },
   reward: {
-    en: 'Reward points',
+    en: 'Reward Points',
     tw: '回饋點數'
   },
   cart_no_product: {
-    en: 'No items in the shopping cart',
+    en: 'Your Cart is Empty.',
     tw: '購物車內沒有商品'
   },
   order_no_product: {
-    en: 'Check no order',
+    en: 'This Purchasing Order not found.',
     tw: '查無訂單'
   },
   pay_online: {
-    en: 'Online payment',
+    en: 'Online Payment',
     tw: '線上付款'
   },
   pay_later: {
-    en: 'Cash on delivery',
+    en: 'Cash on Delivery',
     tw: '貨到付款'
   },
   to_home: {
@@ -1102,7 +1102,7 @@ const custom_message = {
     tw: '郵寄'
   },
   to_store: {
-    en: 'Home delivery',
+    en: 'Home-Delivery Service',
     tw: '宅配'
   },
   fami: {
@@ -1114,39 +1114,39 @@ const custom_message = {
     tw: '萊爾富'
   },
   save_address: {
-    en: 'Save to frequently used address',
+    en: 'Save as Frequently used Address',
     tw: '儲存至常用地址'
   },
   choose_store: {
-    en: 'Choose a supermarket',
+    en: 'Choose a convenience store pick-up point',
     tw: '選擇超商'
   },
   rechoose_store: {
-    en: 'Re-select the supermarket',
+    en: 'Re-select the convenience store',
     tw: '重新選擇超商'
   },
   order_detail: {
-    en: 'Order information',
+    en: 'Order Information',
     tw: '訂單資訊'
   },
   next: {
-    en: 'Next step',
+    en: 'Next Step',
     tw: '下一步'
   },
   order_complete: {
-    en: 'Congratulations you have completed your order!',
+    en: 'Congratulations! You have completed your order!',
     tw: '恭喜您已經完成訂單！'
   },
   order_fail: {
-    en: 'The order failed!',
+    en: 'The Order Failed!',
     tw: '訂單失敗！'
   },
   order_fail_repay: {
-    en: 'Payment Fail! Please make another payment!',
+    en: 'Payment Failed! Please pay it again or try other payment methods!',
     tw: '付款失敗！請重新付款！'
   },
   coupon_over: {
-    en: 'Offer has ended',
+    en: 'Promotion has ended',
     tw: '優惠已經結束'
   },
   over: {
@@ -1154,7 +1154,7 @@ const custom_message = {
     tw: '滿'
   },
   doller_disc: {
-    en: 'now off',
+    en: ' off',
     tw: '元 現折'
   },
   copy: {
@@ -1166,7 +1166,7 @@ const custom_message = {
     tw: '關閉選單'
   },
   shipping_code: {
-    en: 'Postal code',
+    en: 'Zip code',
     tw: '郵遞區號'
   },
   cancel: {
@@ -1178,7 +1178,7 @@ const custom_message = {
     tw: '確認'
   },
   choose_address: {
-    en: 'Select address',
+    en: 'Select Address',
     tw: '選擇地址'
   },
   add_ress: {
@@ -1186,15 +1186,15 @@ const custom_message = {
     tw: '地 址'
   },
   og_password: {
-    en: 'Old password',
+    en: 'Current Password',
     tw: '舊密碼'
   },
   change_password: {
-    en: 'New password',
+    en: 'New Password',
     tw: '新密碼'
   },
   check_password: {
-    en: 'Confirm the new password',
+    en: 'Confirm the New Password',
     tw: '確認新密碼'
   },
   check_Opassword: {
@@ -1202,15 +1202,15 @@ const custom_message = {
     tw: '再次確認密碼'
   },
   check_acc: {
-    en: 'Reconfirm account (Email)',
+    en: 'Re-enter Account (Email)',
     tw: '再次確認帳號（Email）'
   },
   product_count: {
-    en: 'amount of goods',
+    en: 'The Amount of the Commodities',
     tw: '商品數量'
   },
   abuot_us_0: {
-    en: 'Business philosophy',
+    en: 'Business Philosophy',
     tw: '經營理念'
   },
   abuot_us_1: {
@@ -1241,23 +1241,23 @@ const custom_message = {
       '                  位會員推薦的代購品牌，以良好的顧客服務，成為客戶信賴的健康夥伴。'
   },
   brand_page: {
-    en: 'Brand page',
+    en: 'Brand Page',
     tw: '品牌頁'
   },
   not_found: {
-    en: 'Webpage not found',
+    en: 'Oops..! Web Page not found.',
     tw: '找不到網頁'
   },
   sorry: {
-    en: 'Sorry! The URL does not exist. Please re-enter the URL or click the button below to return to the homepage.',
+    en: 'Oops! The URL does not exist. Please re-enter the URL or click the button below to go back to the homepage.',
     tw: '抱歉！該網址不存在，請重新輸入網址，或點擊下列按鈕回到首頁。'
   },
   forget_password: {
-    en: 'Forget password',
+    en: 'Forgot your Password',
     tw: '忘記密碼'
   },
   email_to: {
-    en: 'You will receive a password change notification letter in the email',
+    en: 'You will receive a password change notification mail',
     tw: '你將於電子郵件中收到更換密碼通知信'
   },
   submit: {
@@ -1265,39 +1265,39 @@ const custom_message = {
     tw: '確定'
   },
   back_login: {
-    en: 'Back to login',
+    en: 'Back to Sign in',
     tw: '返回登入'
   },
   keep_login: {
-    en: 'Remember account password',
+    en: 'Remember Me',
     tw: '記住帳號密碼'
   },
   to_register: {
-    en: 'Or go to register',
+    en: 'Or Join Us',
     tw: '或前往註冊'
   },
   close_filter: {
-    en: 'Turn off filter settings',
+    en: 'Turn off Filter Settings',
     tw: '關閉篩選設定'
   },
   main_in: {
-    en: 'Main ingredients',
+    en: 'Main Components',
     tw: '主要成分'
   },
   other_in: {
-    en: 'Other ingredients',
+    en: 'Other Components',
     tw: '其他成分'
   },
   register: {
-    en: 'Register',
+    en: 'Create an Account',
     tw: '註冊'
   },
   register_checkout: {
-    en: 'Register and checkout',
+    en: 'Create Account and Checkout',
     tw: '註冊並結帳'
   },
   register_terms: {
-    en: 'Membership Terms',
+    en: 'Terms & Conditions for Membership ',
     tw: '會員條款'
   },
   register_terms_1_1: {
@@ -1313,15 +1313,15 @@ const custom_message = {
     tw: ' 點回饋金點數，可在下次消費折抵。（ 1 點 = NT$ 1 ) '
   },
   register_terms_1_3: {
-    en: 'Sign up for free with just your e-mail and the password!',
+    en: 'Start using our service, you just need to enter your email and password!',
     tw: '您只需要使用 E-mail 和密碼即可免費註冊！'
   },
   category_page: {
-    en: 'Category menu',
+    en: 'Category List',
     tw: '分類選單'
   },
   member_success: {
-    en: 'Member certification is successful',
+    en: 'The User has been identified.',
     tw: '會員認證成功'
   },
   member: {
@@ -1329,11 +1329,11 @@ const custom_message = {
     tw: '會員'
   },
   member_success_1: {
-    en: 'You can start shopping happily!',
+    en: 'You can start shopping, and we wish you happy shopping!',
     tw: '可以開始愉快的購物囉！'
   },
   member_fail: {
-    en: 'Member certification failed!',
+    en: 'Failure Identified!',
     tw: '會員認證失敗！'
   },
   member_fail_1: {
@@ -1341,100 +1341,100 @@ const custom_message = {
     tw: '您的帳號已經認證過囉！'
   },
   member_fail_2: {
-    en: 'Your authentication failed, please re-authenticate!',
+    en: 'Validation failed. Please authenticate again!',
     tw: '您的認證失敗，請重新認證！'
   },
   register_success: {
-    en: 'congratulations! Registered successfully',
+    en: 'Congratulations! Registered successfully',
     tw: '恭喜您！已經註冊成功'
   },
   to_buy: {
-    en: 'Go shopping',
+    en: 'Shopping Now',
     tw: '前往選購'
   },
   female: {
-    en: 'Female nutrition series',
+    en: 'Nutrition Series for Women',
     tw: '女用營養系列'
   },
   male: {
-    en: 'Men\'s Nutrition Series',
+    en: 'Nutrition Series for Men',
     tw: '男用營養系列'
   },
   fif_female: {
-    en: 'Nutrition series for women over 50 years old',
+    en: 'Nutrition Series for women (Mature Adulthood)',
     tw: '50歲以上女用營養系列'
   },
   fif_male: {
-    en: 'Men\'s nutrition series over 50 years old',
+    en: 'Nutrition Series for Men (Mature adulthood)',
     tw: '50歲以上男用營養系列'
   },
   boy: {
-    en: 'Children and Youth',
+    en: 'Kids and Adolescents',
     tw: '兒童與青少年'
   },
   see_now: {
-    en: 'View products now',
+    en: 'View Products List',
     tw: '立即查看商品'
   },
   login_now: {
-    en: 'Sign in now',
+    en: 'Sign In Now',
     tw: '立即登入'
   },
   to_cart_write: {
-    en: 'Please go to the shopping cart page to enter',
+    en: 'Please enter in the shopping cart page',
     tw: '請至購物車頁面輸入'
   },
   reward_used: {
-    en: 'Rebate points discount',
+    en: 'Redeem Rewards Points',
     tw: '回饋點數折抵'
   },
   back_product: {
-    en: 'Return to product page',
+    en: 'Back to Product Page',
     tw: '返回商品頁'
   },
   category: {
-    en: 'classification',
+    en: 'Category',
     tw: '分類'
   },
   free_shipping_3000: {
-    en: 'Free transportation',
+    en: 'Free Shipping',
     tw: '免運'
   },
   new_post: {
-    en: 'New Listing',
+    en: 'New Arrivals',
     tw: '新上市'
   },
   low_to: {
-    en: 'Low to high price',
+    en: 'Price: Low to High',
     tw: '價格低到高'
   },
   hi_to: {
-    en: 'High to low price',
+    en: 'Price: High to Low',
     tw: '價格高到低'
   },
   get_10: {
-    en: 'Showing 10 items',
+    en: '10 Items per page',
     tw: '顯示 10 筆'
   },
   get_20: {
-    en: 'Showing 20 items',
+    en: '20 Items per page',
     tw: '顯示 20 筆'
   },
   get_30: {
-    en: 'Showing 30 items',
+    en: '30 Items per page',
     tw: '顯示 30 筆'
   },
   set_password: {
-    en: 'Set password',
+    en: 'Set Password',
     tw: '設定密碼'
 
   },
   no_find_products: {
-    en: 'Can\'t find related products',
+    en: 'Related Products not found',
     tw: '找不到相關商品'
   },
   mail_to: {
-    en: 'You will receive a password change notification letter in the email',
+    en: 'An email has been sent to your mailbox with instructions to reset your password.',
     tw: '你將於電子郵件中收到更換密碼通知信'
   },
   cell_phone: {
@@ -1442,35 +1442,35 @@ const custom_message = {
     tw: '手 機'
   },
   nttdoller: {
-    en: 'Taiwan Dollar (NTD)',
+    en: 'New Taiwan Dollar (NTD)',
     tw: '台幣（NTD）'
   },
   address: {
-    en: 'Home delivery address',
+    en: 'Home-Delivery Address',
     tw: '宅配地址'
   },
   cant_see: {
-    en: 'can not see clearly? Change another one',
+    en: ' Unclear? Click here to check another picture',
     tw: '看不清楚？再換一張'
   },
   Chinese: {
-    en: 'traditional Chinese',
+    en: 'Traditional Chinese',
     tw: '繁體中文'
   },
   all_brands: {
-    en: 'All brands',
+    en: 'All Brands',
     tw: '所有品牌'
   },
   no_address: {
-    en: 'The frequently used address has not been set',
+    en: 'The Frequently Used Address has not been set',
     tw: '尚未設定常用地址'
   },
   store: {
-    en: 'Convenience store pick up',
+    en: 'Store pick-up in Convenience store',
     tw: '超商取貨'
   },
   home: {
-    en: 'Home delivery',
+    en: 'Home-delivery Service',
     tw: '宅配到家'
   },
   verification_code: {
@@ -1490,11 +1490,11 @@ const custom_message = {
     tw: '未驗證'
   },
   back_index: {
-    en: 'Back to homepage',
+    en: 'Back to Homepage',
     tw: '返回首頁'
   },
   over_freeshipping: {
-    en: 'Free shipping threshold',
+    en: 'You have earned Free shipping',
     tw: '達免運門檻'
   },
   send_again: {
@@ -1502,55 +1502,55 @@ const custom_message = {
     tw: '重新發送'
   },
   use_coupon: {
-    en: 'use a coupon',
+    en: 'Use Coupon',
     tw: '使用優惠券'
   },
   use_reward: {
-    en: 'Use reward points',
+    en: 'Use Reward Points',
     tw: '使用回饋點數'
   },
   use_reward_now: {
-    en: 'A verification letter has been sent to your new mailbox!',
+    en: 'Please type correct Coupon Code!',
     tw: '請輸入正確的優惠券點數'
   },
   send_mail_to_validate: {
-    en: 'A verification letter has been sent to your new mailbox!',
+    en: 'The verification letter has been sent to your new mailbox!',
     tw: '已寄送驗證信到您的新信箱！'
   },
   have_now: {
-    en: 'You currently have ',
+    en: 'Items',
     tw: '您目前有'
   },
   to_wish: {
-    en: 'Already added to the product collection',
+    en: 'Item Added to Your Wishlist',
     tw: '已經加到商品收藏'
   },
   to_cart: {
-    en: 'Already added to shopping cart',
+    en: 'Item Added to Your Cart',
     tw: '已經加到購物車'
   },
   del_wish: {
-    en: 'Commodity collection has been deleted',
+    en: 'You have removed items from your wishlists.',
     tw: '已經刪除商品收藏'
   },
   wishlist: {
-    en: 'my favourite',
+    en: 'My Wishlists',
     tw: '我的最愛'
   },
   copy_coupon: {
-    en: 'Coupon has been copied to the scrapbook',
+    en: 'Coupon Code has been copied to the scrapbook',
     tw: '已經複製優惠券到剪貼簿'
   },
   copy_product: {
-    en: 'The product information has been copied to the clipboard',
+    en: 'The product information has been copied to the scrapbook',
     tw: '已經複製商品資訊到剪貼簿'
   },
   chg_password: {
-    en: 'successfully change password',
+    en: 'Your Password has been changed!',
     tw: '修改密碼成功'
   },
   send_mail: {
-    en: 'You will receive a password reset notification letter in the email',
+    en: 'You will receive an email with instructions on how to reset your password.',
     tw: '您將於電子郵件中收到重設密碼通知信'
   },
   send_mail_again: {
@@ -1558,27 +1558,27 @@ const custom_message = {
     tw: '已經重新寄驗證信'
   },
   send_mail_error: {
-    en: 'Failed to send the letter, please contact customer service',
+    en: 'Failure in Sending letter. Please contact customer service',
     tw: '寄信失敗，請聯絡客服'
   },
   chg_password_suc: {
-    en: 'Password reset successfully',
+    en: 'Reset Password Successfully',
     tw: '重設密碼成功'
   },
   index: {
-    en: 'Home page',
+    en: 'Home Page',
     tw: '首頁'
   },
   input_plz: {
-    en: 'Please input data',
+    en: 'Please enter the data',
     tw: '請輸入資料'
   },
   edit_information: {
-    en: 'Edit personal message',
+    en: 'Edit the personal messages',
     tw: '編輯個人訊息'
   },
   order_detaill: {
-    en: 'Order content',
+    en: 'Purchasing Items',
     tw: '訂單內容'
   },
   ac_no: {
@@ -1586,39 +1586,39 @@ const custom_message = {
     tw: '您的帳號尚未驗證'
   },
   add_cartt: {
-    en: 'Add to shopping cart',
+    en: 'Add to Shopping Cart',
     tw: '新增至購物車'
   },
   edit_address: {
-    en: 'Edit address',
+    en: 'Edit the current Address',
     tw: '編輯地址'
   },
   create_address: {
-    en: 'Add address',
+    en: 'Add New',
     tw: '新增地址'
   },
   old_pass: {
-    en: 'Please input the old password',
+    en: 'Please enter the current password.',
     tw: '請輸入舊密碼'
   },
   new_pass: {
-    en: 'Please input a password of 6 ~ 12 characters (must contain numbers and English)',
+    en: 'Please type the Password (Your password must be at least 6 or 12 characters long, with a mixture of numbers and letters.)',
     tw: '請輸入 6 ~ 12 個字的密碼 ( 須包含數字與英文 )'
   },
   new_pass_again: {
-    en: 'Please input the new password again',
+    en: 'Please type New Password again',
     tw: '請再次輸入新密碼'
   },
   ver: {
-    en: 'please input verification code',
+    en: 'Verification Code',
     tw: '請輸入驗證碼'
   },
   res: {
-    en: 'Registration result',
+    en: 'Registration Outcome',
     tw: '註冊結果'
   },
   pass_chk: {
-    en: 'Registration result',
+    en: 'Registration Outcome',
     tw: '註冊結果'
   },
   not_found_404: {
@@ -1630,71 +1630,71 @@ const custom_message = {
     tw: '帳號'
   },
   acc_e: {
-    en: 'Account(EMail)*',
+    en: 'Account (E-mail)*',
     tw: '帳號 ( Email )*'
   },
   acc_error: {
-    en: 'account or password incorrect',
+    en: 'Invalid email or password.',
     tw: '帳號或密碼錯誤'
   },
   acc_inf: {
-    en: 'Account information',
+    en: 'Account Information',
     tw: '帳戶資訊'
   },
   acc_inf_m: {
-    en: 'Manage personal information',
+    en: 'Personal Information Management',
     tw: '管理個人訊息'
   },
   input_email: {
-    en: 'Please input your email',
+    en: 'Please type your email address',
     tw: '請輸入您的電子郵件'
   },
   input_cellp: {
-    en: 'Please input your mobile phone (format: 0912345678)',
+    en: 'Mobile Phone (Format: 0912345678)',
     tw: '請輸入您的手機 ( 格式 : 0912345678 )'
   },
   ororder_remark: {
-    en: 'Order remarks (optional)',
+    en: 'Remarks remarks (optional)',
     tw: '訂單備註 ( 選填 )'
   },
   ororder_remarkk: {
-    en: 'order notes',
+    en: 'Notes',
     tw: '訂單備註'
   },
   order_f: {
-    en: 'Order result',
+    en: 'Purchase Order',
     tw: '訂單結果'
   },
   pass_aga: {
-    en: 'Please enter the password again',
+    en: 'Please type your Password again',
     tw: '請再次輸入密碼'
   },
   real_name: {
-    en: 'please input your real name',
+    en: 'Please type Your Real Name',
     tw: '請輸入您的真實姓名'
   },
   phone_code: {
-    en: 'Area code',
+    en: 'Area Code',
     tw: '區碼'
   },
   phone_a: {
-    en: 'telephone extension',
+    en: 'Telephone Extension',
     tw: '分機'
   },
   input_line: {
-    en: 'Please input your LINE ID',
+    en: 'Please type Your LINE ID',
     tw: '請輸入您的 LINE ID'
   },
   check_order: {
-    en: 'check order',
+    en: 'Check Your Order',
     tw: '查看訂單'
   },
   order_status: {
-    en: 'Order Status',
+    en: 'Check Your Order Status',
     tw: '訂單狀態'
   },
   store_name: {
-    en: 'Pickup store name',
+    en: 'Name of Your Designated Store',
     tw: '取貨店名'
   },
   point: {
@@ -1706,35 +1706,35 @@ const custom_message = {
     tw: '請選擇區碼'
   },
   pay_status: {
-    en: 'payment status',
+    en: 'Payment Status',
     tw: '付款狀態'
   },
   allow_report: {
-    en: 'Do you want to receive newsletters',
+    en: 'Would you like to receive our eNewsletters?',
     tw: '是否要接收電子報'
   },
   agree_pact_1: {
-    en: 'Have you read and agreed',
+    en: 'Have you already read and agreed',
     tw: '是否已閱讀並同意'
   },
   agree_pact_2: {
-    en: 'Membership Terms',
+    en: 'Terms and Conditions of Membership',
     tw: '會員條款'
   },
   agree_pact_3: {
-    en: 'content',
+    en: 'Content',
     tw: '內容'
   },
   member_addr: {
-    en: 'Member residence',
+    en: 'Place of Residence',
     tw: '會員居住地'
   },
   to: {
-    en: 'Will be',
+    en: 'Will Expire',
     tw: '，將於'
   },
   overr: {
-    en: 'maturity',
+    en: '',
     tw: '到期'
   },
   search_store: {
@@ -1742,23 +1742,23 @@ const custom_message = {
     tw: '查詢超商'
   },
   reward_total: {
-    en: 'Overview of reward points',
+    en: 'View Your Reward Points Summary',
     tw: '回饋點數總覽'
   },
   country: {
-    en: 'Membership area',
+    en: 'Member Area',
     tw: '會籍地區'
   },
   reward_noww: {
-    en: 'Current reward points',
+    en: 'Your Currently Available Reward Points',
     tw: '目前回饋點數'
   },
   unreward: {
-    en: 'Pending effect reward points',
+    en: 'Reward Points you will have',
     tw: '待生效回饋點數'
   },
   last: {
-    en: 'Latest',
+    en: 'Order History',
     tw: '最近一筆'
   },
   year: {
@@ -1766,7 +1766,7 @@ const custom_message = {
     tw: '年'
   },
   money_to: {
-    en: 'dollar rebate will be',
+    en: 'dollar reward will be',
     tw: '元回饋金將於'
   },
   mounth: {
@@ -1778,11 +1778,11 @@ const custom_message = {
     tw: '日'
   },
   start: {
-    en: 'Take effect',
+    en: 'valid',
     tw: '生效'
   },
   update_at: {
-    en: 'Updated',
+    en: 'Updated Date',
     tw: '更新日期'
   },
   detail: {
@@ -1790,15 +1790,15 @@ const custom_message = {
     tw: '摘要'
   },
   reward_do: {
-    en: 'Changes in reward points',
+    en: 'Updates in Reward Points',
     tw: '回饋點數變動'
   },
   reward_balance: {
-    en: 'Reward points balance',
+    en: 'Reward Points Balance',
     tw: '回饋點數餘額'
   },
   Oversea: {
-    en: 'Oversea',
+    en: 'Overseas',
     tw: '海外（Oversea）'
   },
   tw: {
@@ -1810,15 +1810,15 @@ const custom_message = {
     tw: '尺寸表'
   },
   aaa: {
-    en: 'Terms and conditions',
+    en: 'Terms & Conditions',
     tw: '條款與細則'
   },
   cac: {
-    en: 'Business cooperation',
+    en: 'Business Collaborations',
     tw: '商業合作'
   },
   sas: {
-    en: 'Delivery and exchange instructions',
+    en: 'Delivery and Exchange Instructions',
     tw: '配送與換貨說明'
   },
   len: {
@@ -1838,7 +1838,7 @@ const custom_message = {
     tw: '先生'
   },
   mrs: {
-    en: 'Mrs.',
+    en: 'Ms.',
     tw: '小姐'
   },
   Country: {
@@ -1858,7 +1858,7 @@ const custom_message = {
     tw: '公寓/套房/建築物（選填）'
   },
   Company_name: {
-    en: 'Company name( Optional )',
+    en: 'Company Name( Optional )',
     tw: '公司名稱（選填）'
   },
   City: {
@@ -1866,11 +1866,11 @@ const custom_message = {
     tw: '城市*'
   },
   Postal_code: {
-    en: 'Postal code*',
+    en: 'Zip code*',
     tw: '郵遞區號*'
   },
   Phone_number: {
-    en: 'Phone number*',
+    en: 'Phone Number*',
     tw: '手機號碼*'
   },
   store_namee: {
@@ -1890,11 +1890,11 @@ const custom_message = {
     tw: '地區*'
   },
   SOLD_OUT: {
-    en: 'SOLD OUT',
+    en: 'Sold Out',
     tw: '售 完'
   },
   aaaaa: {
-    en: 'Off shelf',
+    en: 'Discontinued',
     tw: '下 架'
   },
   maintenance: {
