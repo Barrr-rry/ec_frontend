@@ -1,8 +1,8 @@
 <template>
-  <modal v-model="input" title="分享商品" @ok="ok">
-    <div class="d-flex">
+  <modal v-model="input" title="分享商品到" @ok="ok">
+    <div class="row justify-content-center">
       <i class="fab fb-share" @click="share('facebook')"></i>
-      <i class="fab line-share" @click="share('line')"></i>
+      <i class="fab ml-20px mr-20px line-share" @click="share('line')"></i>
       <i class="fab twitter-share" @click="share('twitter')"></i>
     </div>
   </modal>
