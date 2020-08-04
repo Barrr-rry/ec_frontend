@@ -1,7 +1,6 @@
 <template>
   <div>
-    <breadcrumb :centers="product_parents"
-                :end="getText(product,'name','en_name')"></breadcrumb>
+    <breadcrumb :end="getText(product,'name','en_name')"></breadcrumb>
     <!-- End breadcrumb-->
     <div class="shop-layout">
       <div class="container">
