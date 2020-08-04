@@ -57,7 +57,7 @@ export default {
       },
       {
         property: "og:url",
-        content: ""
+        content: "havefununderwear.com"
       },
       {
         property: "og:title",
@@ -69,7 +69,7 @@ export default {
       },
       {
         property: "og:img",
-        content: ""
+        content: "https://li1871-48.members.linode.com/media/3408413256-康闓_HFMU_OTIMG_chloe_2020805.jpg"
       },
       {
         property: "og:site_name",

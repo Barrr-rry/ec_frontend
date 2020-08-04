@@ -254,7 +254,9 @@
     data() {
       return {
         specification: null,
-        title: 'HaveFun Men\'s Underwear | 男性內褲'
+        title: 'HaveFun Men\'s Underwear | 男性內褲',
+        img: 'https://li1871-48.members.linode.com/media/3408413256-康闓_HFMU_OTIMG_chloe_2020805.jpg',
+        keywords: 'HaveFun Men\'s Underwear,男性內褲,男內褲,三角內褲,四角內褲,比基尼三角,提臀內褲,四角褲,三角褲,男性內著,貼身衣物'
       }
     },
     computed: {
@@ -303,15 +305,26 @@
           {
             property: "og:title",
             content: this.title
+          },
+          {
+            property: "og:img",
+            content: this.img
+          },
+          {
+            name: "keywords",
+            content: this.keywords
           }
         ]
       }
     },
     asyncData(ctx) {
+      let img_href = ctx.env.VUE_APP_API_URL.replace('/api', '');
       return axios.get(`${ctx.env.VUE_APP_API_URL}product/${ctx.params.id}/`)
         .then((res) => {
           return {
-            title: res.data.name + ' | HaveFun Men\'s Underwear'
+            title: res.data.name + ' | HaveFun Men\'s Underwear',
+            img: `${img_href}media/${res.data.productimages[0].image_url}`,
+            keywords: res.data.name + ',HaveFun Men\'s Underwear,男性內褲,男內褲,三角內褲,四角內褲,比基尼三角,提臀內褲,四角褲,三角褲,男性內著,貼身衣物'
           }
         }).catch((err) => {
           console.log(err)
