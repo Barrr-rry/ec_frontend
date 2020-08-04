@@ -203,23 +203,11 @@
                 -->
                 <div class="selected-language">
                   <span @click="change_locale('tw')"
-                        @mouseover="hover = true"
-                        @mouseleave="hover = false"
-                        v-if="!hover">中</span>
-                  <span @click="change_locale('tw')"
-                        @mouseover="hover = true"
-                        @mouseleave="hover = false"
-                        v-if="hover"
-                        style="font-weight:bold;">中</span> /
+                        class="hover-b"
+                        >中</span> /
                   <span @click="change_locale('en')"
-                        @mouseover="en_hover = true"
-                        @mouseleave="en_hover = false"
-                        v-if="!en_hover">English</span>
-                  <span @click="change_locale('en')"
-                        @mouseover="en_hover = true"
-                        @mouseleave="en_hover = false"
-                        v-if="en_hover"
-                        style="font-weight:bold;">English</span>
+                        class="hover-b"
+                        >English</span>
                 </div>
               </div>
               <nuxt-link
@@ -400,8 +388,6 @@
         init_slideup: false,
         search_input: '',
         currency: 'tw',
-        hover: false,
-        en_hover: false,
       }
     },
     computed: {
@@ -546,5 +532,9 @@
   }
 </script>
 <style lang="sass">
+  .hover-b
+    &:hover
+      font-weight: bold
+
 
 </style>

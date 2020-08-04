@@ -34,7 +34,8 @@
                 <div class="col-12 col-lg-6">
                   <div class="shop-detail_info flex-order">
                     <div class="flex-order--item order-mob-2">
-                      <h2 class="product-name mb-20px">{{getText(product,'name','en_name')}}</h2>
+                      <h2 class="product-name mb-20px">{{getText(product,'name','en_name')}}</h2><br/>
+                      <h2 class="product-name mb-20px">{{getText(product,'sub_title','en_sub_title')}}</h2>
                       <p class="delivery-status fz16px">{{$t('over')}} {{lowest_freeshipping}}
                         {{$t('free_shipping_3000')}}</p>
                       <div class="activity mb-20px">
