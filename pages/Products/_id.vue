@@ -233,6 +233,7 @@
   import {addTOCart} from '@/assets/js/localCart'
   import mixinProduct from "@/mixins/mixinProduct"
   import VSelectButton from "@/components/VSelectButton"
+  import axios from 'axios'
 
   export default {
     mixins: [mixinCategory, mixinDefaultInit, mixinToWish, mixinProduct],
@@ -248,7 +249,29 @@
     data() {
       return {
         specification: null,
+        img: '',
       }
+    },
+    head() {
+      return {
+        meta: [
+          {
+            property: "og:img",
+            content: this.img
+          },
+        ]
+      }
+    },
+    asyncData(ctx) {
+      let img_href = ctx.env.VUE_APP_API_URL.replace('/api', '');
+      return axios.get(`${ctx.env.VUE_APP_API_URL}product/${ctx.params.id}/`)
+        .then((res) => {
+          return {
+            img: `${img_href}media/${res.data.productimages[0].image_url}`,
+          }
+        }).catch((err) => {
+          console.log(err)
+        })
     },
     computed: {
       ...mapState('product', {
