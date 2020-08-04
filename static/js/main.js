@@ -58,9 +58,17 @@ let initFunction = (callback) => {
       $(this).next('.sub-menu').slideToggle('100');
       $(this).children().toggleClass('icon_minus-06 icon_plus');
     });
+    $('a').on('click',function () {
+      $('body').css({
+        overflow: 'inherit',
+      });
 
+    })
     $('.mobile-menu--control').on('click', function (event) {
       event.preventDefault()
+      $('body').css({
+        overflow: 'hidden',
+      });
       $('#ogami-mobile-menu').css({
         left: '0',
       });
@@ -72,6 +80,9 @@ let initFunction = (callback) => {
     $('.ogamin-mobile-menu_bg').on('click', closeMenu);
 
     function closeMenu(event) {
+      $('body').css({
+        overflow: 'inherit',
+      });
       $('#ogami-mobile-menu').css({
         left: '-100%',
       });
