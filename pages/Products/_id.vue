@@ -319,7 +319,7 @@
       share(social) {
         const webTitle = `${this.product.name} | EC`,
           webUrl = location.href
-        let shareUrl = (social === 'line') ? `快來看看${this.product.name}：${webUrl}?openExternalBrowser=1` : webUrl
+        let shareUrl = (social === 'line') ? `${webUrl}?openExternalBrowser=1` : webUrl
         window.open('https://www.addtoany.com/add_to/' + social + '?linkurl=' + shareUrl + '&amp;linkname=' + encodeURI(webTitle))
       },
       toCartAPI(values) {
