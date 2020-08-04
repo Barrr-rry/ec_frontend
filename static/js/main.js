@@ -45,10 +45,11 @@ let initFunction = (callback) => {
      ****************************************************/
     // $('header .department-dropdown-menu').slideUp();
     // $('header .department-menu').off()
-    let $department = $('header .department-menu'),
-      $dropdownMenu = $('header .department-dropdown-menu');
+    let $department = $('.department-menu'),
+      $dropdownMenu = $('.department-dropdown-menu');
     $department.off('click')
     $department.on('click', function () {
+      console.log('yoooooo')
       $dropdownMenu.slideToggle('fast');
       $department.children('span').children().toggleClass('arrow_carrot-down arrow_carrot-up');
     });
