@@ -19,7 +19,7 @@
 <!--          <span v-if="product.brand_en_name">{{product.brand_en_name}}</span>-->
 <!--          <span v-else><br></span>-->
 <!--        </h5>-->
-        <span class="product-name ellipsis"
+        <span class="product-name ellipsis mr-1 ml-1"
               style="-webkit-line-clamp:2;display: -webkit-box;-webkit-box-orient: vertical;overflow: hidden;height: 48px; font-weight:bold;">{{getText(product, 'name', 'en_name')}}
                 </span>
         <del v-if="fake_price">{{getProcessPrice(fake_price)}}</del>
