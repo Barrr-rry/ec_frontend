@@ -13,26 +13,34 @@
                 </div>
                 <div class="col-12 col-lg-8">
                   <div class="social-media mt-50px ml-10px-md ml-10px-lg ml-0 mb-50px-sm mb-15px-md mb-0px">
-                    <ImageHover
+                    <a href="https://instagram.com/havefununderwear?igshid=1h6m3t1mr119a">
+                      <ImageHover
                       class="mr-10px"
                       src="/images/webs/ig.svg"
                       hover="/images/webs/ig-w.svg"
-                    />
-                    <ImageHover
-                      class="mr-10px"
-                      src="/images/webs/twitter.svg"
-                      hover="/images/webs/twitter-w.svg"
-                    />
-                    <ImageHover
-                      class="mr-10px"
-                      src="/images/webs/line.svg"
-                      hover="/images/webs/line-w.svg"
-                    />
-                    <ImageHover
-                      class="mr-10px"
-                      src="/images/webs/facebook.svg"
-                      hover="/images/webs/facebook-w.svg"
-                    />
+                      />
+                    </a>
+                    <a href="https://twitter.com/HaveFunWear">
+                      <ImageHover
+                        class="mr-10px"
+                        src="/images/webs/twitter.svg"
+                        hover="/images/webs/twitter-w.svg"
+                      />
+                    </a>
+                    <a href="https://lin.ee/nZxbkLQ">
+                      <ImageHover
+                        class="mr-10px"
+                        src="/images/webs/line.svg"
+                        hover="/images/webs/line-w.svg"
+                      />
+                    </a>
+                    <a href="https://www.facebook.com/HaveFunUnderwear/">
+                      <ImageHover
+                        class="mr-10px"
+                        src="/images/webs/facebook.svg"
+                        hover="/images/webs/facebook-w.svg"
+                      />
+                    </a>
                   </div>
                   <div class="desktop-copyright">
                     <div class="footer-copyright ml-10px mb-5px">

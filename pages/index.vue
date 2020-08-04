@@ -186,7 +186,9 @@
         $('.slick-next').trigger('click')
       },
       initData() {
+        this.loading = true
         this.$store.dispatch('product/getList', this.product_filter).then(() => {
+          this.loading = false
         })
       },
     },
