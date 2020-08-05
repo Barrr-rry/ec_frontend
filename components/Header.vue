@@ -110,7 +110,16 @@
                   :key="cata.id"
                   class="toggleable"
                 >
-                  <nuxt-link :to="`/categories/${cata.id}`" class="menu-item">
+                  <nuxt-link :to="`/products?c=${cata.id}`" style="font-family: NotoSansTC-Regular;
+                                                                   font-size: 16px;
+                                                                   color: #252525;
+                                                                   line-height: 1;
+                                                                   display: inline-block;
+                                                                   transition: 0.3s ease;
+                                                                   text-transform: uppercase;" v-if="checkMoreDeeper(cata.sub_categories)">
+                    {{ getText(cata,'name','en_name') }}
+                  </nuxt-link>
+                  <nuxt-link :to="`/products?c=${cata.id}`" class="menu-item" v-else>
                     {{ getText(cata,'name','en_name') }}
                   </nuxt-link>
                   <template v-if="checkMoreDeeper(cata.sub_categories)">
