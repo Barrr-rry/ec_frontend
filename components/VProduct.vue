@@ -4,7 +4,7 @@
       <i
         v-if="tag_detail"
         :class="tag_detail.tag_image_image_url"><i
-        :class="tag_detail.tag_image_image_url.split('-')[0]+'-name'">{{tag_detail.name}}</i></i>
+        :class="tag_detail.tag_image_image_url.split('-')[0]+'-name'">{{getText(tag_detail,'name','en_name')}}</i></i>
       <input ref="copy_data" type="hidden" :value="message">
       <div class="product-img_block">
         <span class="product-img"
@@ -13,12 +13,14 @@
       </div>
       <div class="product-info_block" style="border:none; padding-right:0; text-align: center;">
         <div class="activity mb-10px mt-10px">
-          <div class="activity-box" v-if="product && product.activity">{{getText(product.activity_detail,'ch_name','en_name')}}</div>
+          <div class="activity-box" v-if="product && product.activity">
+            {{getText(product.activity_detail,'ch_name','en_name')}}
+          </div>
         </div>
-<!--        <h5 class="product-type" style="text-align: -webkit-center;">-->
-<!--          <span v-if="product.brand_en_name">{{product.brand_en_name}}</span>-->
-<!--          <span v-else><br></span>-->
-<!--        </h5>-->
+        <!--        <h5 class="product-type" style="text-align: -webkit-center;">-->
+        <!--          <span v-if="product.brand_en_name">{{product.brand_en_name}}</span>-->
+        <!--          <span v-else><br></span>-->
+        <!--        </h5>-->
         <span class="product-name ellipsis mr-1 ml-1"
               style="-webkit-line-clamp:2;display: -webkit-box;-webkit-box-orient: vertical;overflow: hidden;height: 48px; font-weight:bold;">{{getText(product, 'name', 'en_name')}}
                 </span>
