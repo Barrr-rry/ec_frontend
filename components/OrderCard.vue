@@ -3,7 +3,7 @@
     <div class="order-header relative d-flex">
       <div class="left-btn">
         <button @click="collpase" class="close no-round-btn">
-          <i class="increase-icon"></i>
+          <i :class="!open?'increase-icon':'decrease-icon'"></i>
         </button>
       </div>
       <div class="header-content pl-45px d-flex align-items-center">
@@ -115,6 +115,7 @@
     },
     data() {
       return {
+        open:false,
         html: null,
         order_del_modal: false
       }
@@ -211,6 +212,7 @@
         }
       },
       collpase() {
+        this.open = !this.open
         // process.client 是只有在client 端才有 用nuxt 需要增加這個if 判斷
         if (process.client) {
           if (this.$refs.detail.style.display === 'block') {
