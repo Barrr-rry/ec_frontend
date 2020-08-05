@@ -12,7 +12,6 @@
               ref="form"
             >
               <CInput
-                :title="$t('change_password')"
                 :required="true"
                 type="password"
                 :placeholder="$t('new_pass')"
@@ -20,19 +19,19 @@
                 name="new_password"
               />
               <CInput
-                :title="$t('new_pass_again')"
                 :required="true"
                 type="password"
                 :placeholder="$t('new_pass_again')"
                 :validators="[validateConfirmPassword]"
                 name="password_confirm"
+                class="mt-3 mb-3"
               />
               <CInput
-                :title="$t('verification_code')"
                 :required="true"
                 :placeholder="$t('ver')"
                 name="code"
                 :validators="[validateCode]"
+                class="mb-3"
               />
               <div class="d-flex align-items-center">
                 <Identify :identifyCode="code" class="pointer" @click="reDraw" ref="identify"></Identify>
@@ -72,7 +71,7 @@
         validate_code: ctx.params.id
       }
       try {
-        await this.$api.member.validate_expired(values)
+        await ctx.app.$api.member.validate_expired(values)
       } catch (e) {
         ctx.redirect('/')
       }
