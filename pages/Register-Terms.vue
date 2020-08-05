@@ -8,13 +8,13 @@
 
         <div class="about_us_h3">
           <p>{{$t('register_terms_1_1')}}</p>
-          <p>{{$t('register_terms_1_2')}}</p>
+          <p>{{$t('register_terms_1_2_1')}}{{reward.discount}}{{$t('register_terms_1_2_2')}}</p>
           <br>
           <p>{{$t('register_terms_1_3')}}</p>
         </div>
         <br>
 
-      
+
       </div>
     </div>
   </div>
@@ -23,10 +23,19 @@
 <script>
   import mixinDefaultInit from "@/mixins/mixinDefaultInit"
   import {mapState} from 'vuex'
+  import {fetchReturn} from "@/mixins/fetch/headerFetch"
 
   export default {
     mixins: [mixinDefaultInit],
     name: 'RegisterTerms',
+    fetch(ctx) {
+      return fetchReturn(ctx, [ctx.store.dispatch('banner/getList'), ctx.store.dispatch('reward/getList')])
+    },
+    computed: {
+      ...mapState('reward', {
+        reward: (state) => state.items
+      }),
+    },
   }
 </script>
 
