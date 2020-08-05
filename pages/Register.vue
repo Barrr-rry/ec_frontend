@@ -83,7 +83,7 @@
                 </div>
               </CInput>
               <div class="account-save input-radio-display mb-40px">
-                <input type="checkbox" class="mb-0px" v-model="agree" :required="true" oninvalid="setCustomValidity('您尚未同意會員條款')" >
+                <input type="checkbox" class="mb-0px" v-model="agree" :required="true" oninvalid="setCustomValidity('您尚未同意會員條款')" onchange="this.setCustomValidity('')" >
                 {{$t('agree_pact_1')}}
                 <nuxt-link to="/register-terms" style="text-decoration:underline;">{{$t('agree_pact_2')}}</nuxt-link>
                 {{$t('agree_pact_3')}}
