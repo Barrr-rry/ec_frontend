@@ -74,7 +74,8 @@
       infinite: true,
       fade: true,
       // autoplay: true,
-      speed: 3000,
+      autoplaySpeed: 7000,
+      speed: 7000,
       cssEase: 'ease-out',
     })
 
