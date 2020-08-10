@@ -63,6 +63,7 @@
                     </nuxt-link>
                     <nuxt-link to="/wishlist">{{$t('my_favourite')}}</nuxt-link>
                     <nuxt-link to="/ordertracking">{{$t('order_record')}}</nuxt-link>
+                    <nuxt-link to="/">{{$t('index')}}</nuxt-link>
                   </FooterQuickLink>
                 </div>
                 <div
@@ -78,7 +79,7 @@
                   class="col-12 col-sm-4 text-md-left footer-margin"
                 >
                   <FooterQuickLink :title="$t('ordering_information')">
-`                    <nuxt-link to="/privacy-statement" style="width: 110px">{{$t('sas')}}</nuxt-link>
+                    <nuxt-link to="/privacy-statement" style="width: 110px">{{$t('sas')}}</nuxt-link>
                   </FooterQuickLink>
                 </div>
               </div>
