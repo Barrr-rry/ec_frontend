@@ -78,7 +78,7 @@
                   class="col-12 col-sm-4 text-md-left footer-margin"
                 >
                   <FooterQuickLink :title="$t('ordering_information')">
-                    <nuxt-link to="/privacy-statement">{{$t('sas')}}</nuxt-link>
+`                    <nuxt-link to="/privacy-statement" style="width: 110px">{{$t('sas')}}</nuxt-link>
                   </FooterQuickLink>
                 </div>
               </div>
