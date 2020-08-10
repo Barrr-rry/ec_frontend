@@ -1951,16 +1951,16 @@ sas: {
     tw: '配送與換貨說明'
 },
 len: {
-  en: 'Height*',
-    tw: '身高*'
+  en: 'Height',
+    tw: '身高'
 },
 wei: {
-  en: 'Weight*',
-    tw: '體重*'
+  en: 'Weight',
+    tw: '體重'
 },
 bir: {
-  en: 'Birthday*',
-    tw: '生日*'
+  en: 'Birthday',
+    tw: '生日'
 },
 mr: {
   en: 'Mr.',
