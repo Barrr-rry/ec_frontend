@@ -165,7 +165,7 @@
               :required="true"
               name="shipping_address"
               error_class=""
-              :placeholder="$t('Addresss')"
+              :placeholder="$t('Address')"
             />
           </div>
         </div>

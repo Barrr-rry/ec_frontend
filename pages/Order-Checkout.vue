@@ -214,7 +214,7 @@
                 <!--地址:Address-->
                 <div class="form-group">
                   <CInput
-                    :placeholder="$t('Addresss')"
+                    :placeholder="$t('Address')"
                     :required="true"
                     name="shipping_address"
                     :input_has_bg="true"

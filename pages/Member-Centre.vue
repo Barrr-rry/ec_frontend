@@ -263,7 +263,7 @@
                         <div
                           class="mb-20px d-flex justify-content-between align-items-center"
                         >
-                          <div>{{$t('Addresss')}} : {{el.shipping_address}}</div>
+                          <div>{{$t('Address')}} : {{el.shipping_address}}</div>
                         </div>
                         <div
                           class="mb-20px d-flex justify-content-between align-items-center"

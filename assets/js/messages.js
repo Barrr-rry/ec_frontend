@@ -1976,7 +1976,7 @@ Country: {
 },
 First_name: {
   en: 'First name*',
-    tw: '名稱*'
+    tw: '名*'
 },
 Last_name: {
   en: 'Last name*',
