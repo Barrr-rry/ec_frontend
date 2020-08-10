@@ -479,7 +479,7 @@
                     <tr v-for="cart of carts"
                         :id="cart.id"
                     >
-                      <th class="name gray-text2">{{cart.product.name}} x {{cart.quantity}}</th>
+                      <th class="name gray-text2">{{getText(cart.product, 'name', 'en_name')}} x {{cart.quantity}}</th>
                       <td class="price black" style="border-top: 0"
                           v-if="$store.state.currency==='tw'"
                       >${{cart.specification_detail.price*cart.quantity|commaFormat}}
@@ -555,12 +555,10 @@
                         <div class="text-right"
                              v-if="$store.state.currency==='tw'"
                         >+${{freeshipping_price|commaFormat}}
-                          {{freeshipping_price>0?'':'0'}}
                         </div>
                         <div class="text-right"
                              v-else
                         >+${{currencyChange(freeshipping_price)|commaFormat}} (+$NT{{freeshipping_price|commaFormat}})
-                          {{freeshipping_price>0?'':$t('over_freeshipping')}}
                         </div>
                       </td>
                     </tr>
@@ -602,6 +600,7 @@
 </template>
 
 <script>
+  import langMixin from "@/mixins/langMixin"
   import CInput from "@/components/CInput"
   import {fetchReturn} from "@/mixins/fetch/headerFetch"
   import CForm from "@/components/CForm"
@@ -620,7 +619,7 @@
       CForm,
       OrderAddressModal
     },
-    mixins: [validator, mixinDefaultInit],
+    mixins: [validator, mixinDefaultInit, langMixin],
     data() {
       return {
         gender: 1,

@@ -24,7 +24,7 @@
       </td>
       <td class="product-name min-w210">
         <div class="to-flex-col align-items-center">
-          <nuxt-link :to="`/products/${item.product.id}`" class="normal-a">{{item.product.name}}</nuxt-link>
+          <nuxt-link :to="`/products/${item.product.id}`" class="normal-a">{{getText(item.product, 'name', 'en_name')}}</nuxt-link>
         </div>
       </td>
       <td class="product-name min-w210">
@@ -105,13 +105,14 @@
   import {mapState, mapMutations} from 'vuex'
   import {cartRemove, cartUpdate, cartProcessInfo, storeProcess} from "@/assets/js/localCart"
   import configsettingMixin from "@/mixins/configsettingMixin"
+  import langMixin from "@/mixins/langMixin"
 
   export default {
     name: "CartProduct",
     components: {
       Counter
     },
-    mixins: [configsettingMixin, mixinCategory],
+    mixins: [configsettingMixin, mixinCategory, langMixin],
     props: {
       item: {
         type: Object,
