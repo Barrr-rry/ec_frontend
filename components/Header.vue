@@ -202,6 +202,7 @@
                 </div>
                 -->
                 <div class="selected-language">
+                  <i class="icon-globle"/>
                   <span @click="change_locale('tw')"
                         class="hover-b"
                         >中</span> /
@@ -227,6 +228,7 @@
               </div>
               <div class="login d-flex"
                    v-if="!has_token"
+
               >
                 <nuxt-link to="/login"
                 ><i class="fas fa-user"></i>{{$t('login')}}
