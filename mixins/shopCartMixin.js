@@ -1,11 +1,11 @@
 let couponMixin = {
   computed: {
     coupon_discount() {
-      if (this.coupon_instance && this.coupon_instance.status && this.coupon_instance.role <= this.product_total) {
+      if (this.coupon_instance && this.coupon_instance.status && this.coupon_instance.role <= this.cartVm.product_total) {
         if (this.coupon_instance.method === 1) {
           return parseInt(this.coupon_instance.discount)
         } else {
-          return parseInt(this.coupon_instance.discount * this.product_total / 100)
+          return parseInt(this.coupon_instance.discount * this.cartVm.product_total / 100)
         }
       } else {
         return 0
@@ -16,7 +16,7 @@ let couponMixin = {
   methods: {
     setCopupon2Cookie() {
       // order 前先設定
-      if (this.coupon_instance && this.coupon_instance.status && this.coupon_instance.role <= this.product_total) {
+      if (this.coupon_instance && this.coupon_instance.status && this.coupon_instance.role <= this.cartVm.product_total) {
         this.$cookies.set('coupon', this.coupon_instance.discount_code)
       } else {
         this.$cookies.set('coupon', null)
@@ -43,7 +43,7 @@ let couponMixin = {
           return
         }
         if (res.data.status === 1) {
-          if (res.data.role > this.product_total) {
+          if (res.data.role > this.cartVm.product_total) {
             return this.coupon_message = this.$t('cant_use_coupon')
           }
           this.coupon_instance = res.data
