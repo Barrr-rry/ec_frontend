@@ -625,7 +625,7 @@
       return {
         gender: 1,
         moment,
-        birthday: null,
+        birthday: '1990-01-01',
         country: null,
         location: 1,
         check_address: false,
