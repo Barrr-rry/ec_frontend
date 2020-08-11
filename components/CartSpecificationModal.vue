@@ -19,6 +19,7 @@
         :key="el.id"
         :option="el.id"
         v-model="choose_level2"
+        :disabled="dis(el)"
       >{{getText(el,'name', 'en_name')}}
       </VSelectButton>
     </div>
@@ -77,6 +78,23 @@
         this.method(this.choose_specification_detail)
         this.resetCart()
       },
+      dis(el) {
+        let ret = []
+        if (Array.isArray(this.product.specifications_detail)) {
+          for (let ell of this.product.specifications_detail) {
+            let level1_check = ell.level1_spec === this.choose_level1
+            let level2_check = ell.level2_spec === el.id
+            if (level1_check && level2_check) {
+              ret.push(ell)
+            }
+          }
+        }
+        try {
+          return this.cart.quantity > ret[0].quantity
+        }catch (e) {
+          return false
+        }
+      }
     }
   }
 </script>
