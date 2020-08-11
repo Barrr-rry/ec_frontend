@@ -172,7 +172,28 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/google-gtag',
+    'nuxt-facebook-pixel-module',
   ],
+  facebook: {
+    track: 'PageView',
+    // 替換自己 FB Pixel 的 ID
+    pixelId: '273875380566944',
+    disabled: false
+  },
+  // 開始加入GA code
+  'google-gtag':{
+    id: 'UA-173367132-1', // 必填，請填寫剛申請到的追蹤碼ID
+    config:{
+      // 這裡是填寫對gtag的需求選項」
+      anonymize_ip: true,
+      send_page_view: false, // 避免頁面刷新時後的重複追蹤
+      linker:{ // 跨域追蹤，追蹤兩個相關但不同網域的頁面
+        domains:['domain.com','domain.org']
+      }
+    },
+    debug: true, // 允許在開發中進行追蹤
+    disableAutoPageTrack: false // 關閉追蹤每個頁面路由
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
