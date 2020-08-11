@@ -7,7 +7,7 @@
              v-for="banner in banners" :key="banner.id">
 
           <div class="img-banner" :style="{
-             'background-image':`url('${imageLink(banner.bigimage)}')`
+             'background-image':`url('${imageLink(getText(banner, 'bigimage', 'en_bigimage'))}')`
              }"></div>
           <!--<div class="slider-content">
             <div class="container pl-0px pr-0">
@@ -56,6 +56,7 @@
   import Benefits from '@/components/Benefits'
   import mixinCategory from "@/mixins/mixinCategory"
   import {mapState} from 'vuex'
+  import langMixin from "@/mixins/langMixin"
 
   function mainSlider() {
     let BasicSlider = $('.slider_wrapper')
@@ -98,7 +99,7 @@
 
 
   export default {
-    mixins: [mixinCategory],
+    mixins: [mixinCategory, langMixin],
     components: {
       Benefits,
     },
