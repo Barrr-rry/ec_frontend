@@ -782,9 +782,13 @@ const custom_message = {
     en: 'Loyalty Reward',
     tw: '忠誠獎勵'
   },
+  loyalty_reward_1_0: {
+    en: '',
+    tw: '於本網站每消費 '
+  },
   loyalty_reward_1_1: {
     en: 'Earn ',
-    tw: '於本網站每消費 100 元（台幣）可獲得'
+    tw: ' 元（台幣）可獲得'
   },
   loyalty_reward_1_2: {
     en: ' reward point for every NT$100 spent via our website.',
