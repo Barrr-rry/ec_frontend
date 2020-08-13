@@ -270,7 +270,7 @@
                     <div class="col-6">
                       <CInput
                         :placeholder="$t('len')"
-                        :required="true"
+                        :required="false"
                         name="height"
                         :input_has_bg="false"
                         suffix="cm"
@@ -279,7 +279,7 @@
                     <div class="col-6">
                       <CInput
                         :placeholder="$t('wei')"
-                        :required="true"
+                        :required="false"
                         name="weight"
                         :input_has_bg="false"
                         suffix="kg"
