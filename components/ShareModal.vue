@@ -1,9 +1,9 @@
 <template>
   <modal v-model="input" title="分享商品到" @ok="ok">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mb-5 mt-4">
       <i class="fab fb-share" @click="share('facebook')"></i>
-      <i class="fab ml-20px mr-20px line-share" @click="share('line')"></i>
-      <i class="fab twitter-share" @click="share('twitter')"></i>
+      <i class="fab ml-60px mr-60px line-share" @click="share('line')"></i>
+      <i class="fab twitter-share " @click="share('twitter')"></i>
     </div>
   </modal>
 </template>
