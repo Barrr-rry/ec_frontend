@@ -9,25 +9,18 @@
           <div class="row">
             <div class="col-3">
               <div class="mobile-menu_block d-flex align-items-center">
-                <a class="mobile-menu--control" href="#"
-                ><i class="fas fa-bars"></i
-                ></a>
+                <a class="mobile-menu--control" href="#"><i class="fas fa-bars"></i></a>
                 <div id="ogami-mobile-menu">
                   <button id="mobile-menu--closebtn" class="no-round-btn">
                     {{$t('close_menu')}}
                   </button>
                   <div class="mobile-menu_items">
                     <ul class="mb-0 d-flex flex-column">
-                      <li class="toggleable"
-                          v-for="cata of categories.slice().reverse()"
-                          :key="cata.id"
-                      >
+                      <li class="toggleable" v-for="cata of categories.slice().reverse()" :key="cata.id">
                         <nuxt-link :to="`/products?c=${cata.id}`" class="menu-item">
                           {{ getText(cata,'name','en_name') }}
                         </nuxt-link>
-                        <span class="sub-menu--expander"
-                        ><i class="icon_plus"></i
-                        ></span>
+                        <span class="sub-menu--expander"><i class="icon_plus"></i></span>
                         <ul class="sub-menu">
                           <li>
                             <nuxt-link to="/products">
@@ -43,14 +36,11 @@
                         </ul>
                       </li>
 
-                      <li class="toggleable"
-                      >
+                      <li class="toggleable">
                         <a href="#" class="menu-item" disabled>
                           {{$t('member_center')}}
                         </a>
-                        <span class="sub-menu--expander"
-                        ><i class="icon_plus"></i
-                        ></span>
+                        <span class="sub-menu--expander"><i class="icon_plus"></i></span>
                         <ul class="sub-menu">
                           <li>
                             <nuxt-link to="/member-centre">
@@ -72,10 +62,8 @@
 
 
                       <li class="toggleable">
-                        <nuxt-link class="menu-item" to="/about-us"
-                        >{{$t('about_us')}}
-                        </nuxt-link
-                        >
+                        <nuxt-link class="menu-item" to="/about-us">{{$t('about_us')}}
+                        </nuxt-link>
                         <span class="sub-menu--expander"></span>
                       </li>
                     </ul>
@@ -88,10 +76,8 @@
                   <div class="mobile-menu_items">
                     <ul class="mb-0 d-flex flex-column">
                       <li class="toggleable">
-                        <a class="menu-item" href="#" disabled>{{display_lang}}</a
-                        ><span class="sub-menu--expander"
-                      ><i class="icon_plus"></i
-                      ></span>
+                        <a class="menu-item" href="#" disabled>{{display_lang}}</a><span class="sub-menu--expander"><i
+                            class="icon_plus"></i></span>
 
                         <!--                      <ul class="sub-menu">-->
                         <!--                        <li @click="change_locale('tw')"><a href="#">{{$t('Chinese')}}</a></li>-->
@@ -99,10 +85,8 @@
                         <!--                      </ul>-->
                       </li>
                       <li class="toggleable">
-                        <a class="menu-item" href="# " disabled>{{$t('currency')}}</a
-                        ><span class="sub-menu--expander"
-                      ><i class="icon_plus"></i
-                      ></span>
+                        <a class="menu-item" href="# " disabled>{{$t('currency')}}</a><span
+                          class="sub-menu--expander"><i class="icon_plus"></i></span>
 
                         <ul class="sub-menu">
                           <li @click="change_currency('tw')"><a href="#">{{$t('ntdoller')}} NTD</a></li>
@@ -113,8 +97,8 @@
                   </div>
 
                   <div class="mobile-social">
-                    <a href="https://www.facebook.com/HaveFunUnderwear/"
-                       target="_blank"><i class="fab fa-facebook-f"> </i></a>
+                    <a href="https://www.facebook.com/HaveFunUnderwear/" target="_blank"><i class="fab fa-facebook-f">
+                      </i></a>
                     <a href="https://line.me/ti/p/1qvbcczVSW" target="_blank"><i class="fab fa-line"> </i></a>
                     <a href=""><i class="fab fa-twitter" @click="share('twitter')"></i></a>
                   </div>
@@ -135,7 +119,8 @@
             <div class="col-9">
               <div class="mobile-product_function d-flex align-items-center justify-content-end">
 
-                <nuxt-link class="function-icon pl-0px" to="/wishlist"><i class="icon-heart-heart"/></nuxt-link>
+                <nuxt-link class="function-icon pl-0px" to="/wishlist"><i class="icon-heart-heart" />
+                </nuxt-link>
                 <nuxt-link class="function-icon shopping-cart-icon pl-0px ml-15px" to="/shop-cart">
                   <span class="badge badge-notify" v-if="count">{{count}}</span>
                 </nuxt-link>
@@ -152,21 +137,19 @@
       <div class="container header-white">
         <div class="row">
           <div class="col-12 col-md-5">
-            <div
-              class="header-left d-flex flex-md-row align-items-center fill-height"
-            >
+            <div class="header-left d-flex flex-md-row align-items-center fill-height">
               All prices are in TWD. {{getText(homeactivity)}}
             </div>
           </div>
           <div class="col-12 col-md-7">
-            <div
-              class="header-right d-flex flex-md-row justify-content-end align-items-center"
-            >
+            <div class="header-right d-flex flex-md-row justify-content-end align-items-center">
               <div class="social-link d-flex">
-                <a href="https://instagram.com/havefununderwear?igshid=1h6m3t1mr119a" class="social-link--item"><i class="social-ig"></i></a>
+                <a href="https://instagram.com/havefununderwear?igshid=1h6m3t1mr119a" class="social-link--item"><i
+                    class="social-ig"></i></a>
                 <a href="https://twitter.com/HaveFunWear" class="social-link--item"><i class="social-twi"></i></a>
                 <a href="https://lin.ee/nZxbkLQ" class="social-link--item"><i class="social-line"></i></a>
-                <a href="https://www.facebook.com/HaveFunUnderwear/" class="social-link--item"><i class="social-fb"></i></a>
+                <a href="https://www.facebook.com/HaveFunUnderwear/" class="social-link--item"><i
+                    class="social-fb"></i></a>
                 <!--
 
                 <ImageHover
@@ -202,46 +185,30 @@
                 </div>
                 -->
                 <div class="selected-language">
-                  <i class="icon-globle"/>
-                  <span @click="change_locale('tw')"
-                        class="hover-b"
-                        >中</span> /
-                  <span @click="change_locale('en')"
-                        class="hover-b"
-                        >English</span>
+                  <i class="icon-globle" />
+                  <span @click="change_locale('tw')" class="hover-b">中</span> /
+                  <span @click="change_locale('en')" class="hover-b">English</span>
                 </div>
               </div>
-              <nuxt-link
-                class="function-icon mr-10px"
-                to="/wishlist"
-                id="wishlist"
-              >
-                <i class="icon-heart-heart"/>
+              <nuxt-link class="function-icon mr-10px hover-effect" to="/wishlist" id="wishlist">
+                <i class="icon icon-heart-heart" />
               </nuxt-link>
               <div class="language">
                 <div class="selected-language">
-                  <nuxt-link to="/shop-cart" class="normal-a d-flex"
-                  ><i class="shopping-cart-icon"></i>
+                  <nuxt-link to="/shop-cart" class="normal-a d-flex hover-effect"><i class="icon shopping-cart-icon"></i>
                     <span class="badge badge-notify" v-if="count">{{count}}</span>
                   </nuxt-link>
                 </div>
               </div>
-              <div class="login d-flex"
-                   v-if="!has_token"
-
-              >
-                <nuxt-link to="/login"
-                ><i class="fas fa-user"></i>{{$t('login')}}
-                </nuxt-link
-                >
-              </div>
-              <div class="login d-flex"
-                   v-else
-              >
-                <nuxt-link to="/member-centre"
-                ><i class="fas fa-user"></i>
+              <div class="login d-flex hover-effect" v-if="!has_token">
+                <nuxt-link to="/login"><i class="icon fas fa-user"></i>
                 </nuxt-link>
-                <a class="pointer" @click="logout">{{$t('logout')}}</a>
+                <a class="txt">{{$t('login')}}</a>
+              </div>
+              <div class="login d-flex hover-effect" v-else>
+                <nuxt-link to="/member-centre""><i class="icon fas fa-user"></i>
+                </nuxt-link>
+                <a class="txt pointer" @click="logout">{{$t('logout')}}</a>
               </div>
             </div>
           </div>
@@ -255,23 +222,18 @@
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <div
-              class="navgition-menu d-flex align-items-center justify-content-center"
-            >
+            <div class="navgition-menu d-flex align-items-center justify-content-center">
               <ul class="mb-0 d-flex justify-content-between fill-width">
 
-                <li
-                  v-for="cata of categories.slice().reverse()"
-                  :key="cata.id"
-                  class="toggleable"
-                >
+                <li v-for="cata of categories.slice().reverse()" :key="cata.id" class="toggleable">
                   <nuxt-link :to="`/products?c=${cata.id}`" style="font-family: NotoSansTC-Regular;
                                                                    font-size: 16px;
                                                                    color: #252525;
                                                                    line-height: 1;
                                                                    display: inline-block;
                                                                    transition: 0.3s ease;
-                                                                   text-transform: uppercase;" v-if="checkMoreDeeper(cata.sub_categories)">
+                                                                   text-transform: uppercase;"
+                    v-if="checkMoreDeeper(cata.sub_categories)">
                     {{ getText(cata,'name','en_name') }}
                   </nuxt-link>
                   <nuxt-link :to="`/products?c=${cata.id}`" class="menu-item" v-else>
@@ -313,9 +275,7 @@
 </div>
 </div>
 <div class="col-2">
-  <div
-    class="product-function d-flex align-items-center justify-content-end"
-  >
+  <div class="product-function d-flex align-items-center justify-content-end">
     <!--              <div id="cart">-->
     <!--                <nuxt-link class="function-icon" to="/shop-cart" v-if="count">-->
     <!--                  <span>${{currencyChange(total)|commaFormat}}</span></nuxt-link-->
@@ -334,18 +294,12 @@
     <div class="row">
       <div class="col-12 col-md-4 col-lg-4 col-xl-3 order-2 order-md-1">
         <div class="department-menu_block">
-          <div
-            class="department-menu d-flex justify-content-between align-items-center white-color"
-          >
-            <i class="fas fa-bars"></i>{{$t('chose_buy')}}<span
-          ><i class="arrow_carrot-down"></i
-          ></span>
+          <div class="department-menu d-flex justify-content-between align-items-center white-color">
+            <i class="fas fa-bars"></i>{{$t('chose_buy')}}<span><i class="arrow_carrot-down"></i></span>
           </div>
           <div v-show="init_slideup" class="department-dropdown-menu">
             <ul>
-              <li v-for="tag of tags"
-                  :id="tag.id"
-              >
+              <li v-for="tag of tags" :id="tag.id">
                 <nuxt-link :to="`/products?t=${tag.id}`">{{getText(tag,'name','en_name')}}</nuxt-link>
               </li>
             </ul>
@@ -357,20 +311,12 @@
           <div class="row no-gutters">
             <div class="col-9 col-md-8 col-lg-9 col-xl-10">
               <div class="search-input">
-                <input
-                  :placeholder="$t('please_input_brand_or_prodcut_name')"
-                  class="no-round-input no-border"
-                  type="text"
-                  v-model="search_input"
-                  @keyup.enter="search"
-                  :maxlength="40"
-                />
+                <input :placeholder="$t('please_input_brand_or_prodcut_name')" class="no-round-input no-border"
+                  type="text" v-model="search_input" @keyup.enter="search" :maxlength="40" />
               </div>
             </div>
             <div class="col-3 col-md-4 col-lg-3 col-xl-2">
-              <button class="no-round-btn" style="height: 50px"
-                      @click="search"
-              >
+              <button class="no-round-btn" style="height: 50px" @click="search">
                 {{$t('search')}}
               </button>
             </div>
@@ -384,7 +330,7 @@
 </template>
 
 <script>
-  import {mapState} from 'vuex'
+  import { mapState } from 'vuex'
   import mixinCategory from '@/mixins/mixinCategory'
   import ImageHover from "@/components/ImageHover"
   import langMixin from "@/mixins/langMixin"
@@ -470,7 +416,7 @@
         // 登出後要更新token為null 並且重新整理
         this.$api.member.logout().then(() => {
           this.$cookies.set('token', null)
-          this.$store.commit('membertoken/changeValue', {key: 'has_token', value: false})
+          this.$store.commit('membertoken/changeValue', { key: 'has_token', value: false })
           console.log('logout', this.$cookies.get('token'))
           this.$router.go(0)
         })
@@ -547,5 +493,16 @@
     &:hover
       font-weight: bold
 
+  .hover-effect
+    .icon,.txt
+      transition: all .5s ease
+    &:hover
+      .icon
+        transform: scale(1.1) translateY(-2px)
 
+        &.shopping-cart-icon
+          transform: scale(1.1) translateY(2px)
+
+      .txt
+        transform: translateY(-2px)
 </style>
