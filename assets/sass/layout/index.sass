@@ -33,3 +33,37 @@
   .no-gutters-sm > .col, .no-gutters-sm > [class*="col-"]
     padding-right: 0
     padding-left: 0
+
+
+//date
+.custom-datepicker input[type="text"]
+  width: 100%
+  border: 1px solid #d8d8d8
+  padding: 0 20px
+  margin: 0
+  color: #636363
+  font-size: 16px
+  height: 50px
+
+  &:focus
+    outline: none
+    border-color: #0b1d37
+
+
+.vdp-datepicker__calendar
+  border-color: #636363
+  padding: 15px
+  margin-top: 10px
+
+.vdp-datepicker__calendar header .prev:after,
+.vdp-datepicker__calendar header .next:after
+  border-color: #0b1d37
+
+.vdp-datepicker__calendar .cell
+  transition: all .4s ease
+.vdp-datepicker__calendar .cell.selected
+  background: #0b1d37 !important
+  color: #ffffff
+
+.vdp-datepicker__calendar .cell:not(.blank):not(.disabled).day:hover, .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).month:hover, .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).year:hover
+  border-color: #0b1d37 !important
