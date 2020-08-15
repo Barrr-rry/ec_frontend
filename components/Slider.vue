@@ -74,9 +74,9 @@
       nextArrow: '<button type="button" class="slick-next"><i class="arrow_carrot-right"></i></button>',
       infinite: true,
       fade: true,
-      // autoplay: true,
+      autoplay: true,
       autoplaySpeed: 7000,
-      speed: 7000,
+      speed: 800,
       cssEase: 'ease-out',
     })
 
@@ -155,5 +155,4 @@
       color: #fff
       background-color: transparent
       border: 2px solid #0b1d37
-
 </style>
