@@ -13,28 +13,28 @@
                 </div>
                 <div class="col-12 col-lg-8">
                   <div class="social-media mt-50px ml-10px-md ml-10px-lg ml-0 mb-50px-sm mb-15px-md mb-0px">
-                    <a href="https://instagram.com/havefununderwear?igshid=1h6m3t1mr119a">
+                    <a href="https://instagram.com/havefununderwear?igshid=1h6m3t1mr119a" target="_blank" >
                       <ImageHover
                       class="mr-10px"
                       src="/images/webs/ig.svg"
                       hover="/images/webs/ig-w.svg"
                       />
                     </a>
-                    <a href="https://twitter.com/HaveFunWear">
+                    <a href="https://twitter.com/HaveFunWear" target="_blank" >
                       <ImageHover
                         class="mr-10px"
                         src="/images/webs/twitter.svg"
                         hover="/images/webs/twitter-w.svg"
                       />
                     </a>
-                    <a href="https://lin.ee/nZxbkLQ">
+                    <a href="https://lin.ee/nZxbkLQ" target="_blank" >
                       <ImageHover
                         class="mr-10px"
                         src="/images/webs/line.svg"
                         hover="/images/webs/line-w.svg"
                       />
                     </a>
-                    <a href="https://www.facebook.com/HaveFunUnderwear/">
+                    <a href="https://www.facebook.com/HaveFunUnderwear/" target="_blank" >
                       <ImageHover
                         class="mr-10px"
                         src="/images/webs/facebook.svg"
