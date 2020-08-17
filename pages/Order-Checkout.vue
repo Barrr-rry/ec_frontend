@@ -223,10 +223,10 @@
                 <button class="no-round-btn mt-20px mb-20px" type="button" @click="createNewAddress">
                   {{selected_memberstores.length?$t('rechoose_store'):$t('choose_store')}}
                 </button>
-                <div class="form-group" v-if="!freeshipping_target.use_ecpay_delivery">
+                <div class="form-group" v-if="freeshipping_target.frontend_name=='OK 超商'">
                   <CInput :required="true" placeholder="分店名稱*" name="store_name" :input_has_bg="true" />
                 </div>
-                <div class="form-group" v-if="!freeshipping_target.use_ecpay_delivery">
+                <div class="form-group" v-if="freeshipping_target.frontend_name=='OK 超商'">
                   <CInput placeholder="分店店號*" :required="true" name="store_id" :input_has_bg="true" />
                 </div>
               </div>
@@ -723,7 +723,9 @@
       },
       createNewAddress() {
         // 如果ECPAY 就選店家 map
-        if (this.freeshipping_target.use_ecpay_delivery) {
+        if (this.freeshipping_target.frontend_name === 'OK 超商') {
+          window.open('https://www.okmart.com.tw/convenient_shopSearch')
+        } else {
           let obj = {
             callback_url: location.origin + `/order-checkout?freeshipping_id=${this.freeshipping_id}&pay_type=${this.pay_type}`,
             sub_type: this.sub_type
@@ -735,8 +737,6 @@
             })
           })
           // 如果不是ECPAY 店家 EX: OK 超商
-        } else {
-          window.open('https://www.okmart.com.tw/convenient_shopSearch')
         }
 
       },
