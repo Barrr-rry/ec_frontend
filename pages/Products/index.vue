@@ -88,7 +88,7 @@
     max_price: 'max_price',
   }
   let filter_default = {
-    limit: 10,
+    limit: 28,
     o: 0,
     order_by: '-created_at'
   }
