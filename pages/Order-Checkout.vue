@@ -200,7 +200,9 @@
                 </div>
                 <div class="form-group"
                   v-if="selected_memberstores.length!==0||!freeshipping_target.use_ecpay_delivery">
-                  <datepicker :language="zh" class="custom-datepicker" v-model="birthday" format="yyyy-MM-dd"
+                  <datepicker class="custom-datepicker" v-model="birthday" format="yyyy-MM-dd"
+                    type="date" :placeholder="$t('bir')" :typeable="true" :required="false" v-if="this.$cookies.get('lang')==='en'"></datepicker>
+                  <datepicker :language="zh" class="custom-datepicker" v-model="birthday" format="yyyy-MM-dd" v-else
                     type="date" :placeholder="$t('bir')" :typeable="true" :required="false"></datepicker>
                 </div>
                 <!--儲存常用地址-->
@@ -307,7 +309,11 @@
                     </div>
                   </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group" v-if="this.$cookies.get('lang')==='en'">
+                  <datepicker class="custom-datepicker" v-model="birthday" format="yyyy-MM-dd"
+                    type="date" :placeholder="$t('bir')" :typeable="true" :required="false"></datepicker>
+                </div>
+                <div class="form-group" v-else>
                   <datepicker :language="zh" class="custom-datepicker" v-model="birthday" format="yyyy-MM-dd"
                     type="date" :placeholder="$t('bir')" :typeable="true" :required="false"></datepicker>
                 </div>
