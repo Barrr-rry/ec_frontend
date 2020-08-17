@@ -58,7 +58,7 @@
                   </div>
                 </div>
                 <div class="d-flex mt-3">
-                  <!--忠誠獎勵-->
+                  <!--回饋金-->
                   <card-border :title="$t('reward_total')" class="color-primary">
                     <div class="mb-15px">
                       <div class="row">
@@ -104,7 +104,7 @@
                         </div>
                       </div>
                     </div>
-                    <!--忠誠獎勵 a link-->
+                    <!--回饋金 a link-->
                     <div class="mb-15px d-flex justify-content-end">
                       <nuxt-link
                         to="/rewards"

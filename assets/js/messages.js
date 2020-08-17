@@ -780,7 +780,7 @@ const custom_message = {
   },
   loyalty_reward_m: {
     en: 'Loyalty Reward',
-    tw: '忠誠獎勵'
+    tw: '回饋金'
   },
   loyalty_reward_1_0: {
     en: '',
@@ -836,7 +836,7 @@ const custom_message = {
   },
   loyalty_reward_btn2: {
     en: 'View My Loyalty Reward',
-    tw: '查看我的忠誠獎勵'
+    tw: '查看我的回饋金'
   },
   shi: {
     en: 'FREE Taiwan Home-Delivery Service with NT$ 3000 Purchase or more',
@@ -1108,7 +1108,7 @@ const custom_message = {
   },
   reward_back: {
     en: 'Loyalty Rewards',
-    tw: '忠誠獎勵回饋'
+    tw: '回饋金回饋'
   },
   pay_method: {
     en: 'Payment Method',
@@ -1184,7 +1184,7 @@ const custom_message = {
   },
   used_reward: {
     en: 'Loyalty Program Rewards',
-    tw: '忠誠獎勵折抵'
+    tw: '回饋金折抵'
   },
   next_write: {
     en: 'Next Step: Fill out Information',
