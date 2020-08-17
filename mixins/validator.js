@@ -38,6 +38,23 @@ export default {
         callback('請輸入正確手機格式')
       }
     },
+    checkOPhone(rule, value, callback) {
+      let re =  /^[0-9]+$/
+      if (re.test(value)&&(10 <= value.length && value.length <= 13)) {
+        callback()
+      } else {
+        callback('請輸入正確手機格式')
+      }
+    },
+    checkOArea(rule, value, callback) {
+      let re =  /^[0-9]+$/
+      debugger
+      if (re.test(value)&&(5 <= value.length && value.length <= 7)) {
+        callback()
+      } else {
+        callback('請輸入正確郵遞區號')
+      }
+    },
     validateEmail(rule, value, callback) {
       let re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       if (re.test(value)) {

@@ -210,6 +210,7 @@
               :required="true"
               :placeholder="$t('Postal_code')"
               name="postal_code"
+              :validators="[checkOArea]"
             />
           </div>
         </div>
@@ -223,6 +224,7 @@
               name="phone"
               error_class=""
               :placeholder="$t('Phone_number')"
+              :validators="[checkOPhone]"
             />
           </div>
         </div>

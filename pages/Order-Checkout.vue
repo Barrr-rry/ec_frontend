@@ -176,14 +176,14 @@
                     <CInput :placeholder="$t('City')" :required="true" name="city" :input_has_bg="true" />
                   </div>
                   <div class="form-group col-6">
-                    <CInput :placeholder="$t('Postal_code')" :required="true" name="postal_code" :input_has_bg="true" />
+                    <CInput :placeholder="$t('Postal_code')" :required="true" name="postal_code" :input_has_bg="true" :validators="[checkOArea]"/>
                   </div>
                 </div>
 
                 <!--電話-->
                 <div class="form-group">
                   <CInput :placeholder="$t('Phone_number')" :required="true" name="phone" :input_has_bg="true"
-                    :validators="[]" />
+                    :validators="[checkOPhone]" />
                 </div>
                 <div class="form-group"
                   v-if="selected_memberstores.length!==0||!freeshipping_target.use_ecpay_delivery">
