@@ -19,7 +19,7 @@
                 class="mb-3"
               />
               <CInput
-                :placeholder="$t('password')"
+                :placeholder="$t('password') + '*'"
                 :required="true"
                 type="password"
                 name="password"

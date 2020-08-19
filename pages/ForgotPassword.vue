@@ -12,7 +12,7 @@
               ref="form"
             >
               <CInput
-                :placeholder="$t('acc')+`( Email )`"
+                :placeholder="$t('acc')+`( Email )` + '*'"
                 :required="true"
                 name="account"
                 :validators="[validateEmail]"
@@ -20,7 +20,7 @@
 
               />
               <CInput
-                :placeholder="$t('verification_code')"
+                :placeholder="$t('verification_code') + '*'"
                 :required="true"
                 name="code"
                 :validators="[validateCode]"

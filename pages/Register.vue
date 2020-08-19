@@ -19,7 +19,7 @@
                 class="mb-3"
               />
               <CInput
-                :placeholder="$t('password')"
+                :placeholder="$t('password') + '*'"
                 :required="true"
                 type="password"
                 :validators="[validatePassword]"
@@ -27,7 +27,7 @@
                 class="mb-3"
               />
               <CInput
-                :placeholder="$t('check_Opassword')"
+                :placeholder="$t('check_Opassword') + '*'"
                 :required="true"
                 type="password"
                 :validators="[validateConfirmPassword]"
@@ -35,13 +35,13 @@
                 class="mb-3"
               />
               <CInput
-                :placeholder="$t('member_name')"
+                :placeholder="$t('member_name') + '*'"
                 :required="true"
                 name="name"
                 class="mb-3"
               />
               <CInput
-                :placeholder="$t('cellphone')"
+                :placeholder="$t('cellphone') + '*'"
                 :required="true"
                 name="cellphone"
                 :validators="[validateCellPhone, checkPhone]"
@@ -81,7 +81,7 @@
                 class="mb-3"
               />
               <CInput
-                :placeholder="$t('verification_code')"
+                :placeholder="$t('verification_code') + '*'"
                 :required="true"
                 name="code"
                 :validators="[validateCode]"

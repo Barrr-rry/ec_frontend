@@ -31,7 +31,7 @@
         <div class="d-flex mb-20px">
           <div class="d-flex flex-grow-1 align-content-center">
             <CInput
-              :placeholder="$t('shipping_name')"
+              :placeholder="$t('shipping_name') + '*'"
               class="flex-grow-1"
               :required="true"
               name="shipping_name"
@@ -44,7 +44,7 @@
         <div class="d-flex mb-20px">
           <div class="d-flex flex-grow-1 align-content-center">
             <CInput
-              :placeholder="$t('shipping_phone')"
+              :placeholder="$t('shipping_phone') + '*'"
 
               class="flex-grow-1"
               :required="true"
@@ -59,7 +59,7 @@
         <div class="d-flex mb-20px">
           <div class="d-flex flex-grow-1 align-content-center">
             <CInput
-              :placeholder="$t('shipping_code')"
+              :placeholder="$t('shipping_code') + '*'"
 
               class="flex-grow-1"
               :required="true"
@@ -72,7 +72,7 @@
         <div class="d-flex mb-20px">
           <div class="d-flex flex-grow-1 align-content-center">
             <CInput
-              :placeholder="$t('address')"
+              :placeholder="$t('address') + '*'"
 
               class="flex-grow-1"
               :required="true"

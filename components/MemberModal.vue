@@ -11,7 +11,7 @@
             :required="true"
             name="name"
             error_class=""
-            :placeholder="$t('member_name')"
+            :placeholder="$t('member_name') + '*'"
           />
         </div>
       </div>
@@ -24,7 +24,7 @@
             name="account"
             error_class=""
             :validators="[validateEmail]"
-            :placeholder="$t('email')"
+            :placeholder="$t('email') + '*'"
           />
         </div>
       </div>
@@ -37,7 +37,7 @@
             name="cellphone"
             error_class=""
             :validators="[validateCellPhone, checkPhone]"
-            :placeholder="$t('cell_phone')"
+            :placeholder="$t('cell_phone') + '*'"
           />
         </div>
       </div>

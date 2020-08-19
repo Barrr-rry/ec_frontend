@@ -106,7 +106,7 @@
               <div v-if="freeshipping_target&&!freeshipping_target.cash_on_delivery&&location==1">
                 <div class="form-group">
                   <CInput
-                    :placeholder="$t('shipping_code')"
+                    :placeholder="$t('shipping_code') + '*'"
                     :required="true"
                     name="shipping_area"
                     :input_has_bg="true"
@@ -114,7 +114,7 @@
                 </div>
                 <div class="form-group">
                   <CInput
-                    :placeholder="$t('address')"
+                    :placeholder="$t('address') + '*'"
                     :required="true"
                     name="shipping_address"
                     :input_has_bg="true"
@@ -122,7 +122,7 @@
                 </div>
                 <div class="form-group">
                   <CInput
-                    :placeholder="$t('shipping_name')"
+                    :placeholder="$t('shipping_name') + '*'"
                     :required="true"
                     name="shipping_name"
                     :input_has_bg="true"
@@ -131,7 +131,7 @@
                 </div>
                 <div class="form-group">
                   <CInput
-                    :placeholder="$t('shipping_phonee')"
+                    :placeholder="$t('shipping_phonee') + '*'"
                     :required="true"
                     name="phone"
                     :input_has_bg="true"
@@ -262,7 +262,7 @@
                 </button>
                 <div class="form-group" v-if="!freeshipping_target.use_ecpay_delivery">
                   <CInput
-                    :placeholder="$t('store_namee')"
+                    :placeholder="$t('store_namee') + '*'"
                     :required="true"
                     name="store_name"
                     :input_has_bg="true"
@@ -270,7 +270,7 @@
                 </div>
                 <div class="form-group" v-if="!freeshipping_target.use_ecpay_delivery">
                   <CInput
-                    :placeholder="$t('store_id')"
+                    :placeholder="$t('store_id') + '*'"
                     :required="true"
                     name="store_id"
                     :input_has_bg="true"
@@ -279,7 +279,7 @@
                 <div class="form-group"
                      v-if="selected_memberstores.length!==0||!freeshipping_target.use_ecpay_delivery">
                   <CInput
-                    :placeholder="$t('shipping_name')"
+                    :placeholder="$t('shipping_name') + '*'"
                     :required="true"
                     name="shipping_name"
                     :input_has_bg="true"
@@ -289,7 +289,7 @@
                 <div class="form-group"
                      v-if="selected_memberstores.length!==0||!freeshipping_target.use_ecpay_delivery">
                   <CInput
-                    :placeholder="$t('shipping_phonee')"
+                    :placeholder="$t('shipping_phonee') + '*'"
                     :required="true"
                     name="phone"
                     :input_has_bg="true"

@@ -7,7 +7,7 @@
       <div class="d-flex mb-20px">
         <div class="d-flex flex-grow-1 align-content-center">
           <CInput
-            :placeholder="$t('og_password')"
+            :placeholder="$t('og_password') + '*'"
             class="flex-grow-1 mb-3"
             :required="true"
             type="password"
@@ -20,7 +20,7 @@
       <div class="d-flex mb-20px">
         <div class="d-flex flex-grow-1 align-content-center">
           <CInput
-            :placeholder="$t('change_password')"
+            :placeholder="$t('change_password') + '*'"
             class="flex-grow-1 mb-3"
             :required="true"
             type="password"
@@ -34,7 +34,7 @@
       <div class="d-flex mb-20px">
         <div class="d-flex flex-grow-1 align-content-center">
           <CInput
-            :placeholder="$t('check_password')"
+            :placeholder="$t('check_password') + '*'"
             class="flex-grow-1 mb-3"
             :required="true"
             type="password"
@@ -48,7 +48,7 @@
       <div class="d-flex mb-20px">
         <div class="d-flex flex-grow-1 align-content-center">
           <CInput
-            :placeholder="$t('verification_code')"
+            :placeholder="$t('verification_code') + '*'"
             class="flex-grow-1 mb-3"
             :required="true"
             name="code"

@@ -14,21 +14,21 @@
               <CInput
                 :required="true"
                 type="password"
-                :placeholder="$t('new_pass')"
+                :placeholder="$t('new_pass') + '*'"
                 :validators="[validatePassword]"
                 name="new_password"
               />
               <CInput
                 :required="true"
                 type="password"
-                :placeholder="$t('new_pass_again')"
+                :placeholder="$t('new_pass_again') + '*'"
                 :validators="[validateConfirmPassword]"
                 name="password_confirm"
                 class="mt-3 mb-3"
               />
               <CInput
                 :required="true"
-                :placeholder="$t('ver')"
+                :placeholder="$t('ver') + '*'"
                 name="code"
                 :validators="[validateCode]"
                 class="mb-3"
