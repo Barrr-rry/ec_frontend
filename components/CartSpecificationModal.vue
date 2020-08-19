@@ -31,9 +31,10 @@
   import {mapState, mapActions, mapMutations} from 'vuex'
   import mixinProduct from "@/mixins/mixinProduct"
   import VSelectButton from "@/components/VSelectButton"
+  import langMixin from "@/mixins/langMixin"
 
   export default {
-    mixins: [vModel, mixinProduct],
+    mixins: [vModel, mixinProduct, langMixin],
     components: {
       VSelectButton
     },
