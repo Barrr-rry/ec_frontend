@@ -2055,6 +2055,10 @@ good: {
   en: 'To provide you with a better shopping experience',
     tw: '為了提供您更好的購物體驗'
 },
+bir_date: {
+  en: 'Date of birth',
+    tw: '出生日期'
+},
 
 
 

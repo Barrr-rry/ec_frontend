@@ -200,9 +200,10 @@
                 </div>
                 <div class="form-group"
                   v-if="selected_memberstores.length!==0||!freeshipping_target.use_ecpay_delivery">
-                  <datepicker class="custom-datepicker" v-model="birthday" format="yyyy-MM-dd"
+                  {{$t('bir_date')}}:
+                  <datepicker class="custom-datepicker"  format="yyyy-MM-dd"
                     type="date" :placeholder="$t('bir')" :typeable="true" :required="false" v-if="this.$cookies.get('lang')==='en'"></datepicker>
-                  <datepicker :language="zh" class="custom-datepicker" v-model="birthday" format="yyyy-MM-dd" v-else
+                  <datepicker :language="zh" class="custom-datepicker"  format="yyyy-MM-dd" v-else
                     type="date" :placeholder="$t('bir')" :typeable="true" :required="false"></datepicker>
                 </div>
                 <!--儲存常用地址-->
@@ -310,11 +311,13 @@
                   </div>
                 </div>
                 <div class="form-group" v-if="this.$cookies.get('lang')==='en'">
-                  <datepicker class="custom-datepicker" v-model="birthday" format="yyyy-MM-dd"
+                  Date of birth：
+                  <datepicker class="custom-datepicker"  format="yyyy-MM-dd"
                     type="date" :placeholder="$t('bir')" :typeable="true" :required="false"></datepicker>
                 </div>
                 <div class="form-group" v-else>
-                  <datepicker :language="zh" class="custom-datepicker" v-model="birthday" format="yyyy-MM-dd"
+                  出生日期：
+                  <datepicker :language="zh" class="custom-datepicker" format="yyyy-MM-dd"
                     type="date" :placeholder="$t('bir')" :typeable="true" :required="false"></datepicker>
                 </div>
               </div>
@@ -477,7 +480,6 @@
       return {
         gender: 1,
         moment,
-        birthday: '1990-01-01',
         country: null,
         location: 1,
         check_address: false,
