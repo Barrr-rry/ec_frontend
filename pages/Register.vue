@@ -171,7 +171,7 @@
       submit(val) {
         this.loading = true
         this.$api.member.register(val).then(() => {
-          this.$router.push('/register-success')
+          this.$router.push('/')
         }).catch((err) => {
           if (this.$refs.form) {
             this.loadFadeout()

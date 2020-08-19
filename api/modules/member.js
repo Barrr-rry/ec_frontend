@@ -27,7 +27,13 @@ export default (app) => {
     },
     register(values) {
       values['host'] = location.origin
-      return app.$ax.post(`/${this.table_name}/register/`, values)
+      // return app.$ax.post(`/${this.table_name}/register/`, values)
+      return app.$ax.post(`/${this.table_name}/register/`, values).then((res) => {
+        // 登入成功後主動設定toekn 並且存入cookie
+        app.$ax.setHeader('Authorization', `Token ${res.data.token}`)
+        app.$cookies.set('token', res.data.token)
+        return Promise.resolve(res)
+      })
     },
     register_validate(values) {
       return app.$ax.post(`/${this.table_name}/register_validate/`, values)
