@@ -359,29 +359,18 @@
                         <td class="price" v-else>${{currencyChange(total)|commaFormat}} ($NT{{total|commaFormat}})
                         </td>
                       </tr>
-                      <tr v-show="coupon&&coupon.status&&coupon.role<=total">
-                        <th>{{$t('coupon_used')}}</th>
-                        <td>
-                          <div class="primary-color text-right" v-if="$store.state.currency==='tw'">
-                            -${{coupon_discount|commaFormat}}
-                          </div>
-                          <div class="primary-color text-right" v-else>-${{currencyChange(coupon_discount)|commaFormat}}
-                            (-$NT{{coupon_discount|commaFormat}})
-                          </div>
-                        </td>
-                      </tr>
                       <!--活動折抵-->
                       <tr v-for="el in in_activity_obj" :key="el.activity_id">
                         <td colspan="2">
                           <div class="mb-20px text-align: left;"><span style="color: #0b1d37;">組合優惠折抵</span></div>
                           <div class="d-flex align-items-center">
-                            <div class="gray-text2" style="flex:50%; text-align: left;">{{el.activity_detail.ch_name}}
+                            <div class="" style="flex:50%; text-align: left; color: red">{{el.activity_detail.ch_name}}
                             </div>
                             <div style="flex:50%;">
-                              <div class="primary-color text-right" v-if="$store.state.currency==='tw'">
+                              <div class="text-right" style="color: red" v-if="$store.state.currency==='tw'">
                                 -${{activitySave(el)|commaFormat}}
                               </div>
-                              <div class="primary-color text-right" v-else>
+                              <div class="text-right" style="color: red" v-else>
                                 -${{currencyChange(activitySave(el))|commaFormat}}
                                 (-$NT{{activitySave(el)|commaFormat}})
                               </div>
@@ -390,14 +379,26 @@
                         </td>
 
                       </tr>
+                       <tr v-show="coupon&&coupon.status&&coupon.role<=total">
+                        <th style="color: red;" v-if="coupon_percent">{{$t('coupon_used')}}-{{coupon_percent|commaFormat}}%</th>
+                        <th style="color: red;" v-else>{{$t('coupon_used')}}</th>
+                        <td>
+                          <div class=" text-right" v-if="$store.state.currency==='tw'" style="color: red;">
+                            -${{coupon_discount|commaFormat}}
+                          </div>
+                          <div class=" text-right" v-else style="color: red;">-${{currencyChange(coupon_discount)|commaFormat}}
+                            (-$NT{{coupon_discount|commaFormat}})
+                          </div>
+                        </td>
+                      </tr>
 
                       <tr v-show="reward_discount">
-                        <th class="gray-text2">{{$t('reward_used')}}</th>
+                        <th style="color: red">{{$t('reward_used')}}</th>
                         <td>
-                          <div class="primary-color text-right" v-if="$store.state.currency==='tw'">
+                          <div class=" text-right" style="color: red" v-if="$store.state.currency==='tw'">
                             -${{reward_discount|commaFormat}}
                           </div>
-                          <div class="primary-color text-right" v-else>-${{currencyChange(reward_discount)|commaFormat}}
+                          <div class=" text-right" style="color: red" v-else>-${{currencyChange(reward_discount)|commaFormat}}
                             (-$NT{{reward_discount|commaFormat}})
                           </div>
                         </td>
@@ -424,7 +425,9 @@
                     </tbody>
                   </table>
                 </div>
-                <div class="checkout-method">
+                <div class="checkout-method row">
+                  <button class="normal-btn no-round-btn submit-btn mr-1" onclick="javascript:location.href='/shop-cart'">{{$t('previous')}}
+                  </button>
                   <button class="normal-btn no-round-btn submit-btn" @click="ok">{{$t('next')}}
                   </button>
                 </div>
@@ -591,6 +594,17 @@
           }
         } else {
           return 0
+        }
+      },
+      coupon_percent() {
+        if (this.coupon && this.coupon.status && this.coupon.role <= this.total) {
+          if (this.coupon.method === 1) {
+            return false
+          } else {
+            return this.coupon.discount
+          }
+        } else {
+          return false
         }
       },
 

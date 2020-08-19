@@ -12,6 +12,18 @@ let couponMixin = {
         return 0
       }
     },
+    coupon_percent() {
+      // 計算coupon 的折扣
+      if (this.coupon_instance && this.coupon_instance.status && this.coupon_instance.role <= this.cartVm.product_total) {
+        if (this.coupon_instance.method === 1) {
+          return false
+        } else {
+          return this.coupon_instance.discount
+        }
+      } else {
+        return false
+      }
+    },
   },
   watch: {},
   methods: {

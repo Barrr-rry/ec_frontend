@@ -1262,6 +1262,10 @@ const custom_message = {
     en: 'Next Step',
     tw: '下一步'
   },
+  previous: {
+    en: 'Previous Step',
+    tw: '上一步'
+  },
   order_complete: {
     en: 'Congratulations! You have completed your order!',
     tw: '恭喜您已經完成訂單！'
