@@ -98,12 +98,12 @@
                       style="font-size: 12px">{{freeshipping_target?freeshipping_target.title:''}}</span>
               </div>
               <!--常用地址 button-->
-              <div class="form-group" v-if="freeshipping_target&&!freeshipping_target.cash_on_delivery">
+              <div class="form-group" v-if="freeshipping_target&&freeshipping_target.backstage_name.indexOf('超商取貨')">
                 <button class="no-round-btn" type="button" @click="address_modal=true">{{$t('common_address')}}
                 </button>
               </div>
               <!--國內地址-->
-              <div v-if="freeshipping_target&&!freeshipping_target.cash_on_delivery&&location==1">
+              <div v-if="freeshipping_target&&freeshipping_target.backstage_name.indexOf('超商取貨')&&location==1">
                 <div class="form-group">
                   <CInput
                     :placeholder="$t('shipping_code') + '*'"
@@ -252,7 +252,7 @@
                 </div>
               </div>
               <!--貨到付款-->
-              <div v-if="freeshipping_target&&freeshipping_target.cash_on_delivery">
+              <div v-if="freeshipping_target&&!freeshipping_target.backstage_name.indexOf('超商取貨')">
                 <div v-for="el of selected_memberstores" :key="el.id" class="input-radio-display">
                   <input type="radio" :id="`memberstore_radio_${el.id}`" :value=el.id v-model="memberstore_id">
                   <label :for="`memberstore_radio_${el.id}`">{{el.store_name}}</label>
@@ -803,7 +803,7 @@
 
         // remove e
         this.$cookies.set('coupon', null)
-        if (this.freeshipping_target.cash_on_delivery) {
+        if (!this.freeshipping_target.backstage_name.indexOf('超商取貨')) {
           val.store_type = this.sub_type
           val.to_store = true
           val.memberstore_id = this.memberstore_id
