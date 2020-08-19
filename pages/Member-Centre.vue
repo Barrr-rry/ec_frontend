@@ -71,7 +71,17 @@
                               />:
                             </div>
                             <div class="point-group--info">
-                              <span class="point-group--block">
+                              <span class="point-group--block" style="    display: inline-block;
+                                                                          min-width: 80px;
+                                                                          text-align: right;
+                                                                          font-family: NotoSansTC,sans-serif;
+                                                                          font-size: 24px;
+                                                                          font-weight: 500;
+                                                                          font-stretch: normal;
+                                                                          font-style: normal;
+                                                                          line-height: 1;
+                                                                          letter-spacing: 4px;
+                                                                          margin-right: 10px;">
                                 {{myself.record_info.record.total_point}}
                               </span>
                               元
@@ -93,7 +103,18 @@
                               />：
                             </div>
                             <div class="point-group--info">
-                              <span class="point-group--block">
+                              <span class="point-group--block" style="    display: inline-block;
+                                                                          min-width: 80px;
+                                                                          text-align: right;
+                                                                          font-family: NotoSansTC,sans-serif;
+                                                                          font-size: 24px;
+                                                                          font-weight: 500;
+                                                                          font-stretch: normal;
+                                                                          font-style: normal;
+                                                                          line-height: 1;
+                                                                          letter-spacing: 4px;
+
+                                                                          margin-right: 10px;">
                                 {{myself.record_info.record_temp.total_point}}
                               </span>元
                             </div>
