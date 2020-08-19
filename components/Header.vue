@@ -146,8 +146,8 @@
               <div class="social-link d-flex">
                 <a href="https://instagram.com/havefununderwear?igshid=1h6m3t1mr119a" class="social-link--item" target="_blank" ><i
                     class="social-ig"></i></a>
-                <a href="https://twitter.com/HaveFunWear" class="social-link--item"><i class="social-twi" target="_blank" ></i></a>
-                <a href="https://lin.ee/nZxbkLQ" class="social-link--item"><i class="social-line" target="_blank" ></i></a>
+                <a href="https://twitter.com/HaveFunWear" class="social-link--item" target="_blank"><i class="social-twi" ></i></a>
+                <a href="https://lin.ee/nZxbkLQ" class="social-link--item" target="_blank"><i class="social-line" ></i></a>
                 <a href="https://www.facebook.com/HaveFunUnderwear/" class="social-link--item" target="_blank" ><i
                     class="social-fb"></i></a>
                 <!--
