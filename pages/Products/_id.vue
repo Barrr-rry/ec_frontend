@@ -165,14 +165,14 @@
                         <div class="custom-desc">
                           <div
                             id="tab-description"
-                            class="tab-content pr-20px"
+                            class="tab-content pr-20px msgHtmlBox"
                             style="display: block;"
                             v-html="product.product_info"
                           ></div>
                         </div>
                       </div>
                       <div id="tab-2">
-                        <div class="custom-desc tab-content"
+                        <div class="custom-desc tab-content msgHtmlBox"
                              v-html="product.detail_info"
                         >
                         </div>
@@ -353,4 +353,15 @@
   }
 </script>
 
-<style scoped></style>
+<style scoped>
+  /*.slick-list*/
+  /*  **/
+  /*    height: 100%*/
+  /*.big-img_block.slick-active*/
+  /*  height: 100%*/
+  .msgHtmlBox >>>  img{
+     max-width: 100%;
+  }
+
+
+</style>
