@@ -2,11 +2,16 @@ let couponMixin = {
   computed: {
     coupon_discount() {
       // 計算coupon 的折扣
+      let activity = 0
+      for (let key in this.cartVm.in_activity_obj) {
+        let el = this.cartVm.in_activity_obj[key]
+        activity += this.cartVm.activitySave(el)
+      }
       if (this.coupon_instance && this.coupon_instance.status && this.coupon_instance.role <= this.cartVm.product_total) {
         if (this.coupon_instance.method === 1) {
           return parseInt(this.coupon_instance.discount)
         } else {
-          return parseInt(this.coupon_instance.discount * this.cartVm.product_total / 100)
+          return parseInt(this.coupon_instance.discount * (this.cartVm.product_total - this.reward_discount - activity) / 100)
         }
       } else {
         return 0

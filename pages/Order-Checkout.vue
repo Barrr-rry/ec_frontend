@@ -382,18 +382,6 @@
                         </td>
 
                       </tr>
-                       <tr v-show="coupon&&coupon.status&&coupon.role<=total">
-                        <th style="color: red;" v-if="coupon_percent">{{$t('coupon_used')}}-{{coupon_percent|commaFormat}}%</th>
-                        <th style="color: red;" v-else>{{$t('coupon_used')}}</th>
-                        <td>
-                          <div class=" text-right" v-if="$store.state.currency==='tw'" style="color: red;">
-                            -${{coupon_discount|commaFormat}}
-                          </div>
-                          <div class=" text-right" v-else style="color: red;">-${{currencyChange(coupon_discount)|commaFormat}}
-                            (-$NT{{coupon_discount|commaFormat}})
-                          </div>
-                        </td>
-                      </tr>
 
                       <tr v-show="reward_discount">
                         <th style="color: red">{{$t('reward_used')}}</th>
@@ -403,6 +391,18 @@
                           </div>
                           <div class=" text-right" style="color: red" v-else>-${{currencyChange(reward_discount)|commaFormat}}
                             (-$NT{{reward_discount|commaFormat}})
+                          </div>
+                        </td>
+                      </tr>
+                      <tr v-show="coupon&&coupon.status&&coupon.role<=total">
+                        <th style="color: red;" v-if="coupon_percent">{{$t('coupon_used')}}-{{coupon_percent|commaFormat}}%</th>
+                        <th style="color: red;" v-else>{{$t('coupon_used')}}</th>
+                        <td>
+                          <div class=" text-right" v-if="$store.state.currency==='tw'" style="color: red;">
+                            -${{coupon_discount|commaFormat}}
+                          </div>
+                          <div class=" text-right" v-else style="color: red;">-${{currencyChange(coupon_discount)|commaFormat}}
+                            (-$NT{{coupon_discount|commaFormat}})
                           </div>
                         </td>
                       </tr>
@@ -588,11 +588,16 @@
         return ret
       },
       coupon_discount() {
+        let activity = 0
+        for (let key in this.in_activity_obj) {
+          let el = this.in_activity_obj[key]
+          activity += this.activitySave(el)
+        }
         if (this.coupon && this.coupon.status && this.coupon.role <= this.total) {
           if (this.coupon.method === 1) {
             return this.coupon.discount
           } else {
-            return parseInt(this.coupon.discount * this.total / 100)
+            return parseInt(this.coupon.discount * (this.total - this.reward_discount - activity) / 100)
           }
         } else {
           return 0
