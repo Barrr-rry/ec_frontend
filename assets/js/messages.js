@@ -1905,6 +1905,11 @@ const custom_message = {
     en: 'To provide you with a better shopping experience',
     tw: '為了提供您更好的購物體驗'
   },
+  reward_dl: {
+  en: 'Your reward points will expire on ',
+    tw: '回饋點數將於'
+},
+
 
 
 }
