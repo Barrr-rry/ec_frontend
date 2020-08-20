@@ -367,13 +367,13 @@
                         <td colspan="2">
                           <div class="mb-20px text-align: left;"><span style="color: #0b1d37;">組合優惠折抵</span></div>
                           <div class="d-flex align-items-center">
-                            <div class="" style="flex:50%; text-align: left; color: red">{{el.activity_detail.ch_name}}
+                            <div class="" style="flex:50%; text-align: left; color: #e02020">{{el.activity_detail.ch_name}}
                             </div>
                             <div style="flex:50%;">
-                              <div class="text-right" style="color: red" v-if="$store.state.currency==='tw'">
+                              <div class="text-right" style="color: #e02020" v-if="$store.state.currency==='tw'">
                                 -${{activitySave(el)|commaFormat}}
                               </div>
-                              <div class="text-right" style="color: red" v-else>
+                              <div class="text-right" style="color: #e02020" v-else>
                                 -${{currencyChange(activitySave(el))|commaFormat}}
                                 (-$NT{{activitySave(el)|commaFormat}})
                               </div>
@@ -384,24 +384,24 @@
                       </tr>
 
                       <tr v-show="reward_discount">
-                        <th style="color: red">{{$t('reward_used')}}</th>
+                        <th style="color: #e02020">{{$t('reward_used')}}</th>
                         <td>
-                          <div class=" text-right" style="color: red" v-if="$store.state.currency==='tw'">
+                          <div class=" text-right" style="color: #e02020" v-if="$store.state.currency==='tw'">
                             -${{reward_discount|commaFormat}}
                           </div>
-                          <div class=" text-right" style="color: red" v-else>-${{currencyChange(reward_discount)|commaFormat}}
+                          <div class=" text-right" style="color: #e02020" v-else>-${{currencyChange(reward_discount)|commaFormat}}
                             (-$NT{{reward_discount|commaFormat}})
                           </div>
                         </td>
                       </tr>
                       <tr v-show="coupon&&coupon.status&&coupon.role<=total">
-                        <th style="color: red;" v-if="coupon_percent">{{$t('coupon_used')}}-{{coupon_percent|commaFormat}}%</th>
-                        <th style="color: red;" v-else>{{$t('coupon_used')}}</th>
+                        <th style="color: #e02020;" v-if="coupon_percent">{{$t('coupon_used')}}-{{coupon_percent|commaFormat}}%</th>
+                        <th style="color: #e02020;" v-else>{{$t('coupon_used')}}</th>
                         <td>
-                          <div class=" text-right" v-if="$store.state.currency==='tw'" style="color: red;">
+                          <div class=" text-right" v-if="$store.state.currency==='tw'" style="color: #e02020;">
                             -${{coupon_discount|commaFormat}}
                           </div>
-                          <div class=" text-right" v-else style="color: red;">-${{currencyChange(coupon_discount)|commaFormat}}
+                          <div class=" text-right" v-else style="color: #e02020;">-${{currencyChange(coupon_discount)|commaFormat}}
                             (-$NT{{coupon_discount|commaFormat}})
                           </div>
                         </td>

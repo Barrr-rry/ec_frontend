@@ -117,7 +117,7 @@
                       @click="useReward"
                       :disabled="reward_discount_temp>info.rewards || !info_reward_total">{{$t('use_reward')}}
               </button>
-              <div style="color: red" v-if="info.rewards<reward_discount_temp">{{$t('use_reward_now')}}</div>
+              <div style="color: #e02020" v-if="info.rewards<reward_discount_temp">{{$t('use_reward_now')}}</div>
             </div>
             <div class="red-color coupon-msg-sm mt-10px"
                  v-if="$store.state.currency==='tw'"
@@ -165,12 +165,12 @@
                   <td colspan="2">
                     <div class="mb-20px"><span style="color: #0b1d37;">組合優惠折抵</span></div>
                     <div class="d-flex align-items-center">
-                      <div style="flex: 50%"><p style="color: red">{{el.activity_detail.ch_name}}</p></div>
+                      <div style="flex: 50%"><p style="color: #e02020">{{el.activity_detail.ch_name}}</p></div>
                       <div style="flex: 50%; text-align: right">
-                        <p style="color: red"
+                        <p style="color: #e02020"
                            v-if="$store.state.currency==='tw'"
                         >-${{cartVm.activitySave(el)|commaFormat}}</p>
-                        <p style="color: red"
+                        <p style="color: #e02020"
                            v-else
                         >-${{currencyChange(cartVm.activitySave(el))|commaFormat}}
                           (-$NT{{cartVm.activitySave(el)|commaFormat}})</p>
@@ -180,22 +180,22 @@
                 </tr>
 
                 <tr v-if="reward_discount">
-                  <th style="color: red">{{$t('reward_used')}}</th>
+                  <th style="color: #e02020">{{$t('reward_used')}}</th>
                   <td style="text-align: right">
-                    <p style="color: red"
+                    <p style="color: #e02020"
                        v-if="$store.state.currency==='tw'"
                     >-${{reward_discount|commaFormat}}</p>
-                    <p style="color: red"
+                    <p style="color: #e02020"
                        v-else
                     >-${{currencyChange(reward_discount)|commaFormat}} (-$NT{{reward_discount|commaFormat}})</p>
                   </td>
                 </tr>
 
                 <tr v-if="coupon_instance&&coupon_instance.status&&coupon_instance.role<=cartVm.product_total">
-                  <th v-if="this.coupon_percent" style="color: red">{{$t('coupon_used')}}-{{coupon_percent|commaFormat}}%</th>
-                  <th v-else style="color: red">{{$t('coupon_used')}}</th>
+                  <th v-if="this.coupon_percent" style="color: #e02020">{{$t('coupon_used')}}-{{coupon_percent|commaFormat}}%</th>
+                  <th v-else style="color: #e02020">{{$t('coupon_used')}}</th>
                   <td style="text-align: right">
-                    <p style="color: red"
+                    <p style="color: #e02020"
                        v-if="$store.state.currency==='tw'"
                     >-${{coupon_discount|commaFormat}}</p>
                     <p class="primary-color"
@@ -223,7 +223,7 @@
                 >
                   {{$t('next')}}
                 </button>
-                <div style="color: red">{{weight_message}}</div>
+                <div style="color: #e02020">{{weight_message}}</div>
               </div>
             </div>
           </div>
