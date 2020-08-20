@@ -794,6 +794,14 @@ const custom_message = {
     en: ' reward point for every NT$100 spent via our website.',
     tw: '點回饋金點數。'
   },
+  loyalty_reward_1_2_1: {
+    en: ' Each purchase on this website will give ',
+    tw: ' 本網站每筆消費會贈送訂單金額的 '
+  },
+  loyalty_reward_1_2_2: {
+    en: ' % of the order amount as rebate points.',
+    tw: ' % 作為回饋金點數。'
+  },
   loyalty_reward_2_1: {
     en: 'Reward points earned will be credited to your account ',
     tw: '回饋金點數將於消費 '
