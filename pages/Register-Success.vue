@@ -8,9 +8,6 @@
           <div class="col-12 justify-content-center align-items-center text-center to-flex-col">
             <img src="/images/webs/order_complete.svg" alt="" class="max-width-100pa">
             <h2 class="mt-5 speicail-h2">{{$t('register_success')}}</h2>
-            <nuxt-link to="/login"
-                       class="banner-btn normal-btn mt-4 special-btn-width text-align-center">{{$t('back_login')}}
-            </nuxt-link>
           </div>
         </div>
       </div>
