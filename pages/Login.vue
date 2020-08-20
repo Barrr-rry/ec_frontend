@@ -56,7 +56,8 @@
             <h3 class="shop-box--title">{{$t('register')}}{{$t('member')}}</h3>
             <div class="shop-box--msg">
               <p>{{$t('register_terms_1_1')}}</p>
-              <p>{{$t('register_terms_1_2_1')}}{{reward.discount}}{{$t('register_terms_1_2_2')}}</p>
+              <li v-if="reward.status===1">{{$t('loyalty_reward_1_0')}}{{reward.pay_to}}{{$t('loyalty_reward_1_1')}}{{reward.discount}}{{$t('loyalty_reward_1_2')}}</li>
+            <li v-else>{{$t('loyalty_reward_1_2_1')}}{{reward.discount}}{{$t('loyalty_reward_1_2_2')}}</li>
               <p style="color: #dc5555;">{{$t('register_terms_1_3')}}</p>
             </div>
           </div>
