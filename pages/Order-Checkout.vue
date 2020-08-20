@@ -403,19 +403,6 @@
                         </div>
                       </td>
                     </tr>
-                    <tr v-show="coupon&&coupon.status&&coupon.role<=total">
-                      <th>{{$t('coupon_used')}}</th>
-                      <td>
-                        <div class="primary-color text-right"
-                             v-if="$store.state.currency==='tw'"
-                        >-${{coupon_discount|commaFormat}}
-                        </div>
-                        <div class="primary-color text-right"
-                             v-else
-                        >-${{currencyChange(coupon_discount)|commaFormat}} (-$NT{{coupon_discount|commaFormat}})
-                        </div>
-                      </td>
-                    </tr>
                     <!--活動折抵-->
                     <tr v-for="el in in_activity_obj" :key="el.activity_id">
                       <th>{{getText(el.activity_detail,'ch_name','en_name')}}</th>
@@ -441,6 +428,20 @@
                         <div class="primary-color text-right"
                              v-else
                         >-${{currencyChange(reward_discount)|commaFormat}} (-$NT{{reward_discount|commaFormat}})
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr v-show="coupon&&coupon.status&&coupon.role<=total">
+                      <th>{{$t('coupon_used')}}</th>
+                      <td>
+                        <div class="primary-color text-right"
+                             v-if="$store.state.currency==='tw'"
+                        >-${{coupon_discount|commaFormat}}
+                        </div>
+                        <div class="primary-color text-right"
+                             v-else
+                        >-${{currencyChange(coupon_discount)|commaFormat}} (-$NT{{coupon_discount|commaFormat}})
                         </div>
                       </td>
                     </tr>

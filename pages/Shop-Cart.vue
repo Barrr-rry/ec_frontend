@@ -175,17 +175,6 @@
                   </td>
                 </tr>
 
-                <tr v-if="coupon_instance&&coupon_instance.status&&coupon_instance.role<=cartVm.product_total">
-                  <th>{{$t('coupon_used')}}</th>
-                  <td>
-                    <p class="primary-color"
-                       v-if="$store.state.currency==='tw'"
-                    >-${{coupon_discount|commaFormat}}</p>
-                    <p class="primary-color"
-                       v-else
-                    >-${{currencyChange(coupon_discount)|commaFormat}} (-$NT{{coupon_discount|commaFormat}})</p>
-                  </td>
-                </tr>
                 <tr v-if="reward_discount">
                   <th>{{$t('reward_used')}}</th>
                   <td>
@@ -197,6 +186,19 @@
                     >-${{currencyChange(reward_discount)|commaFormat}} (-$NT{{reward_discount|commaFormat}})</p>
                   </td>
                 </tr>
+
+                <tr v-if="coupon_instance&&coupon_instance.status&&coupon_instance.role<=cartVm.product_total">
+                  <th>{{$t('coupon_used')}}</th>
+                  <td>
+                    <p class="primary-color"
+                       v-if="$store.state.currency==='tw'"
+                    >-${{coupon_discount|commaFormat}}</p>
+                    <p class="primary-color"
+                       v-else
+                    >-${{currencyChange(coupon_discount)|commaFormat}} (-$NT{{coupon_discount|commaFormat}})</p>
+                  </td>
+                </tr>
+
                 <tr>
                   <th>{{$t('total')}}</th>
                   <td

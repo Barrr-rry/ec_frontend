@@ -21,6 +21,9 @@ let createVm = (parent_vm) => {
           let el = this.in_activity_obj[key]
           activity += this.activitySave(el)
         }
+        if ((this.product_total - activity) < this.parent_vm.reward_discount) {
+          this.parent_vm.reward_discount = this.product_total - activity
+        }
         let ret = this.product_total - activity - this.parent_vm.coupon_discount - this.parent_vm.reward_discount
         return ret > 0 ? ret : 0
       },
