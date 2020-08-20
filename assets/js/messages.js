@@ -78,7 +78,7 @@ const custom_message = {
   },
   delivery_instructions_11: {
     en: 'Home Delivery: Please go to "Home Delivery Parcel Tracking and Inquiry System" for inquiries.',
-    tw: '宅配：請至「 宅配貨件追蹤查詢系統 」查詢。'
+    tw: '宅配到府：請至「 宅配貨件追蹤查詢系統 」查詢。'
   },
   delivery_instructions_12: {
     en: '7 Day Returns',
@@ -264,7 +264,7 @@ const custom_message = {
   },
   company_terms_0_2_0: {
     en: 'Home delivery is 90 yuan, free shipping over 3000, and the weight is limited to 999 kg.',
-    tw: '宅配一律 90 元，滿 3000 免運，限制重量 999 公斤內。 '
+    tw: '宅配到府一律 90 元，滿 3000 免運，限制重量 999 公斤內。 '
   },
   company_terms_0_3_0: {
     en: 'Superstore pickups are all 65 yuan, free shipping over 3000, and the weight is limited to 5 kg.',
@@ -711,7 +711,7 @@ const custom_message = {
   },
   shi: {
     en: 'FREE Taiwan Home-Delivery Service with NT$ 3000 Purchase or more',
-    tw: '單筆金額滿 3000 宅配免運'
+    tw: '單筆金額滿 3000 宅配到府免運'
   },
   free_shipping_fake_value: {
     en: 'Free Taiwan Shipping with NT$800',
@@ -1103,7 +1103,7 @@ const custom_message = {
   },
   to_store: {
     en: 'Home-Delivery Service',
-    tw: '宅配'
+    tw: '宅配到府'
   },
   fami: {
     en: 'FamilyMart',
@@ -1471,7 +1471,7 @@ const custom_message = {
   },
   home: {
     en: 'Home-delivery Service',
-    tw: '宅配到家'
+    tw: '宅配到府'
   },
   verification_code: {
     en: 'Verification code',
