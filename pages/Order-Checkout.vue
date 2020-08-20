@@ -55,7 +55,7 @@
                     <span>{{$t('tw')}}</span>
                   </label>
                   <!--海外-->
-                  <label for="oversea" class="custom-label inline-row">
+                  <label for="oversea" class="custom-label inline-row" v-if="cash_on_delivery_weight_ok" >
                     <input v-if="cash_on_delivery_weight_ok" type="radio" id="oversea" :value="2" v-model="location">
                     <div class="radio-icon"></div>
                     <span v-if="cash_on_delivery_weight_ok">{{$t('Oversea')}}</span>
