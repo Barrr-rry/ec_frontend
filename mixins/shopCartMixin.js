@@ -118,14 +118,24 @@ let RewardMixin = {
     },
     useReward() {
       // 確保優惠不會超過商品以及優惠券點數
-      let min_data = Math.min(this.cartVm.product_total, this.info_reward_total)
+      let activity = 0
+      for (let key in this.cartVm.in_activity_obj) {
+        let el = this.cartVm.in_activity_obj[key]
+        activity += this.cartVm.activitySave(el)
+      }
+      let min_data = Math.min((this.cartVm.product_total - activity), this.info_reward_total)
       if (this.reward_discount_temp > min_data) {
         this.reward_discount_temp = min_data
       }
       this.reward_discount = this.reward_discount_temp
     },
     init_reward_discount() {
-      this.reward_discount_temp = this.info_reward_total > this.cartVm.product_total ? this.cartVm.product_total : this.info_reward_total
+      let activity = 0
+      for (let key in this.cartVm.in_activity_obj) {
+        let el = this.cartVm.in_activity_obj[key]
+        activity += this.cartVm.activitySave(el)
+      }
+      this.reward_discount_temp = this.info_reward_total > (this.cartVm.product_total - activity) ? (this.cartVm.product_total - activity) : this.info_reward_total
       this.reward_discount = this.reward_discount_temp
     },
     getReward() {

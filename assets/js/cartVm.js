@@ -23,6 +23,9 @@ let createVm = (parent_vm) => {
           activity += this.activitySave(el)
         }
         // 計算金額方式
+        if ((this.product_total - activity) < this.parent_vm.reward_discount) {
+          this.parent_vm.reward_discount = this.product_total - activity
+        }
         let ret = this.product_total - activity - this.parent_vm.coupon_discount - this.parent_vm.reward_discount
         return ret > 0 ? ret : 0
       },
