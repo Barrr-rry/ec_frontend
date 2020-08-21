@@ -258,6 +258,12 @@
         keywords: 'HaveFun Men\'s Underwear,男性內褲,男內褲,三角內褲,四角內褲,比基尼三角,提臀內褲,四角褲,三角褲,男性內著,貼身衣物'
       }
     },
+    watch:{
+      // choose_level1() {
+      //   this.no_specifications_productimages = this.product.productimages.filter(x => x.specification===this.choose_level1)
+      //   debugger
+      // }
+    },
     computed: {
       ...mapState('product', {
         product: state => state.item
@@ -279,8 +285,19 @@
       ...mapState('category', {
         categories: state => state.items
       }),
-      no_specifications_productimages() {
-        return this.product.productimages.filter(x => !x.specification)
+      no_specifications_productimages: {
+           get(){
+             let ret = this.product.productimages.filter(x => !x.specification)
+             if (this.choose_level1){
+               ret = this.product.productimages.filter(x => x.specification===this.choose_level1)
+             }
+             return ret
+           },
+           set(newName){
+             return newName
+           },
+
+        // return this.product.productimages.filter(x => x.specification===this.choose_level1)
       },
       product_parents() {
         let ret = []
