@@ -2067,6 +2067,10 @@ bir_date: {
   en: 'Date of birth',
     tw: '出生日期'
 },
+let_shp: {
+  en: 'Let Go Shopping',
+    tw: '馬上去逛逛'
+},
 
 
 
