@@ -17,7 +17,7 @@
     <div ref="detail" class="order-detail">
       <div class="order-detail--main pl-45px pt-15px">
         <div class="mb-20px">{{$t('order_date')}} : {{order.created_at}}</div>
-        <div class="mb-20px">{{$t('order_status')}} : {{order.simple_status_display}}</div>
+        <div class="mb-20px">{{$t('order_status')}} : {{getText(order,'simple_status_display','en_simple_status_display')}}</div>
         <br>
         <div class="mb-20px">
           {{$t('order_method')}} : {{order.to_store?$t('store'):$t('to_store')}}
@@ -44,7 +44,7 @@
             style="color: #0b1d37">${{target_reward|commaFormat}}</a></div>
           <br>
           <div class="mb-20px">{{$t('total')}} : ${{order.total_price|commaFormat}}</div>
-          <div class="mb-20px">{{$t('pay_method')}} : {{order.pay_type?'貨到付款':'線上付款'}}</div>
+          <div class="mb-20px">{{$t('pay_method')}} : {{order.pay_type?$t('pay_later'):$t('pay_online')}}</div>
           <div class="mb-20px">{{$t('pay_status')}} : {{order_status}}</div>
           <button class="no-round-btn" v-if="!(order.pay_status || order.pay_type || order.shipping_status===400)" @click="repay">{{$t('pay_again')}}
           </button>
@@ -96,8 +96,9 @@
   import CardBorder from '@/components/CardBorder'
   import mixinCategory from "@/mixins/mixinCategory"
   import CForm from "@/components/CForm"
+  import langMixin from "@/mixins/langMixin"
   export default {
-    mixins: [mixinCategory],
+    mixins: [mixinCategory, langMixin],
     name: 'OrderCard',
     components: {
       CardBorder,
