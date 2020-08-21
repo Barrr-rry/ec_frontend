@@ -2056,6 +2056,7 @@ dl: {
 },
 
 maintenance: {
+
   en: 'web site maintain',
     tw: '網站維護中'
 },
@@ -2070,6 +2071,18 @@ bir_date: {
 let_shp: {
   en: 'Let Go Shopping',
     tw: '馬上去逛逛'
+},
+unDiscounted: {
+  en: 'Discount not Working (due to not achievement)',
+    tw: '未符合折扣'
+},
+Discounted: {
+  en: 'Discount Eligibility',
+    tw: '已享受折扣'
+},
+Discount: {
+  en: 'Discount',
+    tw: '組合優惠折抵'
 },
 
 

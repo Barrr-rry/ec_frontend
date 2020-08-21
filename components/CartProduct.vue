@@ -49,10 +49,10 @@
           v-if="$store.state.currency==='tw'"
       >
         <span class="price">${{item.specification_detail.price|commaFormat}}</span>
-        <div class="sale-msg red-color" v-if="cart_status===2">未符合折扣</div>
-        <div class="sale-msg gray-text" v-if="cart_status===3">已享受折扣</div>
+        <div class="sale-msg red-color" v-if="cart_status===2">{{$t('unDiscounted')}}</div>
+        <div class="sale-msg gray-text" v-if="cart_status===3">{{$t('Discounted')}}</div>
         <div class="activity" v-if="item.product &&item.product.activity">
-          <div class="activity-box">{{item.product.activity_detail.ch_name}}
+          <div class="activity-box">{{getText(item.product.activity_detail, 'ch_name', 'en_name')}}
           </div>
         </div>
       </td>
@@ -72,7 +72,8 @@
           <div class="col-12 d-flex justify-content-start" style="margin-left: 12px; font-size:14px;"
                :class="[stock_display_text==='缺貨'?'red-color':'gray-text2']"
           >
-            {{stock_display_text}}
+            {{getText(stock_display_text, 'name', 'en_name')}}
+<!--            {{stock_display_text}}-->
           </div>
         </div>
       </td>
@@ -180,15 +181,24 @@
           return mapping[detail.inventory_status]
         } else if (product_stock_setting === 3) {
           let quantity = detail.quantity
+          let ret = {}
           if (this.quantity > quantity) {
-            return '缺貨'
+            ret.name = '缺貨'
+            ret.en_name = 'out of stock'
+            return ret
           }
           if (quantity === 0) {
-            return '無庫存'
+            ret.name = '無庫存'
+            ret.en_name = 'Sold Out'
+            return ret
           } else if (1 <= quantity && quantity <= 10) {
-            return '庫存緊張'
+            ret.name = '庫存緊張'
+            ret.en_name = 'Short in Supply'
+            return ret
           } else {
-            return '有庫存'
+            ret.name = '庫存充足'
+            ret.en_name = 'Adequate Stock'
+            return ret
           }
         }
         return ''

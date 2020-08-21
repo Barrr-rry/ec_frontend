@@ -91,7 +91,7 @@
                       <input type="radio" :id="`radio_${el.id}`" :value="el.id" v-model="freeshipping_id"
                         :disabled="pay_type===1&&!el.cash_on_delivery">
                       <div class="radio-icon"></div>
-                      <span :class="pay_type===1&&!el.cash_on_delivery?'disabled':''">{{el.frontend_name}}</span>
+                      <span :class="pay_type===1&&!el.cash_on_delivery?'disabled':''">{{getText(el, 'frontend_name', 'en_frontend_name')}}</span>
                     </label>
                   </span>
                 </CInput>
@@ -365,9 +365,9 @@
                       <!--活動折抵-->
                       <tr v-for="el in in_activity_obj" :key="el.activity_id">
                         <td colspan="2">
-                          <div class="mb-20px text-align: left;"><span style="color: #0b1d37;">組合優惠折抵</span></div>
+                          <div class="mb-20px text-align: left;"><span style="color: #0b1d37;">{{$t('Discount')}}</span></div>
                           <div class="d-flex align-items-center">
-                            <div class="" style="flex:50%; text-align: left; color: #e02020">{{el.activity_detail.ch_name}}
+                            <div class="" style="flex:50%; text-align: left; color: #e02020">{{getText(el.activity_detail, 'ch_name', 'en_name')}}
                             </div>
                             <div style="flex:50%;">
                               <div class="text-right" style="color: #e02020" v-if="$store.state.currency==='tw'">

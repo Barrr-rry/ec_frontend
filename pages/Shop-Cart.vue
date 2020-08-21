@@ -163,9 +163,9 @@
                 <!--活動折抵-->
                 <tr v-for="el in cartVm.in_activity_obj" :key="el.activity_id">
                   <td colspan="2">
-                    <div class="mb-20px"><span style="color: #0b1d37;">組合優惠折抵</span></div>
+                    <div class="mb-20px"><span style="color: #0b1d37;">{{$t('Discount')}}</span></div>
                     <div class="d-flex align-items-center">
-                      <div style="flex: 50%"><p style="color: #e02020">{{el.activity_detail.ch_name}}</p></div>
+                      <div style="flex: 50%"><p style="color: #e02020">{{getText(el.activity_detail, 'ch_name', 'en_name')}}</p></div>
                       <div style="flex: 50%; text-align: right">
                         <p style="color: #e02020"
                            v-if="$store.state.currency==='tw'"
