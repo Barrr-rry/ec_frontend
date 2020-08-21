@@ -202,11 +202,11 @@
               </div>
               <div class="login d-flex hover-effect" v-if="!has_token">
                 <nuxt-link to="/login"><i class="icon fas fa-user"></i>
-                  <a class="txt pointer">{{$t('login')}}</a>
                 </nuxt-link>
+                <a class="txt pointer" href="/login">{{$t('login')}}</a>
               </div>
               <div class="login d-flex hover-effect" v-else>
-                <nuxt-link to="/member-centre"><i class="icon fas fa-user"></i>
+                <nuxt-link to="/member-centre""><i class="icon fas fa-user"></i>
                 </nuxt-link>
                 <a class="txt pointer" @click="logout">{{$t('logout')}}</a>
               </div>

@@ -104,7 +104,10 @@
       }
     },
     methods: {
-      loginSuccessProcess() {
+      loginSuccessProcess(val) {
+        if (val.rewards_status) {
+          this.$toast.warning('您的回饋金將於 '+ val.rewards_end_date +'到期，要買要快唷！')
+        }
         if (/^http/.test(this.$store.state.previous_url)) {
           this.$router.push('/')
           return
@@ -153,7 +156,7 @@
           let res = await this.$api.member.login(val)
           this.setLoginVariable(res.data.token)
           await this.addTOCart()
-          this.loginSuccessProcess()
+          this.loginSuccessProcess(res.data)
         } catch (e) {
           console.log('catch:', e)
           if (this.$refs.form) {
