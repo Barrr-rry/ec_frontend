@@ -728,7 +728,7 @@
       } catch (e) {
 
       }
-      this.getReward()
+      // this.getReward()
       this.default_memberaddress = this.myself.default_memberaddress
 
       this.initFreeshippingId()
