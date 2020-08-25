@@ -7,6 +7,7 @@ COPY . /app
 WORKDIR /app
 EXPOSE 3000
 RUN npm install
+RUN npm update
 RUN npm install node-sass@latest
 RUN npm install sass-loader@latest
 RUN npm run build
