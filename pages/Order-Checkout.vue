@@ -394,7 +394,7 @@
                           </div>
                         </td>
                       </tr>
-                      <tr v-show="coupon&&coupon.status&&coupon.role<=total">
+                      <tr v-show="(coupon&&coupon.status&&coupon.role<=total)||(this.$cookies.get('coupon_instance')&&this.$cookies.get('coupon_instance').status&&this.$cookies.get('coupon_instance').role<=total)">
                         <th style="color: #e02020;" v-if="coupon_percent">{{$t('coupon_used')}}-{{coupon_percent|commaFormat}}%</th>
                         <th style="color: #e02020;" v-else>{{$t('coupon_used')}}</th>
                         <td>
@@ -594,6 +594,13 @@
           let el = this.in_activity_obj[key]
           activity += this.activitySave(el)
         }
+        if (this.coupon === null && this.$cookies.get('coupon_instance') && this.$cookies.get('coupon_instance').status && this.$cookies.get('coupon_instance').role <= this.total) {
+          if (this.$cookies.get('coupon_instance').method === 1) {
+            return this.$cookies.get('coupon_instance').discount
+          } else {
+            return parseInt(this.$cookies.get('coupon_instance').discount * (this.total - this.reward_discount - activity) / 100)
+          }
+        }
         if (this.coupon && this.coupon.status && this.coupon.role <= this.total) {
           if (this.coupon.method === 1) {
             return this.coupon.discount
@@ -605,6 +612,13 @@
         }
       },
       coupon_percent() {
+        if (this.coupon === null && this.$cookies.get('coupon_instance') && this.$cookies.get('coupon_instance').status && this.$cookies.get('coupon_instance').role <= this.total) {
+          if (this.$cookies.get('coupon_instance').method === 1) {
+            return false
+          } else {
+            return this.$cookies.get('coupon_instance').discount
+          }
+        }
         if (this.coupon && this.coupon.status && this.coupon.role <= this.total) {
           if (this.coupon.method === 1) {
             return false
