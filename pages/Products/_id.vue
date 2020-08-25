@@ -287,9 +287,13 @@
       }),
       no_specifications_productimages: {
            get(){
-             let ret = this.product.productimages.filter(x => !x.specification)
+             let ret = this.product.productimages
              if (this.choose_level1){
                ret = this.product.productimages.filter(x => x.specification===this.choose_level1)
+               let rett = this.product.productimages.filter(x => x.specification!==this.choose_level1)
+               for (let re of rett) {
+                 ret.push(re)
+               }
              }
              return ret
            },

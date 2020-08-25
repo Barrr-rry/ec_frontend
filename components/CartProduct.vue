@@ -298,6 +298,11 @@
       image(productimages) {
         // 只顯示主要的image
         for (let img of productimages) {
+          if (img.specification === this.item.specification_detail.level1_spec) {
+            return img.image_url
+          }
+        }
+        for (let img of productimages) {
           if (img.main_image) {
             return img.image_url
           }
