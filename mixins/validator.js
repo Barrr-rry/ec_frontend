@@ -9,13 +9,9 @@ export default {
     recieveName(rule, value, callback) {
       let re = /^[a-zA-Z]*$/
       if (re.test(value)) {
-        if (value.length < 4) {
-          callback('英文最少長度為 4')
-          return
-        } else {
-          callback()
-          return
-        }
+        callback()
+        return
+
 
       }
       re = /^[\u4e00-\u9fa5]*$/
