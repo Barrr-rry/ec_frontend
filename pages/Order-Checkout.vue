@@ -429,7 +429,7 @@
                   </table>
                 </div>
                 <div class="checkout-method row">
-                  <button class="normal-btn no-round-btn submit-btn mr-1" onclick="javascript:location.href='/shop-cart'">{{$t('previous')}}
+                  <button class="no-round-btn  submit-btn mr-1" type="button" onclick="javascript:location.href='/shop-cart'">{{$t('previous')}}
                   </button>
                   <button class="normal-btn no-round-btn submit-btn" @click="ok">{{$t('next')}}
                   </button>
@@ -821,6 +821,8 @@
 
         }
         this.loading = true
+        this.$cookies.remove('coupon_instance')
+        this.$cookies.remove('reward_discount')
         if (this.pay_type === 0 || this.pay_type === '0') {
           val.callback_url = location.origin + '/order-complete'
           let lang = this.$cookies.get('lang')

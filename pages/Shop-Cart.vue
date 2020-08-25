@@ -191,7 +191,7 @@
                   </td>
                 </tr>
 
-                <tr v-if="coupon_instance&&coupon_instance.status&&coupon_instance.role<=cartVm.product_total">
+                <tr v-if="(coupon_instance&&coupon_instance.status&&coupon_instance.role<=cartVm.product_total)||(this.$cookies.get('coupon_instance')&&this.$cookies.get('coupon_instance').status&&this.$cookies.get('coupon_instance').role<=cartVm.product_total)">
                   <th v-if="this.coupon_percent" style="color: #e02020">{{$t('coupon_used')}}-{{coupon_percent|commaFormat}}%</th>
                   <th v-else style="color: #e02020">{{$t('coupon_used')}}</th>
                   <td style="text-align: right">
@@ -494,6 +494,12 @@
 
         // to next page
         if (this.info.validate) {
+          if (this.coupon_instance) {
+            this.$cookies.set('coupon_instance', this.coupon_instance)
+          }
+          if (this.reward_discount) {
+            this.$cookies.set('reward_discount', this.reward_discount)
+          }
           this.$router.push('/order-checkout')
         } else {
           this.no_validate_modal = true

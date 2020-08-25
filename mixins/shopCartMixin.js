@@ -7,6 +7,14 @@ let couponMixin = {
         let el = this.cartVm.in_activity_obj[key]
         activity += this.cartVm.activitySave(el)
       }
+      if (this.coupon_instance === null && this.$cookies.get('coupon_instance') && this.$cookies.get('coupon_instance').status && this.$cookies.get('coupon_instance').role <= this.cartVm.product_total) {
+        if (this.$cookies.get('coupon_instance').method === 1) {
+          return parseInt(this.$cookies.get('coupon_instance').discount)
+        } else {
+          return parseInt(this.$cookies.get('coupon_instance').discount * (this.cartVm.product_total - this.reward_discount - activity) / 100)
+        }
+      }
+
       if (this.coupon_instance && this.coupon_instance.status && this.coupon_instance.role <= this.cartVm.product_total) {
         if (this.coupon_instance.method === 1) {
           return parseInt(this.coupon_instance.discount)
@@ -19,6 +27,13 @@ let couponMixin = {
     },
     coupon_percent() {
       // 計算coupon 的折扣
+      if (this.coupon_instance === null && this.$cookies.get('coupon_instance') && this.$cookies.get('coupon_instance').status && this.$cookies.get('coupon_instance').role <= this.cartVm.product_total) {
+        if (this.$cookies.get('coupon_instance').method === 1) {
+          return false
+        } else {
+          return this.$cookies.get('coupon_instance').discount
+        }
+      }
       if (this.coupon_instance && this.coupon_instance.status && this.coupon_instance.role <= this.cartVm.product_total) {
         if (this.coupon_instance.method === 1) {
           return false
@@ -137,6 +152,9 @@ let RewardMixin = {
       }
       this.reward_discount_temp = this.info_reward_total > (this.cartVm.product_total - activity) ? (this.cartVm.product_total - activity) : this.info_reward_total
       this.reward_discount = this.reward_discount_temp
+      if (this.$cookies.get('reward_discount') && this.$cookies.get('reward_discount') < (this.cartVm.product_total - activity)) {
+        this.reward_discount = this.$cookies.get('reward_discount')
+      }
     },
     getReward() {
       this.$api.ecpay.calc_reward(this.total_count).then(res => {
