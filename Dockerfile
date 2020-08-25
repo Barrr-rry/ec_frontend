@@ -1,4 +1,4 @@
-FROM node:13.2.0
+FROM node:14.8.0
 ENV LC_ALL zh_CN.utf8
 ENV NODE_ENV=production
 ENV HOST 0.0.0.0
