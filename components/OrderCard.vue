@@ -82,7 +82,7 @@
       </div>
       <div v-html="html"></div>
     </div>
-    <modal v-model="order_del_modal" title="您確定要取消本訂單?" @ok="ok">
+    <modal v-model="order_del_modal" :title="$t('oOrder_Cancelled')" @ok="ok">
       <CForm
         @submit="submit"
         ref="form"
@@ -162,7 +162,7 @@
         this.$api.order.putData(this.order.id, {
           shipping_status: 400
         }).then(() => {
-          this.$toast.success('已取消訂單')
+          this.$toast.success(this.$t('Order_Cancelled'))
           this.$router.go()
         })
       },

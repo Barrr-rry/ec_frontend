@@ -131,7 +131,7 @@
                             :key="el.id"
                         >
                           <td style="text-align: center;" >{{el.created_at}}</td>
-                          <td>{{el.desc}}</td>
+                          <td>{{getText(el,'desc','en_desc')}}</td>
                           <td>{{displayPoint(el.point)}}</td>
                           <td>{{el.total_point}}</td>
                         </tr>
@@ -348,9 +348,10 @@
   import mixinDefaultInit from "@/mixins/mixinDefaultInit"
   import ValidateModal from "@/components/ValidateModal"
   import InfoTooltip from "@/components/InfoTooltip"
+  import langMixin from "@/mixins/langMixin"
 
   export default {
-    mixins: [mixinCategory, mixinDefaultInit],
+    mixins: [mixinCategory, mixinDefaultInit, langMixin],
     name: 'MemberCentre',
     components: {
       InfoTooltip,
