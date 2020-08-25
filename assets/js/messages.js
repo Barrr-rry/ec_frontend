@@ -1909,6 +1909,14 @@ const custom_message = {
   en: 'Your reward points will expire on ',
     tw: '回饋點數將於'
 },
+  Order_Cancelled: {
+  en: 'Order Successfully Cancelled',
+    tw: '已取消訂單'
+},
+oOrder_Cancelled: {
+  en: 'Are you sure you want to cancel this order?',
+    tw: '您確定要取消本訂單?'
+},
 
 
 
