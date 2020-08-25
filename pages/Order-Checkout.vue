@@ -201,9 +201,9 @@
                 <div class="form-group"
                   v-if="selected_memberstores.length!==0||!freeshipping_target.use_ecpay_delivery">
                   {{$t('bir_date')}}:
-                  <datepicker class="custom-datepicker"  format="yyyy-MM-dd"
+                  <datepicker class="custom-datepicker"  format="yyyy-MM-dd" :open-date="openDate"
                     type="date" :placeholder="$t('bir')" :typeable="true" :required="false" v-if="this.$cookies.get('lang')==='en'"></datepicker>
-                  <datepicker :language="zh" class="custom-datepicker"  format="yyyy-MM-dd" v-else
+                  <datepicker :language="zh" class="custom-datepicker"  format="yyyy-MM-dd" v-else :open-date="openDate"
                     type="date" :placeholder="$t('bir')" :typeable="true" :required="false"></datepicker>
                 </div>
                 <!--儲存常用地址-->
@@ -312,12 +312,12 @@
                 </div>
                 <div class="form-group" v-if="this.$cookies.get('lang')==='en'">
                   Date of birth：
-                  <datepicker class="custom-datepicker"  format="yyyy-MM-dd"
+                  <datepicker class="custom-datepicker"  format="yyyy-MM-dd" :open-date="openDate"
                     type="date" :placeholder="$t('bir')" :typeable="true" :required="false"></datepicker>
                 </div>
                 <div class="form-group" v-else>
                   出生日期：
-                  <datepicker :language="zh" class="custom-datepicker" format="yyyy-MM-dd"
+                  <datepicker :language="zh" class="custom-datepicker" format="yyyy-MM-dd" :open-date="openDate"
                     type="date" :placeholder="$t('bir')" :typeable="true" :required="false"></datepicker>
                 </div>
               </div>
@@ -494,6 +494,7 @@
         reward: 0,
         reward_discount: 0,
         zh: zh,
+        openDate: new Date(1989, 12, 1)
       }
     },
     computed: {
