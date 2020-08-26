@@ -88,7 +88,7 @@
                             <div class="point-group--title">
                               <span>{{$t('unreward')}}</span>
                               <InfoTooltip
-                                :content="`獎勵金生效日為消費後 ${myself.record_info.still_day} 天`"
+                                :content="`獎勵金生效日為消費後 ${myself.record_info.start_day} 天`"
                               />：
                             </div>
                             <div class="point-group--info">

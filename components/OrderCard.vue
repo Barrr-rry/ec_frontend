@@ -126,10 +126,12 @@
         return this.order.pay_status === 0 && this.order.simple_status_display !== '已取消' && this.order.shipping_status !== 2 && this.order.simple_status !== 2 && this.order.simple_status_display !== '已出貨' && this.order.simple_status_display !== '待取貨'
       },
       target_reward() {
-        if (this.order.rewrad.length && this.order.rewrad[0].point >= 0) {
-          return this.order.rewrad[0].point
-        }
-        else if (this.order.rewrad_temp.length){
+        // if (this.order.rewrad.length && this.order.rewrad[0].point >= 0) {
+        //   return this.order.rewrad[0].point
+        // }
+        // else if (this.order.rewrad_temp.length){
+        // todo check
+        if (this.order.rewrad_temp.length){
           return this.order.rewrad_temp[0].point
         }
         else {
