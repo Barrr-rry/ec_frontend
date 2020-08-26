@@ -152,7 +152,7 @@ let RewardMixin = {
       }
       this.reward_discount_temp = this.info_reward_total > (this.cartVm.product_total - activity) ? (this.cartVm.product_total - activity) : this.info_reward_total
       this.reward_discount = this.reward_discount_temp
-      if (this.$cookies.get('reward_discount') && this.$cookies.get('reward_discount') < (this.cartVm.product_total - activity)) {
+      if (this.$cookies.get('reward_discount') && this.$cookies.get('reward_discount') < (this.cartVm.product_total - activity) && this.$cookies.get('reward_discount') < this.info_reward_total) {
         this.reward_discount = this.$cookies.get('reward_discount')
       }
     },
