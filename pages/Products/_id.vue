@@ -294,8 +294,23 @@
       ...mapState('category', {
         categories: state => state.items
       }),
-      no_specifications_productimages() {
-        return this.product.productimages.filter(x => !x.specification)
+      no_specifications_productimages: {
+           get(){
+             let ret = this.product.productimages
+             if (this.choose_level1){
+               ret = this.product.productimages.filter(x => x.specification===this.choose_level1)
+               let rett = this.product.productimages.filter(x => x.specification!==this.choose_level1)
+               for (let re of rett) {
+                 ret.push(re)
+               }
+             }
+             return ret
+           },
+           set(newName){
+             return newName
+           },
+
+        // return this.product.productimages.filter(x => x.specification===this.choose_level1)
       },
       product_parents() {
         let ret = []
