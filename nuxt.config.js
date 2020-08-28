@@ -37,7 +37,7 @@ export default {
       },
       {
         name: "keywords",
-        content: "HaveFun Men's Underwear,男性內褲,男內褲,三角內褲,四角內褲,比基尼三角,提臀內褲,四角褲,三角褲,男性內著,貼身衣物"
+        content: "HaveFun Men's Underwear、男性內褲、男內褲、三角內褲、四角內褲、比基尼三角、提臀內褲、四角褲、三角褲、男性內著、貼身衣物、男內褲model、同志內褲、gay內褲、後空內褲、HaveFun Underwear"
       },
       {
         name: "description",

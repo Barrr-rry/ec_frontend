@@ -255,7 +255,7 @@
         specification: null,
         title: 'HaveFun Men\'s Underwear | 男性內褲',
         img: 'https://li1871-48.members.linode.com/media/3408413256-康闓_HFMU_OTIMG_chloe_2020805.jpg',
-        keywords: 'HaveFun Men\'s Underwear,男性內褲,男內褲,三角內褲,四角內褲,比基尼三角,提臀內褲,四角褲,三角褲,男性內著,貼身衣物'
+        keywords: 'HaveFun Men\'s Underwear、男性內褲、男內褲、三角內褲、四角內褲、比基尼三角、提臀內褲、四角褲、三角褲、男性內著、貼身衣物、男內褲model、同志內褲、gay內褲、後空內褲、HaveFun Underwear'
       }
     },
     watch:{
@@ -344,7 +344,7 @@
           return {
             title: res.data.name + ' | HaveFun Men\'s Underwear',
             img: `${img_href}media/${res.data.productimages[0].image_url}`,
-            keywords: res.data.name + ',HaveFun Men\'s Underwear,男性內褲,男內褲,三角內褲,四角內褲,比基尼三角,提臀內褲,四角褲,三角褲,男性內著,貼身衣物'
+            keywords: res.data.name + '、HaveFun Men\'s Underwear、男性內褲、男內褲、三角內褲、四角內褲、比基尼三角、提臀內褲、四角褲、三角褲、男性內著、貼身衣物、男內褲model、同志內褲、gay內褲、後空內褲、HaveFun Underwear'
           }
         }).catch((err) => {
           console.log(err)
