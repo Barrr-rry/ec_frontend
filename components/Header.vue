@@ -395,6 +395,12 @@
     watch: {
       '$route.query': {
         handler(query) {
+          if (this.$route.fullPath.indexOf('en') == 1) {
+            this.$cookies.set('lang', 'en')
+          }
+          else if (this.$route.fullPath.indexOf('tw') == 1) {
+            this.$cookies.set('lang', 'tw')
+          }
           // 更新search input
           if (query.k) {
             this.search_input = query.k
