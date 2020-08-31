@@ -59,7 +59,7 @@ let initFunction = (callback) => {
       $(this).next('.sub-menu').slideToggle('100');
       $(this).children().toggleClass('icon_minus-06 icon_plus');
     });
-    $('a').on('click',function () {
+    $('a').on('click', function () {
       $('body').css({
         overflow: 'inherit',
       });
@@ -422,7 +422,7 @@ let initFunction = (callback) => {
       infinite: false,
     });
     $('.shop-detail .slide-img').slick({
-      infinite: true,
+      infinite: false,
       slidesToShow: 3,
       slidesToScroll: 3,
       asNavFor: '.big-img',

@@ -111,7 +111,7 @@
                         <i class="small fab twitter-share" @click="share('twitter')"></i>
                       </div>
                     </div>
-                    <div class="flex-order--item order-mob-1">
+                    <div class="flex-order--item order-mob-1" style="width:100%; max-width: 100vw;">
                       <div class="slide-img">
                         <div class="slide-img_block"
                              v-for="image of no_specifications_productimages"
@@ -227,179 +227,208 @@
 </template>
 
 <script>
-  import Counter from '@/components/Counter'
-  import {fetchReturn} from "@/mixins/fetch/headerFetch"
-  import {mapState} from 'vuex'
-  import mixinCategory from "@/mixins/mixinCategory"
-  import mixinDefaultInit from "@/mixins/mixinDefaultInit"
-  import mixinToWish from "@/mixins/mixinToWish"
-  import {addTOCart} from '@/assets/js/localCart'
-  import mixinProduct from "@/mixins/mixinProduct"
-  import VSelectButton from "@/components/VSelectButton"
-  import langMixin from "@/mixins/langMixin"
-  import axios from 'axios'
+import Counter from '@/components/Counter'
+import { fetchReturn } from '@/mixins/fetch/headerFetch'
+import { mapState } from 'vuex'
+import mixinCategory from '@/mixins/mixinCategory'
+import mixinDefaultInit from '@/mixins/mixinDefaultInit'
+import mixinToWish from '@/mixins/mixinToWish'
+import { addTOCart } from '@/assets/js/localCart'
+import mixinProduct from '@/mixins/mixinProduct'
+import VSelectButton from '@/components/VSelectButton'
+import langMixin from '@/mixins/langMixin'
+import axios from 'axios'
 
-  export default {
-    mixins: [mixinCategory, mixinDefaultInit, mixinToWish, mixinProduct, langMixin],
-    components: {
-      Counter,
-      VSelectButton
-    },
-    fetch(ctx) {
-      return fetchReturn(ctx, [ctx.store.dispatch('product/getRead', ctx.params.id),
-        ctx.store.dispatch('freeshipping/getList')
-      ])
-    },
-    data() {
-      return {
-        specification: null,
-        title: 'HaveFun Men\'s Underwear | 男性內褲',
-        img: 'https://li1871-48.members.linode.com/media/3408413256-康闓_HFMU_OTIMG_chloe_2020805.jpg',
-        keywords: 'HaveFun Men\'s Underwear、男性內褲、男內褲、三角內褲、四角內褲、比基尼三角、提臀內褲、四角褲、三角褲、男性內著、貼身衣物、男內褲model、同志內褲、gay內褲、後空內褲、HaveFun Underwear'
-      }
-    },
-    watch:{
-      // choose_level1() {
-      //   this.no_specifications_productimages = this.product.productimages.filter(x => x.specification===this.choose_level1)
-      //   debugger
-      // }
-    },
-    computed: {
-      ...mapState('product', {
-        product: state => state.item
-      }),
-      ...mapState('freeshipping', {
-        lowest_freeshipping(state) {
-          let ret = null
-          for (let el of state.items) {
-            if (ret === null) {
-              ret = el.role
-            }
-            if (ret > el.role) {
-              ret = el.role
-            }
+export default {
+  mixins: [
+    mixinCategory,
+    mixinDefaultInit,
+    mixinToWish,
+    mixinProduct,
+    langMixin
+  ],
+  components: {
+    Counter,
+    VSelectButton
+  },
+  fetch(ctx) {
+    return fetchReturn(ctx, [
+      ctx.store.dispatch('product/getRead', ctx.params.id),
+      ctx.store.dispatch('freeshipping/getList')
+    ])
+  },
+  data() {
+    return {
+      specification: null,
+      title: "HaveFun Men's Underwear | 男性內褲",
+      img:
+        'https://li1871-48.members.linode.com/media/3408413256-康闓_HFMU_OTIMG_chloe_2020805.jpg',
+      keywords:
+        "HaveFun Men's Underwear、男性內褲、男內褲、三角內褲、四角內褲、比基尼三角、提臀內褲、四角褲、三角褲、男性內著、貼身衣物、男內褲model、同志內褲、gay內褲、後空內褲、HaveFun Underwear"
+    }
+  },
+  watch: {
+    // choose_level1() {
+    //   this.no_specifications_productimages = this.product.productimages.filter(x => x.specification===this.choose_level1)
+    //   debugger
+    // }
+  },
+  computed: {
+    ...mapState('product', {
+      product: (state) => state.item
+    }),
+    ...mapState('freeshipping', {
+      lowest_freeshipping(state) {
+        let ret = null
+        for (let el of state.items) {
+          if (ret === null) {
+            ret = el.role
           }
-          return ret
+          if (ret > el.role) {
+            ret = el.role
+          }
         }
-      }),
-      ...mapState('category', {
-        categories: state => state.items
-      }),
-      no_specifications_productimages: {
-           get(){
-             let ret = this.product.productimages
-             if (this.choose_level1){
-               ret = this.product.productimages.filter(x => x.specification===this.choose_level1)
-               let rett = this.product.productimages.filter(x => x.specification!==this.choose_level1)
-               for (let re of rett) {
-                 ret.push(re)
-               }
-             }
-             return ret
-           },
-           set(newName){
-             return newName
-           },
-
-        // return this.product.productimages.filter(x => x.specification===this.choose_level1)
-      },
-      product_parents() {
-        let ret = []
-        // category
-        if (this.$route.query.c) {
-          for (let el of this.product.categories) {
-            if (el.id === parseInt(this.$route.query.c)) {
-              ret.push({name: el.name, url: `/products?c=${el.id}`})
-            }
+        return ret
+      }
+    }),
+    ...mapState('category', {
+      categories: (state) => state.items
+    }),
+    no_specifications_productimages: {
+      get() {
+        let ret = this.product.productimages
+        if (this.choose_level1) {
+          ret = this.product.productimages.filter(
+            (x) => x.specification === this.choose_level1
+          )
+          let rett = this.product.productimages.filter(
+            (x) => x.specification !== this.choose_level1
+          )
+          for (let re of rett) {
+            ret.push(re)
           }
-        } else {
-          ret.push({name: this.product.brand_en_name, url: `/products?b=${this.product.brand}`})
         }
         return ret
       },
-    },
-    head() {
-      return {
-        title: this.title,
-        meta: [
-          {
-            property: "og:title",
-            content: this.title
-          },
-          {
-            property: "og:img",
-            content: this.img
-          },
-          {
-            name: "keywords",
-            content: this.keywords
-          }
-        ]
+      set(newName) {
+        return newName
       }
+
+      // return this.product.productimages.filter(x => x.specification===this.choose_level1)
     },
-    asyncData(ctx) {
-      let img_href = ctx.env.VUE_APP_API_URL.replace('/api', '');
-      return axios.get(`${ctx.env.VUE_APP_API_URL}product/${ctx.params.id}/`)
-        .then((res) => {
-          return {
-            title: res.data.name + ' | HaveFun Men\'s Underwear',
-            img: `${img_href}media/${res.data.productimages[0].image_url}`,
-            keywords: res.data.name + '、HaveFun Men\'s Underwear、男性內褲、男內褲、三角內褲、四角內褲、比基尼三角、提臀內褲、四角褲、三角褲、男性內著、貼身衣物、男內褲model、同志內褲、gay內褲、後空內褲、HaveFun Underwear'
+    product_parents() {
+      let ret = []
+      // category
+      if (this.$route.query.c) {
+        for (let el of this.product.categories) {
+          if (el.id === parseInt(this.$route.query.c)) {
+            ret.push({ name: el.name, url: `/products?c=${el.id}` })
           }
-        }).catch((err) => {
-          console.log(err)
-        })
-    },
-    methods: {
-      currencyChange(val) {
-        return parseFloat(val * this.$store.state.price.item[this.$store.state.currency].toFixed(2))
-      },
-      share(social) {
-        const webTitle = `${this.product.name} | HaveFun Men’s Underwear`,
-          webUrl = location.href
-        let shareUrl = (social === 'line') ? `${webUrl}?openExternalBrowser=1` : webUrl
-        window.open('https://www.addtoany.com/add_to/' + social + '?linkurl=' + shareUrl + '&amp;linkname=' + encodeURI(webTitle))
-      },
-      toCartAPI(values) {
-        if (!this.$store.state.membertoken.has_token) {
-          addTOCart(values, this.$store)
-          return Promise.resolve()
         }
-        return this.$api.cart.postData(values).then(() => {
-          this.$store.dispatch('cart/getCount')
-          this.$store.dispatch('cart/getTotal')
+      } else {
+        ret.push({
+          name: this.product.brand_en_name,
+          url: `/products?b=${this.product.brand}`
         })
-      },
-      toCart() {
-        if (!this.choose_done) {
-          this.$toast.warning('請先選擇規格')
-          return
-        }
-        let values = {
-          product: this.product.id,
-          specification_detail: this.choose_specification_detail.id,
-          quantity: this.quantity,
-        }
-        this.toCartAPI(values).then(() => {
-          this.$toast.success(this.$t('to_cart'))
-        })
-      },
-    },
-    mounted() {
-      this.specification = this.product.specifications[0].id
+      }
+      return ret
     }
+  },
+  head() {
+    return {
+      title: this.title,
+      meta: [
+        {
+          property: 'og:title',
+          content: this.title
+        },
+        {
+          property: 'og:img',
+          content: this.img
+        },
+        {
+          name: 'keywords',
+          content: this.keywords
+        }
+      ]
+    }
+  },
+  asyncData(ctx) {
+    let img_href = ctx.env.VUE_APP_API_URL.replace('/api', '')
+    return axios
+      .get(`${ctx.env.VUE_APP_API_URL}product/${ctx.params.id}/`)
+      .then((res) => {
+        return {
+          title: res.data.name + " | HaveFun Men's Underwear",
+          img: `${img_href}media/${res.data.productimages[0].image_url}`,
+          keywords:
+            res.data.name +
+            "、HaveFun Men's Underwear、男性內褲、男內褲、三角內褲、四角內褲、比基尼三角、提臀內褲、四角褲、三角褲、男性內著、貼身衣物、男內褲model、同志內褲、gay內褲、後空內褲、HaveFun Underwear"
+        }
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  },
+  methods: {
+    currencyChange(val) {
+      return parseFloat(
+        val *
+          this.$store.state.price.item[this.$store.state.currency].toFixed(2)
+      )
+    },
+    share(social) {
+      const webTitle = `${this.product.name} | HaveFun Men’s Underwear`,
+        webUrl = location.href
+      let shareUrl =
+        social === 'line' ? `${webUrl}?openExternalBrowser=1` : webUrl
+      window.open(
+        'https://www.addtoany.com/add_to/' +
+          social +
+          '?linkurl=' +
+          shareUrl +
+          '&amp;linkname=' +
+          encodeURI(webTitle)
+      )
+    },
+    toCartAPI(values) {
+      if (!this.$store.state.membertoken.has_token) {
+        addTOCart(values, this.$store)
+        return Promise.resolve()
+      }
+      return this.$api.cart.postData(values).then(() => {
+        this.$store.dispatch('cart/getCount')
+        this.$store.dispatch('cart/getTotal')
+      })
+    },
+    toCart() {
+      if (!this.choose_done) {
+        this.$toast.warning('請先選擇規格')
+        return
+      }
+      let values = {
+        product: this.product.id,
+        specification_detail: this.choose_specification_detail.id,
+        quantity: this.quantity
+      }
+      this.toCartAPI(values).then(() => {
+        this.$toast.success(this.$t('to_cart'))
+      })
+    }
+  },
+  mounted() {
+    this.specification = this.product.specifications[0].id
   }
+}
 </script>
 
 <style scoped>
-  /*.slick-list*/
-  /*  **/
-  /*    height: 100%*/
-  /*.big-img_block.slick-active*/
-  /*  height: 100%*/
-  .msgHtmlBox >>>  img{
-     max-width: 100%;
-  }
-
-
+/*.slick-list*/
+/*  **/
+/*    height: 100%*/
+/*.big-img_block.slick-active*/
+/*  height: 100%*/
+.msgHtmlBox >>> img {
+  max-width: 100%;
+}
 </style>
