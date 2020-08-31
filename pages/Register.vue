@@ -121,6 +121,7 @@
   import validator from "@/mixins/validator"
   import mixinDefaultInit from "@/mixins/mixinDefaultInit"
   import Identify from "@/components/Identify"
+  import {getCookieCart} from "@/assets/js/localCart"
 
   export default {
     name: 'Register',
@@ -168,16 +169,35 @@
         return code
 
       },
-      submit(val) {
-        this.loading = true
-        this.$api.member.register(val).then(() => {
-          this.$router.push('/register-success')
-        }).catch((err) => {
+      async addTOCart() {
+        /**
+         * 確認原本購物車有沒有資料 如果有的話就不要新增
+         * */
+        await this.$store.dispatch('cart/getCount')
+        if (this.$store.state.cart.count) {
+          return
+        }
+        let cart = getCookieCart()
+        let promist_list = []
+        for (let values of cart) {
+          promist_list.push(this.$api.cart.postData(values))
+        }
+        await Promise.all(promist_list)
+        this.$cookies.set('cart', [])
+
+      },
+      async submit(val) {
+        try {
+          await this.$api.member.register(val)
+          await this.addTOCart()
+          await this.$router.push('/register-success')
+        } catch (e) {
           if (this.$refs.form) {
             this.loadFadeout()
             this.$refs.form.setError(err.response.data)
           }
-        })
+        }
+
       }
     },
   }
