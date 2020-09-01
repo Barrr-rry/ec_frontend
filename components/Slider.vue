@@ -5,10 +5,11 @@
         <div class="slider-block pointer"
              @click="toLink(banner)"
              v-for="banner in banners" :key="banner.id">
-
-          <div class="img-banner" :style="{
-             'background-image':`url('${imageLink(getText(banner, 'bigimage', 'en_bigimage'))}')`
-             }"></div>
+          <div class="img-banner">
+            <figure class="image-banner__frame">
+              <img class="image-banner__picture" :src="imageLink(getText(banner, 'bigimage', 'en_bigimage'))" alt="" style="display: block; width: 100%; height: auto; margin: 0 auto;">
+            </figure>
+          </div>
           <!--<div class="slider-content">
             <div class="container pl-0px pr-0">
               <div class="row align-items-center justify-content-center">
@@ -53,98 +54,103 @@
 </template>
 
 <script>
-  import Benefits from '@/components/Benefits'
-  import mixinCategory from "@/mixins/mixinCategory"
-  import {mapState} from 'vuex'
-  import langMixin from "@/mixins/langMixin"
+import Benefits from '@/components/Benefits'
+import mixinCategory from '@/mixins/mixinCategory'
+import { mapState } from 'vuex'
+import langMixin from '@/mixins/langMixin'
 
-  function mainSlider() {
-    let BasicSlider = $('.slider_wrapper')
-    BasicSlider.on('init', function (e, slick) {
-      let $firstAnimatingElements = $('.slider-block:first-child').find('[data-animation]')
-      doAnimations($firstAnimatingElements)
-    })
-    BasicSlider.on('beforeChange', function (e, slick, currentSlide, nextSlide) {
-      let $animatingElements = $('.slider-block[data-slick-index="' + nextSlide + '"]').find('[data-animation]')
-      doAnimations($animatingElements)
-    })
-    BasicSlider.slick({
-      // appendArrows: $('.slider_wrapper .slider-control'),
-      prevArrow: '<button type="button" class="slick-prev"><i class="arrow_carrot-left"></i></button>',
-      nextArrow: '<button type="button" class="slick-next"><i class="arrow_carrot-right"></i></button>',
-      infinite: true,
-      fade: true,
-      autoplay: true,
-      autoplaySpeed: 7000,
-      speed: 800,
-      cssEase: 'ease-out',
-    })
+function mainSlider() {
+  let BasicSlider = $('.slider_wrapper')
+  BasicSlider.on('init', function(e, slick) {
+    let $firstAnimatingElements = $('.slider-block:first-child').find(
+      '[data-animation]'
+    )
+    doAnimations($firstAnimatingElements)
+  })
+  BasicSlider.on('beforeChange', function(e, slick, currentSlide, nextSlide) {
+    let $animatingElements = $(
+      '.slider-block[data-slick-index="' + nextSlide + '"]'
+    ).find('[data-animation]')
+    doAnimations($animatingElements)
+  })
+  BasicSlider.slick({
+    // appendArrows: $('.slider_wrapper .slider-control'),
+    prevArrow:
+      '<button type="button" class="slick-prev"><i class="arrow_carrot-left"></i></button>',
+    nextArrow:
+      '<button type="button" class="slick-next"><i class="arrow_carrot-right"></i></button>',
+    infinite: true,
+    fade: true,
+    autoplay: true,
+    autoplaySpeed: 7000,
+    speed: 800,
+    cssEase: 'ease-out'
+  })
 
-    function doAnimations(elements) {
-      let animationEndEvents = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend'
-      elements.each(function () {
-        let $this = $(this)
-        let $animationDelay = $this.data('delay')
-        let $animationType = 'animated ' + $this.data('animation')
-        $this.css({
-          'animation-delay': $animationDelay,
-          '-webkit-animation-delay': $animationDelay
-        })
-        $this.addClass($animationType).one(animationEndEvents, function () {
-          $this.removeClass($animationType)
-        })
+  function doAnimations(elements) {
+    let animationEndEvents =
+      'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend'
+    elements.each(function() {
+      let $this = $(this)
+      let $animationDelay = $this.data('delay')
+      let $animationType = 'animated ' + $this.data('animation')
+      $this.css({
+        'animation-delay': $animationDelay,
+        '-webkit-animation-delay': $animationDelay
       })
-    }
+      $this.addClass($animationType).one(animationEndEvents, function() {
+        $this.removeClass($animationType)
+      })
+    })
   }
+}
 
-
-  export default {
-    mixins: [mixinCategory, langMixin],
-    components: {
-      Benefits,
-    },
-    data() {
-      return {}
-    },
-    computed: {
-      ...mapState('banner', {
-        banners: state => state.items
-      })
-    },
-    methods: {
-      toLink(banner) {
-        // process.client 是只有在client 端才有 用nuxt 需要增加這個if 判斷
-        if (process.client) {
-          window.location.href = banner.link
-        }
-      },
-      get_content(banner, key) {
-        let language_type = 1
-        let ret = ''
-        for (let item of banner.content) {
-          if (item.language_type === language_type) {
-            ret = item[key]
-            break
-          }
-        }
-        return ret
+export default {
+  mixins: [mixinCategory, langMixin],
+  components: {
+    Benefits
+  },
+  data() {
+    return {}
+  },
+  computed: {
+    ...mapState('banner', {
+      banners: (state) => state.items
+    })
+  },
+  methods: {
+    toLink(banner) {
+      // process.client 是只有在client 端才有 用nuxt 需要增加這個if 判斷
+      if (process.client) {
+        window.location.href = banner.link
       }
     },
-    mounted() {
-      this.$nextTick(() => {
-        for (let banner of this.banners) {
-          let sence = document.getElementById(`img-block-${banner.id}`)
-          if (sence) {
-            let parallaxInstance = new Parallax(sence, {
-              hoverOnly: true,
-            })
-          }
+    get_content(banner, key) {
+      let language_type = 1
+      let ret = ''
+      for (let item of banner.content) {
+        if (item.language_type === language_type) {
+          ret = item[key]
+          break
         }
-        mainSlider()
-
-      })
+      }
+      return ret
     }
+  },
+  mounted() {
+    this.$nextTick(() => {
+      for (let banner of this.banners) {
+        let sence = document.getElementById(`img-block-${banner.id}`)
+        if (sence) {
+          let parallaxInstance = new Parallax(sence, {
+            hoverOnly: true
+          })
+        }
+      }
+      mainSlider()
+    })
   }
+}
 </script>
 <style lang="sass">
   .custom-btn
